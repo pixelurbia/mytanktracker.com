@@ -1,0 +1,298 @@
+//IMPORT
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'helpers/helpers';
+@import 'base/base';
+@import 'custom/custom';
+
+// Type
+h1, h2, h3, h4 {margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
+h1, h1 a { @include font-size(5);  color:$white; font-weight:600; font-family:$ops;}
+h2, h2 a {   @include font-size(3.2); color:$white; font-family:$ops; text-decoration:none; font-weight:100;  }
+h3, h3 a {   @include font-size(2.6); color:$white; font-family:$ops;  text-decoration:none;   }
+h4, h4 a { @include font-size(2.0 ); color:$white; font-family:$ops; font-weight:100;  }
+h6, h6 a { @include font-size(1.2); color:$white; font-family:$ops; font-weight:100; }
+h5 {@include font-size(1.6); color:$white; font-family:$ops; font-weight:500; }
+p { padding-top:10px; @include font-size(1.2);  font-weight:300; line-height:20px; font-family:$ops; color:$white;}
+span, ol, ul, li { @include font-size(1.2);  font-weight:300; font-family:$ops; color:$white;}
+a { color: $white; cursor:pointer!important; @include font-size(1.2);  letter-spacing:2px; text-decoration:none; @include opensansl;
+    &:hover { text-decoration: none; opacity:0.9;}
+    &:focus { outline: 0; }
+  }
+h5.login-notice {  color:$darkgrey; margin: 20px auto; display: block; width: 369px;}
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+
+// Utility // Global Styles
+.clearfix { @include clearfix; }
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+hr { clear: both; width: 100%; height: 1px; background: #bbb; border: 0; }
+img {  height:auto; margin:0; padding:0;}
+.hide {display:none!important;}
+.show {display:block!important;}
+.bo {overflow: hidden; display:block;}
+.page-slug {display:none;}
+.unl {border-bottom:solid 1px $black; padding-bottom:4px; display: inline-block;}
+.readmore { color:$black; float:right; display:inline-block; margin:15px;}
+.master-overlay {background:$black; opacity: 0.7; z-index: 999; position: absolute; width: 100%; height: 100%; display: none;}
+.noclick {width: 100%; height: 381px; position: absolute; z-index: 9999;}
+.mauto {margin:0 auto;}
+input {
+	@include opensansl;
+}
+
+blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
+@-moz-document url-prefix() { }
+
+//frame
+.wrap.open {
+	margin: 40px 0px 0px 200px;
+	transition: all 0.5s ease-in-out;
+}
+.wrap {
+
+	@include full;
+	margin: 40px 0px 0px 30px;
+	float:none;
+	transition: all 0.5s ease-in-out;
+
+		@include media ($phone) { 
+		margin: 40px 0px 0px 0px;
+	}
+}
+section.full {
+	@include full;
+	transition: all 0.5s ease-in-out;
+}
+section.frame {
+	@include frame;
+}
+
+.buffer-50 {
+	margin:50px 0px 50px 0px;
+}
+
+
+.logo {
+	background:url(../images/logo.png);
+    background-size: 50px;
+    width: 50px;
+    height: 92px;
+	margin:20px auto;
+}
+
+
+
+//forms
+
+input[type="color"], 
+input[type="date"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="email"], 
+input[type="month"], 
+input[type="number"], 
+input[type="password"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="text"], 
+input[type="time"], 
+input[type="url"], 
+input[type="week"], 
+input:not([type]), 
+textarea,
+select,
+select[multiple=multiple]  {
+	border-radius: 5px;
+    background: $input-bg;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    padding: 8px;
+    width:200px;
+    color:$input-text!important;
+    font-weight:400;
+    letter-spacing:1px;
+
+}
+select::placeholder, 
+input::placeholder {
+	color:$input-text;
+}
+
+input[type="submit"], .btn {
+	margin-top:20px; 
+	display:block; 
+	// @include font-size(1.4); 
+	line-height:0px; 
+	font-weight:400; 
+	width:auto; 
+	height:25px; 
+	color:$input-text!important; 
+	text-align:center; 
+	border-radius:15px;  
+	letter-spacing:1px;
+	background:none;
+	border:1px solid $input-bg;  
+	transition: all 0.5s ease-in-out;
+	&:hover{
+		background:$input-bg-hov;
+		transition: all 0.5s ease-in-out;
+	}
+   }
+
+
+select {
+   -webkit-appearance: none; 
+   -moz-appearance: none;
+   appearance: none;       /* remove default arrow */
+   background-image: url(...);   /* add custom arrow */
+}
+
+select::-ms-expand { 
+    display: none; /* hide the default arrow in ie10 and ie11 */
+}
+
+.form-contain {
+	background: rgba(11, 13, 49, 0.86);;
+    width: 300px;
+    height: 235px;
+    display: none;
+    position: absolute;
+    padding: 20px;
+    margin:0 auto;
+    left:0;
+    right:0;
+    top:25%;
+    z-index: 99999;
+}
+//param form
+.param-form {
+	width: 240px;
+    padding: 50px 0px 0px 30px;
+}
+
+.overlay {	
+    background: $bg-trans;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    padding: 50px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 88888;
+
+}
+
+//Reg form
+
+
+.reg-form {
+	background: $darkblue;
+    padding: 50px;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+//Tank Selection page
+
+
+.a_tank {
+	width:100%;
+	max-width: 900px;
+	// float:left;
+	margin:0px 10px 0px 10px;
+    height: 200px;
+    position:relative;
+    
+    .content {
+  		color:$white;
+  		width:100%;
+		height: 160px;
+    	text-align:left;
+    	font-weight:100;
+    	// background:$bg-trans ;
+		position: absolute;
+		padding:10px 0px 0px 10px;
+    	top: 0;
+    	z-index: 66;
+    }
+    .shader {
+    	background:url(../images/tank-shader.png);
+    	background-size: cover;
+    	z-index: 90;
+		width:100%;
+		height: 200px;
+    	position: absolute;
+    	top: 0;
+    	z-index: 55;
+    	border-radius:20px;
+    }
+	.tank_img {
+		width:100%;
+		height: 200px;
+    	background-size: cover!important;
+    	position: absolute;
+    	top: 0;
+    	z-index: 44;
+    	border-radius:20px;
+	}
+
+}
+
+//Parameters page
+
+.tank-name { 
+	float:left;
+}
+.track-btn.close {
+		width: 25px;
+	border-radius:35px;
+}
+.track-btn {
+	width: auto;
+	padding:0px 10px 0px 10px;
+    line-height: 24px;
+    float: left;
+	display:block; 
+	font-weight:400; 
+	height:25px; 
+	color:$input-text!important; 
+	text-align:center; 
+	border-radius:15px;  
+	letter-spacing:1px;
+	margin: 14px 0px 0px 20px;
+	border:1px solid $input-bg;  
+	transition: all 0.5s ease-in-out;
+	&:hover{
+		background:$input-bg-hov;
+		transition: all 0.5s ease-in-out;
+	}
+	@include media ($phone) { 
+		.text {
+			display:none;
+			}}}
+.params {
+	margin: 10px 0px 0px 0px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}			
+.param-chart {
+	width:300px;
+    height: 150px;
+    display:block;
+    float:left;
+    margin: 50px 40px 0px 0px;
+}
+

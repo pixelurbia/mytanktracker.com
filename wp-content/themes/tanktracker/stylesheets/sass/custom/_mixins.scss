@@ -1,0 +1,88 @@
+/*STYLES FOR MOBILE MENU TO X */
+$button-size : 2.5rem; 
+$transition: .3s; // increase this to see the transformations in slow-motion
+ 
+// Media Query sizes  
+$phone:600px;
+$tablet:1080px;
+$horz:1180px;
+
+//FONT
+@mixin font-size($n) {
+	font-size: ($n * 10) + px; font-size: $n  + rem;
+}
+
+//OMEGA
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+//CUSTOM SIZES
+@mixin full {
+	@include span-columns(12);
+}
+
+@mixin frame {
+	margin:0 auto!important;
+	float:none!important;
+	padding:0px 10px 0px 10px;
+	@include span-columns(12);
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+
+	}
+}
+@mixin half {
+	@include span-columns(6);
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+	}
+}
+@mixin quart {
+	@include span-columns(4);
+	@include media ($tablet) {
+		@include span-columns(12);
+	}
+	@include media ($phone) {
+		@include span-columns(12);
+	}
+}
+
+@mixin forth {
+	@include span-columns(2.7);
+	@include media ($tablet) {
+		@include span-columns(3.7);
+  		margin-right: 10px;
+	}
+	@include media ($phone) {
+		@include span-columns(12);
+	}
+}
+
+@mixin third {
+	@include span-columns(3);
+	@include media ($tablet) {
+		@include span-columns(6);
+		margin-right: 0px;
+	}
+	@include media ($phone) {
+		@include span-columns(12)
+	}
+}
+
+@mixin two {
+	@include span-columns(2);
+	@include media ($tablet) {
+			@include span-columns(3);
+	}
+	@include media ($phone){
+		@include span-columns(12);
+	}
+}
