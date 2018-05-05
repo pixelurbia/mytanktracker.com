@@ -9,7 +9,7 @@ Template Name: Tanks
 
 
 
-	<section class="frame">
+	<section class="full-frame">
 		<?php 
 
 
@@ -24,20 +24,42 @@ Template Name: Tanks
                         foreach($tanks as $tank){
 
                         	?>
-                        	<div class="a_tank select_tank" value="<?php echo $tank->tank_id ?>">
+                        	<div class="a_tank select_tank">
 									<div class="content">
-										<ul>
-											<li class="name"><h2><?php echo  $tank->tank_name ?></h2></li>
-											<li class="size">Volume: <?php echo  $tank->tank_volume ?> Gallons </li>
-											<li class="type">Dimensions <?php echo  $tank->tank_dimensions ?></li>
-											<li class="type">Model: <?php echo  $tank->tank_model ?></li>
-											<li class="type">Make: <?php echo  $tank->tank_make ?></li>
-										</ul>
+										<h2><?php echo  $tank->tank_name ?></h2>
+											<p>
+											<?php 
+												if ($tank->tank_volume) {
+													echo  '<span>Volume: '.$tank->tank_volume.' Gallons </span>';
+												} 
+												if ($tank->tank_dimensions){
+													echo '<span>Dimensions: '.$tank->tank_dimensions.'</span>';
+												}
+												if ($tank->tank_model){
+													echo '<span>Model: '.$tank->tank_model.'</span>';
+												}
+												if ($tank->tank_make){
+													echo '<span>Make: '.$tank->tank_make.'</span>';	
+												}
+												 ?>
+											</p>
+									<a  href="/overview/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-list-alt"></i></a>
+									<a  href="/parameters/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-flask"></i></a>
+									<a  href="/stock/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-tint"></i></a>
+									<a  href="/equipment/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-bolt"></i></a>
 									</div>
+								
+
 										<div class="shader"></div>
 										<div class="tank_img" style="background:url(<?php echo $tank->tank_image ?>)"></div>
 									</div>
 							<?php } ?>
+							<div class="a_tank select_tank">
+									<div class="content">
+										<h2>Add tank</h2>
+										<i class="fas fa-3x fa-plus"></i>
+									</div>
+									</div>
 		<section class="hide">
 	          		Tank Tracker v 0.1
                         		Add Tank

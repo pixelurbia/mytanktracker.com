@@ -16,7 +16,7 @@ h5 {@include font-size(1.6); color:$white; font-family:$ops; font-weight:500; }
 p { padding-top:10px; @include font-size(1.2);  font-weight:300; line-height:20px; font-family:$ops; color:$white;}
 span, ol, ul, li { @include font-size(1.2);  font-weight:300; font-family:$ops; color:$white;}
 a { color: $white; cursor:pointer!important; @include font-size(1.2);  letter-spacing:2px; text-decoration:none; @include opensansl;
-    &:hover { text-decoration: none; opacity:0.9;}
+    &:hover { text-decoration: none; opacity:0.9; color:$input-text;}
     &:focus { outline: 0; }
   }
 h5.login-notice {  color:$darkgrey; margin: 20px auto; display: block; width: 369px;}
@@ -47,45 +47,106 @@ input {
 }
 
 blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
-@-moz-document url-prefix() { }
+@-moz-document url-prefix() { }	
+
+.button, button {
+    	width: auto;
+    	height: 25px;
+    	line-height:13px;
+    	border: 1px solid $white;
+    	z-index: 9999;
+    	float: left;
+    	transition: all 0.2s ease-in-out;
+    	position: relative;
+    	padding: 5px 15px 5px 15px;
+    	text-transform:uppercase;
+    	color:$white;
+    	background:none;
+    	border-radius:0px;
+	&:hover {
+	    	color:$input-text;
+	    	background:$input-bg;
+	    	border:1px solid $input-text;
+	    	transition: all 0.2s ease-in-out;
+	}
+}
+
+
+.option-btn {
+    // width: 85px;
+    padding: 0px 10px 0px 10px;
+    line-height: 24px;
+    display: block;
+    font-weight: 400;
+    z-index:999;
+    height: 25px;
+    color: #47caae !important;
+    text-align: left;
+    border-radius: 15px;
+    letter-spacing: 1px;
+margin-right:10px;
+    float:left;
+	color:$input-text!important; 
+	border:1px solid $input-bg;  
+	transition: all 0.5s ease-in-out;
+	&:hover{
+		background:$input-bg-hov;
+		transition: all 0.5s ease-in-out;
+	}
+	@include media ($phone) { 
+		.text {
+			display:none;
+			}}}
 
 //frame
 .wrap.open {
-	margin: 40px 0px 0px 200px;
+	margin: 0px 0px 0px 200px;
 	transition: all 0.5s ease-in-out;
 }
 .wrap {
-
+	z-index:99;
+	position:relative;
 	@include full;
-	margin: 40px 0px 0px 30px;
+	margin: 0px 0px 0px 0px;
 	float:none;
 	transition: all 0.5s ease-in-out;
 
-		@include media ($phone) { 
-		margin: 40px 0px 0px 0px;
-	}
+	
 }
 section.full {
 	@include full;
 	transition: all 0.5s ease-in-out;
 }
 section.frame {
+	z-index:999;
+	position:relative;
+	overflow: hidden;
 	@include frame;
+}
+section.full-frame {
+	@include full-frame;
 }
 
 .buffer-50 {
 	margin:50px 0px 50px 0px;
 }
 
-
 .logo {
-	background:url(../images/logo.png);
-    background-size: 50px;
-    width: 50px;
-    height: 92px;
-	margin:20px auto;
+	background:url(../images/logo.png) no-repeat;
+	background-size: 100px;
+    width: 110px;
+    height: 122px;
+	margin:20px auto!important;
 }
-
+.tank_img_bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    position: fixed;
+    top: 0;
+    opacity:0.1;
+    z-index: 0;
+}
 
 
 //forms
@@ -101,6 +162,7 @@ input[type="password"],
 input[type="search"], 
 input[type="tel"], 
 input[type="text"], 
+input[type="text-area"], 
 input[type="time"], 
 input[type="url"], 
 input[type="week"], 
@@ -108,18 +170,23 @@ input:not([type]),
 textarea,
 select,
 select[multiple=multiple]  {
-	border-radius: 5px;
-    background: $input-bg;
-    border-bottom: 0px;
+background: none;
+    border-bottom: solid 1px #fff;
     border-left: 0px;
     border-top: 0px;
     border-right: 0px;
     padding: 8px;
-    width:200px;
-    color:$input-text!important;
-    font-weight:400;
-    letter-spacing:1px;
-
+    width: 100%;
+    color: $white !important;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-radius: 0px;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.06);
+    &:active, &:focus {
+    	border-bottom: solid 1px $input-bg-hov;
+		color: $white !important;
+  		box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.06)!important;
+    }
 }
 select::placeholder, 
 input::placeholder {
@@ -134,18 +201,19 @@ input[type="submit"], .btn {
 	font-weight:400; 
 	width:auto; 
 	height:25px; 
-	color:$input-text!important; 
+	color:$white!important; 
 	text-align:center; 
 	border-radius:15px;  
 	letter-spacing:1px;
 	background:none;
-	border:1px solid $input-bg;  
+	border:1px solid $white;  
 	transition: all 0.5s ease-in-out;
 	&:hover{
-		background:$input-bg-hov;
+		background:$input-text;
 		transition: all 0.5s ease-in-out;
 	}
    }
+
 
 
 select {
@@ -159,24 +227,40 @@ select::-ms-expand {
     display: none; /* hide the default arrow in ie10 and ie11 */
 }
 
+.form-links {
+	display: block;
+    float: none;
+    overflow: hidden;
+    width: 100%;
+    padding: 21px 0px 0px 0px!important;
+	a {
+		font-size:9px;
+		float:none;
+	}
+}
 .form-contain {
 	background: rgba(11, 13, 49, 0.86);;
     width: 300px;
     height: 235px;
     display: none;
-    position: absolute;
+    position: fixed;
     padding: 20px;
     margin:0 auto;
     left:0;
     right:0;
     top:25%;
     z-index: 99999;
+    .error {
+		@include font-size(0.9);
+		color:$error-text;
+    }
 }
 //param form
 .param-form {
 	width: 240px;
     padding: 50px 0px 0px 30px;
 }
+
 
 .overlay {	
     background: $bg-trans;
@@ -192,86 +276,141 @@ select::-ms-expand {
     z-index: 88888;
 
 }
+.mouse-tool-tip {
+	color:$black;
+	display:none;
+    position:fixed;
+    overflow:hidden;
+    z-index:999999999999;
+	background:$white;
+	padding:5px;}
 
-//Reg form
+//Reg form// frost
 
+.reg-form .step{
+	padding: 50px;
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+	height: auto;
+	box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+}
+.step-two {
+	display:none;
+}
 
-.reg-form {
-	background: $darkblue;
-    padding: 50px;
+#tank-img {
+	display:none;
+}
+.btn.tank-img {
+	line-height: 22px;
+}
+#loginform {
+	label {display:none;}
+}
+
+.page-template-user-login *{
+ margin: 0;
+ padding: 0;
+}
+.page-template-user-login, .page-template-user-login .full  {
+	  height: 100%;
+}
+.page-template-user-login .frame{
+	background:url(../images/bg1.jpg);
+     background-repeat: no-repeat;
+ 	background-attachment: fixed;
+ 	background-size: cover;
     width: 100%;
-    max-width: 330px;
-    margin: 0 auto;
+    height: 100%;
+    display: block;
+    background-size: cover!important;
 }
-
-//Tank Selection page
-
-
-.a_tank {
-	width:100%;
-	max-width: 900px;
-	// float:left;
-	margin:0px 10px 0px 10px;
-    height: 200px;
-    position:relative;
+ 
+.login-form {
+	padding: 50px;
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 350px;
+}
+.frost {
+	background: inherit;
+	width: 100%;
+	max-width: 350px;
+	height: 500px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:25%;
+	overflow: hidden;  //adding overflow hidden
     
-    .content {
-  		color:$white;
-  		width:100%;
-		height: 160px;
-    	text-align:left;
-    	font-weight:100;
-    	// background:$bg-trans ;
-		position: absolute;
-		padding:10px 0px 0px 10px;
-    	top: 0;
-    	z-index: 66;
-    }
-    .shader {
-    	background:url(../images/tank-shader.png);
-    	background-size: cover;
-    	z-index: 90;
-		width:100%;
-		height: 200px;
-    	position: absolute;
-    	top: 0;
-    	z-index: 55;
-    	border-radius:20px;
-    }
-	.tank_img {
-		width:100%;
-		height: 200px;
-    	background-size: cover!important;
-    	position: absolute;
-    	top: 0;
-    	z-index: 44;
-    	border-radius:20px;
-	}
-
+}
+.frost::before {
+ content: '';
+ width: 400px;
+ height: 550px;
+ background: inherit; 
+ position: absolute;
+ left: -25px;  //giving minus -25px left position
+ right: 0;
+ top: -25px;   //giving minus -25px top position 
+ bottom: 0;
+ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+ filter: blur(10px);
 }
 
+
+//calendar
+
+.monthly-updates {
+
+}
+.month {
+	width:90px;
+	float:left;
+	z-index: 99999999;
+    position: relative;
+}
+.day {
+	background:$input-text!important; 
+	width:7px;
+	height:7px;
+	float:left;
+	margin:4px 0px 0px 4px;
+}
+
+.no-change {
+	background:$no-change!important; 
+}
+.one-change {
+	background:$one-change!important; 
+}
+.two-change {
+	background:$two-change!important; 
+}
 //Parameters page
 
-.tank-name { 
-	float:left;
-}
-.track-btn.close {
-		width: 25px;
+.param-close {
+	width: 25px;
 	border-radius:35px;
-}
-.track-btn {
-	width: auto;
-	padding:0px 10px 0px 10px;
+	padding: 1px 7px 0px 7px;
+	float: right;
     line-height: 24px;
-    float: left;
-	display:block; 
-	font-weight:400; 
-	height:25px; 
+    display: block;
+    font-weight: 400;
+    z-index:999;
+    height: 25px;
+    color: #47caae !important;
+    text-align: left;
+    border-radius: 15px;
+    letter-spacing: 1px;
+    margin: 0 auto;
 	color:$input-text!important; 
-	text-align:center; 
-	border-radius:15px;  
-	letter-spacing:1px;
-	margin: 14px 0px 0px 20px;
 	border:1px solid $input-bg;  
 	transition: all 0.5s ease-in-out;
 	&:hover{
@@ -287,12 +426,362 @@ select::-ms-expand {
     display: block;
     width: 100%;
     overflow: hidden;
+    padding: 0px 30px 0px 30px;
+    position:relative;
+    z-index:99999;
 }			
+
 .param-chart {
 	width:300px;
     height: 150px;
     display:block;
     float:left;
     margin: 50px 40px 0px 0px;
+
 }
 
+//param tables
+.param-table {
+	padding-top:50px;
+	margin-top:30px;
+    width: 100%;
+    max-width: 290px;
+    float:left;
+}
+table {
+	   position:relative;
+
+    	z-index:99999;
+    	width:100%;
+    	max-width:600px;
+	tr {
+		th {
+			width:100%;
+    		max-width:100px;
+			padding:5px;
+			color:$black;
+			background:#eee;
+		}
+		td {
+			width:100%;
+    		max-width:100px;
+			padding:5px;
+			color:$white;
+			&:hover{
+				background:$status-blue;
+				color:$input-text;
+			}
+
+		}
+	}
+}
+
+//Tank Selection page
+
+.a_tank {
+	width: 50%;
+    margin: 0px;
+    height: 500px;
+    float:left;
+    position:relative;
+   @include media ($phone) { 
+		width:100%;
+	}
+    &:hover {
+    	
+    	transition: all 0.5s ease-in-out;
+    	.fa-3x {
+		opacity:1;
+		transition: all 0.5s ease-in-out;
+		}
+		.tank_img {
+			opacity: 0.8;
+			transition: all 0.5s ease-in-out;
+		}
+		.shader {
+			opacity:0.8;
+			transition: all 0.5s ease-in-out;
+		}
+
+
+    }
+    h2 {
+        font-weight: 100;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+  span {
+    	margin-right:10px;
+    	text-transform:uppercase;
+    }
+    .content {
+  		color:$white;
+  		width:100%;
+		height: 160px;
+    	text-align:left;
+    	font-weight:100;
+    	// background:$bg-trans ;
+		position: absolute;
+		padding:80px 0px 0px 10px;
+    	top: 0;
+    	z-index: 66;
+        text-align: center;
+    }
+    .shader {
+    	background:url(../images/shader.png);
+    	background-size: cover;
+    	z-index: 90;
+		background-position: -110px 0px;
+    	width: 100%;
+    	opacity:0.3;
+    	height: 500px;
+    	position: absolute;
+    	top: 0;
+    	z-index: 55;
+    	transition: all 0.5s ease-in-out;
+    }
+	.tank_img {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    position: absolute;
+    top: 0;
+    z-index: 44;
+    opacity:1;
+    transition: all 0.5s ease-in-out;
+
+	}
+	.fa-3x {
+		opacity:0;
+		margin:10px 15px 0px 15px;
+		transition: all 0.5s ease-in-out;
+		cursor:pointer;
+		color:$white; 
+		border-radius: 35px;
+		width: 60px;
+		height: 60px;
+		padding: 17px;
+		border:1px solid $white;  
+		transition: all 0.5s ease-in-out;
+		&:hover{
+			background:$input-bg;
+			border:1px solid $input-text; 
+			color:$input-text; 
+			transition: all 0.5s ease-in-out;
+		}
+	}
+
+}
+
+
+
+//tank_header
+
+.tank_header {
+	h2 {
+        font-weight: 100;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+  span {
+    	margin-right:10px;
+    	text-transform:uppercase;
+    }
+}
+
+
+
+
+//overview page
+
+
+.page-template-overview {
+	height:100%;
+
+.param-table.large {
+		width:100%;
+		max-width: 450px;
+		padding-top:5px;
+		margin-top:10px;
+	}
+
+	.overview_tank {
+	width: 100%;
+    margin: 0px;
+    height: 100%;
+    float:left;
+   @include media ($phone) { 
+		width:100%;
+	}
+
+    .content {
+  		color:$white;
+  		width:100%;
+		height: 160px;
+    	text-align:left;
+    	font-weight:100;
+    	// background:$bg-trans ;
+		position: relative;
+		padding:80px 0px 0px 10px;
+    	top: 0;
+    	z-index: 66;
+    }
+    .shader {
+    	background:url(../images/shader.png);
+    	background-size: cover;
+    	z-index: 90;
+		background-position: -110px 0px;
+    	width: 100%;
+    	opacity:0.1;
+    	height: 500px;
+    	position: absolute;
+    	top: 0;
+    	z-index: 55;
+    	transition: all 0.5s ease-in-out;
+    }
+	.tank_img {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    position: absolute;
+    top: 0;
+    opacity:0.2;
+    z-index: 44;
+
+	}
+
+	.journals {
+		#journal-form {
+			width:100%;
+		}
+		#output {
+				position: relative;
+				display: block;
+				height: auto;
+				min-height: 1px;
+				outline: none!important;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+		}
+		.status {
+				position: relative;
+				display: block;
+				height: auto;
+				min-height: 90px;
+				outline: none!important;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+			}		
+			fieldset {
+				background:#080b25;
+				border:0px;
+				height:auto;
+				button {
+					float:right;
+
+				}
+			}
+
+		article {
+				height:auto;
+				overflow:hidden;
+				max-height:400px;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+				margin:10px 0px 10px 0px;
+
+				.icon {
+					width:30px;
+					height:30px;
+					border-radius:30px;
+					background:$white;
+					float:left;
+					margin:0px 10px 0px 0px;
+				}
+				.user-info {
+					line-height: 27px;
+					margin:6px 0px 0px 0px;
+					width:100%;
+				}
+				.post-content {
+					width:100%;
+					float:none;
+					padding:10px 0px 10px 0px;
+				}
+				.post-img {
+					margin:20px 0px 20px 0px;
+				}
+		}
+	}
+
+}
+
+
+
+}
+//param-table page
+.full-param {
+	width:100%;
+	.param-charts {
+		max-width:600px;
+		width:100%;
+		height:350px;
+	}
+
+	.param-table {
+		padding-top:0px;
+    margin: 20px 0px 0px 10px;
+    width: 100%;
+    max-width: 580px;
+	}
+}
+.aparam {
+	padding-top:10px;
+	margin:10px 20px 10px 0px;
+    width: 100%;
+    max-width: 290px;
+    float:left;
+    height:500px;
+}
+
+
+//stock page
+#stock-form {
+	width:300px;
+}
+.stock-item {
+	height: 300px;
+    width: 350px;
+    background: #050719;
+
+    .stock-img {
+    	height: 210px;
+    	width: 350px;
+    	background:url(../images/fozzy.jpg);
+    	background-size:cover;	
+    }
+    .stock-data {
+    	padding:10px;
+    	li {
+    		color:white;
+    		@include font-size(1.2);
+    	}
+    	li.name {
+    		@include font-size(1.8);
+    	}
+    	li.data {
+    		float:left;
+    		margin-right:10px;
+    	}
+    }
+}

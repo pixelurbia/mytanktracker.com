@@ -23,16 +23,31 @@ $horz:1180px;
 	@include span-columns(12);
 }
 
-@mixin frame {
+@mixin full-frame {
 	margin:0 auto!important;
 	float:none!important;
-	padding:0px 10px 0px 10px;
+	padding:0px 0px 0px 0px;
 	@include span-columns(12);
 	@include media ($tablet){
 		@include span-columns(12);
 	} 
 	@include media ($phone){
+		@include span-columns(12);
+	}
+}
+
+@mixin frame {
+	margin:0 auto!important;
+	float:none!important;
+	padding:60px 20px 0px 20px;
 	@include span-columns(12);
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	padding: 75px 20px 0px 20px!important;
+	@include span-columns(12);
+		
 
 	}
 }
@@ -45,29 +60,9 @@ $horz:1180px;
 	@include span-columns(12);
 	}
 }
-@mixin quart {
-	@include span-columns(4);
-	@include media ($tablet) {
-		@include span-columns(12);
-	}
-	@include media ($phone) {
-		@include span-columns(12);
-	}
-}
-
-@mixin forth {
-	@include span-columns(2.7);
-	@include media ($tablet) {
-		@include span-columns(3.7);
-  		margin-right: 10px;
-	}
-	@include media ($phone) {
-		@include span-columns(12);
-	}
-}
 
 @mixin third {
-	@include span-columns(3);
+	@include span-columns(4);
 	@include media ($tablet) {
 		@include span-columns(6);
 		margin-right: 0px;
@@ -75,6 +70,9 @@ $horz:1180px;
 	@include media ($phone) {
 		@include span-columns(12)
 	}
+}
+.third {
+	@include third;
 }
 
 @mixin two {

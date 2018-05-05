@@ -1,5 +1,4 @@
-
-</section
+</section>
 <div class="footer">
 
 </div>

@@ -20,6 +20,31 @@ $(document).ready(function() {
 
 // });
 
+//tooltip
+
+var tooltipSpan = $('.mouse-tool-tip');
+
+$('.one-change').hover(function(){
+	var date_of_change = $(this).attr('value');
+ 	tooltipSpan.show();
+ 	tooltipSpan.html(date_of_change);
+ }, function(){
+ 	tooltipSpan.hide();
+});
+
+window.onmousemove = function (e) {
+	var tooltipSpan = $('.mouse-tool-tip');
+    var x = e.clientX,
+        y = e.clientY;
+    tooltipSpan.css('top', (y + 20) + 'px');
+    tooltipSpan.css('left', (x + 20) + 'px');
+};
+
+
+$('.day.one-change')
+
+$('#loginform #user_login').attr('placeholder','Username');
+$('#loginform #user_pass').attr('placeholder','Password');
 
 $('.menu-button').click(function() { 
 	$('.main-menu').toggleClass('open');
@@ -29,6 +54,15 @@ $('.menu-button').click(function() {
 
 $('.track-btn').click(function() { 
 	$('.form-contain').fadeToggle();
+	$('.overlay').fadeToggle();
+});
+
+$('.journals .add-btn').click(function() { 
+	$('.journals.form-contain').fadeToggle();
+	$('.overlay').fadeToggle();
+});
+$('.journals .close').click(function() { 
+	$('.journals.form-contain').fadeToggle();
 	$('.overlay').fadeToggle();
 });
 
@@ -87,6 +121,28 @@ function chartDataConstructor(ajax_form_data) {
 				    case 5:
 				   		var chart = chart5;
 				        break;
+				    case 56:
+				   		var chart = chart6;
+				        break;
+				    case 7:
+				   		var chart = chart7;
+				        break;   
+				    case 8:
+				   		var chart = chart8;
+				        break;
+					case 9:
+				   		var chart = chart9;
+				        break;
+				    case 10:
+				   		var chart = chart10;
+				        break;
+				    case 11:
+				   		var chart = chart11;
+				        break;
+				    case 12:
+				   		var chart = chart12;
+				        break;
+
 				     default: 
 						console.log('Error on switch');
 				}
@@ -104,13 +160,68 @@ function chartDataConstructor(ajax_form_data) {
      		return [chart, label, data];
 }
 
+//Add Tank  
+    $( '#tank-form' ).submit( function( event ) {
+            
+			event.preventDefault(); // Prevent the defau
+			// var file_data = $('#tank-img').prop('files')[0]; 
+			// console.log(file_data);
+   //          var ajax_form_data = $("#tank-form").append('file', file_data);
+   //          console.log(ajax_form_data);
+   //          var ajax_form_data = $("#tank-form").serializeObject();
+   //          console.log(ajax_form_data);
+
+
+var data = new FormData(this);
+
+//Form data
+var form_data = $('#tank-form').serializeArray();
+$.each(form_data, function (key, input) {
+    data.append(input.name, input.value);
+});
+
+//File data
+var file = $('#tank-img')[0].files[0];
+data.append("file", file);
+
+for (var pair of data.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+//Custom data
+// data.append('key', 'value');
+$.ajax({
+    url: ajaxurl,
+    method: "post",
+    processData: false,
+    contentType: false,
+    data: data,
+    success: function (data) {
+        //success
+    },
+    error: function (e) {
+        //error
+    }
+});
+
+			// $.post( 
+   //      		     ajaxurl,
+   //      		     data,
+   //      		     function(data) { 
+   //          	     // location.reload();
+   //         		     console.log(data);
+   //     		     })
+            });
 		
-     //Ajax Form Handler 
+//Ajax Form Handler 
+//param-form
         $( '#ajax-form' ).submit( function( event ) {
             
 			event.preventDefault(); // Prevent the default form submit.            
 			var ajax_form_data = $("#ajax-form").serializeObject();
 			var action = ajax_form_data['action'];
+			var tank_id = ajax_form_data['tank_id'];
+			var param_type = ajax_form_data['type'];
+			var user = ajax_form_data['user_id'];
 			var type = ajax_form_data['type'];
 			var type = 'chart'+type;
 			// console.log(ajax_form_data);
@@ -149,25 +260,94 @@ function chartDataConstructor(ajax_form_data) {
 				}
            	    if ($('#'+type).length && action == 'param_form') {
            		    addData(chart, label, data);
+           		    get_tables(tank_id, param_type, user);
            	    }
 			}
        });
 
+//update tables ajax
+function get_tables(tank_id, param_type, user ){
 
+	var data = {tank_id: tank_id, param_type: param_type, user: user, action: 'get_table_data'};
+	//data: {status: status, name: name},
+
+	console.log(data);
+	$.post( 
+		ajaxurl,
+		data,
+		function(data) { 
+		// location.reload();
+		console.log('this working?');
+		$('#table-'+param_type).html(data);
+	})
+
+}
+
+//journals
+         $( '#journal-form' ).submit( function( event ) {
+            
+  			event.preventDefault(); // Prevent the defau
+			// var file_data = $('#tank-img').prop('files')[0]; 
+			// console.log(file_data);
+   //          var ajax_form_data = $("#tank-form").append('file', file_data);
+   //          console.log(ajax_form_data);
+   //          var ajax_form_data = $("#tank-form").serializeObject();
+   //          console.log(ajax_form_data);
+
+   console.log('journal submited');
+			var data = new FormData(this);
+			
+			//Form data
+			var form_data = $('#journal-form').serializeArray();
+			$.each(form_data, function (key, input) {
+    			data.append(input.name, input.value);
+			});
+			
+			//File data
+			var file = $('#journal-img')[0].files[0];
+			data.append("file", file);
+			
+			for (var pair of data.entries()) {
+    			console.log(pair[0]+ ', ' + pair[1]); 
+			}
+			//Custom data
+			// data.append('key', 'value');
+			$.ajax({
+    			url: ajaxurl,
+    			method: "post",
+    			processData: false,
+    			contentType: false,
+    			data: data,
+    			success: function (data) {
+        			//success
+    			},
+    			error: function (e) {
+        			//error
+    			}
+			});
+       });  
+//journal status area stuff
+$('#j-status').focus(function() {
+	$(this).find('i').remove();
+});
+$('#j-status').focusout(function() {
+	var content = $(this).html();
+	$('#status-content').attr('value', content);
+
+});
+
+//regisrtation form
 
          $( '#regi-form' ).submit( function( event ) {
             
             event.preventDefault(); // Prevent the default form submit.            
+        
             
-            // serialize the form data
             var ajax_form_data = $("#regi-form").serializeObject();
             //add our own ajax check as X-Requested-With is not always reliable
             // ajax_form_data = ajax_form_data+'&ajaxrequest=true&submit=Submit+Form';
             // console.log(ajax_form_data);
-          		
-         
-
-
+console.log(ajax_form_data);
            $.post( 
         ajaxurl,
         ajax_form_data,
@@ -180,8 +360,13 @@ function chartDataConstructor(ajax_form_data) {
 
 
 function reigform(){
-	console.log('reg and login work');
+	// console.log('reg and login work');
+	$('.step-one').fadeOut();
+	$('.step-two').delay( 400 ).fadeIn();
 }
+
+
+
 
 //form validation
 
@@ -214,24 +399,59 @@ function reigform(){
 //tank selection 
 // set urls
 
-$('.a_tank').click(function() {
-	var tank_id = $(this).attr('value');
-	console.log(tank_id);
+// $('.a_tank').click(function() {
+// 	var tank_id = $(this).attr('value');
+// 	console.log(tank_id);
+// 	$('.tank-menu a').each(function(){  
+// 		var link = $(this).attr('name');
+// 		var url = link+'?tank_id='+tank_id;
+// 		$(this).attr('href', url);
+// 	});
+
+// });
+$('.select_tank .fa-search').click(function() {
+	var tank_id = $(this).attr('tankid');
+		$('.tank-menu a').each(function(){  
+		var link = $(this).attr('name');
+		var url = link+'?tank_id='+tank_id;
+		$(this).attr('href', url);
+	});
+	// window.location.href = "/overview?tank_id="+tank_id;
+
+});
+$('.select_tank .fa-flask').click(function() {
+	var tank_id = $(this).attr('tankid');
+	// console.log(tank_id);
 	$('.tank-menu a').each(function(){  
 		var link = $(this).attr('name');
 		var url = link+'?tank_id='+tank_id;
 		$(this).attr('href', url);
 	});
-
-});
-$('.select_tank').click(function() {
-	var tank_id = $(this).attr('value');
-	// console.log(tank_id);
-	window.location.href = "/overview?tank_id="+tank_id;
+	window.location.href = "/parameters?tank_id="+tank_id;
 
 });
 
+//export 
 
+$( '#export' ).click( function( event ) {
+            event.preventDefault(); // Prevent the defau
+            var param_type = $(this).attr('param_type');
+            var curuser = $(this).attr('curuser');
+            var tank_id = $(this).attr('tank_id');
+
+       window.open('/export-param-table?tank_id='+tank_id+'&curuser='+curuser+'&param_type='+param_type+'', '_blank');
+		
+		
+       });  
+//journal status area stuff
+$('#j-status').focus(function() {
+	$(this).find('i').remove();
+});
+$('#j-status').focusout(function() {
+	var content = $(this).html();
+	$('#status-content').attr('value', content);
+
+});
 
 
 // $.validator.addMethod("valueNotEquals", function(value, element, arg){
@@ -249,6 +469,9 @@ $('.select_tank').click(function() {
 //  });
 
 
+
+
     });
+
 
 
