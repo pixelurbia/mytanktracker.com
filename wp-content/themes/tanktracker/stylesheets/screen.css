@@ -3759,14 +3759,6 @@ select::-ms-expand {
   background: #fff;
   padding: 5px; }
 
-.reg-form .step {
-  padding: 50px;
-  width: 100%;
-  max-width: 330px;
-  margin: 0 auto;
-  height: auto;
-  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.3); }
-
 .step-two {
   display: none; }
 
@@ -3796,7 +3788,24 @@ select::-ms-expand {
   display: block;
   background-size: cover !important; }
 
-.login-form {
+.page-template-register * {
+  margin: 0;
+  padding: 0; }
+
+.page-template-register, .page-template-register .full {
+  height: 100%; }
+
+.page-template-register .frame {
+  background: url(../images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-size: cover !important; }
+
+.login-form, .reg-form {
   padding: 50px;
   width: 100%;
   max-width: 330px;

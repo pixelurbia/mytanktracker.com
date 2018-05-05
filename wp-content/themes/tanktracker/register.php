@@ -5,12 +5,14 @@ Template Name: register Page
  
 ?>
 
-<?php get_template_part('templates/header'); 
-		 	$id = uniqid();
-	?>
 
-<section class="full">
+<?php get_template_part('templates/header'); 
+ $id = uniqid();
+      	?>
+
+
 	<section class="frame">
+				<div class="frost">
 	<div class="reg-form"">
 		<div class="step step-one"">
 		<div class="logo"></div>
@@ -47,8 +49,9 @@ Template Name: register Page
 			</form>
 		</div>
 	</div>
-	</section>
-</section>
+		</div>
+		</section>
 
 
-<?php  get_template_part('templates/footer'); ?>
+<?php get_template_part('templates/footer'); ?>
+

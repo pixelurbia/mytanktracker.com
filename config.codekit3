@@ -5009,7 +5009,7 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/images\/bg1.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/wp-content\/themes\/tanktracker\/images\/bg2.jpg": {
@@ -5019,7 +5019,7 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/images\/bg2.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/wp-content\/themes\/tanktracker\/images\/fozzy.jpg": {
