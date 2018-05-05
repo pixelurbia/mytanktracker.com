@@ -19,7 +19,7 @@ function redirect_to_specific_page() {
     if ( is_page('register') && !is_user_logged_in() ) {
 
     } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
-	wp_redirect( 'http://localhost:8888/user-login/',301 ); 
+	wp_redirect( '/user-login/',301 ); 
         exit;
     }
 };
