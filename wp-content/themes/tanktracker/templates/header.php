@@ -15,6 +15,9 @@
 
 
 	<script src="<?php echo get_template_directory_uri(); ?>/js/master.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/register-master.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/add-tank.js"></script>
+
 	<script src="<?php echo get_template_directory_uri(); ?>/js/fontawesome-all.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/charts/dist/chart.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/validate/core.js"></script>
@@ -62,7 +65,7 @@
 
 <section class="wrap">
 <?php } ?>
-
+<div class="global-error"></div>
 <div class="overlay"></div>
-<div class="mouse-tool-tip"></div>
+
 

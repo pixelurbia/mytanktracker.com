@@ -3454,7 +3454,23 @@ blockquote {
   blockquote:last-child {
     margin-right: 0; }
 
-@-moz-document url-prefix() {}.button, button {
+@-moz-document url-prefix() {}.global-error.show {
+  top: 0px;
+  transition: all 0.2s ease-in-out; }
+
+.global-error {
+  top: -50px;
+  width: 100%;
+  position: fixed;
+  z-index: 99999;
+  color: white;
+  background: #ff5c5c;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out; }
+
+.button, button {
   width: auto;
   height: 25px;
   line-height: 13px;
@@ -3626,7 +3642,10 @@ select[multiple=multiple] {
   border-right: 0px;
   padding: 8px;
   width: 100%;
-  color: #fff !important;
+  color: #fff;
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: none;
   font-weight: 400;
   letter-spacing: 1px;
   border-radius: 0px;
@@ -3674,11 +3693,15 @@ select[multiple=multiple] {
 
 select::placeholder,
 input::placeholder {
-  color: #47caae; }
+  color: #fff !important; }
 
 input[type="submit"], .btn {
   margin-top: 20px;
   display: block;
+  padding: 11px;
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: none;
   line-height: 0px;
   font-weight: 400;
   width: auto;
@@ -3762,11 +3785,11 @@ select::-ms-expand {
 .step-two {
   display: none; }
 
-#tank-img {
+.step-three {
   display: none; }
 
-.btn.tank-img {
-  line-height: 22px; }
+#tank-img {
+  display: none; }
 
 #loginform label {
   display: none; }
@@ -3788,15 +3811,11 @@ select::-ms-expand {
   display: block;
   background-size: cover !important; }
 
-.page-template-register * {
-  margin: 0;
-  padding: 0; }
-
 .page-template-register, .page-template-register .full {
   height: 100%; }
 
 .page-template-register .frame {
-  background: url(../images/bg1.jpg);
+  background: url(../images/bg2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -3814,6 +3833,9 @@ select::-ms-expand {
   left: 0;
   right: 0;
   height: 350px; }
+
+input[type="submit"].btn.account-reg {
+  display: none; }
 
 .frost {
   background: inherit;

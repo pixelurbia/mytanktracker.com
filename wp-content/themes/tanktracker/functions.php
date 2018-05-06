@@ -2,6 +2,7 @@
 
 require_once('functions/calendar.php');
 // require_once('functions/exports.php');
+require_once('functions/validations.php'); //form validating forms
 require_once('functions/theme.php');
 require_once('functions/script.php');
 require_once('functions/menu.php');
@@ -97,14 +98,17 @@ function new_user() {
         wp_set_current_user( $user_id, $username );
         wp_set_auth_cookie( $user_id );
         do_action( 'wp_login', $username );
+        die('sucess');
     } else {
-        echo $user_id->get_error_message();
+       die($user_id->get_error_message()); 
     }
 
  
-// die();
+
  
 }
+
+
 
 
 
@@ -120,22 +124,27 @@ function add_user_tank( $file = array() ) {
 
  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 	  // Verify nonce
- if( !isset( $_POST['ajax_form_nonce_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_tank'], 'ajax_form_nonce_tank' ) )
-    die( 'Ooops, something went wrong, please try again later.' );
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_name = $user->display_name;
+  $validation = $_REQUEST['verfication-username'];
+
+ if( !isset( $validation ) && $validation == $user_name ) 
+    die( 'Ooops, something went wrong, please try again later.'.$validation );
    
 
 		$upload_dir = wp_upload_dir();
  		//construct new upload dir from upload base dir and the username of the current user
  		// $sourcePath = $_FILES['file']['tmp_name']; 
 
-        $new_file_dir = 'http://localhost:8888/wp-content/uploads/user_tanks/';
+        $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
 		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
 		$fileurl = $new_file_dir.$_FILES["file"]["name"];
+		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
 		
 
-  global $wpdb;
-  global $post;
-  $user = wp_get_current_user();
+
   
   $user_id = $user->ID;
   $tank_name = $_REQUEST['tankname'];
@@ -144,7 +153,7 @@ function add_user_tank( $file = array() ) {
   $tank_dimensions = $_REQUEST['dimensions'];
   $tank_model = $_REQUEST['model'];
   $tank_make = $_REQUEST['make'];
-  $tank_image = $fileurl;
+  $tank_image = $filepath;
 	
 
   $wpdb->insert('user_tanks',array(

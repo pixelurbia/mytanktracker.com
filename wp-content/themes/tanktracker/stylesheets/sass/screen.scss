@@ -49,6 +49,23 @@ input {
 blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 @-moz-document url-prefix() { }	
 
+.global-error.show {
+	top:0px;
+	transition: all 0.2s ease-in-out;
+}
+.global-error {
+	top: -50px;
+	width: 100%;
+    position: fixed;
+    z-index: 99999;
+    color: white;
+    background: #ff5c5c;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+}
+
 .button, button {
     	width: auto;
     	height: 25px;
@@ -170,14 +187,16 @@ input:not([type]),
 textarea,
 select,
 select[multiple=multiple]  {
-background: none;
+	background: none;
     border-bottom: solid 1px #fff;
     border-left: 0px;
     border-top: 0px;
     border-right: 0px;
     padding: 8px;
     width: 100%;
-    color: $white !important;
+    color: $white;
+    @include font-size(1.1); 
+	text-transform:none;
     font-weight: 400;
     letter-spacing: 1px;
     border-radius: 0px;
@@ -190,13 +209,15 @@ background: none;
 }
 select::placeholder, 
 input::placeholder {
-	color:$input-text;
+	color: $white !important;
 }
 
 input[type="submit"], .btn {
 	margin-top:20px; 
 	display:block; 
-	// @include font-size(1.4); 
+	padding:11px;
+	@include font-size(1.1); 
+	text-transform:none;
 	line-height:0px; 
 	font-weight:400; 
 	width:auto; 
@@ -298,13 +319,14 @@ select::-ms-expand {
 .step-two {
 	display:none;
 }
+.step-three {
+	display:none;
+}
 
 #tank-img {
 	display:none;
 }
-.btn.tank-img {
-	line-height: 22px;
-}
+
 #loginform {
 	label {display:none;}
 }
@@ -327,15 +349,12 @@ select::-ms-expand {
     background-size: cover!important;
 }
 
-.page-template-register *{
- margin: 0;
- padding: 0;
-}
+
 .page-template-register, .page-template-register .full  {
 	  height: 100%;
 }
 .page-template-register .frame{
-	background:url(../images/bg1.jpg);
+	background:url(../images/bg2.jpg);
      background-repeat: no-repeat;
  	background-attachment: fixed;
  	background-size: cover;
@@ -354,6 +373,9 @@ select::-ms-expand {
 	left: 0;
 	right: 0;
 	height: 350px;
+}
+input[type="submit"].btn.account-reg {
+	display:none;
 }
 .frost {
 	background: inherit;

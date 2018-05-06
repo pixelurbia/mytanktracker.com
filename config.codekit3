@@ -4977,6 +4977,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/theme.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/functions\/validations.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/validations.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/functions\/widget.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -5122,6 +5129,16 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/index.php",
 		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-tank.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-tank-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/js\/bower.json": {
 		"ft": 524288,
@@ -8018,6 +8035,26 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/js\/register-master-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/register-master-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/register-master.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/register-master-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/accept.js": {
 		"ft": 64,
 		"ma": 0,
@@ -10907,6 +10944,26 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/IMG_9856.JPG": {
+		"ft": 16384,
+		"iS": 53243,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/IMG_9856.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/photo_2018-04-28_13-49-15.jpg": {
+		"ft": 16384,
+		"iS": 191476,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/photo_2018-04-28_13-49-15.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/wp-content\/uploads\/user_tanksbear-avatar-snol.jpg": {

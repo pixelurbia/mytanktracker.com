@@ -160,57 +160,6 @@ function chartDataConstructor(ajax_form_data) {
      		return [chart, label, data];
 }
 
-//Add Tank  
-    $( '#tank-form' ).submit( function( event ) {
-            
-			event.preventDefault(); // Prevent the defau
-			// var file_data = $('#tank-img').prop('files')[0]; 
-			// console.log(file_data);
-   //          var ajax_form_data = $("#tank-form").append('file', file_data);
-   //          console.log(ajax_form_data);
-   //          var ajax_form_data = $("#tank-form").serializeObject();
-   //          console.log(ajax_form_data);
-
-
-var data = new FormData(this);
-
-//Form data
-var form_data = $('#tank-form').serializeArray();
-$.each(form_data, function (key, input) {
-    data.append(input.name, input.value);
-});
-
-//File data
-var file = $('#tank-img')[0].files[0];
-data.append("file", file);
-
-for (var pair of data.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
-}
-//Custom data
-// data.append('key', 'value');
-$.ajax({
-    url: ajaxurl,
-    method: "post",
-    processData: false,
-    contentType: false,
-    data: data,
-    success: function (data) {
-        //success
-    },
-    error: function (e) {
-        //error
-    }
-});
-
-			// $.post( 
-   //      		     ajaxurl,
-   //      		     data,
-   //      		     function(data) { 
-   //          	     // location.reload();
-   //         		     console.log(data);
-   //     		     })
-            });
 		
 //Ajax Form Handler 
 //param-form
@@ -336,34 +285,6 @@ $('#j-status').focusout(function() {
 
 });
 
-//regisrtation form
-
-         $( '#regi-form' ).submit( function( event ) {
-            
-            event.preventDefault(); // Prevent the default form submit.            
-        
-            
-            var ajax_form_data = $("#regi-form").serializeObject();
-            //add our own ajax check as X-Requested-With is not always reliable
-            // ajax_form_data = ajax_form_data+'&ajaxrequest=true&submit=Submit+Form';
-            // console.log(ajax_form_data);
-console.log(ajax_form_data);
-           $.post( 
-        ajaxurl,
-        ajax_form_data,
-        function(response) { 
-         	
-         	reigform();
-            
-        })
-       });       
-
-
-function reigform(){
-	// console.log('reg and login work');
-	$('.step-one').fadeOut();
-	$('.step-two').delay( 400 ).fadeIn();
-}
 
 
 

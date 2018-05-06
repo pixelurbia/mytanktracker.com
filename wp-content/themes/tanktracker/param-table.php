@@ -8,7 +8,7 @@ Template Name: Parameters table
 <?php get_template_part('templates/header'); 
  
      ?>
-
+<div class="mouse-tool-tip"></div>
 
 <?php 
 
