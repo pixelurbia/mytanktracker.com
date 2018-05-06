@@ -111,7 +111,7 @@
 		"oAP": "\/wp-admin\/admin.php",
 		"oF": 0
 		},
-	"\/wp-admin\/ArrayIMG_5490.PNG": {
+	"\/wp-admin\/ArrayIMG_5490.png": {
 		"ft": 32768,
 		"iS": 2277609,
 		"oA": 0,
@@ -5009,7 +5009,7 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/wp-content\/themes\/tanktracker\/images\/bg1.JPG": {
+	"\/wp-content\/themes\/tanktracker\/images\/bg1.jpg": {
 		"ft": 16384,
 		"iS": 8687521,
 		"oA": 0,
@@ -5129,6 +5129,16 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/index.php",
 		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-tank-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-tank-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/js\/add-tank.js": {
 		"ft": 64,
