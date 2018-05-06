@@ -13,9 +13,13 @@ $(document).ready(function() {
   }); 
 
 
+//show the add tank form on the tanks page
+  $('.add-tank').click(function() { 
+    $('.form-contain').fadeToggle();
+    $('.overlay').fadeToggle();
+  }); 
 
-
-//Add Tank 
+//Add Tank register
     $( '#tank-form' ).submit( function( event ) {
             
       event.preventDefault(); // Prevent the defau

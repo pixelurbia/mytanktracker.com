@@ -20,7 +20,7 @@ Template Name: Login Page
 			</div> -->
 	<?php	
    $args = array(
-        'redirect' => site_url( $_SERVER['REQUEST_URI'].'/tanks' ),
+        'redirect' => site_url('/tanks'),
         'remember' => true
     );
     wp_login_form( $args );

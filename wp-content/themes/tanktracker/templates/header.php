@@ -33,13 +33,17 @@
 		} else {
 		 $logged_in = true;
 			 } 
-
 			 if ($logged_in == true){
+	
+   if( !isset( $_GET['tank_id'] )){
+    	
+    	$current_user = wp_get_current_user(); 
+    	$curuser = $current_user->ID;
+        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
 
-    if( !isset( $_GET['tank_id'] )){
-        $tank_id = 1;
     } else {
         $tank_id = $_GET['tank_id'];
+
     }
  ?>
 	
@@ -64,7 +68,12 @@
 	
 
 <section class="wrap">
-<?php } ?>
+<?php }  
+		$login = $_GET['login'];
+		if (isset( $login ) && $login == 'failed') { 
+			echo '<div class="global-error show">The username or password you provided did not match our records.</div>';
+		}
+			?>
 <div class="global-error"></div>
 <div class="overlay"></div>
 

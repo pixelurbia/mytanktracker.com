@@ -57,9 +57,21 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 	top: -50px;
 	width: 100%;
     position: fixed;
-    z-index: 99999;
+    z-index: 9999;
     color: white;
     background: #ff5c5c;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+}
+.admin-bar {
+	bottom:0px;
+	width: 100%;
+    position: fixed;
+    z-index: 999;
+    color: white;
+    background: $input-bg;
     padding: 10px;
     text-align: center;
     font-size: 18px;
@@ -259,17 +271,21 @@ select::-ms-expand {
 		float:none;
 	}
 }
+.form-contain.tanks {
+    height: 500px;}
+
 .form-contain {
 	background: rgba(11, 13, 49, 0.86);;
     width: 300px;
-    height: 235px;
+    height: 250px;;
     display: none;
     position: fixed;
     padding: 20px;
     margin:0 auto;
     left:0;
     right:0;
-    top:25%;
+    top:20%;
+    overflow-y:scroll;
     z-index: 99999;
     .error {
 		@include font-size(0.9);
@@ -407,8 +423,8 @@ input[type="submit"].btn.account-reg {
 
 //calendar
 
-.monthly-updates {
-
+.page-template-param-table .monthly-updates, .page-template-parameters .monthly-updates {
+padding: 11px 0px 0px 20px;
 }
 .month {
 	width:90px;
@@ -438,9 +454,9 @@ input[type="submit"].btn.account-reg {
 .param-close {
 	width: 25px;
 	border-radius:35px;
-	padding: 1px 7px 0px 7px;
+	padding: 5px 7px 0px 7px;
 	float: right;
-    line-height: 24px;
+    line-height: 13px;
     display: block;
     font-weight: 400;
     z-index:999;

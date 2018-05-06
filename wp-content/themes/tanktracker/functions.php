@@ -13,9 +13,30 @@ require_once('functions/save-journals.php');
 
 add_theme_support( 'post-thumbnails' );
 
+add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
+function my_front_end_login_fail( $username ) {
+   $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+   // if there's a valid referrer, and it's not the default log-in screen
+   if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+      wp_redirect( $referrer . '?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
+      exit;
+   }
+}
+
+
+//setting dev/prod env
+function set_env() {
+	$env = $_SERVER["HTTP_HOST"];
+
+	if ($env == 'localhost:8888') {
+		$environment = 'DEV';
+	} else {
+		$environment = 'PROD';
+	}
+return($environment);
+}
+//redicted for those not logged in
 add_action( 'template_redirect', 'redirect_to_specific_page' );
-
-
 function redirect_to_specific_page() {
     if ( is_page('register') && !is_user_logged_in() ) {
 
@@ -130,15 +151,22 @@ function add_user_tank( $file = array() ) {
   $user_name = $user->display_name;
   $validation = $_REQUEST['verfication-username'];
 
- if( !isset( $validation ) && $validation == $user_name ) 
+ if( !isset( $_POST['ajax_form_nonce_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_tank'], 'ajax_form_nonce_tank' ) ){
+	} else if( !isset( $validation ) && $validation == $user_name ) 
     die( 'Ooops, something went wrong, please try again later.'.$validation );
    
 
 		$upload_dir = wp_upload_dir();
  		//construct new upload dir from upload base dir and the username of the current user
  		// $sourcePath = $_FILES['file']['tmp_name']; 
-
-        $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+ 	$environment = set_env(); 
+	if ( $environment == 'DEV') {
+	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+	} else {
+		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+	}
+     
+   
 		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
 		$fileurl = $new_file_dir.$_FILES["file"]["name"];
 		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];

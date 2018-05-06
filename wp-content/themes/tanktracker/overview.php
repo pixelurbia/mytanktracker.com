@@ -15,10 +15,11 @@ global $wpdb;
 	$user = wp_get_current_user();
 	$curuser = $user->ID;
 	if( !isset( $_GET['tank_id'] )){
-		$tank_id = 1;
-	} else {
-		$tank_id = $_GET['tank_id'];
-	}
+        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
+    } else {
+        $tank_id = $_GET['tank_id'];
+
+    }
 	//main query 							
     $tanks = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $curuser AND id = $tank_id");
                         ?>
@@ -43,7 +44,7 @@ global $wpdb;
 			?> 
 			</p>
 	
-	</div>>
+	</div>
 
 
                

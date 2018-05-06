@@ -16,11 +16,10 @@ Template Name: Parameters table
     $curuser = $current_user->ID;
 
     if( !isset( $_GET['tank_id'] )){
-        $tank_id = 1;
-        $param_type = 1;
+        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
     } else {
         $tank_id = $_GET['tank_id'];
-        $param_type = $_GET['param_type'];
+
     }
         ?>
 <?php
