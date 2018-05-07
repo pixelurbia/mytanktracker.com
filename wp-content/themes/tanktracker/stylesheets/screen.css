@@ -3980,17 +3980,15 @@ table {
   @media screen and (max-width: 600px) {
     .a_tank {
       width: 100%; } }
-  .a_tank:hover {
+  .a_tank .fa-3x {
+    opacity: 1;
     transition: all 0.5s ease-in-out; }
-    .a_tank:hover .fa-3x {
-      opacity: 1;
-      transition: all 0.5s ease-in-out; }
-    .a_tank:hover .tank_img {
-      opacity: 0.8;
-      transition: all 0.5s ease-in-out; }
-    .a_tank:hover .shader {
-      opacity: 0.8;
-      transition: all 0.5s ease-in-out; }
+  .a_tank .tank_img {
+    opacity: 0.8;
+    transition: all 0.5s ease-in-out; }
+  .a_tank .shader {
+    opacity: 0.8;
+    transition: all 0.5s ease-in-out; }
   .a_tank h2 {
     font-weight: 100;
     letter-spacing: 5px;
@@ -4016,7 +4014,6 @@ table {
     z-index: 90;
     background-position: -110px 0px;
     width: 100%;
-    opacity: 0.3;
     height: 500px;
     position: absolute;
     top: 0;
@@ -4032,7 +4029,6 @@ table {
     opacity: 1;
     transition: all 0.5s ease-in-out; }
   .a_tank .fa-3x {
-    opacity: 0;
     margin: 10px 15px 0px 15px;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
@@ -4059,7 +4055,46 @@ table {
   text-transform: uppercase; }
 
 .page-template-overview {
-  height: 100%; }
+  height: 100%;
+  /*
+
+community styles
+
+article {
+				height:auto;
+				overflow:hidden;
+				max-height:400px;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+				margin:10px 0px 10px 0px;
+
+				.icon {
+					width:30px;
+					height:30px;
+					border-radius:30px;
+					background:$white;
+					float:left;
+					margin:0px 10px 0px 0px;
+				}
+				.user-info {
+					line-height: 27px;
+					margin:6px 0px 0px 0px;
+					width:100%;
+				}
+				.post-content {
+					width:100%;
+					float:none;
+					padding:10px 0px 10px 0px;
+				}
+				.post-img {
+					margin:20px 0px 20px 0px;
+				}
+		}
+
+*/ }
   .page-template-overview .param-table.large {
     width: 100%;
     max-width: 450px;

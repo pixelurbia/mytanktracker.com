@@ -543,9 +543,8 @@ table {
    @include media ($phone) { 
 		width:100%;
 	}
-    &:hover {
+
     	
-    	transition: all 0.5s ease-in-out;
     	.fa-3x {
 		opacity:1;
 		transition: all 0.5s ease-in-out;
@@ -560,7 +559,7 @@ table {
 		}
 
 
-    }
+
     h2 {
         font-weight: 100;
         letter-spacing: 5px;
@@ -590,7 +589,6 @@ table {
     	z-index: 90;
 		background-position: -110px 0px;
     	width: 100%;
-    	opacity:0.3;
     	height: 500px;
     	position: absolute;
     	top: 0;
@@ -609,7 +607,6 @@ table {
 
 	}
 	.fa-3x {
-		opacity:0;
 		margin:10px 15px 0px 15px;
 		transition: all 0.5s ease-in-out;
 		cursor:pointer;
@@ -782,6 +779,46 @@ table {
 
 }
 
+
+/*
+
+community styles
+
+article {
+				height:auto;
+				overflow:hidden;
+				max-height:400px;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+				margin:10px 0px 10px 0px;
+
+				.icon {
+					width:30px;
+					height:30px;
+					border-radius:30px;
+					background:$white;
+					float:left;
+					margin:0px 10px 0px 0px;
+				}
+				.user-info {
+					line-height: 27px;
+					margin:6px 0px 0px 0px;
+					width:100%;
+				}
+				.post-content {
+					width:100%;
+					float:none;
+					padding:10px 0px 10px 0px;
+				}
+				.post-img {
+					margin:20px 0px 20px 0px;
+				}
+		}
+
+*/
 
 
 }
