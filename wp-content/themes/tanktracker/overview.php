@@ -86,31 +86,33 @@ global $wpdb;
 			'post_type' => 'user_journals', 
 			'post_status' => 'publish'
 		);
+		echo '<table>';
+		echo '<tr>';
+		echo '<th>Journal</th>';
+		echo '<th>Posted On</th>';
+		echo '</tr>';
 		$query = new WP_Query( $journals );
 			if ( $query->have_posts() ) : ?>
     			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
-        		<article>
-            	
+        		
             		<?php 
-            		echo '<div class="user-info">';
-            		echo $user->user_nicename;
-            		echo '<div class="icon"></div>';
-            		echo ' posted this on ';
+            		$permlink = get_the_permalink();
+            		$excerpt = get_the_excerpt();
+
+            		echo '<tr>';
+            		echo '<td>';
+            		echo '<a href="'.$permlink.'">'.$excerpt.'</a>';
+            		echo '</td>';
+            		echo '<td>';
             		the_time('F jS, Y'); 
-            		echo '</div>';
-            		echo '<div class="post-content">';
-            			the_content(); 
-            		echo '</div>';
-            		echo '<div class="post-img">';
-						the_post_thumbnail();
-					echo '</div>';
-            	
+            		echo '</td>';
             		?>
-            		<!-- <div>Read More</div> -->
-        		</article>
+
     			<?php endwhile; wp_reset_postdata(); ?>
 				<?php else : ?>
-				<?php endif; ?>
+				<?php endif; 
+				echo '</table>';
+				?>
 
 	</section>
 	<section class="timeline third">
