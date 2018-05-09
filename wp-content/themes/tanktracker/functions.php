@@ -13,6 +13,15 @@ require_once('functions/save-journals.php');
 
 add_theme_support( 'post-thumbnails' );
 
+
+// add_action('wp_head', 'show_template'); 
+
+// function show_template() {  
+// global $template;
+// print_r($template);
+// }   
+
+
 add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
 function my_front_end_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
@@ -46,11 +55,25 @@ function redirect_to_specific_page() {
     }
 };
 
-  if(!is_user_logged_in()) { 
-      	 $logged_in = false;
-		} else {
-		 $logged_in = true;
-			 } 
+//smart menu
+
+function smart_menu($tank_id) {
+	$tank_id = $_GET['tank_id'];
+    if ( !is_page('tanks') && is_user_logged_in() ) {
+
+echo '<a name="tanks" href="/overview?tank_id='.$tank_id.'" class="overview">Overview</a>';
+echo '<a name="parameters" href="/parameters?tank_id='.$tank_id .'" class="parameters">Parameters</a>';
+echo '<a name="stock" href="/stock?tank_id='.$tank_id.'" class="stock">Stock</a>';
+echo '<a name="equipment" href="/equipment?tank_id='.$tank_id.'" class="equipment">Equipment</a>';
+
+    }
+};
+
+  // if(!is_user_logged_in()) { 
+  //     	 $logged_in = false;
+		// } else {
+		//  $logged_in = true;
+		// 	 } 
 add_filter('show_admin_bar', '__return_false');
 add_action("wp_ajax_param_form", "tank_params");
 

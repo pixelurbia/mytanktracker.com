@@ -66,56 +66,71 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 	padding:15px;
 	
 }
+.menu-bar.open { 
+	height:100%;
+	transition: all 0.2s ease-in-out;
+	background: rgba(5, 7, 25, 0.95);
 
+.menu-button-open {
+	display:none;
+}
+.menu-button-close {
+	display:block;
+}
+}
 .menu-bar { 
 	width: 100%;
-	position:fixed;
-    height: 20px;
+    position: fixed;
+    overflow:hidden;
+    height: 45px;
     display: block;
-    z-index:9999;
-	.menu-button {
+    background: rgba(5, 7, 25, 0.84);
+    z-index: 9999;
+	a {
     	width: auto;
     	height: auto;
-    	border: 1px solid $white;
-    	background-position: 11px 10px;
-    	margin: 20px 0px 0px 20px;
     	z-index: 9999;
     	float: left;
+    	@include font-size(0.8);
     	transition: all 0.2s ease-in-out;
     	position: relative;
-    	padding: 5px 15px 5px 15px;
+    	padding: 15px 7px 17px 7px;
     	text-transform:uppercase;
     	color:$white;
 	&:hover {
-	    	color:$input-text;
-	    	border:1px solid $input-text;
+	    	background:rgba(71, 202, 174, 0.6);;
 	    	transition: all 0.2s ease-in-out;
 	}}
-
+.menu-button-open {
+	display:block;
+}
+.menu-button-close {
+	display:none;
+}
 }	
 
-.main-menu.open {
-	margin: 0px 0px 0px 0px;
-	transition: all 0.5s ease-in-out;
-}
-.main-menu {
-	width: 180px;
-    float: left;
-    height: 100%;
-    border-right:0.5px solid rgba(255, 255, 255, 0.12);
-    position: fixed;
-    top: 0px;
-    padding: 120px 0px 0px 20px;
-    margin: 0px 0px 0px -180px;
-    transition: all 0.5s ease-in-out;
 
+.main-menu {
+	float: none;
+    width: 100%;
+    display: block;
+
+}
+.secondary-menu {
+	float: left;
+    width: 100%;
+    display: block;
     a {
-    	
-    	float:none;
-    	width:100%;
-    	display:block;
-    	margin:10px 0px 0px 0px;
+		float: left;
+    	width: 100%;
+    	padding: 10px 0px 10px 24px;
     }
+    span {
+		float: left;
+    	width: 100%;
+    	padding: 20px 0px 10px 24px;
+    }
+
 }
 
 .tank-menu {
@@ -123,4 +138,15 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 	a { 
 		margin: 0px 3px 0px 3px;
 	}
+}
+
+.copy {
+	color:$white;
+	width:100%;
+	margin:0 auto!important;
+	position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 15%;
+    text-align:center;
 }

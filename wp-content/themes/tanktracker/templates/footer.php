@@ -1,7 +1,11 @@
 </section>
 <?php 
 $environment = set_env(); 
-echo '<div class="admin-bar">You are in '.$environment.' - Tank Tracker Alpha </div>'; ?>
+if ( $environment == 'DEV'){
+	// echo '<div class="admin-bar">You are in '.$environment.	' - Tank Tracker Alpha </div>'; 
+}
+?>
+
 <div class="footer">
 
 </div>

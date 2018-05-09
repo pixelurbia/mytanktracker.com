@@ -8,7 +8,7 @@
 // Type
 h1, h2, h3, h4 {margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
 h1, h1 a { @include font-size(5);  color:$white; font-weight:600; font-family:$ops;}
-h2, h2 a {   @include font-size(3.2); color:$white; font-family:$ops; text-decoration:none; font-weight:100;  }
+h2, h2 a {   @include font-size(3.2); color:$white; font-family:$ops; text-decoration:none; font-weight: 100; letter-spacing: 5px; text-transform: uppercase; }
 h3, h3 a {   @include font-size(2.6); color:$white; font-family:$ops;  text-decoration:none;   }
 h4, h4 a { @include font-size(2.0 ); color:$white; font-family:$ops; font-weight:100;  }
 h6, h6 a { @include font-size(1.2); color:$white; font-family:$ops; font-weight:100; }
@@ -368,6 +368,7 @@ select::-ms-expand {
 
 .page-template-register, .page-template-register .full  {
 	  height: 100%;
+	  min-height:1000px;
 }
 .page-template-register .frame{
 	background:url(../images/bg2.jpg);
@@ -378,6 +379,7 @@ select::-ms-expand {
     height: 100%;
     display: block;
     background-size: cover!important;
+    min-height:1000px;
 }
  
 .login-form, .reg-form {
@@ -402,7 +404,7 @@ input[type="submit"].btn.account-reg {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top:25%;
+	top:15%;
 	overflow: hidden;  //adding overflow hidden
     
 }
@@ -506,25 +508,27 @@ padding: 11px 0px 0px 20px;
 }
 table {
 	   position:relative;
-
     	z-index:99999;
     	width:100%;
     	max-width:600px;
 	tr {
+
 		th {
 			width:100%;
     		max-width:100px;
 			padding:5px;
-			color:$black;
-			background:#eee;
+			color:$white;
+			background:rgba(238, 238, 238, 0.08);
+			border-bottom: 1px solid rgba(238, 238, 238, 0.08);
 		}
 		td {
+			border-bottom: 1px solid rgba(238, 238, 238, 0.08);
 			width:100%;
     		max-width:100px;
 			padding:5px;
 			color:$white;
 			&:hover{
-				background:$status-blue;
+				background:rgba(238, 238, 238, 0.08);
 				color:$input-text;
 			}
 
@@ -545,10 +549,7 @@ table {
 	}
 
     	
-    	.fa-3x {
-		opacity:1;
-		transition: all 0.5s ease-in-out;
-		}
+    	
 		.tank_img {
 			opacity: 0.8;
 			transition: all 0.5s ease-in-out;
@@ -606,7 +607,16 @@ table {
     transition: all 0.5s ease-in-out;
 
 	}
-	.fa-3x {
+
+
+}
+
+.tank_actions {
+		.fa-3x {
+		opacity:1;
+		transition: all 0.5s ease-in-out;
+		}
+		.fa-3x {
 		margin:10px 15px 0px 15px;
 		transition: all 0.5s ease-in-out;
 		cursor:pointer;
@@ -624,9 +634,7 @@ table {
 			transition: all 0.5s ease-in-out;
 		}
 	}
-
 }
-
 
 
 //tank_header
@@ -703,6 +711,7 @@ table {
     z-index: 44;
 
 	}
+
 
 	.journals {
 		#journal-form {
@@ -840,7 +849,7 @@ article {
 }
 .aparam {
 	padding-top:10px;
-	margin:10px 20px 10px 0px;
+	margin:10px 20px 10px 10px;
     width: 100%;
     max-width: 290px;
     float:left;
@@ -878,3 +887,33 @@ article {
     	}
     }
 }
+
+//journals
+
+	section.frame.post {
+		// @include half;
+		// margin:0 auto!important;
+	
+
+		.tags {
+			float:none;
+			width:100%;
+			height:20px;
+			display:block;
+			margin:10px 0px 0px 0px;
+			ul li {
+				float:left;
+
+				a {
+					@include font-size(0.8);
+					background: rgba(255, 255, 255, 0.2);
+					margin: 0px 8px 0px 0px;
+					padding: 3px 8px 3px 8px;
+					border-radius: 19px;
+				}
+			}
+		}
+	}
+
+	
+

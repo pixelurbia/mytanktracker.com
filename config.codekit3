@@ -9219,6 +9219,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/overview.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/page.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/param-table.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -9231,6 +9238,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/parameters.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/post.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/post.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/register.php": {

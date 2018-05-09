@@ -48,22 +48,32 @@
  ?>
 	
 	<div class="menu-bar">
-		<div class="menu-button">Menu</div>
-	</div>
-	<div class="main-menu">
-		<a name="" href="/tanks" class="">My Tanks</a>
-		<a name="tanks" href="/overview<?php echo '?tank_id='.$tank_id; ?>" class="overview">Overview</a>
-			<a name="parameters" href="/parameters<?php echo '?tank_id='.$tank_id; ?>" class="parameters">Parameters</a>
-			<a name="stock" href="/stock<?php echo '?tank_id='.$tank_id; ?>" class="stock">Stock</a>
-			<a name="equipment" href="/equipment<?php echo '?tank_id='.$tank_id; ?>" class="equipment">Equipment</a>	
-		<a name="" href="/" class="">Community</a>	
-		<br>
-		<br>
-		<a name="myaccount" href="/my-account" class="myaccount">My Account</a>
-		<a name="" href="/" class="">Linked Accounts</a>
-		<?php  echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>'; ?>
+		<div class="main-menu">
+			<a class="menu-button"><i class="fas fa-bars"></i></a>
+			<!-- <a class="menu-button menu-button-open">Menu</a> -->
+			<!-- <a class="menu-button menu-button-close">Close</a> -->
+			
+			<?php smart_menu($tank_id); ?>
+
+				
+		</div>
+
 		
+		<div class="secondary-menu">
+			<a name="" href="/tanks" class="">My Tanks</a>	
+			<a name="" href="/" class="">Tank Tracker Community</a>
+		
+			
+			
+			<span></span>
+			
+			<a name="" href="/" class="">My Profile</a>
+			<a name="myaccount" href="/my-account" class="myaccount">My Account</a>
+			<?php  echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>'; ?>
+		
+		</div>
 	</div>
+	
 
 	
 

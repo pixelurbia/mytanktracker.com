@@ -26,9 +26,13 @@ Template Name: Login Page
     wp_login_form( $args );
 	echo '<div class="form-links"><a href="/register/">Need an Account? Register Today!</a> ';
 	echo '<a href="/password-reset//">Forgot Your Password?</a></div>';
+
 	?>
 		</div>
 		</div>
+		<div class="copy">
+	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
+</div>
 		</section>
 <?php
 

@@ -46,9 +46,10 @@ $('.day.one-change')
 $('#loginform #user_login').attr('placeholder','Username');
 $('#loginform #user_pass').attr('placeholder','Password');
 
-$('.menu-button').click(function() { 
-	$('.main-menu').toggleClass('open');
-	$('.wrap').toggleClass('open');
+$('.menu-button').click(function(event) { 
+	event.preventDefault(); // Prevent the default form submit.
+	$('.menu-bar').toggleClass('open');
+	// $('.wrap').toggleClass('open');
 
 });
 

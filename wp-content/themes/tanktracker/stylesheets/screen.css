@@ -3231,54 +3231,75 @@ html {
   display: block;
   padding: 15px; }
 
+.menu-bar.open {
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  background: rgba(5, 7, 25, 0.95); }
+  .menu-bar.open .menu-button-open {
+    display: none; }
+  .menu-bar.open .menu-button-close {
+    display: block; }
+
 .menu-bar {
   width: 100%;
   position: fixed;
-  height: 20px;
+  overflow: hidden;
+  height: 45px;
   display: block;
+  background: rgba(5, 7, 25, 0.84);
   z-index: 9999; }
-  .menu-bar .menu-button {
+  .menu-bar a {
     width: auto;
     height: auto;
-    border: 1px solid #fff;
-    background-position: 11px 10px;
-    margin: 20px 0px 0px 20px;
     z-index: 9999;
     float: left;
+    font-size: 8px;
+    font-size: 0.8rem;
     transition: all 0.2s ease-in-out;
     position: relative;
-    padding: 5px 15px 5px 15px;
+    padding: 15px 7px 17px 7px;
     text-transform: uppercase;
     color: #fff; }
-    .menu-bar .menu-button:hover {
-      color: #47caae;
-      border: 1px solid #47caae;
+    .menu-bar a:hover {
+      background: rgba(71, 202, 174, 0.6);
       transition: all 0.2s ease-in-out; }
-
-.main-menu.open {
-  margin: 0px 0px 0px 0px;
-  transition: all 0.5s ease-in-out; }
+  .menu-bar .menu-button-open {
+    display: block; }
+  .menu-bar .menu-button-close {
+    display: none; }
 
 .main-menu {
-  width: 180px;
+  float: none;
+  width: 100%;
+  display: block; }
+
+.secondary-menu {
   float: left;
-  height: 100%;
-  border-right: 0.5px solid rgba(255, 255, 255, 0.12);
-  position: fixed;
-  top: 0px;
-  padding: 120px 0px 0px 20px;
-  margin: 0px 0px 0px -180px;
-  transition: all 0.5s ease-in-out; }
-  .main-menu a {
-    float: none;
+  width: 100%;
+  display: block; }
+  .secondary-menu a {
+    float: left;
     width: 100%;
-    display: block;
-    margin: 10px 0px 0px 0px; }
+    padding: 10px 0px 10px 24px; }
+  .secondary-menu span {
+    float: left;
+    width: 100%;
+    padding: 20px 0px 10px 24px; }
 
 .tank-menu {
   margin: 25px 0px 0px 20px; }
   .tank-menu a {
     margin: 0px 3px 0px 3px; }
+
+.copy {
+  color: #fff;
+  width: 100%;
+  margin: 0 auto !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  text-align: center; }
 
 h1, h2, h3, h4 {
   margin: 5px 0;
@@ -3299,7 +3320,9 @@ h2, h2 a {
   color: #fff;
   font-family: "Open Sans", sans-serif;
   text-decoration: none;
-  font-weight: 100; }
+  font-weight: 100;
+  letter-spacing: 5px;
+  text-transform: uppercase; }
 
 h3, h3 a {
   font-size: 26px;
@@ -3828,7 +3851,8 @@ select::-ms-expand {
   background-size: cover !important; }
 
 .page-template-register, .page-template-register .full {
-  height: 100%; }
+  height: 100%;
+  min-height: 1000px; }
 
 .page-template-register .frame {
   background: url(../images/bg2.jpg);
@@ -3838,7 +3862,8 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   display: block;
-  background-size: cover !important; }
+  background-size: cover !important;
+  min-height: 1000px; }
 
 .login-form, .reg-form {
   padding: 50px;
@@ -3862,7 +3887,7 @@ input[type="submit"].btn.account-reg {
   position: absolute;
   left: 0;
   right: 0;
-  top: 25%;
+  top: 15%;
   overflow: hidden; }
 
 .frost::before {
@@ -3960,15 +3985,17 @@ table {
     width: 100%;
     max-width: 100px;
     padding: 5px;
-    color: #000;
-    background: #eee; }
+    color: #fff;
+    background: rgba(238, 238, 238, 0.08);
+    border-bottom: 1px solid rgba(238, 238, 238, 0.08); }
   table tr td {
+    border-bottom: 1px solid rgba(238, 238, 238, 0.08);
     width: 100%;
     max-width: 100px;
     padding: 5px;
     color: #fff; }
     table tr td:hover {
-      background: #0c1035;
+      background: rgba(238, 238, 238, 0.08);
       color: #47caae; }
 
 .a_tank {
@@ -3980,9 +4007,6 @@ table {
   @media screen and (max-width: 600px) {
     .a_tank {
       width: 100%; } }
-  .a_tank .fa-3x {
-    opacity: 1;
-    transition: all 0.5s ease-in-out; }
   .a_tank .tank_img {
     opacity: 0.8;
     transition: all 0.5s ease-in-out; }
@@ -4028,22 +4052,27 @@ table {
     z-index: 44;
     opacity: 1;
     transition: all 0.5s ease-in-out; }
-  .a_tank .fa-3x {
-    margin: 10px 15px 0px 15px;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    color: #fff;
-    border-radius: 35px;
-    width: 60px;
-    height: 60px;
-    padding: 17px;
-    border: 1px solid #fff;
+
+.tank_actions .fa-3x {
+  opacity: 1;
+  transition: all 0.5s ease-in-out; }
+
+.tank_actions .fa-3x {
+  margin: 10px 15px 0px 15px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 35px;
+  width: 60px;
+  height: 60px;
+  padding: 17px;
+  border: 1px solid #fff;
+  transition: all 0.5s ease-in-out; }
+  .tank_actions .fa-3x:hover {
+    background: #292f7d;
+    border: 1px solid #47caae;
+    color: #47caae;
     transition: all 0.5s ease-in-out; }
-    .a_tank .fa-3x:hover {
-      background: #292f7d;
-      border: 1px solid #47caae;
-      color: #47caae;
-      transition: all 0.5s ease-in-out; }
 
 .tank_header h2 {
   font-weight: 100;
@@ -4210,7 +4239,7 @@ article {
 
 .aparam {
   padding-top: 10px;
-  margin: 10px 20px 10px 0px;
+  margin: 10px 20px 10px 10px;
   width: 100%;
   max-width: 290px;
   float: left;
@@ -4240,3 +4269,19 @@ article {
     .stock-item .stock-data li.data {
       float: left;
       margin-right: 10px; }
+
+section.frame.post .tags {
+  float: none;
+  width: 100%;
+  height: 20px;
+  display: block;
+  margin: 10px 0px 0px 0px; }
+  section.frame.post .tags ul li {
+    float: left; }
+    section.frame.post .tags ul li a {
+      font-size: 8px;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0px 8px 0px 0px;
+      padding: 3px 8px 3px 8px;
+      border-radius: 19px; }
