@@ -61,7 +61,7 @@
 		
 		<div class="secondary-menu">
 			<a name="" href="/tanks" class="">My Tanks</a>	
-			<a name="" href="/" class="">Tank Tracker Community</a>
+			<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Community</a>
 		
 			
 			
