@@ -3257,7 +3257,7 @@ html {
     font-size: 0.8rem;
     transition: all 0.2s ease-in-out;
     position: relative;
-    padding: 15px 7px 17px 7px;
+    padding: 13px 7px 17px 7px;
     text-transform: uppercase;
     color: #fff; }
     .menu-bar a:hover {
@@ -3273,18 +3273,22 @@ html {
   width: 100%;
   display: block; }
 
-.secondary-menu {
+.secondary_menu {
   float: left;
   width: 100%;
   display: block; }
-  .secondary-menu a {
+  .secondary_menu a {
     float: left;
     width: 100%;
-    padding: 10px 0px 10px 24px; }
-  .secondary-menu span {
+    padding: 10px 0px 10px 24px;
+    font-size: 8px;
+    font-size: 0.8rem; }
+  .secondary_menu span {
     float: left;
     width: 100%;
     padding: 20px 0px 10px 24px; }
+  .secondary_menu .next_level a {
+    padding-left: 40px; }
 
 .tank-menu {
   margin: 25px 0px 0px 20px; }
@@ -3972,7 +3976,7 @@ input[type="submit"].btn.account-reg {
   height: 150px;
   display: block;
   float: left;
-  margin: 50px 40px 0px 0px; }
+  margin: 3s0px 40px 0px 0px; }
 
 .param-table {
   padding-top: 50px;

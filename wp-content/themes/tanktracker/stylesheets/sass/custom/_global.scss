@@ -94,7 +94,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     	@include font-size(0.8);
     	transition: all 0.2s ease-in-out;
     	position: relative;
-    	padding: 15px 7px 17px 7px;
+    	padding: 13px 7px 17px 7px;
     	text-transform:uppercase;
     	color:$white;
 	&:hover {
@@ -116,7 +116,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     display: block;
 
 }
-.secondary-menu {
+.secondary_menu {
 	float: left;
     width: 100%;
     display: block;
@@ -124,11 +124,15 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 		float: left;
     	width: 100%;
     	padding: 10px 0px 10px 24px;
+    	@include font-size(0.8);
     }
     span {
 		float: left;
     	width: 100%;
     	padding: 20px 0px 10px 24px;
+    }
+    .next_level a {
+    	padding-left:40px
     }
 
 }

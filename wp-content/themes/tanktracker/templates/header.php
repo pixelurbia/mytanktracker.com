@@ -52,16 +52,22 @@
 			<a class="menu-button"><i class="fas fa-bars"></i></a>
 			<!-- <a class="menu-button menu-button-open">Menu</a> -->
 			<!-- <a class="menu-button menu-button-close">Close</a> -->
-			
+			<a name="" href="/tanks" class="">My Tanks</a>	
 			<?php smart_menu($tank_id); ?>
+
 
 				
 		</div>
 
 		
-		<div class="secondary-menu">
-			<a name="" href="/tanks" class="">My Tanks</a>	
+		<div class="secondary_menu">
+			
+			
+			<div class="next_level">
+				
+			</div>
 			<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Community</a>
+
 		
 			
 			
