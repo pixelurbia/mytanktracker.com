@@ -4970,6 +4970,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/stock.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/functions\/tanks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/tanks.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/functions\/taxonomies.php": {
 		"cB": 0,
 		"ft": 8192,

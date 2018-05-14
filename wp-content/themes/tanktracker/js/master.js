@@ -58,8 +58,8 @@ $('.track-btn').click(function() {
 	$('.overlay').fadeToggle();
 });
 
-$('.journals .add-btn').click(function() { 
-	$('.journals.form-contain').fadeToggle();
+$('.journals-btn').click(function() { 
+	$('#journal-form').fadeToggle();
 	$('.overlay').fadeToggle();
 });
 $('.journals .close').click(function() { 

@@ -3257,7 +3257,7 @@ html {
     font-size: 0.8rem;
     transition: all 0.2s ease-in-out;
     position: relative;
-    padding: 13px 7px 17px 7px;
+    padding: 13px 17px 17px 17px;
     text-transform: uppercase;
     color: #fff; }
     .menu-bar a:hover {
@@ -3287,8 +3287,14 @@ html {
     float: left;
     width: 100%;
     padding: 20px 0px 10px 24px; }
-  .secondary_menu .next_level a {
-    padding-left: 40px; }
+  .secondary_menu .sub_menu {
+    border-left: 1px solid rgba(255, 255, 255, 0.37);
+    height: 132px;
+    display: block;
+    margin-left: 27px;
+    margin-top: 36px; }
+    .secondary_menu .sub_menu a {
+      padding-left: 15px; }
 
 .tank-menu {
   margin: 25px 0px 0px 20px; }
@@ -3303,12 +3309,13 @@ html {
 .copy {
   color: #fff;
   width: 100%;
-  margin: 0 auto !important;
+  margin: 10px auto !important;
+  text-align: center;
+  z-index: 999999999;
   position: absolute;
+  bottom: 0px;
   left: 0;
-  right: 0;
-  bottom: 15%;
-  text-align: center; }
+  right: 0; }
 
 h1, h2, h3, h4 {
   margin: 5px 0;
@@ -3857,11 +3864,11 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   display: block;
+  min-height: 800px;
   background-size: cover !important; }
 
 .page-template-register, .page-template-register .full {
-  height: 100%;
-  min-height: 1000px; }
+  height: 100%; }
 
 .page-template-register .frame {
   background: url(../images/bg2.jpg);
@@ -3871,8 +3878,8 @@ select::-ms-expand {
   width: 100%;
   height: 100%;
   display: block;
-  background-size: cover !important;
-  min-height: 1000px; }
+  min-height: 800px;
+  background-size: cover !important; }
 
 .login-form, .reg-form {
   padding: 50px;
@@ -3896,7 +3903,7 @@ input[type="submit"].btn.account-reg {
   position: absolute;
   left: 0;
   right: 0;
-  top: 15%;
+  top: 10%;
   overflow: hidden; }
 
 .frost::before {
@@ -3976,7 +3983,7 @@ input[type="submit"].btn.account-reg {
   height: 150px;
   display: block;
   float: left;
-  margin: 3s0px 40px 0px 0px; }
+  margin: 30px 40px 0px 0px; }
 
 .param-table {
   padding-top: 50px;
@@ -4067,7 +4074,7 @@ table {
   transition: all 0.5s ease-in-out; }
 
 .tank_actions .fa-3x {
-  margin: 10px 15px 0px 15px;
+  margin: 10px 10px 0px 10px;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   color: #fff;
@@ -4093,46 +4100,7 @@ table {
   text-transform: uppercase; }
 
 .page-template-overview {
-  height: 100%;
-  /*
-
-community styles
-
-article {
-				height:auto;
-				overflow:hidden;
-				max-height:400px;
-				width:100%;
-				background:$status-blue;
-				border:0px;
-				color:$input-text;
-				padding:10px 10px 10px 10px;
-				margin:10px 0px 10px 0px;
-
-				.icon {
-					width:30px;
-					height:30px;
-					border-radius:30px;
-					background:$white;
-					float:left;
-					margin:0px 10px 0px 0px;
-				}
-				.user-info {
-					line-height: 27px;
-					margin:6px 0px 0px 0px;
-					width:100%;
-				}
-				.post-content {
-					width:100%;
-					float:none;
-					padding:10px 0px 10px 0px;
-				}
-				.post-img {
-					margin:20px 0px 20px 0px;
-				}
-		}
-
-*/ }
+  height: 100%; }
   .page-template-overview .param-table.large {
     width: 100%;
     max-width: 450px;
@@ -4176,64 +4144,119 @@ article {
       top: 0;
       opacity: 0.2;
       z-index: 44; }
-    .page-template-overview .overview_tank .journals #journal-form {
-      width: 100%; }
-    .page-template-overview .overview_tank .journals #output {
-      position: relative;
-      display: block;
-      height: auto;
-      min-height: 1px;
-      outline: none !important;
-      width: 100%;
-      background: #0c1035;
-      border: 0px;
-      color: #47caae;
-      padding: 10px 10px 10px 10px; }
-    .page-template-overview .overview_tank .journals .status {
-      position: relative;
-      display: block;
-      height: auto;
-      min-height: 90px;
-      outline: none !important;
-      width: 100%;
-      background: #0c1035;
-      border: 0px;
-      color: #47caae;
-      padding: 10px 10px 10px 10px; }
-    .page-template-overview .overview_tank .journals fieldset {
-      background: #080b25;
-      border: 0px;
-      height: auto; }
-      .page-template-overview .overview_tank .journals fieldset button {
-        float: right; }
-    .page-template-overview .overview_tank .journals article {
-      height: auto;
-      overflow: hidden;
-      max-height: 400px;
-      width: 100%;
-      background: #0c1035;
-      border: 0px;
-      color: #47caae;
-      padding: 10px 10px 10px 10px;
-      margin: 10px 0px 10px 0px; }
-      .page-template-overview .overview_tank .journals article .icon {
-        width: 30px;
-        height: 30px;
-        border-radius: 30px;
-        background: #fff;
-        float: left;
-        margin: 0px 10px 0px 0px; }
-      .page-template-overview .overview_tank .journals article .user-info {
-        line-height: 27px;
-        margin: 6px 0px 0px 0px;
-        width: 100%; }
-      .page-template-overview .overview_tank .journals article .post-content {
-        width: 100%;
-        float: none;
-        padding: 10px 0px 10px 0px; }
-      .page-template-overview .overview_tank .journals article .post-img {
-        margin: 20px 0px 20px 0px; }
 
+#journal-form {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  z-index: 99999999;
+  display: none; }
+  #journal-form select {
+    margin: 0px;
+    background: #0c1035; }
+
+#output {
+  position: relative;
+  display: block;
+  height: auto;
+  min-height: 1px;
+  outline: none !important;
+  width: 100%;
+  background: #0c1035;
+  border: 0px;
+  color: #47caae;
+  padding: 10px 10px 10px 10px; }
+
+.status {
+  position: relative;
+  display: block;
+  height: auto;
+  min-height: 90px;
+  outline: none !important;
+  width: 100%;
+  background: #0c1035;
+  border: 0px;
+  color: #47caae;
+  padding: 10px 10px 10px 10px; }
+
+fieldset {
+  background: #080b25;
+  border: 0px;
+  height: auto; }
+  fieldset button {
+    float: right; }
+
+article {
+  height: auto;
+  overflow: hidden;
+  max-height: 400px;
+  width: 100%;
+  background: #0c1035;
+  border: 0px;
+  color: #47caae;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 0px 10px 0px; }
+  article .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #fff;
+    float: left;
+    margin: 0px 10px 0px 0px; }
+  article .user-info {
+    line-height: 27px;
+    margin: 6px 0px 0px 0px;
+    width: 100%; }
+  article .post-content {
+    width: 100%;
+    float: none;
+    padding: 10px 0px 10px 0px; }
+  article .post-img {
+    margin: 20px 0px 20px 0px; }
+
+/*
+
+community styles
+
+article {
+				height:auto;
+				overflow:hidden;
+				max-height:400px;
+				width:100%;
+				background:$status-blue;
+				border:0px;
+				color:$input-text;
+				padding:10px 10px 10px 10px;
+				margin:10px 0px 10px 0px;
+
+				.icon {
+					width:30px;
+					height:30px;
+					border-radius:30px;
+					background:$white;
+					float:left;
+					margin:0px 10px 0px 0px;
+				}
+				.user-info {
+					line-height: 27px;
+					margin:6px 0px 0px 0px;
+					width:100%;
+				}
+				.post-content {
+					width:100%;
+					float:none;
+					padding:10px 0px 10px 0px;
+				}
+				.post-img {
+					margin:20px 0px 20px 0px;
+				}
+		}
+
+*/
 .full-param {
   width: 100%; }
   .full-param .param-charts {

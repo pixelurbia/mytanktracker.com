@@ -94,7 +94,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     	@include font-size(0.8);
     	transition: all 0.2s ease-in-out;
     	position: relative;
-    	padding: 13px 7px 17px 7px;
+    	padding: 13px 17px 17px 17px;
     	text-transform:uppercase;
     	color:$white;
 	&:hover {
@@ -131,8 +131,15 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     	width: 100%;
     	padding: 20px 0px 10px 24px;
     }
-    .next_level a {
-    	padding-left:40px
+    .sub_menu {
+    	border-left: 1px solid rgba(255, 255, 255, 0.37);
+    	height: 132px;
+    	display: block;
+    	margin-left: 27px;
+    	margin-top: 36px;
+    	a {
+    		padding-left:15px
+    	}
     }
 
 }
@@ -152,10 +159,11 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 .copy {
 	color:$white;
 	width:100%;
-	margin:0 auto!important;
-	position: absolute;
+	margin:10px auto!important;
+    text-align:center;
+    z-index: 999999999;
+    position: absolute;
+    bottom: 0px;
     left: 0;
     right: 0;
-    bottom: 15%;
-    text-align:center;
 }

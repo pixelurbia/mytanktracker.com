@@ -61,8 +61,11 @@ Template Name: register Page
 		<!-- <div class="step step-three"></div> -->
 	</div>
 		</div>
+		<div class="copy">
+	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
+</div>
 		</section>
 
 
-<?php get_template_part('templates/footer'); ?>
+
 

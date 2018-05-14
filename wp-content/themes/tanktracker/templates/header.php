@@ -39,7 +39,7 @@
     	
     	$current_user = wp_get_current_user(); 
     	$curuser = $current_user->ID;
-        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
+        $tank_id = $wpdb->get_var("SELECT tank_name,id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
 
     } else {
         $tank_id = $_GET['tank_id'];
@@ -50,27 +50,16 @@
 	<div class="menu-bar">
 		<div class="main-menu">
 			<a class="menu-button"><i class="fas fa-bars"></i></a>
+			<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>
 			<!-- <a class="menu-button menu-button-open">Menu</a> -->
 			<!-- <a class="menu-button menu-button-close">Close</a> -->
-			<a name="" href="/tanks" class="">My Tanks</a>	
-			<?php smart_menu($tank_id); ?>
-
-
-				
 		</div>
 
-		
-		<div class="secondary_menu">
-			
-			
-			<div class="next_level">
-				
-			</div>
+		<div class="secondary_menu">			
+			<a name="" href="/tanks" class="">My Tanks</a>
+			<?php smart_menu($tank_id); ?>
 			<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Community</a>
 
-		
-			
-			
 			<span></span>
 			
 			<a name="" href="/" class="">My Profile</a>
@@ -90,7 +79,43 @@
 			echo '<div class="global-error show">The username or password you provided did not match our records.</div>';
 		}
 			?>
+ <form id="journal-form" method="post">
+		<input type="hidden" name="action" value="add_journal">
+		<?php echo '<input type="hidden" name="tank_name" value="'.$tanks[0]->tank_name.'">' ?>
+		<?php echo '<input type="hidden" name="user_id" value="'.$curuser.'">' ?>
+		<?php wp_nonce_field('ajax_form_nonce_journal','ajax_form_nonce_journal', true, true ); ?>
+		<div contenteditable="true" class="status" id='j-status'  >
+				<i>What's goin on today?</i>
+		</div>
+		<img id="output">	
+		<input id="status-content" type="text-area" class="hide" name="journal" value="">
+		<select>
+			<option >Is this update for a specific tank?</option>
+			<?php 
+				$user_tanks = new Tanks();
+				$tanks = $user_tanks->list_of_tanks();
+				// var_dump($tanks);
+				foreach ($tanks as $tank) {
+					echo '<option value="'.$tank->id.'">'.$tank->tank_name.'</option>';
+				}	
+			 ?>
+		</select> 
+		<fieldset>
+			<label class="button tank-img" for="journal-img"><i class="fas fa-images"></i></label>
+			<input type="file" name="file_upload" id="journal-img" class="inputfile hide" accept="image/*" onchange="loadImg(event)"/>
+			<button type="submit" name="submit">
+			<i class="fas fa-paper-plane"></i>
+		</button>
+		</fieldset>
+    </form>
+
+<script type="text/javascript">
+	//script for journal output form
+	var loadImg = function(event) {
+		var output = document.getElementById('output');
+		output.src = URL.createObjectURL(event.target.files[0]);
+	};
+</script>
+
 <div class="global-error"></div>
 <div class="overlay"></div>
-
-

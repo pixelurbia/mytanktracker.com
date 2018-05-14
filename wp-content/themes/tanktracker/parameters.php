@@ -12,25 +12,21 @@ Template Name: Parameters
 
 <?php 
 
-    $current_user = wp_get_current_user(); 
-    $curuser = $current_user->ID;
-
-    if( !isset( $_GET['tank_id'] )){
-        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
-    } else {
-        $tank_id = $_GET['tank_id'];
-
-    }
+$tank_id = $_GET['tank_id'];
+$user_tanks = new Tanks();
+$tank = $user_tanks->get_tank_data($tank_id);
+$tank_id = $tank[0]->id;
+$user = $user_tanks->user_info();
 
 
     $date = '';
-    function get_params($param_type, $curuser, $tank_id) {
+    function get_params($param_type, $user, $tank_id) {
          global $wpdb;
          // global $date;
          $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $curuser 
+            WHERE user_id = $user 
             AND tank_id = $tank_id 
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date ASC
@@ -145,7 +141,7 @@ Template Name: Parameters
          $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.id, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $curuser 
+            WHERE user_id = $user 
             AND tank_id = $tank_id
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date DESC
@@ -181,23 +177,23 @@ Template Name: Parameters
 
     <section class="frame"> 
         <?php  
-            $tanks = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $curuser AND id = $tank_id");
+          
         ?>
         <div class="tank_header">
-            <h2><?php echo  $tanks[0]->tank_name ?></h2>
+            <h2><?php echo  $tank[0]->tank_name ?></h2>
             <p>
             <?php
-                if ($tanks[0]->tank_volume) {
-                    echo  '<span>Volume: '.$tanks[0]->tank_volume.' Gallons </span>';
+                if ($tank[0]->tank_volume) {
+                    echo  '<span>Volume: '.$tank[0]->tank_volume.' Gallons </span>';
                 } 
-                if ($tanks[0]->tank_dimensions){
-                    echo '<span>Dimensions: '.$tanks[0]->tank_dimensions.'</span>';
+                if ($tank[0]->tank_dimensions){
+                    echo '<span>Dimensions: '.$tank[0]->tank_dimensions.'</span>';
                 }
-                if ($tanks[0]->tank_model){
-                    echo '<span>Model: '.$tanks[0]->tank_model.'</span>';
+                if ($tank[0]->tank_model){
+                    echo '<span>Model: '.$tank[0]->tank_model.'</span>';
                 }
-                if ($tanks[0]->tank_make){
-                    echo '<span>Make: '.$tanks[0]->tank_make.'</span>'; 
+                if ($tank[0]->tank_make){
+                    echo '<span>Make: '.$tank[0]->tank_make.'</span>'; 
                 }
             ?> 
             </p>
@@ -236,13 +232,13 @@ Template Name: Parameters
                     //      from user_tank_params 
                     //      group by param_type)");8
            
-                $params_reported = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $curuser AND tank_id = $tank_id");
+                $params_reported = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = $tank_id");
 
                     //var_dump($params_reported);
                     // $salinity = array();
                         foreach($params_reported as $param_type){
                                 $param_type = $param_type->param_type;
-                                get_params($param_type,$curuser,$tank_id);
+                                get_params($param_type,$user,$tank_id);
                         }
 
                 ?>
@@ -250,7 +246,7 @@ Template Name: Parameters
 
             
         </section>
-        <div class="tank_img_bg" style="background:url(<?php echo $tanks[0]->tank_image ?>)"></div>        
+        <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>        
 
 
 
@@ -261,7 +257,7 @@ Template Name: Parameters
 
                             <input type="hidden" name="action" value="param_form">
                             <?php echo '<input type="hidden" name="tank_id" value="'.$tank_id.'">' ?>
-                            <?php echo '<input type="hidden" name="user_id" value="'.$curuser.'">' ?>
+                            <?php echo '<input type="hidden" name="user_id" value="'.$user.'">' ?>
                              <?php wp_nonce_field('ajax_form_nonce','ajax_form_nonce', true, true ); ?>
                             <input type="text" name="value" placeholder="Value">
                             <select type="select" name="type">

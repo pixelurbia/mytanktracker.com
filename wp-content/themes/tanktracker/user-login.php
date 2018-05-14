@@ -30,10 +30,11 @@ Template Name: Login Page
 	?>
 		</div>
 		</div>
-		<div class="copy">
+	<div class="copy">
 	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
 </div>
 		</section>
+			
 <?php
 
 
@@ -45,4 +46,3 @@ Template Name: Login Page
 
     ?>
 
-<?php get_template_part('templates/footer'); ?>
