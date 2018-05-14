@@ -35,18 +35,14 @@
 			 } 
 			 if ($logged_in == true){
 	
-   if( !isset( $_GET['tank_id'] )){
-    	
-    	$current_user = wp_get_current_user(); 
-    	$curuser = $current_user->ID;
-        $tank_id = $wpdb->get_var("SELECT tank_name,id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
-
-    } else {
-        $tank_id = $_GET['tank_id'];
-
-    }
+$tank_id = $_GET['tank_id'];
+$user_tanks = new Tanks();
+$tank = $user_tanks->get_tank_data($tank_id);
+$tank_id = $tank[0]->id;
+$user = $user_tanks->user_info();
  ?>
-	
+	<div class="global-error"></div>
+<div class="global-suc"></div>
 	<div class="menu-bar">
 		<div class="main-menu">
 			<a class="menu-button"><i class="fas fa-bars"></i></a>
@@ -79,13 +75,15 @@
 			echo '<div class="global-error show">The username or password you provided did not match our records.</div>';
 		}
 			?>
+
+
  <form id="journal-form" method="post">
 		<input type="hidden" name="action" value="add_journal">
 		<?php echo '<input type="hidden" name="tank_name" value="'.$tanks[0]->tank_name.'">' ?>
 		<?php echo '<input type="hidden" name="user_id" value="'.$curuser.'">' ?>
 		<?php wp_nonce_field('ajax_form_nonce_journal','ajax_form_nonce_journal', true, true ); ?>
 		<div contenteditable="true" class="status" id='j-status'  >
-				<i>What's goin on today?</i>
+				<i>What is goin on today?</i>
 		</div>
 		<img id="output">	
 		<input id="status-content" type="text-area" class="hide" name="journal" value="">
@@ -117,5 +115,5 @@
 	};
 </script>
 
-<div class="global-error"></div>
+
 <div class="overlay"></div>

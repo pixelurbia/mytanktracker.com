@@ -3247,11 +3247,11 @@ html {
   height: 45px;
   display: block;
   background: rgba(5, 7, 25, 0.84);
-  z-index: 9999; }
+  z-index: 99999; }
   .menu-bar a {
     width: auto;
     height: auto;
-    z-index: 9999;
+    z-index: 99999;
     float: left;
     font-size: 8px;
     font-size: 0.8rem;
@@ -3501,11 +3501,26 @@ blockquote {
   top: -50px;
   width: 100%;
   position: fixed;
-  z-index: 9999;
+  z-index: 99;
   color: white;
   background: #ff5c5c;
   padding: 10px;
   text-align: center;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out; }
+
+.global-suc {
+  top: 0px;
+  right: 0px;
+  height: 45px;
+  display: none;
+  z-index: 9999999;
+  width: 50%;
+  position: fixed;
+  color: white;
+  background: rgba(71, 202, 174, 0.68) !important;
+  padding: 10px;
+  text-align: left;
   font-size: 18px;
   transition: all 0.2s ease-in-out; }
 
@@ -3526,7 +3541,6 @@ blockquote {
   height: 25px;
   line-height: 13px;
   border: 1px solid #fff;
-  z-index: 9999;
   float: left;
   transition: all 0.2s ease-in-out;
   position: relative;
@@ -3805,7 +3819,7 @@ select::-ms-expand {
   right: 0;
   top: 20%;
   overflow-y: scroll;
-  z-index: 99999; }
+  z-index: 99; }
   .form-contain .error {
     font-size: 9px;
     font-size: 0.9rem;
@@ -3925,7 +3939,7 @@ input[type="submit"].btn.account-reg {
 .month {
   width: 90px;
   float: left;
-  z-index: 99999999;
+  z-index: 77;
   position: relative; }
 
 .day {
@@ -3952,7 +3966,7 @@ input[type="submit"].btn.account-reg {
   line-height: 13px;
   display: block;
   font-weight: 400;
-  z-index: 999;
+  z-index: 77;
   height: 25px;
   color: #47caae !important;
   text-align: left;
@@ -3976,7 +3990,7 @@ input[type="submit"].btn.account-reg {
   overflow: hidden;
   padding: 0px 30px 0px 10px;
   position: relative;
-  z-index: 99999; }
+  z-index: 77; }
 
 .param-chart {
   width: 300px;
@@ -3994,7 +4008,7 @@ input[type="submit"].btn.account-reg {
 
 table {
   position: relative;
-  z-index: 99999;
+  z-index: 77;
   width: 100%;
   max-width: 600px; }
   table tr th {

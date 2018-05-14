@@ -85,11 +85,11 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     height: 45px;
     display: block;
     background: rgba(5, 7, 25, 0.84);
-    z-index: 9999;
+    z-index: 99999;
 	a {
     	width: auto;
     	height: auto;
-    	z-index: 9999;
+    	z-index: 99999;
     	float: left;
     	@include font-size(0.8);
     	transition: all 0.2s ease-in-out;

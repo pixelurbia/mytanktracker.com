@@ -244,7 +244,7 @@ function get_tables(tank_id, param_type, user ){
    //          var ajax_form_data = $("#tank-form").serializeObject();
    //          console.log(ajax_form_data);
 
-   console.log('journal submited');
+   			console.log('journal submited');
 			var data = new FormData(this);
 			
 			//Form data
@@ -269,7 +269,11 @@ function get_tables(tank_id, param_type, user ){
     			contentType: false,
     			data: data,
     			success: function (data) {
-        			//success
+					$('.global-suc').html('Your update was sent.');
+					$('.global-suc').fadeToggle();
+  					$('.global-suc').delay( 2000 ).fadeToggle('slow');
+  					$('#journal-form').fadeToggle();
+  					$('#journal-form .status').html('What is goin on today?');
     			},
     			error: function (e) {
         			//error
