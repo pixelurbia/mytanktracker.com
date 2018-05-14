@@ -4146,13 +4146,13 @@ table {
       z-index: 44; }
 
 #journal-form {
-  position: absolute;
+  position: fixed;
   top: 45px;
   left: 0;
   right: 0;
   margin: 0 auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   z-index: 99999999;
   display: none; }
   #journal-form select {
