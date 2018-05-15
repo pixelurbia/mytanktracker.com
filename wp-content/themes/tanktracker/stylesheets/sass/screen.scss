@@ -54,7 +54,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 	transition: all 0.2s ease-in-out;
 }
 .global-error {
-	top: -50px;
+	top: -500px;
 	width: 100%;
     position: fixed;
     z-index: 99;
@@ -734,23 +734,25 @@ table {
 
 }
 //Journal form
-
+		#journal-form.show {
+			top: 0px;
+			transition: all 0.5s ease-in-out;
+		}
 		#journal-form {
     		position: fixed;
-    		top: 45px;
+    		top: -300px;
     		left: 0;
     		right: 0;
     		margin: 0 auto;
 			width:100%;
-			max-width:600px;
 			z-index:99999999;
-			display:none;
+			transition: all 0.5s ease-in-out;
 			
 			select {
 				margin: 0px;
     			background:$status-blue;
 			}
-		}
+	
 		#output {
 				position: relative;
 				display: block;
@@ -818,7 +820,7 @@ table {
 					margin:20px 0px 20px 0px;
 				}
 		}
-
+	}
 /*
 
 community styles

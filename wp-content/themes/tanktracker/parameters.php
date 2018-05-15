@@ -19,7 +19,6 @@ $tank_id = $tank[0]->id;
 $user = $user_tanks->user_info();
 
 
-    $date = '';
     function get_params($param_type, $user, $tank_id) {
          global $wpdb;
          // global $date;
@@ -212,7 +211,7 @@ $user = $user_tanks->user_info();
         </a>   -->
         <a href="<?php echo '/fullview?tank_id='.$tank_id;?>" class="option-btn">
             <i class="fas fa-download"></i> 
-            <i class="text">Full View</i>
+            <i class="text">View All Entries</i>
         </a>
     </div>
 
@@ -227,15 +226,9 @@ $user = $user_tanks->user_info();
         <section class="params">
                 <?php  
 
+                        $parameters = new Parameters();
+                        $params_reported = $parameters->get_param_types_list($tank_id);
 
-                    // $params = $wpdb->get_results("SELECT * from user_tank_params where (param_type, created_date) in ( select param_type, max(created_date) 
-                    //      from user_tank_params 
-                    //      group by param_type)");8
-           
-                $params_reported = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = $tank_id");
-
-                    //var_dump($params_reported);
-                    // $salinity = array();
                         foreach($params_reported as $param_type){
                                 $param_type = $param_type->param_type;
                                 get_params($param_type,$user,$tank_id);

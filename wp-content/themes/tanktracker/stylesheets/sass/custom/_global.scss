@@ -71,21 +71,27 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 	transition: all 0.2s ease-in-out;
 	background: rgba(5, 7, 25, 0.95);
 
-.menu-button-open {
-	display:none;
+	.menu-button-open {
+		display:none;
+	}
+	.menu-button-close {
+		display:block;
+	}
 }
-.menu-button-close {
-	display:block;
-}
+.menu-bar.extended {
+	top: 195px;
+	transition: all 0.5s ease-in-out;
 }
 .menu-bar { 
 	width: 100%;
+	top:0px;
     position: fixed;
     overflow:hidden;
     height: 45px;
     display: block;
     background: rgba(5, 7, 25, 0.84);
     z-index: 99999;
+    transition: all 0.5s ease-in-out;
 	a {
     	width: auto;
     	height: auto;

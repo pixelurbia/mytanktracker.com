@@ -3240,14 +3240,20 @@ html {
   .menu-bar.open .menu-button-close {
     display: block; }
 
+.menu-bar.extended {
+  top: 195px;
+  transition: all 0.5s ease-in-out; }
+
 .menu-bar {
   width: 100%;
+  top: 0px;
   position: fixed;
   overflow: hidden;
   height: 45px;
   display: block;
   background: rgba(5, 7, 25, 0.84);
-  z-index: 99999; }
+  z-index: 99999;
+  transition: all 0.5s ease-in-out; }
   .menu-bar a {
     width: auto;
     height: auto;
@@ -3498,7 +3504,7 @@ blockquote {
   transition: all 0.2s ease-in-out; }
 
 .global-error {
-  top: -50px;
+  top: -500px;
   width: 100%;
   position: fixed;
   z-index: 99;
@@ -4159,78 +4165,77 @@ table {
       opacity: 0.2;
       z-index: 44; }
 
+#journal-form.show {
+  top: 0px;
+  transition: all 0.5s ease-in-out; }
+
 #journal-form {
   position: fixed;
-  top: 45px;
+  top: -300px;
   left: 0;
   right: 0;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px;
   z-index: 99999999;
-  display: none; }
+  transition: all 0.5s ease-in-out; }
   #journal-form select {
     margin: 0px;
     background: #0c1035; }
-
-#output {
-  position: relative;
-  display: block;
-  height: auto;
-  min-height: 1px;
-  outline: none !important;
-  width: 100%;
-  background: #0c1035;
-  border: 0px;
-  color: #47caae;
-  padding: 10px 10px 10px 10px; }
-
-.status {
-  position: relative;
-  display: block;
-  height: auto;
-  min-height: 90px;
-  outline: none !important;
-  width: 100%;
-  background: #0c1035;
-  border: 0px;
-  color: #47caae;
-  padding: 10px 10px 10px 10px; }
-
-fieldset {
-  background: #080b25;
-  border: 0px;
-  height: auto; }
-  fieldset button {
-    float: right; }
-
-article {
-  height: auto;
-  overflow: hidden;
-  max-height: 400px;
-  width: 100%;
-  background: #0c1035;
-  border: 0px;
-  color: #47caae;
-  padding: 10px 10px 10px 10px;
-  margin: 10px 0px 10px 0px; }
-  article .icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 30px;
-    background: #fff;
-    float: left;
-    margin: 0px 10px 0px 0px; }
-  article .user-info {
-    line-height: 27px;
-    margin: 6px 0px 0px 0px;
-    width: 100%; }
-  article .post-content {
+  #journal-form #output {
+    position: relative;
+    display: block;
+    height: auto;
+    min-height: 1px;
+    outline: none !important;
     width: 100%;
-    float: none;
-    padding: 10px 0px 10px 0px; }
-  article .post-img {
-    margin: 20px 0px 20px 0px; }
+    background: #0c1035;
+    border: 0px;
+    color: #47caae;
+    padding: 10px 10px 10px 10px; }
+  #journal-form .status {
+    position: relative;
+    display: block;
+    height: auto;
+    min-height: 90px;
+    outline: none !important;
+    width: 100%;
+    background: #0c1035;
+    border: 0px;
+    color: #47caae;
+    padding: 10px 10px 10px 10px; }
+  #journal-form fieldset {
+    background: #080b25;
+    border: 0px;
+    height: auto; }
+    #journal-form fieldset button {
+      float: right; }
+  #journal-form article {
+    height: auto;
+    overflow: hidden;
+    max-height: 400px;
+    width: 100%;
+    background: #0c1035;
+    border: 0px;
+    color: #47caae;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 0px; }
+    #journal-form article .icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      background: #fff;
+      float: left;
+      margin: 0px 10px 0px 0px; }
+    #journal-form article .user-info {
+      line-height: 27px;
+      margin: 6px 0px 0px 0px;
+      width: 100%; }
+    #journal-form article .post-content {
+      width: 100%;
+      float: none;
+      padding: 10px 0px 10px 0px; }
+    #journal-form article .post-img {
+      margin: 20px 0px 20px 0px; }
 
 /*
 

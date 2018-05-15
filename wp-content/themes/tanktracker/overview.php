@@ -60,7 +60,7 @@ $user = $user_tanks->user_info();
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_the_excerpt();
+            		$excerpt = get_excerpt(30);
 
             		echo '<tr>';
             		echo '<td>';
@@ -88,7 +88,6 @@ $user = $user_tanks->user_info();
         echo'<br>';
 
     	$params = new Parameters();
-    	$tank_id = $tank[0]->id;
         $params->most_recent_param_list($tank_id);
 
 		 ?>

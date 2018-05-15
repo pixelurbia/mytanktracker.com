@@ -5,90 +5,36 @@ Template Name: Parameters table
 ?>
 
 
-<?php get_template_part('templates/header'); 
- 
-     ?>
-<div class="mouse-tool-tip"></div>
+<?php get_template_part('templates/header');      ?>
 
 <?php 
 
-    $current_user = wp_get_current_user(); 
-    $curuser = $current_user->ID;
+$tank_id = $_GET['tank_id'];
+$user_tanks = new Tanks();
+$tank = $user_tanks->get_tank_data($tank_id);
+$tank_id = $tank[0]->id;
+$user = $user_tanks->user_info();
+     
 
-    if( !isset( $_GET['tank_id'] )){
-        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
-    } else {
-        $tank_id = $_GET['tank_id'];
-
-    }
-        ?>
-<?php
-/*
-Template Name: Parameters
-*/
-
-    $date = '';
-    function get_params($param_type, $curuser, $tank_id) {
-         global $wpdb;
-         echo '<div class="full-param">';
-
-         // global $date;
-
-        $link = '/fullview?tank_id='.$tank_id.'&param_type='.$param_type;
-         $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.id, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
-            FROM user_tank_params
-            INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $curuser 
-            AND tank_id = $tank_id
-            ORDER BY user_tank_params.created_date DESC");
-         //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
-         // var_dump($params);
-         echo '<div class="param-table" id="table-'.$param->param_type.'">';    
-         echo '<table>';
-         echo '<tr>';
-         echo '<th>Value</th>';
-         echo '<th>Date Logged</th>';
-         echo '</tr>';
-         
-                     foreach($params as $param){
-                        echo '<tr>';
-                            echo '<td>'.$param->param_value.'</td>';
-                            echo '<td>'.$param->created_date.'</td>';
-
-                        echo '</tr>';
-                     }
-
-
-                        // echo $date;
-
-        echo '</table>';
-        echo '</div>'; 
-        echo '</div>'; 
-
-
-
-
-                     } ?>
-
+?>
+    <div class="mouse-tool-tip"></div>
     <section class="frame"> 
-         <?php  
-            $tanks = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $curuser AND id = $tank_id");
-        ?>
+
       <div class="tank_header">
-            <h2><?php echo  $tanks[0]->tank_name ?></h2>
+            <h2><?php echo  $tank[0]->tank_name ?></h2>
             <p>
             <?php
-                if ($tanks[0]->tank_volume) {
-                    echo  '<span>Volume: '.$tanks[0]->tank_volume.' Gallons </span>';
+                if ($tank[0]->tank_volume) {
+                    echo  '<span>Volume: '.$tank[0]->tank_volume.' Gallons </span>';
                 } 
-                if ($tanks[0]->tank_dimensions){
-                    echo '<span>Dimensions: '.$tanks[0]->tank_dimensions.'</span>';
+                if ($tank[0]->tank_dimensions){
+                    echo '<span>Dimensions: '.$tank[0]->tank_dimensions.'</span>';
                 }
-                if ($tanks[0]->tank_model){
-                    echo '<span>Model: '.$tanks[0]->tank_model.'</span>';
+                if ($tank[0]->tank_model){
+                    echo '<span>Model: '.$tank[0]->tank_model.'</span>';
                 }
-                if ($tanks[0]->tank_make){
-                    echo '<span>Make: '.$tanks[0]->tank_make.'</span>'; 
+                if ($tank[0]->tank_make){
+                    echo '<span>Make: '.$tank[0]->tank_make.'</span>'; 
                 }
             ?> 
             </p>
@@ -116,9 +62,33 @@ Template Name: Parameters
         
          ?>
         <section class="params">
-                <?php  get_params($param_type,$curuser,$tank_id); ?>            
+                <?php  
+                    $parameters = new Parameters();
+                $params = $parameters->get_params_order_by_created_date($param_type,$tank_id);
+                       echo '<div class="full-param">';
+
+         echo '<div class="param-table" id="table-'.$param->param_type.'">';    
+         echo '<table>';
+         echo '<tr>';
+         echo '<th>Type</th>';
+         echo '<th>Value</th>';
+         echo '<th>Date Logged</th>';
+         echo '</tr>';
+             foreach($params as $param){
+                        echo '<tr>';
+                            echo '<td>'.$param->param_name.'</td>';
+                            echo '<td>'.$param->param_value.'</td>';
+                            echo '<td>'.$param->created_date.'</td>';
+
+                        echo '</tr>';
+                     }
+
+        echo '</table>';
+        echo '</div>'; 
+        echo '</div>'; 
+?>            
         </section>
-        <div class="tank_img_bg" style="background:url(<?php echo $tanks[0]->tank_image ?>)"></div>        
+        <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>        
 
 
 <div class="form-contain">

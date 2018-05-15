@@ -59,7 +59,8 @@ $('.track-btn').click(function() {
 });
 
 $('.journals-btn').click(function() { 
-	$('#journal-form').fadeToggle();
+	$('#journal-form').toggleClass('show');
+	$('.menu-bar').toggleClass('extended');
 	$('.overlay').fadeToggle();
 });
 $('.journals .close').click(function() { 
