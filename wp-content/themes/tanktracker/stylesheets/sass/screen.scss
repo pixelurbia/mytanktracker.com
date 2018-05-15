@@ -301,7 +301,7 @@ select::-ms-expand {
     right:0;
     top:20%;
     overflow-y:scroll;
-    z-index: 99;
+    z-index: 999999;
     .error {
 		@include font-size(0.9);
 		color:$error-text;
@@ -630,7 +630,7 @@ table {
 
 }
 
-.tank_actions {
+
 		.fa-3x {
 		opacity:1;
 		transition: all 0.5s ease-in-out;
@@ -641,9 +641,10 @@ table {
 		cursor:pointer;
 		color:$white; 
 		border-radius: 35px;
-		width: 60px;
+		width: 60px!important;
 		height: 60px;
 		padding: 17px;
+		@include font-size(1.1); 
 		border:1px solid $white;  
 		transition: all 0.5s ease-in-out;
 		&:hover{
@@ -653,7 +654,7 @@ table {
 			transition: all 0.5s ease-in-out;
 		}
 	}
-}
+
 
 
 //tank_header
