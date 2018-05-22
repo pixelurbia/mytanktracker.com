@@ -15,7 +15,7 @@ Template Name: Parameters
 $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
-$tank_id = $tank[0]->id;
+$tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
 
 
@@ -26,7 +26,7 @@ $user = $user_tanks->user_info();
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $user 
-            AND tank_id = $tank_id 
+            AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date ASC
             ");
@@ -141,7 +141,7 @@ $user = $user_tanks->user_info();
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $user 
-            AND tank_id = $tank_id
+            AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date DESC
             LIMIT 5");
@@ -210,7 +210,7 @@ $user = $user_tanks->user_info();
             <i class="text">Export</i>
         </a>   -->
         <a href="<?php echo '/fullview?tank_id='.$tank_id;?>" class="option-btn">
-            <i class="fas fa-download"></i> 
+            <i class="fas fa-search"></i>
             <i class="text">View All Entries</i>
         </a>
     </div>

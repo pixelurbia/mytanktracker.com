@@ -34,7 +34,9 @@ Template Name: Login Page
 	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
 </div>
 		</section>
-			
+<video autoplay muted loop id="myVideo">
+  <source src="/wp-content/themes/tanktracker/images/fishbg.mp4" type="video/mp4">
+</video>
 <?php
 
 

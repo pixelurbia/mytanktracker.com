@@ -59,18 +59,18 @@ function set_env() {
 return($environment);
 }
 //redicted for those not logged in
-add_action( 'template_redirect', 'redirect_to_specific_page' );
-function redirect_to_specific_page() {
-    if ( is_page('register') && !is_user_logged_in() ) {
+// add_action( 'template_redirect', 'redirect_to_specific_page' );
+// function redirect_to_specific_page() {
+//     if ( is_page('register') && !is_user_logged_in() ) {
 
-    } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
-	wp_redirect( '/user-login/',301 ); 
-        // exit;
-    }
-    // } elseif { is_user_logged_in() 
+//     } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
+// 	wp_redirect( '/user-login/',301 ); 
+//         // exit;
+//     }
+//     // } elseif { is_user_logged_in() 
 
-    // }
-};
+//     // }
+// };
 
 //smart menu
 
@@ -169,7 +169,23 @@ function new_user() {
  
 }
 
+// Populate the uniKeyGen field, by creating or updating the unique key. This keeps our forms grouped together by event_id. 
+add_filter('gform_field_value_uniKeyGen', 'uni_key_gen');
 
+function uni_key_gen(){
+
+	$user = wp_get_current_user();
+	$user = $user->user_nicename;
+
+	for ($i = -1; $i <= 4; $i++) {
+		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
+		$hex   = bin2hex($bytes);
+	}
+
+	$hex = $user .'-'. $hex;
+
+	return  $hex; 
+}
 
 
 
@@ -212,8 +228,9 @@ function add_user_tank( $file = array() ) {
 		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
 		
 
-
+  $hex = uni_key_gen();
   
+  $user_id = $user->ID;
   $user_id = $user->ID;
   $tank_name = $_REQUEST['tankname'];
   $tank_type = $_REQUEST['tanktype'];
@@ -226,6 +243,7 @@ function add_user_tank( $file = array() ) {
 
   $wpdb->insert('user_tanks',array(
   'user_id'=> $user_id,
+  'tank_id'=> $hex,
   'tank_name'=> $tank_name,
   'tank_type'=> $tank_type,
   'tank_volume'=> $tank_volume,

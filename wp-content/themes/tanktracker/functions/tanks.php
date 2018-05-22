@@ -15,14 +15,14 @@ class Tanks {
 
 		$user = $this->user_info();
 
-		$tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
+		$tank_id = $wpdb->get_var("SELECT tank_id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
 
 		return $tank_id;
 	}
 
 	function get_tank_data($tank_id) {
 	
-		if( !isset( $tank_id)){
+		if( !isset($tank_id)){
        		 $tank_id = $this->first_tank();
     	} else {
         	$tank_id = $_GET['tank_id'];
@@ -31,7 +31,7 @@ class Tanks {
 		$user = $this-> user_info();
 
 		global $wpdb;			
-		$tank = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $user AND id = $tank_id");
+		$tank = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
 		
 		// echo $tank_id;
 		// echo $user;
@@ -44,7 +44,7 @@ class Tanks {
 		$user = $this->user_info();
 
 		global $wpdb;			
-		$tanks = $wpdb->get_results("SELECT id,tank_name FROM user_tanks WHERE user_id = $user");
+		$tanks = $wpdb->get_results("SELECT tank_id,tank_name FROM user_tanks WHERE user_id = $user");
 		
 		return $tanks;
 	}

@@ -126,6 +126,8 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 	float: left;
     width: 100%;
     display: block;
+    padding-top:10px;
+
     a {
 		float: left;
     	width: 100%;
@@ -172,4 +174,13 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     bottom: 0px;
     left: 0;
     right: 0;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    absolute:99999999;
+    min-width: 100%; 
+    min-height: 100%;
 }

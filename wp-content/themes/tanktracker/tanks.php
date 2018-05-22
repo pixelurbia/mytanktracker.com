@@ -44,10 +44,10 @@ Template Name: Tanks
 												 ?>
 											</p>
 								<div class="tank_actions">
-									<a  href="/overview/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-list-alt"></i></a>
-									<a  href="/parameters/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-flask"></i></a>
-									<a  href="/stock/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-tint"></i></a>
-									<a  href="/equipment/?tank_id=<?php echo $tank->id ?>"><i class="fas fa-3x fa-bolt"></i></a>
+									<a  href="/overview/?tank_id=<?php echo $tank->tank_id ?>"><i class="fas fa-3x fa-list-alt"></i></a>
+									<a  href="/parameters/?tank_id=<?php echo $tank->tank_id ?>"><i class="fas fa-3x fa-flask"></i></a>
+									<a  href="/stock/?tank_id=<?php echo $tank->tank_id ?>"><i class="fas fa-3x fa-tint"></i></a>
+									<a  href="/equipment/?tank_id=<?php echo $tank->tank_id ?>"><i class="fas fa-3x fa-bolt"></i></a>
 								</div>
 								</div>
 								

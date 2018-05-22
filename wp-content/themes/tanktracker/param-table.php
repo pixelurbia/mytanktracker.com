@@ -12,7 +12,7 @@ Template Name: Parameters table
 $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
-$tank_id = $tank[0]->id;
+$tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
      
 

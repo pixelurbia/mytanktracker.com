@@ -13,7 +13,7 @@ Template Name: Overview
 $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
-$tank_id = $tank[0]->id;
+$tank_id = $tank[0]->tank_id;	
 $user = $user_tanks->user_info();
 ?>
 
@@ -81,12 +81,6 @@ $user = $user_tanks->user_info();
 	<section class="timeline third">
 			<h3>Recent Parameters</h3>
 		<?php 
-
-
-      	$cal = new Calendar();
-        $cal->days_with_events();
-        echo'<br>';
-
     	$params = new Parameters();
         $params->most_recent_param_list($tank_id);
 

@@ -19,7 +19,7 @@ class Parameters {
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $user
-            AND tank_id = $tank_id
+            AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date DESC
             LIMIT $limit");
@@ -32,7 +32,7 @@ class Parameters {
 		 $user = $this->user_info();
      	 
      	 global $wpdb;
-     	 $get_param_types_list = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = $tank_id");
+     	 $get_param_types_list = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = '$tank_id'");
 
      	 return $get_param_types_list;
      }	
@@ -42,8 +42,8 @@ class Parameters {
 		$user = $this->user_info();
 	
 		global $wpdb;
-		$params_reported = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = $tank_id");
-		echo '<div class="param-table large" >';
+		$params_reported = $wpdb->get_results("SELECT DISTINCT param_type FROM user_tank_params WHERE user_id = $user AND tank_id = '$tank_id'");
+
 		echo '<table>';
 		echo '<tr>';
 		echo '<th>Parameter</th>';
@@ -65,7 +65,7 @@ class Parameters {
 			}                    
 		echo '</table>';
 		echo '</div>'; 
-		echo '</div>'; 
+
 
 	}
 
@@ -82,7 +82,7 @@ class Parameters {
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $user 
-            AND tank_id = $tank_id 
+            AND tank_id = '$tank_id'
             $param_type
             ORDER BY user_tank_params.created_date ASC
             $limit
