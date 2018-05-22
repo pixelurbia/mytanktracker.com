@@ -59,18 +59,18 @@ function set_env() {
 return($environment);
 }
 //redicted for those not logged in
-// add_action( 'template_redirect', 'redirect_to_specific_page' );
-// function redirect_to_specific_page() {
-//     if ( is_page('register') && !is_user_logged_in() ) {
+add_action( 'template_redirect', 'redirect_to_specific_page' );
+function redirect_to_specific_page() {
+    if ( is_page('register') && !is_user_logged_in() ) {
 
-//     } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
-// 	wp_redirect( '/user-login/',301 ); 
-//         // exit;
-//     }
-//     // } elseif { is_user_logged_in() 
+    } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
+	wp_redirect( '/user-login/',301 ); 
+        // exit;
+    }
+    // } elseif { is_user_logged_in() 
 
-//     // }
-// };
+    // }
+};
 
 //smart menu
 
