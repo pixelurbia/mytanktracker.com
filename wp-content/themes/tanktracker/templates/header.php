@@ -38,7 +38,6 @@
 $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
-var_dump($tank);
 $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
  ?>
