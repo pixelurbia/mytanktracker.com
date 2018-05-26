@@ -3241,7 +3241,7 @@ html {
     display: block; }
 
 .menu-bar.extended {
-  top: 195px;
+  top: 196px;
   transition: all 0.5s ease-in-out; }
 
 .menu-bar {
@@ -3324,11 +3324,20 @@ html {
   left: 0;
   right: 0; }
 
+.pattern {
+  background: url(../images/vid-pattern.png);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  opacity: 0.5;
+  min-width: 100%;
+  min-height: 100%; }
+
 #myVideo {
   position: fixed;
   right: 0;
   bottom: 0;
-  absolute: 99999999;
   min-width: 100%;
   min-height: 100%; }
 
@@ -3822,19 +3831,25 @@ select::-ms-expand {
 .form-contain.tanks {
   height: 500px; }
 
+.form-contain.show {
+  top: 0;
+  opacity: 1;
+  transition: all 0.5s ease-in-out; }
+
 .form-contain {
-  background: rgba(11, 13, 49, 0.86);
-  width: 300px;
-  height: 250px;
-  display: none;
+  background: rgba(5, 7, 25, 0.84);
+  width: 100%;
+  height: 197px;
   position: fixed;
   padding: 20px;
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: 20%;
+  opacity: 0;
+  top: -200px;
   overflow-y: scroll;
-  z-index: 999999; }
+  z-index: 999999;
+  transition: all 0.5s ease-in-out; }
   .form-contain .error {
     font-size: 9px;
     font-size: 0.9rem;
@@ -3842,7 +3857,7 @@ select::-ms-expand {
 
 .param-form {
   width: 240px;
-  padding: 50px 0px 0px 30px; }
+  padding: 10px 0px 0px 30px; }
 
 .overlay {
   background: rgba(11, 13, 49, 0.36);
@@ -4023,6 +4038,35 @@ table {
       background: rgba(238, 238, 238, 0.08);
       color: #47caae; }
 
+.filters {
+  width: 100%;
+  float: left;
+  display: none; }
+
+.hasDatepicker {
+  width: auto !important;
+  padding: 4px !important;
+  float: left !important;
+  margin-right: 10px !important; }
+
+.ui-datepicker {
+  background: rgba(5, 7, 25, 0.84) !important;
+  padding: 10px; }
+
+.ui-datepicker-calendar {
+  width: 230px; }
+  .ui-datepicker-calendar th {
+    max-width: 50px !important; }
+
+.ui-datepicker-prev {
+  float: left !important; }
+
+.ui-datepicker-next {
+  float: right !important; }
+
+.ui-datepicker-title {
+  text-align: center !important; }
+
 .a_tank {
   width: 50%;
   margin: 0px;
@@ -4158,11 +4202,13 @@ table {
 
 #journal-form.show {
   top: 0px;
+  opacity: 1;
   transition: all 0.5s ease-in-out; }
 
 #journal-form {
   position: fixed;
-  top: -300px;
+  opacity: 0;
+  top: -200px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -4171,33 +4217,40 @@ table {
   transition: all 0.5s ease-in-out; }
   #journal-form select {
     margin: 0px;
-    background: #0c1035; }
+    background: #0c1035;
+    display: none; }
+  #journal-form .img-contain {
+    position: absolute;
+    z-index: 999999999;
+    width: 40px;
+    height: 40px;
+    border-radius: 70px;
+    left: 71px;
+    top: 148px;
+    overflow: hidden; }
   #journal-form #output {
     position: relative;
     display: block;
-    height: auto;
-    min-height: 1px;
     outline: none !important;
     width: 100%;
-    background: #0c1035;
     border: 0px;
     color: #47caae;
-    padding: 10px 10px 10px 10px; }
+    min-width: 120px; }
   #journal-form .status {
     position: relative;
     display: block;
-    height: auto;
-    min-height: 90px;
+    overflow-y: auto;
+    height: 140px;
     outline: none !important;
     width: 100%;
-    background: #0c1035;
+    background: rgba(5, 7, 25, 0.84);
     border: 0px;
     color: #47caae;
     padding: 10px 10px 10px 10px; }
   #journal-form fieldset {
-    background: #080b25;
+    background: rgba(5, 7, 25, 0.84);
     border: 0px;
-    height: auto; }
+    height: 56px; }
     #journal-form fieldset button {
       float: right; }
   #journal-form article {
@@ -4327,3 +4380,6 @@ section.frame.post .tags {
       margin: 0px 8px 0px 0px;
       padding: 3px 8px 3px 8px;
       border-radius: 19px; }
+
+#datepicker {
+  width: 200px; }

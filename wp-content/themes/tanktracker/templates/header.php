@@ -9,9 +9,9 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<link rel="shortcut icon" href=""/>
 	<link rel="icon" type="image/x-icon" href="" />
-
+  	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 	<script src="<?php echo get_template_directory_uri(); ?>/js/master.js"></script>
@@ -37,7 +37,7 @@
 	
 $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
-$tank = $user_tanks->get_tank_data($tank_id);
+$tank = $user_tanks->get_tank_data($tank_id);	
 $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
  ?>
@@ -82,10 +82,13 @@ $user = $user_tanks->user_info();
 		<?php echo '<input type="hidden" name="tank_name" value="'.$tanks[0]->tank_name.'">' ?>
 		<?php echo '<input type="hidden" name="user_id" value="'.$curuser.'">' ?>
 		<?php wp_nonce_field('ajax_form_nonce_journal','ajax_form_nonce_journal', true, true ); ?>
+			
 		<div contenteditable="true" class="status" id='j-status'  >
-				<i>What is goin on today?</i>
+		<i>What is goin on today?</i>
 		</div>
-		<img id="output">	
+		<div class="img-contain">
+			<img id="output">	
+		</div>
 		<input id="status-content" type="text-area" class="hide" name="journal" value="">
 		<select>
 			<option >Is this update for a specific tank?</option>

@@ -20,6 +20,10 @@ $(document).ready(function() {
 
 // });
 
+//date picker
+$( "#datepicker-to" ).datepicker();
+$( "#datepicker-from" ).datepicker();
+
 //tooltip
 
 var tooltipSpan = $('.mouse-tool-tip');
@@ -54,14 +58,18 @@ $('.menu-button').click(function(event) {
 });
 
 $('.track-btn').click(function() { 
-	$('.form-contain').fadeToggle();
+	$('.form-contain').toggleClass('show');
 	$('.overlay').fadeToggle();
+	$('.menu-bar').toggleClass('extended');
 });
 
 $('.journals-btn').click(function() { 
 	$('#journal-form').toggleClass('show');
 	$('.menu-bar').toggleClass('extended');
 	$('.overlay').fadeToggle();
+});
+$('.param-filters').click(function() { 
+	$('.filters').fadeToggle();
 });
 $('.journals .close').click(function() { 
 	$('.journals.form-contain').fadeToggle();
@@ -228,8 +236,10 @@ function get_tables(tank_id, param_type, user ){
 		data,
 		function(data) { 
 		// location.reload();
-		console.log('this working?');
+		// console.log('this working?');
+		$('.menu-bar').toggleClass('extended');
 		$('#table-'+param_type).html(data);
+		$('.form-contain').toggleClass('show');
 	})
 
 }

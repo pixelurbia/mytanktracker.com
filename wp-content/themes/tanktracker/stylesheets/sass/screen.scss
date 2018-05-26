@@ -289,19 +289,25 @@ select::-ms-expand {
 .form-contain.tanks {
     height: 500px;}
 
+.form-contain.show {
+	top:0;
+	opacity:1;
+	transition: all 0.5s ease-in-out;
+}
 .form-contain {
-	background: rgba(11, 13, 49, 0.86);;
-    width: 300px;
-    height: 250px;;
-    display: none;
+	background: $menu;
+    width: 100%;
+    height: 197px;
     position: fixed;
     padding: 20px;
     margin:0 auto;
     left:0;
     right:0;
-    top:20%;
+    opacity:0;
+    top:-200px;
     overflow-y:scroll;
     z-index: 999999;
+    transition: all 0.5s ease-in-out;
     .error {
 		@include font-size(0.9);
 		color:$error-text;
@@ -310,7 +316,7 @@ select::-ms-expand {
 //param form
 .param-form {
 	width: 240px;
-    padding: 50px 0px 0px 30px;
+    padding: 10px 0px 0px 30px;
 }
 
 
@@ -532,6 +538,41 @@ table {
 	}
 }
 
+.filters {
+	width: 100%;
+    float: left;
+    display:none;
+}
+.hasDatepicker {
+	    width: auto!important;
+   		 padding: 4px!important;
+   		 float:left!important;
+   		 margin-right:10px!important;
+
+}
+.ui-datepicker {
+	background: $menu!important;
+	padding:10px;
+}
+
+.ui-datepicker-calendar {
+	width:230px;
+	
+ th {
+	max-width: 50px!important;
+}
+
+}
+.ui-datepicker-prev {
+	float:left!important;
+}
+.ui-datepicker-next {
+	float:right!important;
+}
+.ui-datepicker-title {
+	text-align:center!important;
+}
+
 //Tank Selection page
 
 .a_tank {
@@ -714,11 +755,13 @@ table {
 //Journal form
 		#journal-form.show {
 			top: 0px;
+			opacity:1;
 			transition: all 0.5s ease-in-out;
 		}
 		#journal-form {
     		position: fixed;
-    		top: -300px;
+    		opacity:0;
+    		top: -200px;
     		left: 0;
     		right: 0;
     		margin: 0 auto;
@@ -729,36 +772,44 @@ table {
 			select {
 				margin: 0px;
     			background:$status-blue;
+    			display:none;
 			}
 	
+		.img-contain {
+    position: absolute;
+    z-index: 999999999;
+    width: 40px;
+    height: 40px;
+    border-radius: 70px;
+    left: 71px;
+    top: 148px;
+    overflow: hidden;
+		}
 		#output {
-				position: relative;
-				display: block;
-				height: auto;
-				min-height: 1px;
-				outline: none!important;
-				width:100%;
-				background:$status-blue;
-				border:0px;
-				color:$input-text;
-				padding:10px 10px 10px 10px;
+	    position: relative;
+    display: block;
+    outline: none !important;
+    width: 100%;
+    border: 0px;
+    color: #47caae;
+    min-width: 120px;
 		}
 		.status {
 				position: relative;
 				display: block;
-				height: auto;
-				min-height: 90px;
+				overflow-y: auto;
+				height: 140px;
 				outline: none!important;
 				width:100%;
-				background:$status-blue;
+				background: $menu;
 				border:0px;
 				color:$input-text;
 				padding:10px 10px 10px 10px;
 			}		
 			fieldset {
-				background:#080b25;
+				background: $menu;
 				border:0px;
-				height:auto;
+				height:56px;
 				button {
 					float:right;
 
@@ -925,5 +976,7 @@ article {
 		}
 	}
 
-	
+#datepicker {
+	width:200px;
+}	
 

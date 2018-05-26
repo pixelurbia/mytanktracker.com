@@ -29,6 +29,7 @@ $user = $user_tanks->user_info();
             AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date ASC
+            LIMIT 5
             ");
          //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
          // var_dump($params);
@@ -201,7 +202,7 @@ $user = $user_tanks->user_info();
             <i class="fas fa-flask"></i> 
             <i class="text">Track</i>
         </a>
-        <a class="option-btn">
+        <a class="option-btn param-filters">
             <i class="fas fa-cog"></i> 
             <i class="text">Filter</i>
         </a>
@@ -214,6 +215,10 @@ $user = $user_tanks->user_info();
             <i class="text">View All Entries</i>
         </a>
     </div>
+<div class="filters">
+    <p><input type="text" id="datepicker-from" placeholder="Date From">
+        <input type="text" id="datepicker-to" placeholder="Date To"></p>
+</div>
 
 
         </section>

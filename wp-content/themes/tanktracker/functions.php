@@ -302,7 +302,7 @@ function get_table_data() {
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $curuser 
-            AND tank_id = $tank_id
+            AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date DESC
             LIMIT 5");
@@ -328,6 +328,7 @@ function get_table_data() {
         $output .= '</table>';
 
 	echo $output;
+	die();
 }
  
 

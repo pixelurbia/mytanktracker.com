@@ -11,6 +11,8 @@ $lightblue:#498fe1;
 $medblue:#021636;
 $type: #5c5b5c;
 
+$menu:rgba(5, 7, 25, 0.84);
+
 $darkblue:#04072b;
 
 $bg-blue: #050719;
@@ -79,7 +81,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 	}
 }
 .menu-bar.extended {
-	top: 195px;
+	top: 196px;
 	transition: all 0.5s ease-in-out;
 }
 .menu-bar { 
@@ -89,7 +91,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     overflow:hidden;
     height: 45px;
     display: block;
-    background: rgba(5, 7, 25, 0.84);
+    background: $menu;
     z-index: 99999;
     transition: all 0.5s ease-in-out;
 	a {
@@ -175,12 +177,20 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     left: 0;
     right: 0;
 }
-
+.pattern {
+	background:url(../images/vid-pattern.png);
+	position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index:9;
+    opacity:0.5;
+    min-width: 100%; 
+    min-height: 100%;
+}
 #myVideo {
     position: fixed;
     right: 0;
     bottom: 0;
-    absolute:99999999;
     min-width: 100%; 
     min-height: 100%;
 }
