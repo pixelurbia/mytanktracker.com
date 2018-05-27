@@ -63,7 +63,7 @@ Template Name: Tanks
 									</div>
 									</div>
 
-<div class="form-contain tanks">
+<div class="form-contain add-tank-form">
 		<script type="text/javascript">
 		//img preview
 		var loadFile = function(event) {
@@ -73,16 +73,16 @@ Template Name: Tanks
 	</script>
     <a class="add-tank param-close"><i class="fas fa-times"></i></a>
 	<form id="tank-form">
-				<input type="text" name="tankname" value="" placeholder="Tank Name" class="form-control tank-name" />
-				<select type="text" name="tanktype" value="" placeholder="Tank Type" class="form-control">
+				<input type="text" name="tankname"  placeholder="Tank Name" class="form-control tank-name" />
+				<select type="text" name="tanktype"  placeholder="Tank Type" class="form-control">
 					<option>Tank Type</option>
 					<option>Fresh Water</option>
 					<option>Salt Water</option>
 				</select>
-				<input type="text" name="volume" value="" placeholder="Tank Total Volume" class="form-control" />
-				<input type="text" name="dimensions" value="" placeholder="Tank Dimensions" class="form-control" />
-				<input type="text" name="model" value="" placeholder="Tank Model" class="form-control" />
-				<input type="text" name="make" value="" placeholder="Tank Make" class="form-control" />
+				<input type="text" name="volume"  placeholder="Tank Total Volume" class="form-control" />
+				<input type="text" name="dimensions"  placeholder="Tank Dimensions" class="form-control" />
+				<input type="text" name="model"  placeholder="Tank Model" class="form-control" />
+				<input type="text" name="make"  placeholder="Tank Make" class="form-control" />
 				<!-- <input id="tank-img" type="file" name="file_upload"> -->
 				<img id="tank-output">
 				<label class="btn tank-img" for="tank-img">Upload a tank photo</label>

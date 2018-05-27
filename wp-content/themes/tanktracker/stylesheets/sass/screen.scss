@@ -57,7 +57,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 	top: -500px;
 	width: 100%;
     position: fixed;
-    z-index: 99;
+    z-index: 99999;
     color: white;
     background: #ff5c5c;
     padding: 10px;
@@ -287,7 +287,10 @@ select::-ms-expand {
 	}
 }
 .form-contain.tanks {
-    height: 500px;}
+    height: 500px;
+    top: 0px;
+    opacity: 1;
+}
 
 .form-contain.show {
 	top:0;
@@ -311,6 +314,9 @@ select::-ms-expand {
     .error {
 		@include font-size(0.9);
 		color:$error-text;
+    }
+    #tank-output {
+    	width:200px;
     }
 }
 //param form

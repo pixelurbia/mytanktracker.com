@@ -3240,6 +3240,10 @@ html {
   .menu-bar.open .menu-button-close {
     display: block; }
 
+.menu-bar.extended-more {
+  transition: all 0.5s ease-in-out;
+  top: 500px; }
+
 .menu-bar.extended {
   top: 196px;
   transition: all 0.5s ease-in-out; }
@@ -3525,7 +3529,7 @@ blockquote {
   top: -500px;
   width: 100%;
   position: fixed;
-  z-index: 99;
+  z-index: 99999;
   color: white;
   background: #ff5c5c;
   padding: 10px;
@@ -3829,7 +3833,9 @@ select::-ms-expand {
     float: none; }
 
 .form-contain.tanks {
-  height: 500px; }
+  height: 500px;
+  top: 0px;
+  opacity: 1; }
 
 .form-contain.show {
   top: 0;
@@ -3854,6 +3860,8 @@ select::-ms-expand {
     font-size: 9px;
     font-size: 0.9rem;
     color: #ff6363; }
+  .form-contain #tank-output {
+    width: 200px; }
 
 .param-form {
   width: 240px;

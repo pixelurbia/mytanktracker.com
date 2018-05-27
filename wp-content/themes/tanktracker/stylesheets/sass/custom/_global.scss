@@ -80,6 +80,10 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 		display:block;
 	}
 }
+.menu-bar.extended-more {
+	transition: all 0.5s ease-in-out;
+	top: 500px;
+}
 .menu-bar.extended {
 	top: 196px;
 	transition: all 0.5s ease-in-out;

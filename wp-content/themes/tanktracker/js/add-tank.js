@@ -15,23 +15,25 @@ $(document).ready(function() {
 
 //show the add tank form on the tanks page
   $('.add-tank').click(function() { 
-    $('.form-contain').fadeToggle();
+    $('.add-tank-form').toggleClass('tanks');
     $('.overlay').fadeToggle();
+    $('.menu-bar').toggleClass('extended-more');
   }); 
+  
 
 //Add Tank register
     $( '#tank-form' ).submit( function( event ) {
             
       event.preventDefault(); // Prevent the defau
       //form validation 
-      var tank_name = $('#tank-form .tank-name').val();
+      // var tank_name = $('#tank-form .tank-name').val();
 
-      if (tank_name == null) {
-             $('.global-error').html('Your tank needs a name.');
+      if (!$('#tank-form .tank-name').val()) {
+                         $('.global-error').html('Your tank needs a name.');
              $('.global-error').addClass('show');
             return;
         } else {
-             $('.global-error').removeClass('show');
+                 $('.global-error').removeClass('show');
         }
 
       var username = $('#regi-form .username').val();
