@@ -3952,7 +3952,8 @@ input[type="submit"].btn.account-reg {
   overflow: hidden; }
 
 .page-template-param-table .monthly-updates, .page-template-parameters .monthly-updates {
-  padding: 11px 0px 0px 20px; }
+  padding: 43px 0px 0px 0px;
+  height: 90px; }
 
 .month {
   width: 90px;
@@ -4015,7 +4016,7 @@ input[type="submit"].btn.account-reg {
   height: 150px;
   display: block;
   float: left;
-  margin: 30px 40px 0px 0px; }
+  margin: 10px 40px 0px 0px; }
 
 .param-table {
   padding-top: 50px;
@@ -4047,9 +4048,11 @@ table {
       color: #47caae; }
 
 .filters {
-  width: 100%;
-  float: left;
-  display: none; }
+  width: 340px;
+  float: none;
+  margin: 13px 0px 0px 0px;
+  z-index: 999;
+  position: relative; }
 
 .hasDatepicker {
   width: auto !important;

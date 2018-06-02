@@ -6,174 +6,13 @@ Template Name: Parameters
 
 
 <?php get_template_part('templates/header'); 
- 
-     ?>
-<div class="mouse-tool-tip"></div>
-
-<?php 
-
-$tank_id = $_GET['tank_id'];
+ $tank_id = $_GET['tank_id'];
 $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
-
-
-    function get_params($param_type, $user, $tank_id) {
-         global $wpdb;
-         // global $date;
-         $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
-            FROM user_tank_params
-            INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $user 
-            AND tank_id = '$tank_id'
-            AND user_tank_params.param_type = $param_type
-            ORDER BY user_tank_params.created_date ASC
-            LIMIT 5
-            ");
-         //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
-         // var_dump($params);
-         echo '<div class="aparam">';
-         echo '<div class="param-chart">';
-                $parameters = array();
-                foreach($params as $param){
-                        $parameters['parameter'][0] = array(
-                            'name' => $param->param_name,
-                            'short_name' => $param->param_short,
-                            'type' => $param->param_type
-                    );
-                        $parameters['values'][] = array(
-                           'date' => $param->created_date,
-                            'value' => $param->param_value
-                        );
-
-                     }
-
-                    $param_values = $parameters['values'];
-
-                  
-                     echo '<p class="name">'.$parameters['parameter'][0]['name'] .'</p>';
-                     $chart_name = 'chart'.$parameters['parameter'][0]['type'];
-                     $chart_long_name = $parameters['parameter'][0]['name'];
-                     $chart_id = utf8_encode($parameters['parameter'][0]['short_name']);
-                        foreach($param_values as $param_value) {
-                                        // var_dump($param_value);
-                            $originalDate = $param_value['date'];
-                            $newDate = date("m-d-y", strtotime($originalDate));
-                            $date .= '"'.$newDate.'", ';
-                            $value .= $param_value['value'].', ';
-                                    // echo  .' '. $param_value['short'];
-                        }
-                        // echo $date;
-                        ?>
-                        <canvas id="<?php echo $chart_name ?>" class="a-chart" width="auto" height="auto"></canvas>
-                        <script>
-                        var ctx = document.getElementById(<?php echo json_encode($chart_name) ?>);
-                        var <?php echo $chart_name ?> = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                labels: [<?php echo $date ?>],
-                                datasets: [{
-                                    label: <?php echo json_encode($chart_long_name) ?>,
-                                    data: [<?php echo $value ?>],
-                                        backgroundColor: [
-                                        'rgba(255, 255, 255, 0  )',
-                                        'rgba(255, 255, 255, 0)',
-                                        'rgba(255, 255, 255, 0)',
-                                        'rgba(255, 255, 255, 0)',
-                                        'rgba(255, 255, 255, 0)',
-                                        'rgba(255, 255, 255, 0)'
-                                        ],
-                                        borderWidth: 1,
-                                    fill: [false],
-                                    borderColor: ['rgb(75, 192, 192)'],
-                                    lineTension: 1
-                                }]
-                            },
-                            options: {
-                                 layout: {
-                                        padding: {
-                                  left: 10,
-                                  right: 10,
-                                  top: 10,
-                                  bottom: 10
-                                   }
-                                  },
-                                responsive: false,
-                                legend: { 
-                                    display: false,
-                                },
-                                 scales: {
-                                    xAxes: [{
-                                        display: false,
-                                        gridLines: {
-                                         display: false,
-                                         drawTicks: false,
-                                         color:"rgba(255, 255, 255, 0)"
-                                        },
-
-                                        ticks: {
-                                            display: false
-                                            }
-                                    }],
-                                    yAxes: [{
-                                        display: true,
-                                        gridLines: {
-                                            display: true,
-                                            drawTicks: false,
-                                            drawBorder: false,
-                                            color:"rgba(255, 255, 255, 0.1)"
-                                        },
-                                        ticks: {
-                                            display: false,
-                                            maxTicksLimit: 5
-                                            }
-                                    }]
-                                    }
-                            }
-                        });
-                        </script>
-<?php 
- echo '</div>';
- global $wpdb;
-         // global $date;
-
-         $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.id, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
-            FROM user_tank_params
-            INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $user 
-            AND tank_id = '$tank_id'
-            AND user_tank_params.param_type = $param_type
-            ORDER BY user_tank_params.created_date DESC
-            LIMIT 5");
-         //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
-         // var_dump($params);
-         echo '<div class="param-table " id="table-'.$param->param_type.'">';
-         echo '<table>';
-         echo '<tr>';
-         echo '<th>Value</th>';
-         echo '<th>Date Logged</th>';
-         echo '</tr>';
-         
-                     foreach($params as $param){
-                        echo '<tr>';
-                            echo '<td>'.$param->param_value.'</td>';
-                            echo '<td>'.$param->created_date.'</td>';
-
-                        echo '</tr>';
-                     }
-
-
-                        // echo $date;
-
-        echo '</table>';
-        echo '</div>'; 
-        echo '</div>'; 
-
-
-
-
-                     } ?>
+     ?>
+<div class="mouse-tool-tip"></div>
 
     <section class="frame"> 
         <?php  
@@ -202,10 +41,6 @@ $user = $user_tanks->user_info();
             <i class="fas fa-flask"></i> 
             <i class="text">Track</i>
         </a>
-        <a class="option-btn param-filters">
-            <i class="fas fa-cog"></i> 
-            <i class="text">Filter</i>
-        </a>
      <!--     <a class="option-btn">
             <i class="fas fa-download"></i> 
             <i class="text">Export</i>
@@ -215,36 +50,25 @@ $user = $user_tanks->user_info();
             <i class="text">View All Entries</i>
         </a>
     </div>
-<div class="filters">
-    <p><input type="text" id="datepicker-from" placeholder="Date From">
-        <input type="text" id="datepicker-to" placeholder="Date To"></p>
-</div>
-
-
-        </section>
         <?php 
 
       $cal = new Calendar();
         $cal->days_with_events();
         echo'<br>';
          ?>
-        <section class="params">
-                <?php  
+    <div class="filters">
+        <input type="text" id="datepicker-from" placeholder="Date From">
+        <input type="text" id="datepicker-to" placeholder="Date To">
+        <a class="option-btn param-filters">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
 
-                        $parameters = new Parameters();
-                        $params_reported = $parameters->get_param_types_list($tank_id);
-
-                        foreach($params_reported as $param_type){
-                                $param_type = $param_type->param_type;
-                                get_params($param_type,$user,$tank_id);
-                        }
-
-                ?>
-
-
-            
-        </section>
-        <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>        
+</section>
+<section class="parameter_overview">
+    <?php get_template_part('param-que');  ?>
+</section>
+<div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>        
 
 
 

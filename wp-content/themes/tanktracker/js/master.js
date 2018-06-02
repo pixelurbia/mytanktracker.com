@@ -68,9 +68,7 @@ $('.journals-btn').click(function() {
 	$('.menu-bar').toggleClass('extended');
 	$('.overlay').fadeToggle();
 });
-$('.param-filters').click(function() { 
-	$('.filters').fadeToggle();
-});
+
 $('.journals .close').click(function() { 
 	$('.journals.form-contain').fadeToggle();
 	$('.overlay').fadeToggle();
@@ -390,6 +388,22 @@ $('#j-status').focusout(function() {
 
 });
 
+//get URL params
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 
 // $.validator.addMethod("valueNotEquals", function(value, element, arg){
 //   return arg !== value;
@@ -404,6 +418,28 @@ $('#j-status').focusout(function() {
 //    SelectName: { valueNotEquals: "Please select an item!" }
 //   }  
 //  });
+
+//parameters filters
+$('.param-filters').click(function() { 
+console.log('start');
+    var date_start = $('#datepicker-from').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
+    var date_end = $('#datepicker-to').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
+    var tank_id = getUrlParameter('tank_id');
+    var url = "/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end;
+    console.log(url);
+  var filter = $(this).attr('value');
+    $.ajax({
+            url:"/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end,
+            // url:"paramque?tank_id=admin-11111",
+          success: function(data){
+          	console.log('working');
+          	console.log(data);
+                //is this even working?
+                $('.parameter_overview').html(data);
+            }
+        }); // end ajax call
+    });
+
 
 
 
