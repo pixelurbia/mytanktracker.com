@@ -142,6 +142,8 @@ margin-right:10px;
 			display:none;
 			}}}
 
+
+
 //frame
 .wrap.open {
 	margin: 0px 0px 0px 200px;
@@ -584,6 +586,19 @@ table {
 }
 
 //Tank Selection page
+
+.edit-tank {
+	@include font-size(0.9); 
+	opacity:0.4;
+	width: 30px;
+    height: 13px;
+    margin: 0px 0px 19px -10px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+    	opacity:1;
+    	transition: all 0.5s ease-in-out;
+    }
+}
 
 .a_tank {
 	width: 50%;

@@ -4078,6 +4078,18 @@ table {
 .ui-datepicker-title {
   text-align: center !important; }
 
+.edit-tank {
+  font-size: 9px;
+  font-size: 0.9rem;
+  opacity: 0.4;
+  width: 30px;
+  height: 13px;
+  margin: 0px 0px 19px -10px;
+  transition: all 0.5s ease-in-out; }
+  .edit-tank:hover {
+    opacity: 1;
+    transition: all 0.5s ease-in-out; }
+
 .a_tank {
   width: 50%;
   margin: 0px;

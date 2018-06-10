@@ -26,7 +26,11 @@ Template Name: Tanks
                         	?>
                         	<div class="a_tank select_tank">
 									<div class="content">
-										<h2><?php echo  $tank->tank_name ?></h2>
+										<h2><?php echo  $tank->tank_name ?>
+											<i class="fas edit-tank fa-edit"></i>
+										</h2>
+
+           										
 											<p>
 											<?php 
 												if ($tank->tank_volume) {

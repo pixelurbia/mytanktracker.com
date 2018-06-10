@@ -61,7 +61,7 @@ $user = $user_tanks->user_info();
         <input type="text" id="datepicker-to" placeholder="Date To">
         <a class="option-btn param-filters">
             <i class="fas fa-arrow-right"></i>
-        </a>
+        </a> 
     </div>
 
 </section>
