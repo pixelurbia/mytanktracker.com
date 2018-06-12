@@ -7,9 +7,9 @@
 $(document).ready(function() {
 
 
-		if (!Object.entries)
-console.log('Edge sucks mah bals');
-  Object.entries = function( obj ){
+// 		if (!Object.entries)
+// console.log('Edge sucks mah bals');
+  Object.entries = function( obj ){ 
     var ownProps = Object.keys( obj ),
         i = ownProps.length,
         resArray = new Array(i); // preallocate the Array
@@ -17,8 +17,7 @@ console.log('Edge sucks mah bals');
       resArray[i] = [ownProps[i], obj[ownProps[i]]];
 
     return resArray;
-  };
-
+};
 
 
 // $('#ajax-contact-form').submit(function(e){
