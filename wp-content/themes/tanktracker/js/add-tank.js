@@ -7,18 +7,6 @@
 $(document).ready(function() {
       
 
-//polyfill for IE support because it's shit and I hate it. 
-  if (!Object.entries)
-  Object.entries = function( obj ){
-    var ownProps = Object.keys( obj ),
-        i = ownProps.length,
-        resArray = new Array(i); // preallocate the Array
-    while (i--)
-      resArray[i] = [ownProps[i], obj[ownProps[i]]];
-
-    return resArray;
-  };
-
 //skip Tank add
   $('#skip-add-tank').click(function() { 
     tankForm();
@@ -46,6 +34,7 @@ $(document).ready(function() {
             return;
         } else {
                  $('.global-error').removeClass('show');
+
         }
 
       var username = $('#regi-form .username').val();
@@ -103,7 +92,7 @@ function tankForm(){
   $('.frost').fadeOut();
   // $('.step-three').delay( 400 ).fadeIn();
   var delay = 1500; 
-  setTimeout(function(){ window.location = '/tanks/'; }, delay);
+  // setTimeout(function(){ window.location = '/tanks/'; }, delay);
 }
 
 
