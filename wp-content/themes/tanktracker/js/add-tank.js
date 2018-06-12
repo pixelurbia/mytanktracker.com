@@ -7,6 +7,17 @@
 $(document).ready(function() {
       
 
+Object.entries = function( obj ){ 
+    var ownProps = Object.keys( obj ),
+        i = ownProps.length,
+        resArray = new Array(i); // preallocate the Array
+    while (i--)
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+    return resArray;
+};
+     
+
 //skip Tank add
   $('#skip-add-tank').click(function() { 
     tankForm();
