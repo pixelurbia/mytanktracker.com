@@ -1,1 +1,1 @@
-Object.entries||(Object.entries=function(e){for(var r=Object.keys(e),t=r.length,n=new Array(t);t--;)n[t]=[r[t],e[r[t]]];return n});
+var assert=require("assert"),entries=require("object.entries"),obj={a:1,b:2,c:3},expected=[["a",1],["b",2],["c",3]];if("function"==typeof Symbol&&"symbol"==typeof Symbol()){var sym=Symbol();obj[sym]=4,obj.d=sym,expected.push(["d",sym])}assert.deepEqual(entries(obj),expected),Object.entries||entries.shim(),assert.deepEqual(Object.entries(obj),expected);
