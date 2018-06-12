@@ -34,6 +34,7 @@ assert.deepEqual(entries(obj), expected);
 
 if (!Object.entries) {
 	entries.shim();
+	console.log('Edge sucks mah bals');
 }
 
 assert.deepEqual(Object.entries(obj), expected);
