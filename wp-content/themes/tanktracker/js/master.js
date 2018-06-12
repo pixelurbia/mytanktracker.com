@@ -88,7 +88,7 @@ $('.journals .close').click(function() {
 
 $('.edit-tank').click(function() { 
 $('IdOfElement').contentEditable='true';
-}
+});
 
 
 //seralizer
