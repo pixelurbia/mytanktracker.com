@@ -8097,16 +8097,6 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"\/wp-content\/themes\/tanktracker\/js\/register-master.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/tanktracker\/js\/register-master-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/accept.js": {
 		"ft": 64,
 		"ma": 0,
