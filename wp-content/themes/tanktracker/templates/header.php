@@ -14,7 +14,6 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-	<script src="<?php echo get_template_directory_uri(); ?>/js/polyfill.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/master.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/register-master.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-tank.js"></script>
