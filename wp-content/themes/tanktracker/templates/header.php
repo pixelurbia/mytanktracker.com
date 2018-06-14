@@ -16,6 +16,8 @@
 
 	<script src="<?php echo get_template_directory_uri(); ?>/js/polyfill.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/master.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/masonry.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-ias.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/register-master.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-tank.js"></script>
 

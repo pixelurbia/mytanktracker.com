@@ -64,21 +64,18 @@ $horz:1180px;
 @mixin third {
 	@include span-columns(4);
 	@include media ($tablet) {
-		@include span-columns(6);
+		@include span-columns(5);
 		margin-right: 0px;
 	}
 	@include media ($phone) {
 		@include span-columns(12)
 	}
 }
-.third {
-	@include third;
-}
 
 @mixin two {
 	@include span-columns(2);
 	@include media ($tablet) {
-			@include span-columns(3);
+			@include span-columns(5);
 	}
 	@include media ($phone){
 		@include span-columns(12);

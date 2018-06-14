@@ -3190,31 +3190,6 @@ picture {
   max-width: 100%; }
 
 /*STYLES FOR MOBILE MENU TO X */
-.third {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 31.7615656014%; }
-  .third:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 1080px) {
-    .third {
-      float: left;
-      display: block;
-      margin-right: 2.3576515979%;
-      width: 48.821174201%;
-      margin-right: 0px; }
-      .third:last-child {
-        margin-right: 0; } }
-  @media screen and (max-width: 600px) {
-    .third {
-      float: left;
-      display: block;
-      margin-right: 2.3576515979%;
-      width: 100%; }
-      .third:last-child {
-        margin-right: 0; } }
-
 html {
   background: #050719 url(../images/bg-gradient.png) no-repeat;
   background-position: top left;
@@ -4399,10 +4374,41 @@ section.frame.post .tags {
     section.frame.post .tags ul li a {
       font-size: 8px;
       font-size: 0.8rem;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(238, 238, 238, 0.08);
       margin: 0px 8px 0px 0px;
       padding: 3px 8px 3px 8px;
       border-radius: 19px; }
 
 #datepicker {
   width: 200px; }
+
+.feed article {
+  background: rgba(238, 238, 238, 0.08);
+  padding: 10px;
+  margin: 10px 10px 0px 0px;
+  height: auto;
+  overflow: hidden; }
+
+.feed .grid-item {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 14.7019570017%; }
+  .feed .grid-item:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 1080px) {
+    .feed .grid-item {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 40.2913699012%; }
+      .feed .grid-item:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 600px) {
+    .feed .grid-item {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 100%; }
+      .feed .grid-item:last-child {
+        margin-right: 0; } }

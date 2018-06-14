@@ -57,10 +57,11 @@ function add_user_journal() {
 
     
     //create post
+    $uid = uniqid();
     $user_id = $user->ID;
     $username = $user->user_nicename;
     $journal_content = $_REQUEST['journal'];
-    $journal_title = $_REQUEST['tank_name'];
+    $journal_title = 'post-'.$uid;
     // $user_id = get_current_user_id();
 
     $createPost = array(
@@ -73,7 +74,7 @@ function add_user_journal() {
     );
 
     $post_id = wp_insert_post($createPost);
-
+    // wp_set_post_terms( $post_id, $arrayoftags);
     $attach_id = wp_insert_attachment( $attachment, $fileurl, $post_id );
     require_once( ABSPATH . 'wp-admin/includes/image.php' );
     $attach_data = wp_generate_attachment_metadata( $attach_id, $imagePath );

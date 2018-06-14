@@ -38,9 +38,9 @@ $user = $user_tanks->user_info();
 			?> 
 			</p>
 	</div>
-<!-- <section class="reminders third"> 
+<section class="progress-gallery third"> 
 		<a class="add-btn"><i class="fas fa-plus"></i></a>
-</section> -->
+</section>
 	<section class="journals third">	
 		<h3>Journals</h3>
 		<?php  

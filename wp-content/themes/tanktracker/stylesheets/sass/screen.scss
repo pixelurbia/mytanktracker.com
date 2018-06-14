@@ -992,7 +992,7 @@ article {
 
 				a {
 					@include font-size(0.8);
-					background: rgba(255, 255, 255, 0.2);
+					background: $white-trans;
 					margin: 0px 8px 0px 0px;
 					padding: 3px 8px 3px 8px;
 					border-radius: 19px;
@@ -1005,3 +1005,17 @@ article {
 	width:200px;
 }	
 
+//community
+.feed {
+	article {
+		background: $white-trans;
+   		padding: 10px;
+    	margin: 10px 10px 0px 0px;	
+    	height:auto;
+    	overflow:hidden;	
+	}
+
+	.grid-item { 
+		@include two;}
+
+}

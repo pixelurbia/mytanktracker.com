@@ -8,6 +8,59 @@ $(document).ready(function() {
 
 
 
+// //self explanatory 
+// $('.grid').masonry({
+//   // options
+//  itemSelector: '.grid-item',
+//   // use element for option
+//   columnWidth: '.grid-item',
+//   percentPosition: true
+// });
+
+//strip markup from journal entries 
+document.querySelector('div[contenteditable="true"]').addEventListener("paste", function(e) {
+        e.preventDefault();
+        var text = e.clipboardData.getData("text/plain");
+        document.execCommand("insertHTML", false, text);
+    });
+
+
+    var container = document.querySelector('.grid');
+    var msnry = new Masonry( container, {
+      // options
+      itemSelector: '.grid-item',
+       percentPosition: true
+    });
+
+
+
+
+//infinite scroll 
+  var ias = jQuery.ias({
+    container:  '#feed',
+    item:       '.post',
+    pagination: '#pagination',
+    next:       '#pagination a.next'
+  });
+
+    ias.on('render', function(items) {
+      $(items).css({ opacity: 0 });
+    });
+
+    ias.on('rendered', function(items) {
+      msnry.appended(items);
+    });
+
+    
+
+  ias.extension(new IASTriggerExtension({offset: 9999}));
+   // ias.extension(new IASSpinnerExtension());
+   ias.extension(new IASNoneLeftExtension());
+   ias.extension(new IASSpinnerExtension({
+     html: '<div class="ias-spinner-idea" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>'
+}));
+
+
 // $('#ajax-contact-form').submit(function(e){
 //     var name = $("#name").val();
 //     $.ajax({ 
