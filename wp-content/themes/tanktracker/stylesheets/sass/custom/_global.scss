@@ -51,7 +51,6 @@ $ops: 'Open Sans', sans-serif;
 html {   
 background:$bg-blue url(../images/bg-gradient.png) no-repeat;
 background-position:top left;
-height: 100%;
 font-size: 62.5%; /* Sets up the Base 10 stuff */  
 * {
     -webkit-font-smoothing: antialiased !important;
@@ -83,10 +82,10 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 }
 .menu-bar.extended-more {
 	transition: all 0.5s ease-in-out;
-	top: 500px;
+	top: 600px;
 }
 .menu-bar.extended {
-	top: 196px;
+    top: 229px;
 	transition: all 0.5s ease-in-out;
 }
 .menu-bar { 
@@ -97,7 +96,7 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
     height: 45px;
     display: block;
     background: $menu;
-    z-index: 99999;
+    z-index: 999;
     transition: all 0.5s ease-in-out;
 	a {
     	width: auto;
@@ -165,6 +164,23 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 		margin: 0px 3px 0px 3px;
 	}
 }
+
+
+.page-subnav  {
+    a {
+        @include font-size(1.6);
+        color:$white;
+    }
+    a.current {
+        color:$input-text;
+    }
+
+}
+
+.page-sub-subnav {
+    
+}
+
 
 .footer {
 	    width: 100%;

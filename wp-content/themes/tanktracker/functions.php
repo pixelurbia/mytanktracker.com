@@ -11,6 +11,9 @@ require_once('functions/widget.php');
 require_once('functions/taxonomies.php');
 require_once('functions/post-types.php');
 require_once('functions/save-journals.php');
+require_once('functions/profile.php');
+require_once('functions/feed.php');
+require_once('functions/stock.php');
 
 add_theme_support( 'post-thumbnails' );
 
@@ -61,15 +64,24 @@ return($environment);
 //redicted for those not logged in
 add_action( 'template_redirect', 'redirect_to_specific_page' );
 function redirect_to_specific_page() {
-    if ( is_page('register') && !is_user_logged_in() ) {
-
-    } elseif ( !is_page('user-login') && ! is_user_logged_in() ) {
-	wp_redirect( '/user-login/',301 ); 
-        // exit;
+  
+   if ( is_user_logged_in() ) {
+        return;
     }
-    // } elseif { is_user_logged_in() 
 
-    // }
+   global $post;
+        //check by postID
+$name = $post->post_name;
+// echo $name;
+    if (  ($name != 'user-login') AND ($name != 'register') ) {
+      // echo '<h1>37483748fff9374</h1>';
+      wp_safe_redirect( '/user-login/',301 ); 
+      // exit;
+  } else {
+       // echo '<h1>3748374zzzzzz</h1>';
+   // exit;
+}
+
 };
 
 //smart menu
@@ -172,7 +184,7 @@ function new_user() {
 // Populate the uniKeyGen field, by creating or updating the unique key. This keeps our forms grouped together by event_id. 
 add_filter('gform_field_value_uniKeyGen', 'uni_key_gen');
 
-function uni_key_gen(){
+function uni_key_gen($obj_type){
 
 	$user = wp_get_current_user();
 	$user = $user->user_nicename;
@@ -182,7 +194,7 @@ function uni_key_gen(){
 		$hex   = bin2hex($bytes);
 	}
 
-	$hex = $user .'-'. $hex;
+	$hex = $user .'-'. $obj_type .'-'. $hex;
 
 	return  $hex; 
 }
@@ -228,9 +240,10 @@ function add_user_tank( $file = array() ) {
 		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
 		
 
-  $hex = uni_key_gen();
-  
-  $user_id = $user->ID;
+  //create hex unique ref key ID
+  $obj_type = 'tank';
+  $hex = uni_key_gen($obj_type);
+
   $user_id = $user->ID;
   $tank_name = $_REQUEST['tankname'];
   $tank_type = $_REQUEST['tanktype'];
@@ -331,4 +344,116 @@ function get_table_data() {
 	die();
 }
  
+
+/**
+ * Add Tank Photo
+ *
+ */
+
+add_action('wp_ajax_add_user_photo', 'add_user_photo');
+add_action('wp_ajax_nopriv_add_user_photo', 'add_user_photo');
+
+function add_user_photo( $file = array() ) {    
+
+
+
+if( !isset( $_POST['ajax_form_nonce_photo'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_photo'], 'ajax_form_nonce_photo' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+   require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+    // Verify nonce
+  global $wpdb;
+  global $post;
+
+   $upload_dir = wp_upload_dir();
+    //construct new upload dir from upload base dir and the username of the current user
+    // $sourcePath = $_FILES['file']['tmp_name']; 
+  $environment = set_env(); 
+  if ( $environment == 'DEV') {
+     $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+  } else {
+       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+  }
+     
+   move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
+    $fileurl = $new_file_dir.$_FILES["file"]["name"];
+    $filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
+    
+  $obj_type = 'tank_img';
+  $hex = uni_key_gen($obj_type);
+  $user_id = $_REQUEST['user_id'];
+  $ref_id = $_REQUEST['tank_id'];
+  $photo_url = $filepath;
+  
+
+  $wpdb->insert('user_photos',array(
+  'user_id'=> $user_id,
+  'photo_id'=> $hex,
+  'ref_id'=> $ref_id,
+  'photo_url'=> $photo_url,
+  'inserted_date'=> date("Y-m-d H:i:s")
+)
+    );
+
+
+    // echo 'I must have called a thousand times';
+}
+
+  add_action('wp_ajax_un_favorite_post', 'un_favorite_post');
+  add_action('wp_ajax_nopriv_un_favorite_post', 'un_favorite_post');
+
+  function un_favorite_post() {
+
+  if( !isset( $_POST['fav_ajax_nonce'] ) || !wp_verify_nonce( $_POST['fav_ajax_nonce'], 'fav_ajax_nonce' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+    // Verify nonce
+      global $wpdb;
+      global $post;
+      $obj_type = 'fav_post';
+      $user_id = $_REQUEST['user'];
+      $ref_id = $_REQUEST['ref_id'];
+      
+    
+      $wpdb->delete('user_post_refs',array(
+      'user_id'=> $user_id,
+      'ref_key'=> $obj_type,
+      'ref_id'=> $ref_id
+    ));
+      // return 'UGH';
+      // die( 'Ooops, something went wrong, please try again later.' );
+}
+
+  add_action('wp_ajax_favorite_post', 'favorite_post');
+  add_action('wp_ajax_nopriv_favorite_post', 'favorite_post');
+
+  function favorite_post() {
+
+  if( !isset( $_POST['fav_ajax_nonce'] ) || !wp_verify_nonce( $_POST['fav_ajax_nonce'], 'fav_ajax_nonce' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+    // Verify nonce
+      global $wpdb;
+      global $post;
+      $obj_type = 'fav_post';
+      $user_id = $_REQUEST['user'];
+      $ref_id = $_REQUEST['ref_id'];
+      
+    
+      $wpdb->insert('user_post_refs',array(
+      'user_id'=> $user_id,
+      'ref_key'=> $obj_type,
+      'ref_id'=> $ref_id,
+      'inserted_date'=> date("Y-m-d H:i:s")
+    ));
+      // return 'UGH';
+      // die( 'Ooops, something went wrong, please try again later.' );
+}
+
+
+
+
+
+
+
 

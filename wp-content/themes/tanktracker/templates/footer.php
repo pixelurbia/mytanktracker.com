@@ -7,7 +7,9 @@ if ( $environment == 'DEV'){
 ?>
 
 <div class="footer">
-
+	<link href="<?php echo get_template_directory_uri(); ?>/js/darkroom/darkroom.css" rel="stylesheet" />
+	<script src="<?php echo get_template_directory_uri(); ?>/js/darkroom/fabric.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/darkroom/darkroom.js"></script>
 </div>
 <?php wp_footer(); ?>
 </div>

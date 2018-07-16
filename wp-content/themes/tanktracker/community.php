@@ -7,71 +7,70 @@ Template Name: Community
 <?php get_template_part('templates/header'); ?>
 
 
-
 <?php 
-
+//tank object start
+$tank_id = $_GET['tank_id'];
+$user_tanks = new Tanks();
+$tank = $user_tanks->get_tank_data($tank_id);
+$tank_id = $tank[0]->tank_id;	
+$user = $user_tanks->user_info();
 ?>
 
 <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
+
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
-		<h2>Community Feed</h2>
-
+		<h2>Community</h2>
+			<p class="page-subnav">
+			<a>Discover / </a>
+			<a>Following / </a>
+			<a>Favorites</a>
+		</p>
+		
 	</div>
-	<section class="feed grid" id="feed">
-		  <div class="grid-sizer"></div>
-		<?php  
+
+		<section class="feed half" id="feed">
+
+		<?php 
+			$feed = new Feed();
+			$feed->get_main_feed(); ?>
 
 
+</section>	
 
+		<section class="third recent_params side-bar">
+			<h3>People to Follow</h3>
+		<?php 
+    	$feed = new Feed();
+			$feed->get_people_feed();
 
-		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-
-		$posts = array(
-			'author' => $user,
-			'posts_per_page' => 5,
-			'post_type' => 'user_journals', 
-			'post_status' => 'publish',
-			'paged' => $paged,
-			);
-
-		$query = new WP_Query( $posts );
-			if ( $query->have_posts() ) : ?>
-    			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
-        		
-            		<?php 
-            		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(500);
-            		$name = get_the_author_meta('display_name');
-            		$time = get_the_time('F jS, Y');
-            		echo '<article class="grid-item post">';
-            	echo '<p>Posted by '.$name.' on '. $time .'</p>';
-            		the_content();
-            		echo '<a href="'.$permlink.'">Read More</a>';
-            	
-            		echo '</article>';
-            		?>
-
-    			<?php endwhile; //wp_reset_postdata(); ?>
-				<?php endif; ?>
+		 ?>
 	</section>
-<div id="pagination">
-<?php 
-
-$big = 999999999; // need an unlikely integer
-
-echo paginate_links( array(
-	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-	'format' => '?paged=%#%',
-	'current' => max( 1, get_query_var('paged') ),
-	'total' => $query->max_num_pages
-) );
-
- ?>
-</div>
+	
 										
 	</div>
 </section>
+
+
+
+<script type="text/javascript">
+
+	var ias = $.ias({
+     container: "#feed",
+     item: ".post",
+      pagination: '#pagination',
+    next:       '#pagination a.next'
+   });
+
+
+    
+  ias.extension(new IASTriggerExtension({offset: 9999}));
+   // ias.extension(new IASSpinnerExtension());
+   ias.extension(new IASNoneLeftExtension());
+   ias.extension(new IASSpinnerExtension({
+     html: '<div class="ias-spinner-idea" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>'
+}));
+</script>
 
 
 <div class="reminder form-contain">
@@ -87,5 +86,46 @@ echo paginate_links( array(
     </form>
 </div>
 
-<?php get_template_part('templates/footer'); ?>
 
+<script type="text/javascript">
+	ias.on('rendered', function(items) {
+	$('.fave').click(function(event) { 
+		event.preventDefault(); // Prevent the default
+		
+		if ($(this).hasClass('static')) {
+			var action = 'un_favorite_post';
+			$(this).removeClass('static');
+		} else {
+			var action = 'favorite_post';
+			$(this).addClass('static');
+          	$(this).html('<i class="fas fa-heart"></i> Faved');
+		}
+	
+		var ref_id = $(this).attr('ref_id');
+		var fav_ajax_nonce = $(this).attr('fav_ajax_nonce');
+		var user = $(this).attr('user');
+    	// console.log(ref_id);        
+		var data = {ref_id: ref_id, user: user, action: action, fav_ajax_nonce: fav_ajax_nonce};
+
+
+      console.log(data);
+      //Custom data
+      // data.append('key', 'value');
+      $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+          	console.log('success');
+
+          },
+          error: function (e) {
+              //error
+			console.log('error 124');
+			console.log(data);
+          }
+      });
+	});
+})
+</script>

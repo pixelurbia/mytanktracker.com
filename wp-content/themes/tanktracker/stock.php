@@ -7,25 +7,21 @@ Template Name: stock
 
 <?php get_template_part('templates/header'); ?>
 
+<?php
+//tank object start
+$tank_id = $_GET['tank_id'];
+$user_tanks = new Tanks();
+$tank = $user_tanks->get_tank_data($tank_id);
+$tank_id = $tank[0]->tank_id;   
+$user = $user_tanks->user_info();
+?>
 
-<?php 
+<div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
 
-global $wpdb;
-    $user = wp_get_current_user();
-    $curuser = $user->ID;
-    if( !isset( $_GET['tank_id'] )){
-        $tank_id = $wpdb->get_var("SELECT id FROM user_tanks WHERE user_id = $curuser ORDER BY created_date limit 1 ");
-    } else {
-        $tank_id = $_GET['tank_id'];
+<section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
+    <div class="tank_header">
+        <h2><?php echo  $tank[0]->tank_name ?> Livestock</h2>
 
-    }
-    //main query                            
-    $tanks = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $curuser AND id = $tank_id");
-                        ?>
-    <div class="tank_img_bg" style="background:url(<?php echo $tanks[0]->tank_image ?>)"></div>
-    <section class="overview_tank frame" value="<?php echo $tank->id ?>">
-        <div class="tank_header">
-            <h2><?php echo  $tanks[0]->tank_name ?></h2>
             <p>
             <?php
                 if ($tanks[0]->tank_volume) {
@@ -42,44 +38,107 @@ global $wpdb;
                 }
             ?> 
         </p>
+        <p class="page-subnav">
+            <a class="current">Fish / </a>
+            <a>Coral / </a>
+            <a>Plants / </a>
+            <a>Inverts</a>
+        </p>
+        <p class="page-sub-subnav">
+            <a>All / </a>
+            <a>Quarantine </a>
+        </p>
+    </div>
+        
 
 
 <section class="stock-list">
-    <article class="stock-item">
-        <div class="stock-img"></div>
+    <?php 
+    $stock = new Stock(); 
+    $stock = $stock->list_of_stock();
+    ?>
+      <article class="stock-item add-stock">
+        <i class="fas fa-3x fa-plus add-livestock"></i>
         <div class="stock-data">
             <ul>
-                <li class="name">Fozzy</li>
-                <li class="name"></li>
-                <li class="species">The Dwarf Fuzzy Lionfish</li>
-                <li class="age data">Age: 2 years</li>
-                <li class="status data">Status: Healthy</li>
+                <li class="name">Add Livestock</li>
             </ul>
         </div>
     </article>
 </section>
+</section>
 
-<form id="stock-form">
+<div class="form-contain add-livestock-form">
+        <script type="text/javascript">
+        //img preview
+        var loadFile = function(event) {
+            var output = document.getElementById('Livestock-output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+
+            var dkrm = new Darkroom('#Livestock-output', {
+            // Canvas initialization size
+            minWidth: 100,
+            minHeight: 100,
+            maxWidth: 500,
+            maxHeight: 500,
             
+            // Plugins options
+            plugins: {
+                crop: {
+                minHeight: 150,
+                minWidth: 150,
+                ratio: 1
+                },
+                save: {
+                    callback: function() {
+                            this.darkroom.selfDestroy(); // Cleanup
+                            var item_image = dkrm.canvas.toDataURL();
+                            // fileStorageLocation = newImage
+                            
+                            
+                            var src = "data:image/jpeg;base64,";
+                            src += item_image;
+                            var newImage = document.createElement('img');
+                            newImage.src = src;
+                            // console.log(newImage);
+                            // newImage.width = newImage.height = "80";
+                            // document.querySelector('#imageContainer').innerHTML = newImage.outerHTML;//where to insert your image
+                            // $('#stock-img').val(newImage);
+                        }
+                                        
+                   
 
-                <input type="text" name="tankname" value="" placeholder="Tank Name" class="form-control" />
-                <select type="text" name="tanktype" value="" placeholder="Tank Type" class="form-control">
-                    <option>Tank Type</option>
-                    <option>Fresh Water</option>
-                    <option>Salt Water</option>
-                </select>
-                <input type="text" name="volume" value="" placeholder="Tank Total Volume" class="form-control" />
-                <input type="text" name="dimensions" value="" placeholder="Tank Dimensions" class="form-control" />
-                <input type="text" name="model" value="" placeholder="Tank Model" class="form-control" />
-                <input type="text" name="make" value="" placeholder="Tank Make" class="form-control" />
+             }
+            }
+            });
+        };
+    </script>
+    <a class="add-livestock param-close"><i class="fas fa-times"></i></a>
+    <form id="livestock-form">
+            <div class="type-menu">
+            <a class="menu-item-contain" value="coral"><div class="menu-item coral"></div></a>
+            <a class="menu-item-contain" value="fish"><div class="menu-item fish"></div></a>
+            <a class="menu-item-contain" value="plant"><div class="menu-item plant"></div></a>
+            <a class="menu-item-contain" value="invert"><div class="menu-item invert"></div></a>
+            </div>
+                <input type="text" name="stockname"  placeholder="Livestock Name" class="form-control stock-name" />
+                <input type="text" name="stockspecies"  placeholder="Livestock species" class="form-control" />
+                <input type="hidden" name="stocktype"  class="form-control stocktype" />
+                <input type="text" name="sotckage"  placeholder="Livestock age" class="form-control" />
+                <input type="text" name="stockhealth"  placeholder="Livestock Health" class="form-control" />
+                <input type="text" name="stocksex"  placeholder="Livestock Sex" class="form-control" />
                 <!-- <input id="tank-img" type="file" name="file_upload"> -->
-                <label class="btn tank-img" for="tank-img">Upload a tank photo</label>
-                <input type="file" name="file_upload" id="tank-img" class="inputfile" />
+                <img id="Livestock-output">
+                <label class="btn stock-img" for="stock-img">Upload a photo</label>
+                <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
+                <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
+                <input type="hidden" name="action" value="add_livestock">
+                <input type="submit" class="btn" value="Add Livestock" />
                 
-                <?php wp_nonce_field('ajax_form_nonce_tank','ajax_form_nonce_tank', true, true ); ?>
-                <input type="hidden" name="action" value="add_tank">
-                <input type="submit" class="btn" value="Add Your First Tank" />
             </form>
+</div>
+
+
 
 
 <?php  get_template_part('templates/footer'); ?>

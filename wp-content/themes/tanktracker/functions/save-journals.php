@@ -20,7 +20,7 @@ function add_user_journal() {
   require_once( ABSPATH . 'wp-admin/includes/admin.php' );
   $user = wp_get_current_user();
   $today = date("-m-d-y");   
-
+  $tanks = $_REQUEST['tanks'];
     /* wp_insert_attachment */
 
     
@@ -51,9 +51,12 @@ function add_user_journal() {
         error_log( $contents );        // log contents of the result of var_dump( $object )
     }
 
+
+    
     var_error_log( $upload_dir );
     var_error_log( $fileurl );
     var_error_log( $file_name );
+    var_error_log( $tanks );
 
     
     //create post
@@ -74,11 +77,21 @@ function add_user_journal() {
     );
 
     $post_id = wp_insert_post($createPost);
-    // wp_set_post_terms( $post_id, $arrayoftags);
-    $attach_id = wp_insert_attachment( $attachment, $fileurl, $post_id );
-    require_once( ABSPATH . 'wp-admin/includes/image.php' );
-    $attach_data = wp_generate_attachment_metadata( $attach_id, $imagePath );
-    wp_update_attachment_metadata( $attach_id, $attach_data );
-    set_post_thumbnail( $post_id, $attach_id );
+    if ($file_name != "") {
+        // wp_set_post_terms( $post_id, $arrayoftags);
+        $attach_id = wp_insert_attachment( $attachment, $fileurl, $post_id );
+        require_once( ABSPATH . 'wp-admin/includes/image.php' );
+        $attach_data = wp_generate_attachment_metadata( $attach_id, $imagePath );
+        wp_update_attachment_metadata( $attach_id, $attach_data );
+        set_post_thumbnail( $post_id, $attach_id );
+    }
+    
+    foreach ($tanks as $tank){
+            //create tank/or livestock ref
+            $meta_key = 'tt_tank_ref';
+            $meta_value = $tank;
+            add_post_meta($post_id, $meta_key, $meta_value);
+    }
+
  
 }; ?>

@@ -27,7 +27,7 @@ Template Name: Tanks
                         	<div class="a_tank select_tank">
 									<div class="content">
 										<h2><?php echo  $tank->tank_name ?>
-											<i class="fas edit-tank fa-edit"></i>
+											<i class="fas edit-tank-stock fa-edit"></i>
 										</h2>
 
            										

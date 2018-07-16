@@ -50,6 +50,21 @@ class Tanks {
 	}
 
 
+	function get_tank_photos($tank_id) {
+		
+		  $user = $this->user_info();
+
+		global $wpdb;			
+		$photos = $wpdb->get_results("SELECT * FROM user_photos WHERE user_id = $user AND ref_id = '$tank_id'");
+
+			echo '<div class="gallery">';
+			foreach($photos as $photo){
+				echo '<div class="img-contain"><img src="'.$photo->photo_url.'""></div>';
+			}
+			echo '</div>';
+
+     	}
+
 }
 
 

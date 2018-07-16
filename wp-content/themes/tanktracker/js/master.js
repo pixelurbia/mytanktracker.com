@@ -6,16 +6,33 @@
 
 $(document).ready(function() {
 
+$('.type-menu .menu-item-contain').click( function() {
+	$('.type-menu .menu-item-contain').removeClass('selected');
+	$(this).addClass('selected');
+	var value = $(this).attr('value');
+	$('.stocktype').attr('value',value);
+});
+
+ $('.js-example-basic-multiple').select2({
+  placeholder: {
+    id: '-1', // the value of the option
+    text: 'Tag a tank or livestock'
+  }
+});
 
 
-// //self explanatory 
-// $('.grid').masonry({
-//   // options
-//  itemSelector: '.grid-item',
-//   // use element for option
-//   columnWidth: '.grid-item',
-//   percentPosition: true
-// });
+
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {
+	var wrap = $('.recent_params');
+	// console.log(pageYOffset);
+	 if (pageYOffset > 147) {
+    wrap.addClass("sticky");
+  } else {
+    wrap.removeClass("sticky");
+  }
+
+};
 
 //strip markup from journal entries 
 document.querySelector('div[contenteditable="true"]').addEventListener("paste", function(e) {
@@ -23,42 +40,6 @@ document.querySelector('div[contenteditable="true"]').addEventListener("paste", 
         var text = e.clipboardData.getData("text/plain");
         document.execCommand("insertHTML", false, text);
     });
-
-
-    var container = document.querySelector('.grid');
-    var msnry = new Masonry( container, {
-      // options
-      itemSelector: '.grid-item',
-       percentPosition: true
-    });
-
-
-
-
-//infinite scroll 
-  var ias = jQuery.ias({
-    container:  '#feed',
-    item:       '.post',
-    pagination: '#pagination',
-    next:       '#pagination a.next'
-  });
-
-    ias.on('render', function(items) {
-      $(items).css({ opacity: 0 });
-    });
-
-    ias.on('rendered', function(items) {
-      msnry.appended(items);
-    });
-
-    
-
-  ias.extension(new IASTriggerExtension({offset: 9999}));
-   // ias.extension(new IASSpinnerExtension());
-   ias.extension(new IASNoneLeftExtension());
-   ias.extension(new IASSpinnerExtension({
-     html: '<div class="ias-spinner-idea" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>'
-}));
 
 
 // $('#ajax-contact-form').submit(function(e){
@@ -310,21 +291,24 @@ function get_tables(tank_id, param_type, user ){
    //          var ajax_form_data = $("#tank-form").serializeObject();
    //          console.log(ajax_form_data);
 
+
+
    			console.log('journal submited');
 			var data = new FormData(this);
 			
 			//Form data
-			var form_data = $('#journal-form').serializeArray();
-			$.each(form_data, function (key, input) {
-    			data.append(input.name, input.value);
-			});
+			// var form_data = $('#journal-form').serializeArray();
+			// $.each(form_data, function (key, input) {
+   //  			data.append(input.name, input.value);
+			// });
 			
 			//File data
 			var file = $('#journal-img')[0].files[0];
 			data.append("file", file);
-			
+			// i = 0;
 			for (var pair of data.entries()) {
     			console.log(pair[0]+ ', ' + pair[1]); 
+    			// console.log(i++);
 			}
 			//Custom data
 			// data.append('key', 'value');
@@ -335,10 +319,12 @@ function get_tables(tank_id, param_type, user ){
     			contentType: false,
     			data: data,
     			success: function (data) {
-					$('.global-suc').html('Your update was sent.');
+					$('.global-suc').html('Journal has been logged.');
 					$('.global-suc').fadeToggle();
-  					$('.global-suc').delay( 2000 ).fadeToggle('slow');
-  					$('#journal-form').fadeToggle();
+  					$('.global-suc').delay( 2000 ).fadeToggle();
+  					$('#journal-form').toggleClass('show');
+  					$('.menu-bar').toggleClass('extended');
+  					$('.overlay').fadeToggle();
   					$('#journal-form .status').html('What is goin on today?');
     			},
     			error: function (e) {

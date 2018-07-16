@@ -1,5 +1,5 @@
 ///////////////////
-// add tank workflow JS File
+// add user photo workflow JS File
 // by Andy 
 ///////////////////
 
@@ -18,57 +18,33 @@ Object.entries = function( obj ){
 };
      
 
-//skip Tank add
-  $('#skip-add-tank').click(function() { 
-    tankForm();
-  }); 
 
 
-//show the add tank form on the tanks page
-  $('.add-tank').click(function() { 
-    $('.add-tank-form').toggleClass('extended');
-    $('.overlay').fadeToggle();
-    $('.menu-bar').toggleClass('extended-more');
-  }); 
   
 
 //Add Tank register
-    $( '#tank-form' ).submit( function( event ) {
+    $( '#photo-img' ).change( function( event ) {
             
       event.preventDefault(); // Prevent the defau
+      console.log('hello from the other side');
       //form validation 
       // var tank_name = $('#tank-form .tank-name').val();
-
-      if (!$('#tank-form .tank-name').val()) {
-                         $('.global-error').html('Your tank needs a name.');
-             $('.global-error').addClass('show');
-            return;
-        } else {
-                 $('.global-error').removeClass('show');
-
-        }
-
-      var username = $('#regi-form .username').val();
-      $('#tank-form .verfication').attr('value', username);
-
-      console.log($('#tank-form .verfication').val());
 
       var data = new FormData();
       
       //Form data
-      var form_data = $('#tank-form').serializeArray();
+      var form_data = $('#photo-form').serializeArray();
       $.each(form_data, function (key, input) {
           data.append(input.name, input.value);
       });
       
       //File data
-      var file = $('#tank-img')[0].files[0];
+      var file = $('#photo-img')[0].files[0];
       data.append("file", file);
       
       for (var pair of data.entries()) {
           console.log(pair[0]+ ', ' + pair[1]); 
       }
-      
       //Custom data
       // data.append('key', 'value');
       $.ajax({
@@ -79,12 +55,14 @@ Object.entries = function( obj ){
           data: data,
           success: function (data) {
               //success
-          // console.log(data);
-          tankForm();
+          console.log(data);
+          console.log('working');
+          // location.reload();
           },
           error: function (e) {
               //error
-      
+        console.log(data);
+        console.log('error');
           }
       });
 
@@ -98,13 +76,13 @@ Object.entries = function( obj ){
             });
 
 
-function tankForm(){
-  // console.log('reg and login work');
-  $('.frost').fadeOut();
-  $('.step-three').delay( 400 ).fadeIn();
-  var delay = 1500; 
-  setTimeout(function(){ window.location = '/tanks/'; }, delay);
-}
+// function tankForm(){
+//   // console.log('reg and login work');
+//   $('.frost').fadeOut();
+//   $('.step-three').delay( 400 ).fadeIn();
+//   var delay = 1500; 
+//   setTimeout(function(){ window.location = '/tanks/'; }, delay);
+// }
 
 
 

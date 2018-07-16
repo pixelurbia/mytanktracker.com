@@ -17,7 +17,7 @@ function create_post_types() {
 		'publicly_queryable' => true,
 	  	'public' => true,
 			'taxonomies' => array('post_tag', 'user_journals'),
-			'supports' =>	array('title', 'editor', 'thumbnail')
+			'supports' =>	array('title', 'editor', 'thumbnail','comments')
 		)
 	);
 
