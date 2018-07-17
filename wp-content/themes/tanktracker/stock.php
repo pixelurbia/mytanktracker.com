@@ -15,7 +15,7 @@ $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;   
 $user = $user_tanks->user_info();
 ?>
-
+<img id="Livestock-output">
 <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
 
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
@@ -121,7 +121,7 @@ $user = $user_tanks->user_info();
                 <input type="text" name="stockhealth"  placeholder="Livestock Health" class="form-control" />
                 <input type="text" name="stocksex"  placeholder="Livestock Sex" class="form-control" />
                 <!-- <input id="tank-img" type="file" name="file_upload"> -->
-                <img id="Livestock-output">
+                
                 <label class="btn stock-img" for="stock-img">Upload a photo</label>
                 <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
                 <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
