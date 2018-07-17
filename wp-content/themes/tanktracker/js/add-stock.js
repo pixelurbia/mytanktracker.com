@@ -18,6 +18,17 @@ Object.entries = function( obj ){
 };
      
 
+$('.stock-next-step').click(function() { 
+  $('#livestock-form .step-one').fadeToggle('fast');
+  $('#livestock-form .step-two').fadeToggle('slow');
+});
+
+$('.stock-prev-step').click(function() { 
+  $('#livestock-form .step-one').fadeToggle('slow');
+  $('#livestock-form .step-two').fadeToggle('fast');
+});
+
+
 
 $('.message-action').click(function() { 
     var stock_id = $(this).attr('stock_id');
@@ -92,7 +103,7 @@ $('.confirmation-btn').click(function() {
       // var file = $('#stock-img')[0].files[0];
 
       //File data
-      var file = $('#livestock-form img').attr('src');
+      var file = $('#Livestock-output').attr('src');
       // var file = $('#stock_img').src();
 
 

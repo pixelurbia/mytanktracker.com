@@ -27,6 +27,8 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/fontawesome-all.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/charts/dist/chart.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/validate/core.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/cropie/croppie.min.js"></script>
+	<link href="<?php echo get_template_directory_uri(); ?>/js/cropie/croppie.css" rel="stylesheet" />
 
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">

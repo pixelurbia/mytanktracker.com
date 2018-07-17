@@ -83,7 +83,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
     background:$one-change!important; 
     padding: 10px;
     text-align: center;
-    font-size: 18px;
+    @include font-size(1.8); 
     transition: all 0.2s ease-in-out;
 }
 .global-message {
@@ -101,7 +101,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
   	background: rgba(5, 7, 25, 0.95);
     padding: 10px;
     text-align: center;
-    font-size: 18px;
+    @include font-size(1.8); 
     transition: all 0.2s ease-in-out;
     .option-btn-container {
     	
@@ -124,7 +124,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
     background: $input-bg;
     padding: 10px;
     text-align: center;
-    font-size: 18px;
+    @include font-size(1.8); 
     transition: all 0.2s ease-in-out;
 }
 
@@ -158,11 +158,12 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
     font-weight: 400;
     z-index:999;
     height: 25px;
+    @include font-size(1.6); 
     color: #47caae !important;
     text-align: left;
     border-radius: 15px;
     letter-spacing: 1px;
-margin-right:10px;
+	margin-right:10px;
     float:left;
 	color:$input-text!important; 
 	border:1px solid $input-bg;  
@@ -1106,8 +1107,12 @@ article {
 
 }
 
-#stock-form {
-	width:300px;
+#livestock-form {
+	width:400px;
+	fieldset {
+		background:none;
+		border:none;
+	}
 }
 
 .darkroom-container,.Livestock-output {
@@ -1149,6 +1154,10 @@ article {
     }
 }
 
+.croppie-container .cr-boundary {
+	width:400px;
+	height:400px;
+}
 .add-stock {
 	.add-livestock {
 	margin:0px;

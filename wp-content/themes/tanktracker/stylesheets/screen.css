@@ -3609,6 +3609,7 @@ blockquote {
   padding: 10px;
   text-align: center;
   font-size: 18px;
+  font-size: 1.8rem;
   transition: all 0.2s ease-in-out; }
 
 .global-message {
@@ -3627,6 +3628,7 @@ blockquote {
   padding: 10px;
   text-align: center;
   font-size: 18px;
+  font-size: 1.8rem;
   transition: all 0.2s ease-in-out; }
   .global-message .option-btn-container {
     margin: 40px auto;
@@ -3646,6 +3648,7 @@ blockquote {
   padding: 10px;
   text-align: center;
   font-size: 18px;
+  font-size: 1.8rem;
   transition: all 0.2s ease-in-out; }
 
 .button, button {
@@ -3674,6 +3677,8 @@ blockquote {
   font-weight: 400;
   z-index: 999;
   height: 25px;
+  font-size: 16px;
+  font-size: 1.6rem;
   color: #47caae !important;
   text-align: left;
   border-radius: 15px;
@@ -4558,8 +4563,11 @@ article {
     .type-menu .menu-item-contain .invert {
       background-position-x: 50px; }
 
-#stock-form {
-  width: 300px; }
+#livestock-form {
+  width: 400px; }
+  #livestock-form fieldset {
+    background: none;
+    border: none; }
 
 .darkroom-container, .Livestock-output {
   width: 100%;
@@ -4591,6 +4599,10 @@ article {
     background: rgba(5, 7, 25, 0.54);
     opacity: 1;
     transition: all 0.5s ease-in-out; }
+
+.croppie-container .cr-boundary {
+  width: 400px;
+  height: 400px; }
 
 .add-stock .add-livestock {
   margin: 0px;

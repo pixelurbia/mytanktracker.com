@@ -117,6 +117,8 @@ function add_livestock( $file = array() ) {
        $new_file_url = '/wp-content/uploads/user_livestock/';
   }
 
+
+//I am sending a blob file this time not a base64 but I can - need to fix 
     $img = $_REQUEST['file'];
     $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace(' ', '+', $img);

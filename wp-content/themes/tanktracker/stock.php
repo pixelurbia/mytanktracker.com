@@ -15,7 +15,7 @@ $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;   
 $user = $user_tanks->user_info();
 ?>
-<img id="Livestock-output">
+
 <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
 
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
@@ -68,46 +68,25 @@ $user = $user_tanks->user_info();
             var output = document.getElementById('Livestock-output');
             output.src = URL.createObjectURL(event.target.files[0]);
 
-            var dkrm = new Darkroom('#Livestock-output', {
-            // Canvas initialization size
-            minWidth: 100,
-            minHeight: 100,
-            maxWidth: 400,
-            maxHeight: 400,
-            
-            // Plugins options
-            plugins: {
-                crop: {
-                minHeight: 150,
-                minWidth: 150,
-                ratio: 1
-                },
-                save: {
-                    callback: function() {
-                            this.darkroom.selfDestroy(); // Cleanup
-                            var item_image = dkrm.canvas.toDataURL();
-                            // fileStorageLocation = newImage
-                            
-                            
-                            var src = "data:image/jpeg;base64,";
-                            src += item_image;
-                            var newImage = document.createElement('img');
-                            newImage.src = src;
-                            // console.log(newImage);
-                            // newImage.width = newImage.height = "80";
-                            // document.querySelector('#imageContainer').innerHTML = newImage.outerHTML;//where to insert your image
-                            // $('#stock-img').val(newImage);
-                        }
-                                        
-                   
-
-             }
-            }
+           var cropImg  = $('#Livestock-output').croppie({
+                viewport: { width: 100, height: 100 },
+                boundary: { width: 300, height: 300 },
+                showZoomer: false,
+                enableOrientation: true
+            });
+            $('.crop-img').click(function() { 
+                cropImg.croppie('result', 'blob').then(function(blob) {
+                    var imgSrc = window.URL.createObjectURL(blob);
+                    $('#Livestock-output').attr('src',imgSrc);
+                    // console.log(imgSrc);
+                    cropImg.croppie('destroy');
+                });
             });
         };
     </script>
     <a class="add-livestock param-close"><i class="fas fa-times"></i></a>
     <form id="livestock-form">
+           <fieldset class="step step-one">
             <div class="type-menu">
             <a class="menu-item-contain" value="coral"><div class="menu-item coral"></div></a>
             <a class="menu-item-contain" value="fish"><div class="menu-item fish"></div></a>
@@ -121,14 +100,21 @@ $user = $user_tanks->user_info();
                 <input type="text" name="stockhealth"  placeholder="Livestock Health" class="form-control" />
                 <input type="text" name="stocksex"  placeholder="Livestock Sex" class="form-control" />
                 <!-- <input id="tank-img" type="file" name="file_upload"> -->
-                
+                <div class="option-btn stock-next-step">Next Step</div>
+                </fieldset>
+                <fieldset class="step step-two">
+                <div id="crop-img-contain"></div>
+                <img id="Livestock-output">
                 <label class="btn stock-img" for="stock-img">Upload a photo</label>
                 <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
                 <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
+                
                 <input type="hidden" name="action" value="add_livestock">
                 <input type="hidden" name="tankid" value="<?php echo $tank_id; ?>">
                 <input type="submit" class="btn" value="Add Livestock" />
-                
+                <div class="option-btn crop-img">Save Image</div>
+                <div class="option-btn stock-prev-step">Previous Step</div>
+                </fieldset>
             </form>
 </div>
 
