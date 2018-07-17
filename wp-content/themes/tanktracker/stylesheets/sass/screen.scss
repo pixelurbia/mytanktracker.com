@@ -15,7 +15,7 @@ h6, h6 a { @include font-size(1.2); color:$white; font-family:$ops; font-weight:
 h5 {@include font-size(1.6); color:$white; font-family:$ops; font-weight:500; }
 p { padding-top:10px; @include font-size(1.2);  font-weight:300; line-height:20px; font-family:$ops; color:$white;}
 span, ol, ul, li { @include font-size(1.2);  font-weight:300; font-family:$ops; color:$white;}
-a { color: $white; cursor:pointer!important; @include font-size(1.2); text-decoration:none; @include opensansl;
+a { color: $white; cursor:pointer!important; @include font-size(1.6); text-decoration:none; @include opensansl;
     &:hover { text-decoration: none; opacity:0.9; color:$input-text;}
     &:focus { outline: 0; }
   }
@@ -298,7 +298,7 @@ select[multiple=multiple]  {
     padding: 8px;
     width: 100%;
     color: $white;
-    @include font-size(1.1); 
+    @include font-size(1.6); 
 	text-transform:none;
     font-weight: 400;
     letter-spacing: 1px;
@@ -319,7 +319,7 @@ input[type="submit"], .btn {
 	margin-top:20px; 
 	display:block; 
 	padding:11px;
-	@include font-size(1.1); 
+	@include font-size(1.6); 
 	text-transform:none;
 	line-height:0px; 
 	font-weight:400; 
@@ -358,7 +358,7 @@ select::-ms-expand {
     width: 100%;
     padding: 21px 0px 0px 0px!important;
 	a {
-		font-size:9px;
+		font-size:16px;
 		float:none;
 	}
 }

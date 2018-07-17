@@ -54,7 +54,7 @@ function user_info() {
           echo '<i class="fas fa-arrow-circle-right"></i>';
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');">';
           echo '<div class="stock-actions"><a class="edit-tank-stock"><i class="fas larger-icon fa-edit"></i></a>';
-          echo '<a class="message-action"><i class="fas larger-icon fa-trash-alt" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"></i></a></div>';  
+          echo '<a class="message-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a></div>';  
           echo '</div>';
           echo '<div class="stock-data">';
               echo '<ul>';
@@ -111,8 +111,10 @@ function add_livestock( $file = array() ) {
     $environment = set_env(); 
   if ( $environment == 'DEV') {
      $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_livestock/';
+     $new_file_url = '/wp-content/uploads/user_livestock/';
   } else {
-       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_livestock/';
+       $new_file_url = '/wp-content/uploads/user_livestock/';
   }
 
     $img = $_REQUEST['file'];
@@ -138,7 +140,7 @@ function add_livestock( $file = array() ) {
   $fileName = $hex.'-stock.png';
   $success =  file_put_contents($new_file_dir.$fileName, $data);
 
-  $fileurl = $new_file_dir.$fileName;
+  $fileurl = $new_file_url.$fileName;
 
 
   $user_id = $user->ID;

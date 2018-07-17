@@ -3398,8 +3398,8 @@ span, ol, ul, li {
 a {
   color: #fff;
   cursor: pointer !important;
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   text-decoration: none;
   font-family: 'Open Sans';
   font-style: normal;
@@ -3849,8 +3849,8 @@ select[multiple=multiple] {
   padding: 8px;
   width: 100%;
   color: #fff;
-  font-size: 11px;
-  font-size: 1.1rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   text-transform: none;
   font-weight: 400;
   letter-spacing: 1px;
@@ -3905,8 +3905,8 @@ input[type="submit"], .btn {
   margin-top: 20px;
   display: block;
   padding: 11px;
-  font-size: 11px;
-  font-size: 1.1rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   text-transform: none;
   line-height: 0px;
   font-weight: 400;
@@ -3942,7 +3942,7 @@ select::-ms-expand {
   width: 100%;
   padding: 21px 0px 0px 0px !important; }
   .form-links a {
-    font-size: 9px;
+    font-size: 16px;
     float: none; }
 
 .form-contain.extended {
