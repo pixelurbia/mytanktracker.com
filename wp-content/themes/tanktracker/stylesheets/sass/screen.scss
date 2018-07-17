@@ -641,7 +641,7 @@ input[type="submit"].btn.account-reg {
 
 .edit-tank-stock {
 	@include font-size(0.9); 
-	opacity:0.4;
+	// opacity:0.4;
 	width: 30px;
     height: 13px;
     margin: 0px 0px 19px -10px;
@@ -781,6 +781,9 @@ input[type="submit"].btn.account-reg {
 	position:fixed;
 	left:51%;
 	top:44px;
+		@include media ($tablet){
+	display:none;	
+	}
 }
 
 .page-template-overview {
@@ -1107,8 +1110,35 @@ article {
 	width:300px;
 }
 
-.add-livestock.form.extended {
-
+.stock-actions {
+	width: 120px;
+    height: 120px;
+    position: absolute;
+    text-align:center;
+	line-height:120px;
+	opacity:0;
+	transition: all 0.5s ease-in-out;
+    a {
+    	margin:0px 5px 0px 5px;	
+    }
+    .larger-icon {
+    	color:$white;
+    	opacity:0.5;
+    	@include font-size(1.6);
+    	transition: all 0.5s ease-in-out;
+  
+    	&:hover {
+    		opacity:0.9;
+    		transition: all 0.5s ease-in-out;
+  
+    	}
+    }
+    &:hover {
+    	background: rgba(5, 7, 25, 0.54);
+		opacity:1;
+    	transition: all 0.5s ease-in-out;
+  
+    }
 }
 
 .add-stock {
@@ -1121,10 +1151,9 @@ article {
     border-radius: 95px;
     width: 120px !important;
     height: 120px;
-    padding: 40px;
+    padding: 20px;
     font-size: 11px;
     font-size: 1.1rem;
-    border: 1px solid #fff;
     transition: all 0.5s ease-in-out;
   
 }
@@ -1142,6 +1171,7 @@ article {
     	color:$white;
     	@include font-size(2.5);
     	position:absolute;
+    	z-index:9999;
        left: 106px;
     	margin: 53px 0px 0px 0px;
     }

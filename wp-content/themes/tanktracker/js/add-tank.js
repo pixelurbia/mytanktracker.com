@@ -31,6 +31,15 @@ Object.entries = function( obj ){
     $('.menu-bar').toggleClass('extended-more');
   }); 
   
+//edit tank
+
+//show the add tank form on the tanks page
+  $('.edit-tank').click(function() { 
+    $('.add-tank-form').toggleClass('extended');
+    $('.overlay').fadeToggle();
+    $('.menu-bar').toggleClass('extended-more');
+  }); 
+
 
 //Add Tank register
     $( '#tank-form' ).submit( function( event ) {

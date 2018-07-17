@@ -52,11 +52,13 @@ function user_info() {
     foreach ($livestock as $stock){
       echo '<article class="stock-item '.$stock->stock_type.'" ">';
           echo '<i class="fas fa-arrow-circle-right"></i>';
-          echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
+          echo '<div class="stock-img" style="background:url('.$stock->stock_img.');">';
+          echo '<div class="stock-actions"><a class="edit-tank-stock"><i class="fas larger-icon fa-edit"></i></a>';
+          echo '<a class="message-action"><i class="fas larger-icon fa-trash-alt" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"></i></a></div>';  
+          echo '</div>';
           echo '<div class="stock-data">';
               echo '<ul>';
                   echo '<li class="name">'.$stock->stock_name.'';
-                  echo '<i class="fas fa-edit edit-tank-stock"></i><i class="fas edit-tank-stock message-action fa-trash-alt" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"></i></li>';
                   echo '<li class="species">The '.$stock->stock_species.'</li>';
                   echo '<li class="age data">Age: '.$stock->stock_age.'</li>';
                   echo '<li class="status data">Status: '.$stock->stock_health.'</li>';
@@ -147,11 +149,13 @@ function add_livestock( $file = array() ) {
   $stock_age = $_REQUEST['sotckage'];
   $stock_health = $_REQUEST['stockhealth'];
   $stock_sex = $_REQUEST['stocksex'];
+  $tank_id = $_REQUEST['tankid'];
   $stock_image = $fileurl;
   
 
   $wpdb->insert('user_tank_stock',array(
   'user_id'=> $user_id,
+  'tank_id'=> $tank_id,
   'stock_name'=> $stock_name,
   'stock_id'=> $stock_id,
   'stock_species'=> $stock_species,

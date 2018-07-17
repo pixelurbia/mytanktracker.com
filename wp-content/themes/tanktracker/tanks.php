@@ -27,7 +27,7 @@ Template Name: Tanks
                         	<div class="a_tank select_tank">
 									<div class="content">
 										<h2><?php echo  $tank->tank_name ?>
-											<i class="fas edit-tank-stock fa-edit"></i>
+											<i class="fas edit-tank-stock edit-tank fa-edit"></i>
 										</h2>
 
            										
@@ -63,7 +63,7 @@ Template Name: Tanks
 							<div class="a_tank select_tank">
 									<div class="content">
 										<h2>Add tank</h2>
-										<i class="fas fa-3x fa-plus add-tank"></i>
+										<a class="add-tank"><i class="fas fa-3x fa-plus"></i></a>
 									</div>
 									</div>
 

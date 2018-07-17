@@ -3286,13 +3286,14 @@ html {
   .tank-menu a {
     margin: 0px 3px 0px 3px; }
 
-.page-subnav a {
-  font-size: 16px;
-  font-size: 1.6rem;
-  color: #fff; }
-
-.page-subnav a.current {
-  color: #47caae; }
+.page-subnav {
+  margin-bottom: 20px; }
+  .page-subnav a {
+    font-size: 16px;
+    font-size: 1.6rem;
+    color: #fff; }
+  .page-subnav a.current {
+    color: #47caae; }
 
 .footer {
   width: 100%;
@@ -4176,7 +4177,6 @@ input[type="submit"].btn.account-reg {
 .edit-tank-stock {
   font-size: 9px;
   font-size: 0.9rem;
-  opacity: 0.4;
   width: 30px;
   height: 13px;
   margin: 0px 0px 19px -10px;
@@ -4281,6 +4281,9 @@ input[type="submit"].btn.account-reg {
   position: fixed;
   left: 51%;
   top: 44px; }
+  @media screen and (max-width: 1080px) {
+    .sticky {
+      display: none; } }
 
 .page-template-overview .param-table.large {
   width: 100%;
@@ -4558,6 +4561,30 @@ article {
 #stock-form {
   width: 300px; }
 
+.stock-actions {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  text-align: center;
+  line-height: 120px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out; }
+  .stock-actions a {
+    margin: 0px 5px 0px 5px; }
+  .stock-actions .larger-icon {
+    color: #fff;
+    opacity: 0.5;
+    font-size: 16px;
+    font-size: 1.6rem;
+    transition: all 0.5s ease-in-out; }
+    .stock-actions .larger-icon:hover {
+      opacity: 0.9;
+      transition: all 0.5s ease-in-out; }
+  .stock-actions:hover {
+    background: rgba(5, 7, 25, 0.54);
+    opacity: 1;
+    transition: all 0.5s ease-in-out; }
+
 .add-stock .add-livestock {
   margin: 0px;
   float: left;
@@ -4567,10 +4594,9 @@ article {
   border-radius: 95px;
   width: 120px !important;
   height: 120px;
-  padding: 40px;
+  padding: 20px;
   font-size: 11px;
   font-size: 1.1rem;
-  border: 1px solid #fff;
   transition: all 0.5s ease-in-out; }
 
 .add-stock li.name {
@@ -4587,6 +4613,7 @@ article {
     font-size: 25px;
     font-size: 2.5rem;
     position: absolute;
+    z-index: 9999;
     left: 106px;
     margin: 53px 0px 0px 0px; }
   .stock-item .stock-img {

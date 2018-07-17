@@ -44,10 +44,11 @@ $user = $user_tanks->user_info();
             <a>Plants / </a>
             <a>Inverts</a>
         </p>
-        <p class="page-sub-subnav">
-            <a>All / </a>
-            <a>Quarantine </a>
-        </p>
+     <a class="option-btn add-livestock">
+            <i class="fas fa-plus"></i> 
+            <i class="text">Add Livestock</i>
+        </a>
+         
     </div>
         
 
@@ -57,14 +58,6 @@ $user = $user_tanks->user_info();
     $stock = new Stock(); 
     $stock = $stock->list_of_stock();
     ?>
-      <article class="stock-item add-stock">
-        <i class="fas fa-3x fa-plus add-livestock"></i>
-        <div class="stock-data">
-            <ul>
-                <li class="name">Add Livestock</li>
-            </ul>
-        </div>
-    </article>
 </section>
 </section>
 
@@ -133,6 +126,7 @@ $user = $user_tanks->user_info();
                 <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
                 <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
                 <input type="hidden" name="action" value="add_livestock">
+                <input type="hidden" name="tankid" value="<?php echo $tank_id; ?>">
                 <input type="submit" class="btn" value="Add Livestock" />
                 
             </form>
