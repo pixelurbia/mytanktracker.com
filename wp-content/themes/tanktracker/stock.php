@@ -72,8 +72,8 @@ $user = $user_tanks->user_info();
             // Canvas initialization size
             minWidth: 100,
             minHeight: 100,
-            maxWidth: 500,
-            maxHeight: 500,
+            maxWidth: 400,
+            maxHeight: 400,
             
             // Plugins options
             plugins: {
