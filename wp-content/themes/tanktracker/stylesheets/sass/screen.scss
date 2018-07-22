@@ -639,6 +639,17 @@ input[type="submit"].btn.account-reg {
 }
 
 //Tank Selection page
+ .save-edit-tank, .edit-tank { margin: 14px; }
+
+ .image-change {
+ 	position: absolute;
+    bottom: -190px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding-left: 12px;
+    display:none;
+ }
 
 .edit-tank-stock {
 	@include font-size(0.9); 

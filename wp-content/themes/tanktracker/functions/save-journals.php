@@ -109,19 +109,25 @@ function add_user_journal() {
         $obj_type = 'img';
         $hex = uni_key_gen($obj_type);
 
+        $imageData = getimagesize($file['tmp_name']);
+        $extension = image_type_to_extension($imageData[2]);
+
+
         $fileName = $file['name'];
         var_error_log($fileName);
-        $fileName = $hex.'-'.$fileName;
+        $fileThubName = $hex.'-thumb'.$extension; 
+        $fileFullName = $hex.'-large'.$extension;
         
         $fileTempName = $file['tmp_name'];
         
         var_error_log($new_file_dir);
 
-        move_uploaded_file($fileTempName, $new_file_dir.$fileName);
+        move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
     
 
         $ref_id = $post_id;
-        $photo_url = $new_file_url.$fileName;
+        $photo_url = $new_file_url.$fileFullName;
+        $photo_thumb_url = $new_file_url.$fileThumbName;
 
         $obj_type_new = 'user-jrnl-img';
         $hextwo = uni_key_gen($obj_type_new);
@@ -131,11 +137,24 @@ function add_user_journal() {
         'user_id'=> $user_id,
         'photo_id'=> $hextwo,
         'ref_id'=> $ref_id,
+        'photo_thumb_url'=> $photo_thumb_url,
         'photo_url'=> $photo_url,
         'inserted_date'=> date("Y-m-d H:i:s")
         ));
 
-      
+    
+
+    $target_dir = $new_file_dir;
+    $target_file = $new_file_dir.$fileThubName;
+    $imgLoad = $new_file_dir.$fileFullName;
+
+    $new_img_width = 400;
+    $image = new SimpleImage();
+    $image->load($imgLoad);
+    $image->resizeToWidth($new_img_width);
+    $image->save($target_file);
+    var_error_log($target_file);
+    // return $target_file; //return name of saved file in case you want to store it in you database or show confirmation message to user      
   
     }
 

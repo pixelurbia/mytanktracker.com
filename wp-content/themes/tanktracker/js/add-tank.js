@@ -114,12 +114,46 @@ function tankForm(){
 //update tank data
 //show the add tank form on the tanks page
   $('.edit-tank').click(function() { 
-      $(this).parent().parent().find('.tank_info').attr('contenteditable','true');
-      $(this).parent().parent().find('.tank_info').toggleClass('tankEditable');
+      var parent = $(this).parent().parent();
+      parent.find('.tank_info').attr('contenteditable','true');
+      parent.find('.tank_info').toggleClass('tankEditable');
       $(this).hide();
-      $(this).parent().parent().find('.save-edit-tank').show();
+      parent.find('.save-edit-tank').show();
+      parent.parent().find('.image-change').show();
+
   }); 
 
+  $('.save-edit-tank').click(function() { 
+      var tank_id = $(this).attr('tank_id'),
+      nonce = $(this).attr('nonce'),
+      parent = $(this).parent().parent(),
+      tank_name = parent.find('.tank_name').html(),
+      tank_volume = parent.find('.tank_volume').html(),
+      tank_dimensions = parent.find('.tank_dimensions').html(),
+      tank_model = parent.find('.tank_model').html(),
+      tank_make = parent.find('.tank_make').html();
+ 
+
+    data = {action:'update_user_tank',ajax_form_nonce_update_tank: nonce, tank_id: tank_id, tank_name: tank_name, tank_volume: tank_volume, tank_dimensions: tank_dimensions, tank_model: tank_model, tank_make: tank_make};
+
+    console.log(data);
+
+        $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+            console.log('Entry Updated');
+            tankForm();
+          },
+          error: function (e) {
+              //error
+            console.log('Eror 976524');
+      
+          }
+      });
+  }); 
 
 
 

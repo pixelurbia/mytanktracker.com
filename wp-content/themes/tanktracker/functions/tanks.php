@@ -74,6 +74,7 @@ class Tanks {
 			tt_postmeta.post_id, 
 			tt_postmeta.meta_key, 
 			tt_postmeta.meta_value,
+			user_photos.photo_thumb_url, 
 			user_photos.photo_url, 
 			user_photos.ref_id 
 			FROM tt_postmeta 
@@ -88,7 +89,7 @@ class Tanks {
 		echo '<ul class="gallery page-gallery">';
       	foreach ($images as $img){
         	echo '<li class="gallery-item">';
-				echo '<img src="'.$img->photo_url.'">';
+				echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
         	echo '</li>';
     	}
     	echo '</ul>';
@@ -111,7 +112,7 @@ class Tanks {
 			echo '<a class="edit-tank">';
 				echo '<i class="fas edit-tank-stock  fa-edit" ></i>';
 			echo '</a>';
-			echo '<a class="save-edit-tank" tank_id="'. $tank->tank_id .'">';
+			echo '<a class="save-edit-tank" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
 				echo '<i class="fas edit-tank-stock fa-save"></i>';
 			echo '</a>';
 		echo '</h2>';
@@ -133,7 +134,8 @@ class Tanks {
 				echo '<a  href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
 					echo '<a  href="/parameters/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
 					echo '<a  href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
-					echo '<a  href="/equipment/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-bolt"></i></a>';
+					// echo '<a  href="/equipment/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-bolt"></i></a>';
+					echo '<a class="image-change"><i class="fas fa-3x  fa-camera-retro"></i></a>';
 			echo '</div>';
 	echo '</div>';
 		echo '<div class="shader"></div>';
@@ -226,73 +228,48 @@ function add_user_tank( $file = array() ) {
 }
 
 
-add_action('wp_ajax_update_tank', 'update_user_tank');
-add_action('wp_ajax_nopriv_update_tank', 'update_user_tank');
+add_action('wp_ajax_update_user_tank', 'update_user_tank');
+add_action('wp_ajax_nopriv_update_user_tank', 'update_user_tank');
 
 /**
  * Update Tank
  *
  */
 
-function update_user_tank( $file = array() ) {    
+function update_user_tank() {    
 
  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 	  
   global $wpdb;
   global $post;
   $user = wp_get_current_user();
-  $user_name = $user->display_name;
-  $validation = $_REQUEST['verfication-username'];
 
- // Verify nonce
- if( !isset( $_POST['ajax_form_nonce_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_tank'], 'ajax_form_nonce_tank' ) ){
-	} else if( !isset( $validation ) && $validation == $user_name ) 
-    die( 'Ooops, something went wrong, please try again later.'.$validation );
-   
 
- 	$environment = set_env(); 
-	if ( $environment == 'DEV') {
-	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
-	} else {
-		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
-	}
-     
-   
-		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
-		$fileurl = $new_file_dir.$_FILES["file"]["name"];
-		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
-		
+   // Verify nonce
+ if( !isset( $_POST['ajax_form_nonce_update_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_update_tank'], 'ajax_form_nonce_update_tank' ) )
+    die( 'Ooops, something went wrong, please try again later.');
 
-  //create hex unique ref key ID
-  $obj_type = 'tank';
-  $hex = uni_key_gen($obj_type);
-
+ 
   $user_id = $user->ID;
-  $tank_name = $_REQUEST['tankname'];
-  $tank_type = $_REQUEST['tanktype'];
-  $tank_volume = $_REQUEST['volume'];
-  $tank_dimensions = $_REQUEST['dimensions'];
-  $tank_model = $_REQUEST['model'];
-  $tank_make = $_REQUEST['make'];
-  $tank_image = $filepath;
-	
-
-  $wpdb->insert('user_tanks',array(
-  'user_id'=> $user_id,
-  'tank_id'=> $hex,
-  'tank_name'=> $tank_name,
-  'tank_type'=> $tank_type,
-  'tank_volume'=> $tank_volume,
-  'tank_dimensions'=> $tank_dimensions,
-  'tank_model'=> $tank_model,
-  'tank_make'=> $tank_make,
-  'tank_image'=> $tank_image,
-  'created_date'=> date("Y-m-d H:i:s")
+  $tank_name = $_REQUEST['tank_name'];
+  $tank_volume = $_REQUEST['tank_volume'];
+  $tank_dimensions = $_REQUEST['tank_dimensions'];
+  $tank_model = $_REQUEST['tank_model'];
+  $tank_make = $_REQUEST['tank_make'];
+  $tank_id = $_REQUEST['tank_id'];
 
 
-)
+  $wpdb->update('user_tanks',array(
+  	'tank_name'=> $tank_name,
+  	'tank_volume'=> $tank_volume,
+  	'tank_dimensions'=> $tank_dimensions,
+  	'tank_model'=> $tank_model,
+  	'tank_make'=> $tank_make,
+  	'last_updated_date'=> date("Y-m-d H:i:s")
+	), array(
+		'user_id'=> $user_id,
+		'tank_id'=> $tank_id )
     );
-
 
     return false;
 }
@@ -318,6 +295,7 @@ function create_post_record($ref_id, $fileUrls, $message) {
   $today = date("-m-d-y");   
   $tanks = $_REQUEST['tanks'];
 
+  
 
     function var_error_log( $object=null ){
         ob_start();                    // start buffer capture

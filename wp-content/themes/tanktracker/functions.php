@@ -14,7 +14,7 @@ require_once('functions/save-journals.php');
 require_once('functions/profile.php');
 require_once('functions/feed.php');
 require_once('functions/stock.php');
-// require_once('functions/resize.php');
+require_once('functions/resize.php');
 
 add_theme_support( 'post-thumbnails' );
 
@@ -94,7 +94,7 @@ function smart_menu($tank_id) {
 		echo '<a name="tanks" href="/overview?tank_id='.$tank_id.'" class="overview">Overview</a>';
 		echo '<a name="parameters" href="/parameters?tank_id='.$tank_id .'" class="parameters">Parameters</a>';
 		echo '<a name="stock" href="/stock?tank_id='.$tank_id.'" class="stock">Stock</a>';
-		echo '<a name="equipment" href="/equipment?tank_id='.$tank_id.'" class="equipment">Equipment</a>';
+		// echo '<a name="equipment" href="/equipment?tank_id='.$tank_id.'" class="equipment">Equipment</a>';
 		echo '</div>';
     }
 };

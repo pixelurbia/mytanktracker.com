@@ -42,7 +42,7 @@ function get_post_images($post_id){
     $user = $this-> user_info();
 
     global $wpdb;     
-    $images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
+    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
     echo '<p>'.$numOfImages.' Photos</p>';
     $i = 0;
     if ($images){
@@ -66,14 +66,19 @@ function get_feed_images($post_id){
     $permlink = get_the_permalink($post_id);
     global $wpdb;     
     $numOfImages = $wpdb->get_var("SELECT COUNT(photo_url) FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
-    $images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 3");
+    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 3");
     // echo '<p>'.$numOfImages.' Photos</p>';
     $i = 0;
     if ($images){
     	 echo '<ul class="gallery feed-gallery gallery-of-'.$numOfImages.'">';
       foreach ($images as $img){
         echo '<li class="gallery-item item-'.$i.'">';
-          echo '<img src="'.$img->photo_url.'">';
+             	if ($numOfImages == 1 ){
+          
+          echo '<img full="'.$img->photo_url.'" src="'.$img->photo_url.'">';
+      } else {
+      	echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
+      }
         echo '</li>';
         $i++;
     	}

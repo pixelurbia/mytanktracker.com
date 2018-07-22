@@ -4179,6 +4179,18 @@ input[type="submit"].btn.account-reg {
 .ui-datepicker-title {
   text-align: center !important; }
 
+.save-edit-tank, .edit-tank {
+  margin: 14px; }
+
+.image-change {
+  position: absolute;
+  bottom: -190px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  padding-left: 12px;
+  display: none; }
+
 .edit-tank-stock {
   font-size: 9px;
   font-size: 0.9rem;

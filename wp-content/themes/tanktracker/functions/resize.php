@@ -1,198 +1,105 @@
-
 <?php
-/**
- * Resize image class will allow you to resize an image
- *
- * Can resize to exact size
- * Max width size while keep aspect ratio
- * Max height size while keep aspect ratio
- * Automatic while keep aspect ratio
- */
-class ResizeImage
-{
-    private $ext;
-    private $image;
-    private $newImage;
-    private $origWidth;
-    private $origHeight;
-    private $resizeWidth;
-    private $resizeHeight;
 
-    /**
-     * Class constructor requires to send through the image filename
-     *
-     * @param string $filename - Filename of the image you want to resize
-     */
-    public function __construct( $filename )
-    {
-        if(file_exists($filename))
-        {
-            $this->setImage( $filename );
-        } else {
-            throw new Exception('Image ' . $filename . ' can not be found, try another image.');
-        }
-    }
+/*
+* File: SimpleImage.php
+* Author: Simon Jarvis
+* Copyright: 2006 Simon Jarvis
+* Date: 08/11/06
+* Link: http://www.white-hat-web-design.co.uk/blog/resizing-images-with-php/
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details:
+* http://www.gnu.org/licenses/gpl.html
+*
+*/
 
-    /**
-     * Set the image variable by using image create
-     *
-     * @param string $filename - The image filename
-     */
-    private function setImage( $filename )
-    {
-        $size = getimagesize($filename);
-        $this->ext = $size['mime'];
+class SimpleImage {
 
-        switch($this->ext)
-        {
-            // Image is a JPG
-            case 'image/jpg':
-            case 'image/jpeg':
-                // create a jpeg extension
-                $this->image = imagecreatefromjpeg($filename);
-                break;
+   var $image;
+   var $image_type;
 
-            // Image is a GIF
-            case 'image/gif':
-                $this->image = @imagecreatefromgif($filename);
-                break;
+   function load($filename) {
 
-            // Image is a PNG
-            case 'image/png':
-                $this->image = @imagecreatefrompng($filename);
-                break;
+      $image_info = getimagesize($filename);
+      $this->image_type = $image_info[2];
+      if( $this->image_type == IMAGETYPE_JPEG ) {
 
-            // Mime type not found
-            default:
-                throw new Exception("File is not an image, please use another file type.", 1);
-        }
+         $this->image = imagecreatefromjpeg($filename);
+      } elseif( $this->image_type == IMAGETYPE_GIF ) {
 
-        $this->origWidth = imagesx($this->image);
-        $this->origHeight = imagesy($this->image);
-    }
+         $this->image = imagecreatefromgif($filename);
+      } elseif( $this->image_type == IMAGETYPE_PNG ) {
 
-    /**
-     * Save the image as the image type the original image was
-     *
-     * @param  String[type] $savePath     - The path to store the new image
-     * @param  string $imageQuality       - The qulaity level of image to create
-     *
-     * @return Saves the image
-     */
-    public function saveImage($savePath, $imageQuality="100", $download = false)
-    {
-        switch($this->ext)
-        {
-            case 'image/jpg':
-            case 'image/jpeg':
-                // Check PHP supports this file type
-                if (imagetypes() & IMG_JPG) {
-                    imagejpeg($this->newImage, $savePath, $imageQuality);
-                }
-                break;
+         $this->image = imagecreatefrompng($filename);
+      }
+   }
+   function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissions=null) {
 
-            case 'image/gif':
-                // Check PHP supports this file type
-                if (imagetypes() & IMG_GIF) {
-                    imagegif($this->newImage, $savePath);
-                }
-                break;
+      if( $image_type == IMAGETYPE_JPEG ) {
+         imagejpeg($this->image,$filename,$compression);
+      } elseif( $image_type == IMAGETYPE_GIF ) {
 
-            case 'image/png':
-                $invertScaleQuality = 9 - round(($imageQuality/100) * 9);
+         imagegif($this->image,$filename);
+      } elseif( $image_type == IMAGETYPE_PNG ) {
 
-                // Check PHP supports this file type
-                if (imagetypes() & IMG_PNG) {
-                    imagepng($this->newImage, $savePath, $invertScaleQuality);
-                }
-                break;
-        }
+         imagepng($this->image,$filename);
+      }
+      if( $permissions != null) {
 
-        if($download)
-        {
-            header('Content-Description: File Transfer');
-            header("Content-type: application/octet-stream");
-            header("Content-disposition: attachment; filename= ".$savePath."");
-            readfile($savePath);
-        }
+         chmod($filename,$permissions);
+      }
+   }
+   function output($image_type=IMAGETYPE_JPEG) {
 
-        imagedestroy($this->newImage);
-    }
+      if( $image_type == IMAGETYPE_JPEG ) {
+         imagejpeg($this->image);
+      } elseif( $image_type == IMAGETYPE_GIF ) {
 
-    /**
-     * Resize the image to these set dimensions
-     *
-     * @param  int $width           - Max width of the image
-     * @param  int $height          - Max height of the image
-     * @param  string $resizeOption - Scale option for the image
-     *
-     * @return Save new image
-     */
-    public function resizeTo( $width, $height, $resizeOption = 'default' )
-    {
-        switch(strtolower($resizeOption))
-        {
-            case 'exact':
-                $this->resizeWidth = $width;
-                $this->resizeHeight = $height;
-            break;
+         imagegif($this->image);
+      } elseif( $image_type == IMAGETYPE_PNG ) {
 
-            case 'maxwidth':
-                $this->resizeWidth  = $width;
-                $this->resizeHeight = $this->resizeHeightByWidth($width);
-            break;
+         imagepng($this->image);
+      }
+   }
+   function getWidth() {
 
-            case 'maxheight':
-                $this->resizeWidth  = $this->resizeWidthByHeight($height);
-                $this->resizeHeight = $height;
-            break;
+      return imagesx($this->image);
+   }
+   function getHeight() {
 
-            default:
-                if($this->origWidth > $width || $this->origHeight > $height)
-                {
-                    if ( $this->origWidth > $this->origHeight ) {
-                         $this->resizeHeight = $this->resizeHeightByWidth($width);
-                         $this->resizeWidth  = $width;
-                    } else if( $this->origWidth < $this->origHeight ) {
-                        $this->resizeWidth  = $this->resizeWidthByHeight($height);
-                        $this->resizeHeight = $height;
-                    }  else {
-                        $this->resizeWidth = $width;
-                        $this->resizeHeight = $height;  
-                    }
-                } else {
-                    $this->resizeWidth = $width;
-                    $this->resizeHeight = $height;
-                }
-            break;
-        }
+      return imagesy($this->image);
+   }
+   function resizeToHeight($height) {
 
-        $this->newImage = imagecreatetruecolor($this->resizeWidth, $this->resizeHeight);
-        imagecopyresampled($this->newImage, $this->image, 0, 0, 0, 0, $this->resizeWidth, $this->resizeHeight, $this->origWidth, $this->origHeight);
-    }
+      $ratio = $height / $this->getHeight();
+      $width = $this->getWidth() * $ratio;
+      $this->resize($width,$height);
+   }
 
-    /**
-     * Get the resized height from the width keeping the aspect ratio
-     *
-     * @param  int $width - Max image width
-     *
-     * @return Height keeping aspect ratio
-     */
-    private function resizeHeightByWidth($width)
-    {
-        return floor(($this->origHeight/$this->origWidth)*$width);
-    }
+   function resizeToWidth($width) {
+      $ratio = $width / $this->getWidth();
+      $height = $this->getheight() * $ratio;
+      $this->resize($width,$height);
+   }
 
-    /**
-     * Get the resized width from the height keeping the aspect ratio
-     *
-     * @param  int $height - Max image height
-     *
-     * @return Width keeping aspect ratio
-     */
-    private function resizeWidthByHeight($height)
-    {
-        return floor(($this->origWidth/$this->origHeight)*$height);
-    }
+   function scale($scale) {
+      $width = $this->getWidth() * $scale/100;
+      $height = $this->getheight() * $scale/100;
+      $this->resize($width,$height);
+   }
+
+   function resize($width,$height) {
+      $new_image = imagecreatetruecolor($width, $height);
+      imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
+      $this->image = $new_image;
+   }      
+
 }
 ?>
