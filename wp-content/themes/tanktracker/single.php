@@ -15,11 +15,16 @@ Template Name: default single
 
 	  $name = get_the_author_meta('display_name');
 	  $time = get_the_time('F jS, Y');
+	  $post_id = get_the_ID();
 	  	echo '<p class="user-info">';
 		echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
 		echo '<span>'.$name.' on '. $time .'</span></p>';
 		echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'alignleft' ) );
-		the_content(); 
+		the_content();
+
+		$feed = new Feed();
+		$feed->get_post_images($post_id);
+
 
 		$args = array(
     'status' => 'approve'

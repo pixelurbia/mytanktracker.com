@@ -36,6 +36,113 @@ class Feed {
 		
 }
 
+function get_post_images($post_id){
+	
+	// $post_id = $_GET['post_id'];
+    $user = $this-> user_info();
+
+    global $wpdb;     
+    $images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
+    echo '<p>'.$numOfImages.' Photos</p>';
+    $i = 0;
+    if ($images){
+    	 echo '<ul class="gallery post-gallery">';
+      foreach ($images as $img){
+        echo '<li class="gallery-item item-'.$i.'">';
+          echo '<img src="'.$img->photo_url.'">';
+        echo '</li>';
+        $i++;
+    	}
+    	
+    	echo '</ul>';
+    }
+   
+}
+
+function get_feed_images($post_id){
+	
+	// $post_id = $_GET['post_id'];
+    $user = $this-> user_info();
+    $permlink = get_the_permalink($post_id);
+    global $wpdb;     
+    $numOfImages = $wpdb->get_var("SELECT COUNT(photo_url) FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
+    $images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 3");
+    // echo '<p>'.$numOfImages.' Photos</p>';
+    $i = 0;
+    if ($images){
+    	 echo '<ul class="gallery feed-gallery gallery-of-'.$numOfImages.'">';
+      foreach ($images as $img){
+        echo '<li class="gallery-item item-'.$i.'">';
+          echo '<img src="'.$img->photo_url.'">';
+        echo '</li>';
+        $i++;
+    	}
+    	if ($numOfImages >= 4){
+    		echo '<li class="gallery-item item-'.$i.'">';
+    		echo '<a href="'.$permlink.'">see all photos</a>';
+        echo '</li>';
+    	}
+    	echo '</ul>';
+
+    }
+   
+}
+
+	function get_stock_feed($stock_id) {
+
+
+		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+
+		$posts = array(
+			'author' => $user,
+			'posts_per_page' => 15,
+			'post_type' => 'user_journals', 
+			'post_status' => 'publish',
+			'meta_key'  => 'tt_tank_ref',
+			'meta_value'  => $stock_id,
+			'paged' => $paged,
+			);
+
+		$query = new WP_Query( $posts );
+			if ( $query->have_posts() ) : ?>
+    			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
+        		
+            		<?php 
+            		$permlink = get_the_permalink();
+            		$excerpt = get_excerpt(500);
+            		$name = get_the_author_meta('display_name');
+            		$time = get_the_time('F jS, Y');
+					$user_id = $this->user_info();
+      				$post_id = get_the_ID();
+      				$comment_count = wp_count_comments( $post_id );
+
+            		echo '<article class="grid-item post" >';
+            		echo '<p class="user-info">';
+					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            		echo '<span>'.$name.' on '. $time .'</span></p>';
+            		echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'alignleft' ) );
+            		the_excerpt();
+            		$this->get_feed_images($post_id);
+            		// echo '<a href="'.$permlink.'">Read More </a>';
+            		echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
+            		$this->is_faved($user_id,$post_id);
+            		echo '</article>';
+
+					endwhile; endif; 
+				echo '<div id="pagination">';
+
+				$big = 999999999; // need an unlikely integer
+				
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $query->max_num_pages
+				) );
+			echo '</div>';
+
+
+}
 	
 
 	function get_tank_feed($tank_id) {
@@ -71,8 +178,8 @@ class Feed {
             		echo '<p class="user-info">';
 					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
             		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'alignleft' ) );
             		the_excerpt();
+            		$this->get_feed_images($post_id);
             		// echo '<a href="'.$permlink.'">Read More </a>';
             		echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
             		$this->is_faved($user_id,$post_id);
@@ -118,18 +225,19 @@ function get_main_feed() {
             		$time = get_the_time('F jS, Y');
             		$user_id = $this->user_info();
             		$post_id = get_the_ID();
-
+            		$comment_count = wp_count_comments( $post_id );
 
             		echo '<article class="grid-item post" >';
             		echo '<p class="user-info">';
 					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
             		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'alignleft' ) );
             		the_excerpt();
-            		
-            		echo '<a href="'.$permlink.'">Read More</a>';
-            		echo '<br>';
-            		$this->is_faved($user_id,$post_id);	
+            		$this->get_feed_images($post_id);
+            		// echo '<a href="'.$permlink.'">Read More </a>';
+            		echo '<div class="post-info">';
+            			echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
+            			$this->is_faved($user_id,$post_id);
+            		echo '</div>';
             		echo '</article>';
 
 					endwhile; endif; 
@@ -147,6 +255,60 @@ function get_main_feed() {
 
 
 }
+	function profile_all_user_posts() {
+		
+		  $user = $this->user_info();
+
+		  $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+
+		$posts = array(
+			'author' => $user,
+			'posts_per_page' => 15,
+			'post_type' => 'user_journals', 
+			'post_status' => 'publish',
+			'paged' => $paged,
+			);
+
+		$query = new WP_Query( $posts );
+			if ( $query->have_posts() ) : ?>
+    			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
+        		
+            		<?php 
+            		$permlink = get_the_permalink();
+            		$excerpt = get_excerpt(500);
+            		$name = get_the_author_meta('display_name');
+            		$time = get_the_time('F jS, Y');
+					$user_id = $this->user_info();
+      				$post_id = get_the_ID();
+      				$comment_count = wp_count_comments( $post_id );
+
+            		echo '<article class="grid-item post" >';
+            		echo '<p class="user-info">';
+					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            		echo '<span>'.$name.' on '. $time .'</span></p>';
+            		the_excerpt();
+            		$this->get_feed_images($post_id);
+            		// echo '<a href="'.$permlink.'">Read More </a>';
+            		echo '<div class="post-info">';
+            			echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
+            			$this->is_faved($user_id,$post_id);
+            		echo '</div>';
+            		echo '</article>';
+
+					endwhile; endif; 
+				echo '<div id="pagination">';
+
+				$big = 999999999; // need an unlikely integer
+				
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $query->max_num_pages
+				) );
+			echo '</div>';
+     }
+
 
 function get_people_feed() {
 

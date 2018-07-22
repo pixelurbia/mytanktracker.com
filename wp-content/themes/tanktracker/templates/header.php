@@ -80,7 +80,7 @@
 
 			<span></span>
 			
-			<a name="" href="/" class="">My Profile</a>
+			<a href="/profile?user_id=<?php echo $user?>"  class="">My Profile</a>
 			<a name="myaccount" href="/my-account" class="myaccount">My Account</a>
 			<?php  echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>'; ?>
 		
@@ -99,32 +99,38 @@
 			?>
 
 
- <form id="journal-form" method="post">
+ <form id="journal-form" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="add_journal">
 		<?php echo '<input type="hidden" name="user_id" value="'.$user.'">' ?>
 		<?php wp_nonce_field('ajax_form_nonce_journal','ajax_form_nonce_journal', true, true ); ?>
-		
-		<div contenteditable="true" class="status" id='j-status'  >
-		<i>What is goin on today?</i>
-		</div>
-		<div class="img-contain">
-			<img id="output">	
-		</div>
-		<input id="status-content" type="text-area" class="hide" name="journal" value="" >
-		<select class="js-example-basic-multiple" name="tanks[]" multiple="multiple">
+		<div class="post-content-wrap">
+			<select class="js-example-basic-multiple" name="tanks[]" multiple="multiple">
 			<?php 
 				$user_tanks = new Tanks();
+				$user_stock = new Stock();
 				$tanks = $user_tanks->list_of_tanks();
+				$stocks = $user_stock->list_of_livestock();
 				// var_dump($tanks);
 				foreach ($tanks as $tank) {
 					echo '<option value="'.$tank->tank_id.'">'.$tank->tank_name.'</option>';
 				}	
+				foreach ($stocks as $stock) {
+					echo '<option value="'.$stock->stock_id.'">'.$stock->stock_name.'</option>';
+				}	
 			 ?>
 		</select> 
+			<div contenteditable="true" class="status" id='j-status'>
+				<i>What is goin on today?</i>
+			</div>
+			<div class="post-images"></div>
+		</div>
+		
+		<input id="status-content" type="text-area" class="hide" name="journal" value="" >
+		
 
 		<fieldset>
 			<label class="button tank-img" for="journal-img"><i class="fas fa-images"></i></label>
-			<input type="file" name="file_upload" id="journal-img" class="inputfile hide" accept="image/*" onchange="loadImg(event)"/>
+			<input type="file" name="file_upload[]" multiple="" id="journal-img" class="inputfile hide" accept="image/*" onchange="loadImg(event)"/>
 			<button type="submit" name="submit">
 			<i class="fas fa-paper-plane"></i>
 		</button>
@@ -134,10 +140,22 @@
 
 
 <script type="text/javascript">
-	//script for journal output form
+	//script for journal output form to show images 
 	var loadImg = function(event) {
-		var output = document.getElementById('output');
-		output.src = URL.createObjectURL(event.target.files[0]);
+
+		var files = event.target.files;
+		console.log(files);
+
+		var fileCount = 0;
+	for (var i = 0, f; f = files[i]; i++) {
+			console.log(files[i]);
+			var outSrc = URL.createObjectURL(event.target.files[i]);		
+
+    		console.log('eh?');
+    		var imgData = '<div class="img-contain"><img class="img_'+fileCount+'" src="'+outSrc+'"></div>';
+        	$('.post-images').append(imgData);
+		}
+		
 	};
 </script>
 

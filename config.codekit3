@@ -4879,13 +4879,6 @@
 		"oAP": "\/wp-content\/themes\/index.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/tanktracker\/cern-stock.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/tanktracker\/cern-stock.php",
-		"oF": 0
-		},
 	"\/wp-content\/themes\/tanktracker\/community.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -4968,6 +4961,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/profile.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/functions\/resize.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/resize.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/functions\/save-journals.php": {
@@ -5261,6 +5261,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/single.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/single_stock.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/single_stock.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/stock.php": {
@@ -6903,6 +6910,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/templates\/common-sidebar.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/templates\/feed-scripts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/templates\/feed-scripts.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/templates\/footer.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -7002,11 +7016,33 @@
 		"opt": 1,
 		"q": 100
 		},
+	"\/wp-content\/uploads\/user_livestock\/admin-livestock-1d11ec92-stock.png": {
+		"ft": 32768,
+		"iS": 63,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-1d11ec92-stock.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/wp-content\/uploads\/user_livestock\/admin-livestock-5fa26cf0-stock.png": {
 		"ft": 32768,
 		"iS": 1236347,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-5fa26cf0-stock.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/admin-livestock-6064d77e-stock.png": {
+		"ft": 32768,
+		"iS": 63,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-6064d77e-stock.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -7034,11 +7070,11 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/wp-content\/uploads\/user_livestock\/admin-livestock-90e2c9e9-stock.png": {
+	"\/wp-content\/uploads\/user_livestock\/admin-livestock-90e2c9e9-stock.blob.png": {
 		"ft": 32768,
 		"iS": 42,
 		"oA": 0,
-		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-90e2c9e9-stock.png",
+		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-90e2c9e9-stock.blob.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -7056,6 +7092,28 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/wp-content\/uploads\/user_livestock\/admin-livestock-a4c59b0d-stock.png": {
+		"ft": 32768,
+		"iS": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-a4c59b0d-stock.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/admin-livestock-cc84a413-stock.png": {
+		"ft": 32768,
+		"iS": 26980,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/admin-livestock-cc84a413-stock.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/wp-content\/uploads\/user_livestock\/fozzy.jpg": {
 		"ft": 16384,
 		"iS": 172311,
@@ -7064,6 +7122,86 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-1a0296f0-MVIMG_20180719_170633.jpg": {
+		"ft": 16384,
+		"iS": 431937,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-1a0296f0-MVIMG_20180719_170633.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-426959a4-MVIMG_20180719_170636.jpg": {
+		"ft": 16384,
+		"iS": 461187,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-426959a4-MVIMG_20180719_170636.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-790920b4-MVIMG_20180719_170636.jpg": {
+		"ft": 16384,
+		"iS": 461187,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-790920b4-MVIMG_20180719_170636.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-7fb766bb-MVIMG_20180719_170631.jpg": {
+		"ft": 16384,
+		"iS": 33161,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-7fb766bb-MVIMG_20180719_170631.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-a33ce69a-MVIMG_20180719_170633.jpg": {
+		"ft": 16384,
+		"iS": 431937,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-a33ce69a-MVIMG_20180719_170633.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-aadb3ef0-MVIMG_20180719_170636.jpg": {
+		"ft": 16384,
+		"iS": 461187,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-aadb3ef0-MVIMG_20180719_170636.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-b53c668d-MVIMG_20180719_170633.jpg": {
+		"ft": 16384,
+		"iS": 431937,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-b53c668d-MVIMG_20180719_170633.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_livestock\/img-e21f33a9-MVIMG_20180719_170636.jpg": {
+		"ft": 16384,
+		"iS": 461187,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_livestock\/img-e21f33a9-MVIMG_20180719_170636.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"q": 100
 		},
 	"\/wp-content\/uploads\/user_livestock\/tenor.gif": {
@@ -7079,6 +7217,16 @@
 		"iS": 12999,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/user_livestock\/user_tanksbear-avatar-snol.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/bg1.jpg": {
+		"ft": 16384,
+		"iS": 117514,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/bg1.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -7104,11 +7252,41 @@
 		"opt": 0,
 		"q": 100
 		},
+	"\/wp-content\/uploads\/user_tanks\/fozzy.jpg": {
+		"ft": 16384,
+		"iS": 172311,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/fozzy.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/IMG_20180719_170528.jpg": {
+		"ft": 16384,
+		"iS": 215422,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/IMG_20180719_170528.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"\/wp-content\/uploads\/user_tanks\/IMG_9856.JPG": {
 		"ft": 16384,
 		"iS": 53243,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/user_tanks\/IMG_9856.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/MVIMG_20180719_170631.jpg": {
+		"ft": 16384,
+		"iS": 33161,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/MVIMG_20180719_170631.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -7151,6 +7329,36 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/user-img-069391a0-MVIMG_20180719_170539.jpg": {
+		"ft": 16384,
+		"iS": 194765,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/user-img-069391a0-MVIMG_20180719_170539.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/user-img-46432425-fozzy.jpg": {
+		"ft": 16384,
+		"iS": 172311,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/user-img-46432425-fozzy.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/user_tanks\/user-img-bce74456-IMG_20180719_170528.jpg": {
+		"ft": 16384,
+		"iS": 215422,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/user_tanks\/user-img-bce74456-IMG_20180719_170528.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"q": 100
 		},
 	"\/wp-content\/uploads\/user_tanks\/wd.jpg": {

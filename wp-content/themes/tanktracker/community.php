@@ -21,31 +21,30 @@ $user = $user_tanks->user_info();
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
 		<h2>Community</h2>
-			<p class="page-subnav">
+		<!-- 	<p class="page-subnav">
 			<a>Discover / </a>
 			<a>Following / </a>
 			<a>Favorites</a>
-		</p>
+		</p> -->
 		
 	</div>
 
-		<section class="feed half" id="feed">
-
+	
+	<!-- <section class="third recent_params side-bar">
+		<h3>People to Follow</h3>
+		<?php 
+    		$feed = new Feed();
+			$feed->get_people_feed();
+		 ?>
+	</section> -->
+	<section class="feed half" id="feed">
 		<?php 
 			$feed = new Feed();
-			$feed->get_main_feed(); ?>
+			$feed->get_main_feed(); 
+		?>
+	</section>	
+	
 
-
-</section>	
-
-		<section class="third recent_params side-bar">
-			<h3>People to Follow</h3>
-		<?php 
-    	$feed = new Feed();
-			$feed->get_people_feed();
-
-		 ?>
-	</section>
 	
 										
 	</div>
@@ -53,24 +52,6 @@ $user = $user_tanks->user_info();
 
 
 
-<script type="text/javascript">
-
-	var ias = $.ias({
-     container: "#feed",
-     item: ".post",
-      pagination: '#pagination',
-    next:       '#pagination a.next'
-   });
-
-
-    
-  ias.extension(new IASTriggerExtension({offset: 9999}));
-   // ias.extension(new IASSpinnerExtension());
-   ias.extension(new IASNoneLeftExtension());
-   ias.extension(new IASSpinnerExtension({
-     html: '<div class="ias-spinner-idea" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>'
-}));
-</script>
 
 
 <div class="reminder form-contain">
@@ -86,46 +67,5 @@ $user = $user_tanks->user_info();
     </form>
 </div>
 
-
-<script type="text/javascript">
-	ias.on('rendered', function(items) {
-	$('.fave').click(function(event) { 
-		event.preventDefault(); // Prevent the default
-		
-		if ($(this).hasClass('static')) {
-			var action = 'un_favorite_post';
-			$(this).removeClass('static');
-		} else {
-			var action = 'favorite_post';
-			$(this).addClass('static');
-          	$(this).html('<i class="fas fa-heart"></i> Faved');
-		}
-	
-		var ref_id = $(this).attr('ref_id');
-		var fav_ajax_nonce = $(this).attr('fav_ajax_nonce');
-		var user = $(this).attr('user');
-    	// console.log(ref_id);        
-		var data = {ref_id: ref_id, user: user, action: action, fav_ajax_nonce: fav_ajax_nonce};
-
-
-      console.log(data);
-      //Custom data
-      // data.append('key', 'value');
-      $.ajax({
-          url: ajaxurl,
-          method: "post",
-          data: data,
-          success: function (data) {
-              //success
-          	console.log('success');
-
-          },
-          error: function (e) {
-              //error
-			console.log('error 124');
-			console.log(data);
-          }
-      });
-	});
-})
-</script>
+<?php get_template_part('templates/footer'); ?>
+<?php get_template_part('templates/feed-scripts'); ?>

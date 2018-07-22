@@ -3219,7 +3219,7 @@ html {
   top: 600px; }
 
 .menu-bar.extended {
-  top: 229px;
+  top: 406px;
   transition: all 0.5s ease-in-out; }
 
 .menu-bar {
@@ -3627,8 +3627,8 @@ blockquote {
   background: rgba(5, 7, 25, 0.95);
   padding: 10px;
   text-align: center;
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 12px;
+  font-size: 1.2rem;
   transition: all 0.2s ease-in-out; }
   .global-message .option-btn-container {
     margin: 40px auto;
@@ -3677,8 +3677,8 @@ blockquote {
   font-weight: 400;
   z-index: 999;
   height: 25px;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 12px;
+  font-size: 1.2rem;
   color: #47caae !important;
   text-align: left;
   border-radius: 15px;
@@ -4190,6 +4190,12 @@ input[type="submit"].btn.account-reg {
     opacity: 1;
     transition: all 0.5s ease-in-out; }
 
+.tankEditable {
+  border-bottom: 1px solid #fff; }
+
+.save-edit-tank {
+  display: none; }
+
 .a_tank {
   width: 50%;
   margin: 0px;
@@ -4335,18 +4341,17 @@ input[type="submit"].btn.account-reg {
     opacity: 0.2;
     z-index: 44; }
 
-.page-template-overview .gallery .img-contain {
-  width: 100%;
-  float: left;
-  overflow: hidden; }
-  .page-template-overview .gallery .img-contain img {
-    max-width: 110%;
-    opacity: 1; }
-    .page-template-overview .gallery .img-contain img:hover {
-      opacity: 0.8; }
+[contenteditable]:focus {
+  outline: 0px solid transparent; }
+
+.select2-container {
+  width: 340px !important;
+  position: absolute;
+  top: 10px;
+  left: 16px; }
 
 .select2-dropdown {
-  background: rgba(5, 7, 25, 0.84);
+  background: rgba(28, 24, 84, 0.8);
   border: none; }
 
 .select2-selection__choice {
@@ -4365,7 +4370,7 @@ input[type="submit"].btn.account-reg {
 #journal-form {
   position: fixed;
   opacity: 0;
-  top: -230px;
+  top: -430px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -4375,16 +4380,21 @@ input[type="submit"].btn.account-reg {
   #journal-form .select2-selection {
     border: none;
     margin: 0px;
-    background: rgba(5, 7, 25, 0.84); }
-  #journal-form .img-contain {
-    position: absolute;
-    z-index: 999999999;
-    width: 40px;
-    height: 40px;
-    border-radius: 70px;
-    left: 71px;
-    top: 148px;
+    border-radius: 30px;
+    padding: 6px;
+    height: 39px;
+    overflow-x: scroll;
+    background: rgba(28, 24, 84, 0.8); }
+  #journal-form .post-images .img-contain {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 5px;
     overflow: hidden; }
+    #journal-form .post-images .img-contain img {
+      width: 130%;
+      max-width: 400px;
+      min-height: 150px; }
   #journal-form #output {
     position: relative;
     display: block;
@@ -4393,17 +4403,21 @@ input[type="submit"].btn.account-reg {
     border: 0px;
     color: #47caae;
     min-width: 120px; }
-  #journal-form .status {
+  #journal-form .post-content-wrap {
     position: relative;
     display: block;
     overflow-y: auto;
-    height: 140px;
+    height: 350px;
     outline: none !important;
     width: 100%;
     background: rgba(5, 7, 25, 0.84);
     border: 0px;
     color: #47caae;
-    padding: 10px 10px 10px 10px; }
+    padding: 60px 10px 10px 25px; }
+    #journal-form .post-content-wrap .status {
+      font-size: 16px;
+      font-size: 1.6rem;
+      min-height: 100px; }
   #journal-form fieldset {
     background: rgba(5, 7, 25, 0.84);
     border: 0px;
@@ -4568,6 +4582,11 @@ article {
   #livestock-form fieldset {
     background: none;
     border: none; }
+  #livestock-form .step-actions {
+    margin: 50px 0px 50px 0px;
+    height: 10px; }
+    #livestock-form .step-actions .crop-img {
+      display: none; }
 
 .darkroom-container, .Livestock-output {
   width: 100%;
@@ -4581,24 +4600,19 @@ article {
   height: 120px;
   position: absolute;
   text-align: center;
-  line-height: 120px;
-  opacity: 0;
+  line-height: 230px;
   transition: all 0.5s ease-in-out; }
   .stock-actions a {
     margin: 0px 5px 0px 5px; }
   .stock-actions .larger-icon {
     color: #fff;
     opacity: 0.5;
-    font-size: 16px;
-    font-size: 1.6rem;
+    font-size: 11px;
+    font-size: 1.1rem;
     transition: all 0.5s ease-in-out; }
     .stock-actions .larger-icon:hover {
       opacity: 0.9;
       transition: all 0.5s ease-in-out; }
-  .stock-actions:hover {
-    background: rgba(5, 7, 25, 0.54);
-    opacity: 1;
-    transition: all 0.5s ease-in-out; }
 
 .croppie-container .cr-boundary {
   width: 400px;
@@ -4627,6 +4641,11 @@ article {
   height: 150px;
   width: 400px;
   margin: 50px 0px 20px 0px; }
+  .stock-item a.arrow {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    display: contents; }
   .stock-item .fa-arrow-circle-right {
     color: #fff;
     font-size: 25px;
@@ -4674,8 +4693,8 @@ section.frame.post .tags {
       padding: 3px 8px 3px 8px;
       border-radius: 19px; }
 
-#datepicker {
-  width: 200px; }
+#datepicker-from, #datepicker-to {
+  width: 120px !important; }
 
 .feed .fave {
   float: right; }
@@ -4691,6 +4710,11 @@ section.frame.post .tags {
   .feed article .user-info {
     height: 50px;
     margin-bottom: 0px; }
+  .feed article .post-info {
+    width: 100%;
+    display: block;
+    height: 20px;
+    margin: 70px 0px 0px 0px; }
   .feed article img.avatar {
     width: 30px;
     height: 30px;
@@ -4761,3 +4785,77 @@ section.frame.post .tags {
   .user-info span {
     float: left;
     margin: 5px 0px 20px 10px; }
+
+.gallery.feed-gallery.gallery-of-1 {
+  overflow: hidden; }
+  .gallery.feed-gallery.gallery-of-1 .gallery-item {
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.feed-gallery.gallery-of-1 .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%; }
+
+.gallery.feed-gallery.gallery-of-2 {
+  overflow: hidden; }
+  .gallery.feed-gallery.gallery-of-2 .gallery-item {
+    width: 48%;
+    height: 100%;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.feed-gallery.gallery-of-2 .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%; }
+
+.gallery.feed-gallery.gallery-of-3 {
+  overflow: hidden; }
+  .gallery.feed-gallery.gallery-of-3 .gallery-item {
+    width: 31%;
+    height: 100%;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.feed-gallery.gallery-of-3 .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%; }
+
+.gallery.page-gallery, .gallery.feed-gallery {
+  width: 100%;
+  float: left; }
+  .gallery.page-gallery .gallery-item, .gallery.feed-gallery .gallery-item {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.page-gallery .gallery-item img, .gallery.feed-gallery .gallery-item img {
+      width: 130%;
+      max-width: 400px;
+      min-height: 150px; }
+
+.gallery.post-gallery {
+  width: 100%;
+  float: left; }
+  .gallery.post-gallery .gallery-item {
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.post-gallery .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%; }
+
+.gallery .img-contain {
+  width: 100%;
+  float: left;
+  overflow: hidden; }
+  .gallery .img-contain img {
+    max-width: 110%;
+    opacity: 1; }
+    .gallery .img-contain img:hover {
+      opacity: 0.8; }

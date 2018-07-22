@@ -57,6 +57,22 @@ class Profile {
      	}
      }
 
+		function all_user_posts() {
+		
+		  $user = $this->user_info();
+		  $user = $user->id;
+
+		   global $wpdb;
+           $tanks = $wpdb->get_results("SELECT tank_name, tank_image, tank_volume, tank_type
+            FROM user_tanks 
+            WHERE user_id = $user");
+       
+       foreach($tanks as $tank){
+       		echo $tank->tank_name.'<br>';
+
+     	}
+     }
+
      
 
 

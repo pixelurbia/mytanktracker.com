@@ -33,12 +33,7 @@ Object.entries = function( obj ){
   
 //edit tank
 
-//show the add tank form on the tanks page
-  $('.edit-tank').click(function() { 
-    $('.add-tank-form').toggleClass('extended');
-    $('.overlay').fadeToggle();
-    $('.menu-bar').toggleClass('extended-more');
-  }); 
+
 
 
 //Add Tank register
@@ -114,6 +109,19 @@ function tankForm(){
   var delay = 1500; 
   setTimeout(function(){ window.location = '/tanks/'; }, delay);
 }
+
+
+//update tank data
+//show the add tank form on the tanks page
+  $('.edit-tank').click(function() { 
+      $(this).parent().parent().find('.tank_info').attr('contenteditable','true');
+      $(this).parent().parent().find('.tank_info').toggleClass('tankEditable');
+      $(this).hide();
+      $(this).parent().parent().find('.save-edit-tank').show();
+  }); 
+
+
+
 
 
 

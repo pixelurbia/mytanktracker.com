@@ -10,6 +10,8 @@ Template Name: profile
 
 <?php 
 $profile = new Profile();
+$feed = new Feed();
+
 $user = $profile->user_info();
 // $user = $profile->user_info('display_name');
 ?>
@@ -26,6 +28,10 @@ $user = $profile->user_info();
 <section class="third">
 	<?php 
 	echo $profile->list_tanks(); ?>
+</section>
+<section class="half feed" id="feed">
+	<?php 
+	echo $feed->profile_all_user_posts(); ?>
 </section>
 										
 	</div>
@@ -46,3 +52,4 @@ $user = $profile->user_info();
 </div>
 
 <?php get_template_part('templates/footer'); ?>
+<?php get_template_part('templates/feed-scripts'); ?>

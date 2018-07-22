@@ -13,34 +13,46 @@ function user_info() {
     return $user;
    }
 
-  function first_tank() {
-    global $wpdb;
 
-    $user = $this->user_info();
+  function the_stock_gallery($stock_id, $limit) { 
+    $stock_id = $_GET['stock_id'];
+    $user = $this-> user_info();
 
-    $tank_id = $wpdb->get_var("SELECT tank_id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
-
-    return $tank_id;
+    global $wpdb;     
+    $stock_images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = '$stock_id' LIMIT $limit");
+    
+    echo '<ul class="gallery page-gallery">';
+      foreach ($stock_images as $imgs){
+        echo '<li class="gallery-item">';
+          echo '<img src="'.$imgs->photo_url.'">';
+        echo '</li>';
+    }
+    echo '</ul>';
+    echo ' <a href="">View All Photos</a>';
   }
 
-  function get_tank_data($tank_id) {
+  function single_stock($stock_id) {
   
-    if( !isset($tank_id)){
-           $tank_id = $this->first_tank();
-      } else {
-          $tank_id = $_GET['tank_id'];
-    }
+    $stock_id = $_GET['stock_id'];
 
     $user = $this-> user_info();
 
     global $wpdb;     
-    $tank = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
+    $stock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE user_id = $user AND stock_id = '$stock_id'");
     
     // echo $tank_id;
     // echo $user;
-    return $tank;
+    return $stock;
   }
+function list_of_livestock() {
+  
+    $user = $this->user_info();
 
+    global $wpdb;     
+    $livestock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE user_id = $user");
+
+    return $livestock;
+  }
 
   function list_of_stock() {
   
@@ -51,7 +63,7 @@ function user_info() {
     
     foreach ($livestock as $stock){
       echo '<article class="stock-item '.$stock->stock_type.'" ">';
-          echo '<i class="fas fa-arrow-circle-right"></i>';
+          echo '<a class="arrow" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');">';
           echo '<div class="stock-actions"><a class="edit-tank-stock"><i class="fas larger-icon fa-edit"></i></a>';
           echo '<a class="message-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a></div>';  
@@ -69,21 +81,6 @@ function user_info() {
     }
   }
 
-
-  function get_tank_photos($tank_id) {
-    
-      $user = $this->user_info();
-
-    global $wpdb;     
-    $photos = $wpdb->get_results("SELECT * FROM user_photos WHERE user_id = $user AND ref_id = '$tank_id'");
-
-      echo '<div class="gallery">';
-      foreach($photos as $photo){
-        echo '<div class="img-contain"><img src="'.$photo->photo_url.'""></div>';
-      }
-      echo '</div>';
-
-      }
 
 
 	
@@ -118,7 +115,7 @@ function add_livestock( $file = array() ) {
   }
 
 
-//I am sending a blob file this time not a base64 but I can - need to fix 
+//I am sending a blob file this time not a base64 but I can
     $img = $_REQUEST['file'];
     $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace(' ', '+', $img);

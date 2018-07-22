@@ -14,6 +14,7 @@ require_once('functions/save-journals.php');
 require_once('functions/profile.php');
 require_once('functions/feed.php');
 require_once('functions/stock.php');
+// require_once('functions/resize.php');
 
 add_theme_support( 'post-thumbnails' );
 
@@ -186,93 +187,20 @@ add_filter('gform_field_value_uniKeyGen', 'uni_key_gen');
 
 function uni_key_gen($obj_type){
 
-	$user = wp_get_current_user();
-	$user = $user->user_nicename;
 
 	for ($i = -1; $i <= 4; $i++) {
 		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
 		$hex   = bin2hex($bytes);
 	}
 
-	$hex = $user .'-'. $obj_type .'-'. $hex;
+	$hex = $obj_type .'-'. $hex;
 
 	return  $hex; 
 }
 
 
 
-add_action('wp_ajax_add_tank', 'add_user_tank');
-add_action('wp_ajax_nopriv_add_tank', 'add_user_tank');
 
-/**
- * Add Tank
- *
- */
-
-function add_user_tank( $file = array() ) {    
-
- require_once( ABSPATH . 'wp-admin/includes/admin.php' );
-	  // Verify nonce
-  global $wpdb;
-  global $post;
-  $user = wp_get_current_user();
-  $user_name = $user->display_name;
-  $validation = $_REQUEST['verfication-username'];
-
- if( !isset( $_POST['ajax_form_nonce_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_tank'], 'ajax_form_nonce_tank' ) ){
-	} else if( !isset( $validation ) && $validation == $user_name ) 
-    die( 'Ooops, something went wrong, please try again later.'.$validation );
-   
-
-		$upload_dir = wp_upload_dir();
- 		//construct new upload dir from upload base dir and the username of the current user
- 		// $sourcePath = $_FILES['file']['tmp_name']; 
- 	$environment = set_env(); 
-	if ( $environment == 'DEV') {
-	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
-	} else {
-		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
-	}
-     
-   
-		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
-		$fileurl = $new_file_dir.$_FILES["file"]["name"];
-		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
-		
-
-  //create hex unique ref key ID
-  $obj_type = 'tank';
-  $hex = uni_key_gen($obj_type);
-
-  $user_id = $user->ID;
-  $tank_name = $_REQUEST['tankname'];
-  $tank_type = $_REQUEST['tanktype'];
-  $tank_volume = $_REQUEST['volume'];
-  $tank_dimensions = $_REQUEST['dimensions'];
-  $tank_model = $_REQUEST['model'];
-  $tank_make = $_REQUEST['make'];
-  $tank_image = $filepath;
-	
-
-  $wpdb->insert('user_tanks',array(
-  'user_id'=> $user_id,
-  'tank_id'=> $hex,
-  'tank_name'=> $tank_name,
-  'tank_type'=> $tank_type,
-  'tank_volume'=> $tank_volume,
-  'tank_dimensions'=> $tank_dimensions,
-  'tank_model'=> $tank_model,
-  'tank_make'=> $tank_make,
-  'tank_image'=> $tank_image,
-  'created_date'=> date("Y-m-d H:i:s")
-
-
-)
-    );
-
-
-    return false;
-}
 
 
 add_action('wp_ajax_get_table_data', 'get_table_data');
@@ -375,14 +303,19 @@ if( !isset( $_POST['ajax_form_nonce_photo'] ) || !wp_verify_nonce( $_POST['ajax_
        $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
   }
      
-   move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
-    $fileurl = $new_file_dir.$_FILES["file"]["name"];
-    $filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
-    
-  $obj_type = 'tank_img';
+  $obj_type = 'user-img';
   $hex = uni_key_gen($obj_type);
+  $fileName =$hex.'-'.$_FILES["file"]["name"];
+
+   move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$fileName);
+    
+    $fileurl = $new_file_dir.$fileName;
+    
+    $filepath = '/wp-content/uploads/user_tanks/'.$fileName;
+    
+
   $user_id = $_REQUEST['user_id'];
-  $ref_id = $_REQUEST['tank_id'];
+  $ref_id = $_REQUEST['ref_id'];
   $photo_url = $filepath;
   
 

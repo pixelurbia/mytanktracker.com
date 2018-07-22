@@ -23,16 +23,16 @@ $('.type-menu .menu-item-contain').click( function() {
 
 
 // When the user scrolls the page, execute myFunction 
-window.onscroll = function() {
-	var wrap = $('.recent_params');
-	// console.log(pageYOffset);
-	 if (pageYOffset > 147) {
-    wrap.addClass("sticky");
-  } else {
-    wrap.removeClass("sticky");
-  }
+// window.onscroll = function() {
+// 	var wrap = $('.recent_params');
+// 	// console.log(pageYOffset);
+// 	 if (pageYOffset > 147) {
+//     	wrap.addClass("sticky");
+//  	 } else {
+//     	wrap.removeClass("sticky");
+//   }
 
-};
+// };
 
 //strip markup from journal entries 
 document.querySelector('div[contenteditable="true"]').addEventListener("paste", function(e) {
@@ -303,8 +303,15 @@ function get_tables(tank_id, param_type, user ){
 			// });
 			
 			//File data
-			var file = $('#journal-img')[0].files[0];
-			data.append("file", file);
+			// var fileData = $('#journal-img')[0].files[0];
+			// var filedata = $('#journal-img');
+			// data.append("file", file);
+
+
+			// $.each($("input[type='file']")[0].files, function(i, file) {
+   //  			data.append('file', file);
+			// });
+
 			// i = 0;
 			for (var pair of data.entries()) {
     			console.log(pair[0]+ ', ' + pair[1]); 
