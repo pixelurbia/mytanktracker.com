@@ -5078,6 +5078,103 @@
 		"opt": 1,
 		"q": 100
 		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/android-chrome-192x192.png": {
+		"ft": 32768,
+		"iS": 4903,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/android-chrome-192x192.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/android-chrome-512x512.png": {
+		"ft": 32768,
+		"iS": 25592,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/android-chrome-512x512.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 4695,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/apple-touch-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/browserconfig.xml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/browserconfig.xml",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon-16x16.png": {
+		"ft": 32768,
+		"iS": 908,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon-16x16.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon-32x32.png": {
+		"ft": 32768,
+		"iS": 1674,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon-32x32.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon.ico": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/favicon.ico",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 1364,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/mstile-150x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/safari-pinned-tab.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/safari-pinned-tab.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/favicons\/site.webmanifest": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/favicons\/site.webmanifest",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/images\/fishbg.mp4": {
 		"cB": 0,
 		"ft": 8192,
