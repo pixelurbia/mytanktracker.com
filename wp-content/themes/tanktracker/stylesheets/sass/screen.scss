@@ -315,6 +315,9 @@ select[multiple=multiple]  {
   		box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.06)!important;
     }
 }
+select option {
+	color:$black;
+}
 select::placeholder, 
 input::placeholder {
 	color: $white !important;
@@ -381,14 +384,14 @@ select::-ms-expand {
 .form-contain {
 	background: $menu;
     width: 100%;
-    height: 197px;
+    height: 406px;
     position: fixed;
     padding: 20px;
     margin:0 auto;
     left:0;
     right:0;
     opacity:0;
-    top:-200px;
+    top:-410px;
     overflow-y:scroll;
     z-index: 999999;
     transition: all 0.5s ease-in-out;
