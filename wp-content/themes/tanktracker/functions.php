@@ -26,6 +26,30 @@ add_theme_support( 'post-thumbnails' );
 // print_r($template);
 // } 
 
+
+function my_awesome_admin_lockout(){
+  if( is_admin() && !current_user_can( 'manage_options' ) ) {
+    wp_redirect( home_url() );
+    die();
+  }
+}
+
+add_action( 'init', 'my_awesome_admin_lockout' );
+// Hook the appropriate WordPress action
+function custom_login_page() {
+
+ $new_login_page_url = home_url( '/user-login/' ); // new login page
+ global $pagenow;
+ if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+    wp_redirect( home_url() );
+    exit;
+ }
+}
+
+if(!is_user_logged_in()){
+ add_action('init','custom_login_page');
+}
+
 function get_excerpt($limit, $source = null){
 
     if($source == "content" ? ($excerpt = get_the_content()) : ($excerpt = get_the_excerpt()));
