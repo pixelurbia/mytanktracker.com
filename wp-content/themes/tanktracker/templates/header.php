@@ -69,7 +69,7 @@
 		<div class="main-menu">
 			<a class="menu-button"><i class="fas fa-bars"></i></a>
 			<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>
-			<a target="_blank" href="https://trello.com/b/lc0xTRgJ/tank-tracker-bug-tracker">Report Bugs</a>
+			<a target="_blank" href="https://trello.com/b/fYOldyoi">Report Bugs</a>
 			<!-- <a class="menu-button menu-button-open">Menu</a> -->
 			<!-- <a class="menu-button menu-button-close">Close</a> -->
 		</div>
