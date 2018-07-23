@@ -76,11 +76,11 @@ function add_user_journal() {
     // file_put_contents($fileurl, $image_data);
            $environment = set_env(); 
         if ( $environment == 'DEV') {
-            $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_livestock/';
-            $new_file_url = '/wp-content/uploads/user_livestock/';
+            $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_photos/';
+            $new_file_url = '/wp-content/uploads/user_photos/';
         } else {
-            $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_livestock/';
-            $new_file_url = '/wp-content/uploads/user_livestock/';
+            $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_photos/';
+            $new_file_url = '/wp-content/uploads/user_photos/';
         }
     
     var_error_log($environment);
