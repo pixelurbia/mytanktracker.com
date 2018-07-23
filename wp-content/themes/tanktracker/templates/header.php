@@ -37,6 +37,15 @@
 
 </head>
 <body <?php body_class(); ?>>
+	<div class="global-error"></div>
+	<div class="global-suc"></div>
+	<div class="global-message">
+		<p class="message">Are you sure you want to delete this entry?</p>
+		<div class="option-btn-container">
+			<a class="option-btn confirmation-btn">Yes</a>
+			<a class="option-btn message-action">No</a>
+		</div>
+	</div>
 <?php 
      
 
@@ -54,20 +63,13 @@
 	$tank_id = $tank[0]->tank_id;
 	$user = $user_tanks->user_info();
  ?>
-	<div class="global-error"></div>
-	<div class="global-suc"></div>
-	<div class="global-message">
-		<p class="message">Are you sure you want to delete this entry?</p>
-		<div class="option-btn-container">
-			<a class="option-btn confirmation-btn">Yes</a>
-			<a class="option-btn message-action">No</a>
-		</div>
-	</div>
+
 
 	<div class="menu-bar">
 		<div class="main-menu">
 			<a class="menu-button"><i class="fas fa-bars"></i></a>
 			<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>
+			<a target="_blank" href="https://trello.com/b/lc0xTRgJ/tank-tracker-bug-tracker">Report Bugs</a>
 			<!-- <a class="menu-button menu-button-open">Menu</a> -->
 			<!-- <a class="menu-button menu-button-close">Close</a> -->
 		</div>

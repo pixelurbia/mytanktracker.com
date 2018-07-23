@@ -72,7 +72,7 @@ $( '#regi-form' ).submit( function( event ) {
 function reigform(){
   // console.log('reg and login work');
   $('.step-one').fadeOut();
-  $('.frost').css({'height':'530px'})
+  $('.frost').css({'height':'570px'})
   $('.step-two').delay( 400 ).fadeIn();
 }
 
@@ -118,7 +118,7 @@ $( '#regi-form .regi-validate' ).change( function() {
 
 //validate password
 
-$( '#regi-form .pass-2' ).change( function() {
+$( '#regi-form .pass-2' ).keyup(function() {
 
   var pass2 = $(this).val();
   var pass1 = $('.pass-1').val();
@@ -127,10 +127,10 @@ $( '#regi-form .pass-2' ).change( function() {
     $('#regi-form .pass-1').css({'color':'#fff'});
     $('#regi-form .pass-2').css({'color':'#fff'});
     $('.global-error').removeClass('show');
-    $('.account-reg').addClass('show');
+    $('.account-reg').css({'opacity':'1'});
 
   } else {
-    $('.account-reg').removeClass('show');
+    $('.account-reg').css({'opacity':'0.3'});
     $('#regi-form .pass-1').css({'color':'#ff5050'});
     $('#regi-form .pass-2').css({'color':'#ff5050'});
     $('.global-error').html('Hmm, your passwords do not match, please fix that before we continue.');

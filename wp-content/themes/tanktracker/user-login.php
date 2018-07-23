@@ -24,7 +24,7 @@ Template Name: Login Page
         'remember' => true
     );
     wp_login_form( $args );
-	echo '<div class="form-links"><a href="/register/">Need an Account? Register Today!</a> ';
+	echo '<div class="form-links"><a href="/register/">Register your account.</a><br>';
 	echo '<a href="/password-reset//">Forgot Your Password?</a></div>';
 
 	?>

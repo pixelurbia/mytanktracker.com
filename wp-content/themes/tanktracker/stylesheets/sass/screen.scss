@@ -5,6 +5,10 @@
 @import 'base/base';
 @import 'custom/custom';
 
+
+html {
+	height:100%
+}
 // Type
 h1, h2, h3, h4 {margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
 h1, h1 a { @include font-size(5);  color:$white; font-weight:600; font-family:$ops;}
@@ -324,7 +328,7 @@ input[type="submit"], .btn {
 	text-transform:none;
 	line-height:0px; 
 	font-weight:400; 
-	width:auto; 
+	width:100%; 
 	height:25px; 
 	color:$white!important; 
 	text-align:center; 
@@ -495,7 +499,7 @@ min-height: 560px;
 	height: 350px;
 }
 input[type="submit"].btn.account-reg {
-	display:none;
+	opacity:0.3;
 }
 .frost {
 	background: rgba(37, 80, 101, 0.67);
@@ -1477,5 +1481,45 @@ article {
 				opacity:0.8;
 			}
 		}
+	}
+}
+
+
+.tank-list {
+	ul {
+		li {
+			width: 100%;
+    		height: 100px;
+			text-align: center;
+		    line-height: 63px;
+		    position:relative;
+		    margin:15px 0px 15px 0px;
+		    a {
+		    	z-index:9999;
+		    	position:relative;
+		    }
+	.shader {
+    	background:url(../images/shader.png);
+    	background-size: cover;
+    	opacity:0.9;
+    	width: 100%;
+    	height: 100%;
+    	position: absolute;
+    	top: 0px;
+    	transition: all 0.5s ease-in-out;
+    	z-index: 88;
+    }
+    .bg {
+    	background-size: cover!important;
+    		width: 100%;
+    		height: 100px;
+    		border-radius: 15px;
+			position: absolute;
+			z-index: 77;
+    		top: 0;
+    }
+
+		}
+
 	}
 }

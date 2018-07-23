@@ -106,6 +106,7 @@ function tankForm(){
   // console.log('reg and login work');
   $('.frost').fadeOut();
   $('.step-three').delay( 400 ).fadeIn();
+  $('.step-three').css('height','570px');
   var delay = 1500; 
   setTimeout(function(){ window.location = '/tanks/'; }, delay);
 }
