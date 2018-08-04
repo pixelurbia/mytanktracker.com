@@ -21,6 +21,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-photo.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/feed.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-stock.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/parameters.js"></script>
 
 	<link href="<?php echo get_template_directory_uri(); ?>/js/select/select2.css" rel="stylesheet" />
 	<script src="<?php echo get_template_directory_uri(); ?>/js/select/select2.js"></script>
@@ -51,7 +52,7 @@
 		<p class="message">Are you sure you want to delete this entry?</p>
 		<div class="option-btn-container">
 			<a class="option-btn confirmation-btn">Yes</a>
-			<a class="option-btn message-action">No</a>
+			<a class="option-btn close-message-action">No</a>
 		</div>
 	</div>
 <?php 
@@ -167,6 +168,11 @@
 		}
 		
 	};
+
+	 function closeGlobalMessage() { 
+	$('.global-message').fadeToggle();
+    $('.overlay').fadeToggle();
+}
 </script>
 
 

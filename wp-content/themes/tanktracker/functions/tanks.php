@@ -135,7 +135,7 @@ class Tanks {
 			echo '</p>';
 			echo '<div class="tank_actions">';
 				echo '<a  href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
-					echo '<a  href="/parameters/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
+					echo '<a  href="/fullview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
 					echo '<a  href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
 					// echo '<a  href="/equipment/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-bolt"></i></a>';
 					echo '<a class="image-change"><i class="fas fa-3x  fa-camera-retro"></i></a>';

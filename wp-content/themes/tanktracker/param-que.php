@@ -150,7 +150,7 @@ if (isset( $date_start ) && isset( $date_end )){
             LIMIT 5");
          //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
          // var_dump($params);
-         echo '<div class="param-table " id="table-'.$param->param_type.'">';
+         echo '<div class="param-table breakout" id="table-'.$param->param_type.'">';
          echo '<table>';
          echo '<tr>';
          echo '<th>Value</th>';

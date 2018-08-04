@@ -78,13 +78,13 @@ class Parameters {
        		$param_type = 'AND user_tank_params.param_type = $param_type';
     	} 
          
-        $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
+        $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_id, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
             WHERE user_id = $user 
             AND tank_id = '$tank_id'
             $param_type
-            ORDER BY user_tank_params.created_date ASC
+            ORDER BY user_tank_params.created_date DESC
             $limit
             ");
 
@@ -95,4 +95,63 @@ class Parameters {
 
 
 
+//new parameter
+add_action("wp_ajax_new_tank_params", "new_tank_params");
+add_action("wp_ajax_nopriv_new_tank_params", "new_tank_params");
+
+function new_tank_params() {
+
+if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+
+  $tank_id = $_REQUEST['tank_id'];
+  $value = $_REQUEST['value'];
+  $type = $_REQUEST['type'];
+
+  $obj_type = 'param';
+  $hex = uni_key_gen($obj_type);
+
+
+  $wpdb->insert('user_tank_params',array(
+  'tank_id'=> $tank_id,
+  'user_id'=> $user_id,
+  'param_value'=> $value,
+  'param_id'=> $hex,
+  'param_type'=> $type,
+  'created_date'=> date("Y-m-d H:i:s")
+
+)
+    );
+return'suc';
+}
+
+//delete parameter
+add_action("wp_ajax_del_tank_params", "del_tank_params");
+add_action("wp_ajax_nopriv_del_tank_paramsm", "del_tank_params");
+
+function del_tank_params() {
+
+if( !isset( $_POST['ajax_form_nonce_del_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_param'], 'ajax_form_nonce_del_param' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+  $tank_id = $_REQUEST['tank_id'];
+  $param_id = $_REQUEST['param_id'];
+
+  $wpdb->delete('user_tank_params',array(
+  'tank_id'=> $tank_id,
+  'user_id'=> $user_id,
+  'param_id'=> $param_id,
+)
+    );
+
+}
 

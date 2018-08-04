@@ -20,6 +20,18 @@ $('.type-menu .menu-item-contain').click( function() {
   }
 });
 
+ function closeGlobalMessage() { 
+	$('.global-message').fadeToggle();
+    $('.overlay').fadeToggle();
+}
+
+//global message close
+$('.close-message-action').click(function() { 
+	closeGlobalMessage();
+});
+
+
+
 
 
 // When the user scrolls the page, execute myFunction 
@@ -80,6 +92,40 @@ window.onmousemove = function (e) {
     tooltipSpan.css('left', (x + 20) + 'px');
 };
 
+ function getDateTime() {
+    var now     = new Date(); 
+    var year    = now.getFullYear();
+    var month   = now.getMonth()+1; 
+    var day     = now.getDate();
+    // var hour    = now.getHours();
+    var minute  = now.getMinutes();
+    var second  = now.getSeconds(); 
+    var hour = now.getHours();
+	if (hour > 12) {
+    	hour -= 12;
+	} else if (hour === 0) {
+   	hour = 12;
+	}
+
+    if(month.toString().length == 1) {
+         month = '0'+month;
+    }
+    if(day.toString().length == 1) {
+         day = '0'+day;
+    }   
+    if(hour.toString().length == 1) {
+         hour = '0'+hour;
+    }
+    if(minute.toString().length == 1) {
+         minute = '0'+minute;
+    }
+    if(second.toString().length == 1) {
+         second = '0'+second;
+    }   
+    var dateTime = year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;   
+     return dateTime;
+}
+
 
 $('.day.one-change')
 
@@ -93,14 +139,9 @@ $('.menu-button').click(function(event) {
 
 });
 
-$('.track-btn').click(function() { 
-	// $('.form-contain').toggleClass('show');
-	// $('.overlay').fadeToggle();
-	// $('.menu-bar').toggleClass('extended');
-	var dataRow = $('.input-row').html();
-	var dataRow = '<tr class="input-row">'+dataRow+'</tr>';
-	$('tbody tr').first().next().before(dataRow);
-});
+
+
+
 
 /*
 $('.param-table table th:nth-child(2)').css('width','150px');
@@ -232,7 +273,7 @@ function chartDataConstructor(ajax_form_data) {
 			// console.log(type);
 			// console.log($('#'+type).length);
 			//check if this is a parameter form and if there is one to update
-			if ( $('#'+type).length && action == 'param_form' ) {
+			if ( $('#'+type).length && action == 'new_tank_params' ) {
 				// console.log('A chart is dedected and it is a param form');
 				var chartData = chartDataConstructor(ajax_form_data);
 					// console.log('chart data returned');
@@ -368,33 +409,33 @@ $('#j-status').focusout(function() {
 
 
 
-//form validation
+//form validation Old?
+ // $.validator.addMethod("valueNotEquals", function(value, element, arg){
+	// 		  return arg !== value;
+	// 		 }, "Please select a parameter type.");
 
-	 $.validator.addMethod("valueNotEquals", function(value, element, arg){
-			  return arg !== value;
-			 }, "Please select a parameter type.");
+	// 		$('#ajax-form' ).validate({
+	// 			rules: {
+	// 				value: {
+	// 					required: true,
+	// 					number: true
+	// 				},
+	// 				type: { 
+	// 					valueNotEquals: "Parameter" 
+	// 				}
 
-			$('#ajax-form' ).validate({
-				rules: {
-					value: {
-						required: true,
-						number: true
-					},
-					type: { 
-						valueNotEquals: "Parameter" 
-					}
-
-				},
-			 	 invalidHandler: function(event, validator) {
-			    // 'this' refers to the form
-			    var errors = validator.numberOfInvalids();
-			    if (errors) {
-			    	console.log('Error 222');
-			    } else {
+	// 			},
+	// 		 	 invalidHandler: function(event, validator) {
+	// 		    // 'this' refers to the form
+	// 		    var errors = validator.numberOfInvalids();
+	// 		    if (errors) {
+	// 		    	console.log('Error 222');
+	// 		    } else {
 			    	
-			    }
-			  }
-			});
+	// 		    }
+	// 		  }
+	// 		});
+	
 
 //tank selection 
 // set urls

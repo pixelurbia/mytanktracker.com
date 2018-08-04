@@ -17,7 +17,7 @@ require_once('functions/stock.php');
 require_once('functions/resize.php');
 
 add_theme_support( 'post-thumbnails' );
-
+add_filter('show_admin_bar', '__return_false');
 
 // add_action('wp_head', 'show_template'); 
 
@@ -128,36 +128,7 @@ function smart_menu($tank_id) {
 		// } else {
 		//  $logged_in = true;
 		// 	 } 
-add_filter('show_admin_bar', '__return_false');
-add_action("wp_ajax_param_form", "tank_params");
 
-//use this version for if you want the callback to work for users who are not logged in
-add_action("wp_ajax_nopriv_param_form", "tank_params");
-
-function tank_params() {
-
-if( !isset( $_POST['ajax_form_nonce'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce'], 'ajax_form_nonce' ) )
-    die( 'Ooops, something went wrong, please try again later.' );
-
-  global $wpdb;
-  global $post;
-  $tank_id = $_REQUEST['tank_id'];
-  $user_id = $_REQUEST['user_id'];
-  $value = $_REQUEST['value'];
-  $type = $_REQUEST['type'];
-
-  $wpdb->insert('user_tank_params',array(
-  'tank_id'=> $tank_id,
-  'user_id'=> $user_id,
-  'param_value'=> $value,
-  'param_type'=> $type,
-  'created_date'=> date("Y-m-d H:i:s")
-
-
-)
-    );
-
-}
 
 
 add_action('wp_ajax_register_user', 'new_user');

@@ -66,7 +66,7 @@ function list_of_livestock() {
           echo '<a class="arrow" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');">';
           echo '<div class="stock-actions"><a class="edit-tank-stock"><i class="fas larger-icon fa-edit"></i></a>';
-          echo '<a class="message-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a></div>';  
+          echo '<a class="stock-message-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a></div>';  
           echo '</div>';
           echo '<div class="stock-data">';
               echo '<ul>';

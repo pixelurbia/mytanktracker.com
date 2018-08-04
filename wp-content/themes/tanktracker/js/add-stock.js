@@ -30,20 +30,20 @@ $('.stock-prev-step').click(function() {
 
 
 
-$('.message-action').click(function() { 
+$('.stock-message-action').click(function() { 
     var stock_id = $(this).attr('stock_id');
     var nonce = $(this).attr('nonce');
   
     $('.global-message .message').text("Are you sure you want to delete this entry?");
     $('.confirmation-btn').attr('stock_id',stock_id);
     $('.confirmation-btn').attr('nonce',nonce);
-    
-    $('.global-message').fadeToggle();
-    $('.overlay').fadeToggle();
+    $('.confirmation-btn').addClass('stock-confirmation-btn')
+    $('.message-action').addClass('stock-message-action')
+
 });
 
 
-$('.confirmation-btn').click(function() {
+$('.stock-confirmation-btn').click(function() {
 
     var nonce = $(this).attr('nonce');
     var stock_id = $(this).attr('stock_id');

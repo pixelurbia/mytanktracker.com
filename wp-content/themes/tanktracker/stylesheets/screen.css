@@ -4150,17 +4150,33 @@ input[type="submit"].btn.account-reg {
   width: 300px;
   height: 150px;
   display: block;
-  float: left;
+  float: none;
   margin: 10px 40px 0px 0px; }
 
+.aparam {
+  padding-top: 10px;
+  margin: 10px 20px 10px 10px;
+  width: 100%;
+  max-width: 290px;
+  float: left;
+  height: 500px; }
+
 .param-table table {
-  padding-top: 50px;
-  margin-top: 30px;
+  margin: 0px 0px 0px 10px;
   width: 100%;
   max-width: 290px;
   float: left; }
+  @media screen and (max-width: 600px) {
+    .param-table table {
+      margin: 0px 0px 0px -10px; } }
   .param-table table th {
     width: 120px; }
+    .param-table table th:nth-child(2) {
+      width: 60px; }
+    .param-table table th:nth-child(4) {
+      width: 50px; }
+    .param-table table th:nth-child(5) {
+      width: 50px; }
   .param-table table td {
     width: 40px; }
   .param-table table .input-row select, .param-table table .input-row input {
@@ -4170,8 +4186,17 @@ input[type="submit"].btn.account-reg {
     margin: 0px;
     padding: 0px;
     letter-spacing: 0px; }
-  .param-table table .input-row .input-action {
-    margin-right: 18px; }
+  .param-table table .input-action {
+    margin-left: 10px;
+    font-size: 12px;
+    font-size: 1.2rem; }
+  .param-table table .error-cell {
+    background: rgba(247, 96, 96, 0.3); }
+
+.param-table.breakout {
+  margin-top: 50px; }
+  .param-table.breakout th {
+    width: 90px; }
 
 .filters {
   width: 340px;
@@ -4518,65 +4543,6 @@ input[type="submit"].btn.account-reg {
       width: 100%; }
       .single-user_journals .post:last-child {
         margin-right: 0; } }
-
-/*
-
-community styles
-
-article {
-				height:auto;
-				overflow:hidden;
-				max-height:400px;
-				width:100%;
-				background:$status-blue;
-				border:0px;
-				color:$input-text;
-				padding:10px 10px 10px 10px;
-				margin:10px 0px 10px 0px;
-
-				.icon {
-					width:30px;
-					height:30px;
-					border-radius:30px;
-					background:$white;
-					float:left;
-					margin:0px 10px 0px 0px;
-				}
-				.user-info {
-					line-height: 27px;
-					margin:6px 0px 0px 0px;
-					width:100%;
-				}
-				.post-content {
-					width:100%;
-					float:none;
-					padding:10px 0px 10px 0px;
-				}
-				.post-img {
-					margin:20px 0px 20px 0px;
-				}
-		}
-
-*/
-.full-param {
-  width: 100%; }
-  .full-param .param-charts {
-    max-width: 600px;
-    width: 100%;
-    height: 350px; }
-  .full-param .param-table {
-    padding-top: 0px;
-    margin: 20px 0px 0px 10px;
-    width: 100%;
-    max-width: 580px; }
-
-.aparam {
-  padding-top: 10px;
-  margin: 10px 20px 10px 10px;
-  width: 100%;
-  max-width: 290px;
-  float: left;
-  height: 500px; }
 
 .type-menu {
   height: 80px;
