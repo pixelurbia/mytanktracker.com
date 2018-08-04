@@ -4187,6 +4187,9 @@ input[type="submit"].btn.account-reg {
     padding: 0px;
     letter-spacing: 0px; }
   .param-table table .input-action {
+    z-index: 9999;
+    position: relative; }
+  .param-table table .ia-icon {
     margin-left: 10px;
     font-size: 12px;
     font-size: 1.2rem; }

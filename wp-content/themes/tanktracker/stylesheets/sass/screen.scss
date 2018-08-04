@@ -660,6 +660,10 @@ input[type="submit"].btn.account-reg {
 
 }
 	.input-action {
+		z-index:9999;
+		position:relative;
+	}
+	.ia-icon {
 		margin-left:10px;
 		@include font-size(1.2); 
 	}
