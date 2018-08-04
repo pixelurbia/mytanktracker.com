@@ -5,7 +5,6 @@ Template Name: register Page
  
 ?>
 
-
 <?php get_template_part('templates/header'); 
  $id = uniqid();
       	?>

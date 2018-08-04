@@ -106,7 +106,6 @@ function tankForm(){
   // console.log('reg and login work');
   $('.frost').fadeOut();
   $('.step-three').delay( 400 ).fadeIn();
-  $('.step-three').css('height','570px');
   var delay = 1500; 
   setTimeout(function(){ window.location = '/tanks/'; }, delay);
 }
@@ -156,9 +155,48 @@ function tankForm(){
       });
   }); 
 
-
-
-
-
-
 });
+
+// $('.message-action').click(function() { 
+//     var stock_id = $(this).attr('stock_id');
+//     var nonce = $(this).attr('nonce');
+  
+//     $('.global-message .message').text("Are you sure you want to delete this entry?");
+//     $('.confirmation-btn').attr('stock_id',stock_id);
+//     $('.confirmation-btn').attr('nonce',nonce);
+    
+//     $('.global-message').fadeToggle();
+//     $('.overlay').fadeToggle();
+// });
+
+
+// $('.confirmation-btn').click(function() {
+
+//     var nonce = $(this).attr('nonce');
+//     var stock_id = $(this).attr('stock_id');
+//     data = {action:'del_livestock',ajax_form_nonce_del_stock: nonce, stock_id, stock_id};
+
+//     console.log(data);
+
+//         $.ajax({
+//           url: ajaxurl,
+//           method: "post",
+//           data: data,
+//           success: function (data) {
+//               //success
+//             console.log('Entry Deleted');
+//             stockForm();
+//           },
+//           error: function (e) {
+//               //error
+//             console.log('Eror 8373');
+      
+//           }
+//       });
+
+// });
+
+
+
+
+

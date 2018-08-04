@@ -73,13 +73,33 @@ $user = $user_tanks->user_info();
          echo '<th>Type</th>';
          echo '<th>Value</th>';
          echo '<th>Date Logged</th>';
+         echo '<th></th>';
+         echo '</tr>';    
+         echo '<tr class="input-row">';
+         echo '<td><select type="select" name="type">
+                                <option value="Parameter" >Parameter Selection</option>
+                                <option shortname="SG" name="Salinity" value="1">Salinity</option>
+                                <option shortname="pH" name="PH" value="2">PH</option>
+                                <option shortname="dKH" name="Alkalinity-Dkh" value="3">Alkalinity/Dkh</option>
+                                <option shortname="NH3" name="Ammonia" value="4">Ammonia</option>
+                                <option shortname="NO2" name="Nitrites" value="5">Nitrites</option>
+                                <option shortname="NO3" name="Nitrates" value="6">Nitrates</option>
+                                <option shortname="F" name="Tempature" value="7">Tempature</option>
+                                <option shortname="Mg" name="Magnisium" value="8">Magnisium</option>
+                                <option shortname="Ca" name="Calcium" value="9">Calcium</option>
+                                <option shortname="TDS" name="TDS" value="10">TDS</option>
+                                <option shortname="Po4" name="Phosphates" value="11">Phosphates</option>
+                            </select></td>';
+         echo '<td contenteditable="true"><input type="text" placeholder="Enter Value"></td>';
+         echo '<td>--</td>';
+         echo '<td><i class="fas input-action fa-save"></i><i class="fas input-action  fa-trash-alt"></td>';
          echo '</tr>';
              foreach($params as $param){
                         echo '<tr>';
                             echo '<td>'.$param->param_name.'</td>';
                             echo '<td>'.$param->param_value.'</td>';
                             echo '<td>'.$param->created_date.'</td>';
-
+                            echo '<td><i class="fas input-action fa-save"></i><i class="fas input-action  fa-trash-alt"></td>';
                         echo '</tr>';
                      }
 

@@ -94,10 +94,21 @@ $('.menu-button').click(function(event) {
 });
 
 $('.track-btn').click(function() { 
-	$('.form-contain').toggleClass('show');
-	$('.overlay').fadeToggle();
-	$('.menu-bar').toggleClass('extended');
+	// $('.form-contain').toggleClass('show');
+	// $('.overlay').fadeToggle();
+	// $('.menu-bar').toggleClass('extended');
+	var dataRow = $('.input-row').html();
+	var dataRow = '<tr class="input-row">'+dataRow+'</tr>';
+	$('tbody tr').first().next().before(dataRow);
 });
+
+/*
+$('.param-table table th:nth-child(2)').css('width','150px');
+
+use this to resize the tables
+
+*/
+
 
 $('.journals-btn').click(function() { 
 	$('#journal-form').toggleClass('show');
@@ -110,9 +121,7 @@ $('.journals .close').click(function() {
 	$('.overlay').fadeToggle();
 });
 
-$('.edit-tank').click(function() { 
-$('IdOfElement').contentEditable='true';
-});
+
 
 
 //seralizer
@@ -247,8 +256,10 @@ function chartDataConstructor(ajax_form_data) {
 		        console.log(ajax_form_data);
 		        //If param form update chart 
 		        if (ajax_form_data = '0' ){
-		           $('.form-contain').fadeToggle();
+		           // $('.form-contain').fadeToggle();
 				   $('.overlay').fadeToggle();
+				   $('.menu-bar').toggleClass('extended');
+				   $('.form-contain').toggleClass('show');
 				} else {
 					 $('.form-contain').html('There was an error - please contact the administrator. Error 78');
 					console.log('form did not submit - error 78');
@@ -256,7 +267,11 @@ function chartDataConstructor(ajax_form_data) {
            	    if ($('#'+type).length && action == 'param_form') {
            		    addData(chart, label, data);
            		    get_tables(tank_id, param_type, user);
+           		    
+					
            	    }
+
+				
 			}
        });
 
@@ -273,9 +288,9 @@ function get_tables(tank_id, param_type, user ){
 		function(data) { 
 		// location.reload();
 		// console.log('this working?');
-		$('.menu-bar').toggleClass('extended');
+		
 		$('#table-'+param_type).html(data);
-		$('.form-contain').toggleClass('show');
+		
 	})
 
 }

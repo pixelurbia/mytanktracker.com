@@ -112,6 +112,9 @@ class Tanks {
 			echo '<a class="edit-tank">';
 				echo '<i class="fas edit-tank-stock  fa-edit" ></i>';
 			echo '</a>';
+			echo '<a class="delete-tank">';
+				echo '<i class="fas edit-tank-stock  fa-trash-alt"></i>';
+			echo '</a>';
 			echo '<a class="save-edit-tank" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
 				echo '<i class="fas edit-tank-stock fa-save"></i>';
 			echo '</a>';
@@ -348,4 +351,43 @@ function create_post_record($ref_id, $fileUrls, $message) {
     add_post_meta($post_id, $meta_key, $meta_value);
 
  
-}; ?>
+};
+
+
+
+// add_action('wp_ajax_del_tank', 'del_tank');
+// add_action('wp_ajax_nopriv_del_tank', 'del_tank');
+
+// /**
+//  * add_livestock
+//  *
+//  */
+
+// function del_tank( $file = array() ) {    
+
+//  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+//     // Verify nonce
+//  if( !isset( $_POST['ajax_form_nonce_del_stock'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_stock'], 'ajax_form_nonce_del_stock' ) )
+//     die( 'Ooops, something went wrong, please try again later.' );
+   
+
+//   global $wpdb;
+//   global $post;
+//   $user = wp_get_current_user();
+  
+//   $user_id = $user->ID;
+//   $stock_id = $_REQUEST['stock_id'];
+
+//   $wpdb->delete('user_tanks',array(
+//   'user_id'=> $user_id,
+//   'tank_id'=> $stock_id
+// )
+//     );
+
+
+//     // return false;
+// }
+
+
+
+

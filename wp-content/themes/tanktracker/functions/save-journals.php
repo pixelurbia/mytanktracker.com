@@ -120,7 +120,7 @@ function add_user_journal() {
         
         $fileTempName = $file['tmp_name'];
         
-        var_error_log($new_file_dir);
+        
 
         move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
     
@@ -128,6 +128,8 @@ function add_user_journal() {
         $ref_id = $post_id;
         $photo_url = $new_file_url.$fileFullName;
         $photo_thumb_url = $new_file_url.$fileThumbName;
+        var_error_log($photo_url);
+        var_error_log($photo_thumb_url);
 
         $obj_type_new = 'user-jrnl-img';
         $hextwo = uni_key_gen($obj_type_new);

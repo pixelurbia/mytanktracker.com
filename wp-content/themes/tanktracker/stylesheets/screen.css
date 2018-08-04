@@ -3715,10 +3715,11 @@ table {
       max-width: 100px;
       padding: 5px;
       color: #fff;
-      background: rgba(238, 238, 238, 0.08);
-      border-bottom: 1px solid rgba(238, 238, 238, 0.08); }
+      background: rgba(238, 238, 238, 0.05);
+      border-bottom: 0px solid rgba(238, 238, 238, 0.08); }
     table tr td {
-      border-bottom: 1px solid rgba(238, 238, 238, 0.08);
+      background: rgba(238, 238, 238, 0.07);
+      border-bottom: 0px solid rgba(238, 238, 238, 0.08);
       width: 100%;
       max-width: 100px;
       padding: 5px;
@@ -4077,6 +4078,11 @@ input[type="submit"].btn.account-reg {
   right: 0;
   top: 10%;
   overflow: hidden; }
+  @media screen and (max-width: 600px) {
+    .frost {
+      top: 0px;
+      min-height: 800px;
+      height: 100%; } }
 
 .page-template-param-table .monthly-updates, .page-template-parameters .monthly-updates {
   padding: 43px 0px 0px 0px;
@@ -4147,12 +4153,25 @@ input[type="submit"].btn.account-reg {
   float: left;
   margin: 10px 40px 0px 0px; }
 
-.param-table {
+.param-table table {
   padding-top: 50px;
   margin-top: 30px;
   width: 100%;
   max-width: 290px;
   float: left; }
+  .param-table table th {
+    width: 120px; }
+  .param-table table td {
+    width: 40px; }
+  .param-table table .input-row select, .param-table table .input-row input {
+    height: 30px;
+    border: 0;
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px; }
+  .param-table table .input-row .input-action {
+    margin-right: 18px; }
 
 .filters {
   width: 340px;
