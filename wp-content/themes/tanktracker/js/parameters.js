@@ -140,8 +140,7 @@ $('.param-table').on("click", ".save-param-input", function(){
        
     }
      else {
-
-    
+  
     parent.find('.date_logged').html(getDateTime);
     data = {action:'new_tank_params',ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
     parent.find('.param_type').parent().removeClass('error-cell');
