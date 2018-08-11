@@ -107,23 +107,38 @@ function get_feed_images($post_id){
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(500);
+            		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
-					$user_id = $this->user_info();
-      				$post_id = get_the_ID();
-      				$comment_count = wp_count_comments( $post_id );
+            		$user_id = $this->user_info();
+            		$post_id = get_the_ID();
+            		$comment_count = wp_count_comments( $post_id );
+            		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		echo '<p class="user-info">';
-					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'alignleft' ) );
-            		the_excerpt();
             		$this->get_feed_images($post_id);
-            		// echo '<a href="'.$permlink.'">Read More </a>';
-            		echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
-            		$this->is_faved($user_id,$post_id);
+					echo '<div class="post-data">';
+            			echo '<div class="user-info">';
+						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo'</div>';
+            			echo exclude_post_categories('1');
+            		
+            			// echo '<a href="'.$permlink.'">Read More </a>';
+						echo '<p class="excerpt">'.$excerpt.'</p>';
+            			echo '<div class="post-info">';
+
+            			$this->is_faved($user_id,$post_id);
+						if ( $comment_count == 0 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
+            			} elseif ( $comment_count == 1 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            			} else {
+							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            				}
+            			
+            		echo '</div>';
+            		echo '</div>';
             		echo '</article>';
 
 					endwhile; endif; 
@@ -164,23 +179,39 @@ function get_feed_images($post_id){
     			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
         		
             		<?php 
-            		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(500);
+					$permlink = get_the_permalink();
+            		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
-					$user_id = $this->user_info();
-      				$post_id = get_the_ID();
-      				$comment_count = wp_count_comments( $post_id );
+            		$user_id = $this->user_info();
+            		$post_id = get_the_ID();
+            		$comment_count = wp_count_comments( $post_id );
+            		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		echo '<p class="user-info">';
-					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		the_excerpt();
             		$this->get_feed_images($post_id);
-            		// echo '<a href="'.$permlink.'">Read More </a>';
-            		echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
-            		$this->is_faved($user_id,$post_id);
+					echo '<div class="post-data">';
+            			echo '<div class="user-info">';
+						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo'</div>';
+            			echo exclude_post_categories('1');
+            		
+            			// echo '<a href="'.$permlink.'">Read More </a>';
+						echo '<p class="excerpt">'.$excerpt.'</p>';
+            			echo '<div class="post-info">';
+
+            			$this->is_faved($user_id,$post_id);
+						if ( $comment_count == 0 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
+            			} elseif ( $comment_count == 1 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            			} else {
+							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            				}
+            			
+            		echo '</div>';
+            		echo '</div>';
             		echo '</article>';
 
 					endwhile; endif; 
@@ -287,23 +318,37 @@ function get_main_feed() {
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(500);
+            		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
-					$user_id = $this->user_info();
-      				$post_id = get_the_ID();
-      				$comment_count = wp_count_comments( $post_id );
+            		$user_id = $this->user_info();
+            		$post_id = get_the_ID();
+            		$comment_count = wp_count_comments( $post_id );
+            		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		echo '<p class="user-info">';
-					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		the_excerpt();
             		$this->get_feed_images($post_id);
-            		// echo '<a href="'.$permlink.'">Read More </a>';
-            		echo '<div class="post-info">';
-            			echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
+					echo '<div class="post-data">';
+            			echo '<div class="user-info">';
+						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo'</div>';
+            			echo exclude_post_categories('1');
+            		
+            			// echo '<a href="'.$permlink.'">Read More </a>';
+						echo '<p class="excerpt">'.$excerpt.'</p>';
+            			echo '<div class="post-info">';
+
             			$this->is_faved($user_id,$post_id);
+						if ( $comment_count == 0 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
+            			} elseif ( $comment_count == 1 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            			} else {
+							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            				}
+            			
+            		echo '</div>';
             		echo '</div>';
             		echo '</article>';
 

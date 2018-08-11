@@ -125,7 +125,7 @@ $('.stock-confirmation-btn').click(function() {
           success: function (data) {
               //success
           console.log(data);
-           // stockForm();
+           stockForm();
           },
           error: function (e) {
               //error
@@ -140,6 +140,9 @@ $('.stock-confirmation-btn').click(function() {
 
 function stockForm(){
   // console.log('reg and login work');
+      $('.add-livestock-form').toggleClass('extended');
+    $('.overlay').fadeToggle();
+    $('.menu-bar').toggleClass('extended-more');
   var delay = 500; 
   setTimeout(function(){  location.reload(); }, delay);
 }
