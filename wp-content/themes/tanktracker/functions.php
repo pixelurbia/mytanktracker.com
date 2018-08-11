@@ -379,7 +379,24 @@ if( !isset( $_POST['ajax_form_nonce_photo'] ) || !wp_verify_nonce( $_POST['ajax_
 }
 
 
+//exclude cats
+function exclude_post_categories($excl=''){
+  $categories = get_the_category($post->ID);
+    if(!empty($categories)){
+      $exclude=$excl;
+      $exclude = explode(",", $exclude);
+      $html = '';
 
+  foreach ($categories as $cat) {
+    if(!in_array($cat->cat_ID, $exclude)) {
+    $html .= '<li cat_id="' . $cat->cat_ID . '">' . $cat->cat_name . '</li>';
+  }
+  }
+echo '<ul class="categories">';
+echo $html;
+echo '</ul>';
+}
+}
 
 
 

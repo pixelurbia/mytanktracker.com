@@ -4524,6 +4524,10 @@ input[type="submit"].btn.account-reg {
       line-height: 27px;
       margin: 6px 0px 0px 0px;
       width: 100%; }
+    #journal-form article .categories {
+      float: left;
+      width: auto;
+      margin: 10px 0px 0px 20px; }
     #journal-form article .post-content {
       width: 100%;
       float: none;
@@ -4727,22 +4731,52 @@ section.frame.post .tags {
   height: auto;
   min-height: 170px;
   position: relative; }
+  .feed article .post-data {
+    float: none;
+    width: auto;
+    overflow: hidden; }
   .feed article .user-info {
     height: 50px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    float: none;
+    width: 100%; }
+  .feed article .categories {
+    float: none;
+    width: 100%;
+    display: block;
+    height: 40px;
+    margin: 0px; }
+    .feed article .categories li {
+      padding: 5px;
+      border-radius: 7px;
+      float: left;
+      margin: 5px 5px 0px 0px;
+      background: rgba(238, 238, 238, 0.08); }
+    @media screen and (max-width: 1080px) {
+      .feed article .categories {
+        margin: 0px;
+        float: none; } }
   .feed article .post-info {
-    float: left;
+    float: none;
+    width: 100%;
     display: block;
     height: 20px;
-    margin: 0px 0px 0px 0px;
-    position: absolute;
-    bottom: 19px;
-    left: 239px; }
+    margin: 0px 0px 0px 0px; }
     @media screen and (max-width: 600px) {
       .feed article .post-info {
         position: relative;
         bottom: 0px;
         left: 0px; } }
+  .feed article .excerpt {
+    float: none;
+    width: 100%;
+    display: block; }
+    @media screen and (max-width: 1080px) {
+      .feed article .excerpt {
+        margin: 40px 0px 30px 0px; } }
+    @media screen and (max-width: 600px) {
+      .feed article .excerpt {
+        margin: 40px 0px 30px 0px; } }
   .feed article img.avatar {
     width: 30px;
     height: 30px;
@@ -4750,7 +4784,10 @@ section.frame.post .tags {
     float: left; }
   .feed article span {
     float: left;
-    margin: 5px 0px 20px 10px; }
+    margin: 2px 0px 20px 10px; }
+  .feed article .gallery-item {
+    float: left;
+    width: 250px; }
 
 .feed .grid-item {
   float: left;
@@ -4815,7 +4852,7 @@ section.frame.post .tags {
     margin: 5px 0px 20px 10px; }
 
 .gallery.feed-gallery.gallery-of-1 {
-  width: 200px;
+  width: 230px;
   margin-right: 30px;
   overflow: hidden; }
   .gallery.feed-gallery.gallery-of-1 .gallery-item {

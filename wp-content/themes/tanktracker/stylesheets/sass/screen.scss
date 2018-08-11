@@ -1099,6 +1099,11 @@ input[type="submit"].btn.account-reg {
 					margin:6px 0px 0px 0px;
 					width:100%;
 				}
+				.categories {
+					float: left;
+    				width: auto;
+    				margin: 10px 0px 0px 20px;
+				}
 				.post-content {
 					width:100%;
 					float:none;
@@ -1364,23 +1369,60 @@ input[type="submit"].btn.account-reg {
     	p {
     		    // margin-bottom: 40px;
     	}
+    	.post-data {
+    		float:none;
+    		width:auto;
+    		overflow: hidden;
+    	}
     	.user-info {
     		height:50px;
     		margin-bottom: 0px;
+    		float:none;
+					width:100%;
     	}
+    	.categories {
+    				float:none;
+					width:100%;
+					display:block;
+					height: 40px;
+    				margin:0px;
+    				li {
+    					padding: 5px;
+    					border-radius: 7px;		
+						float: left;
+    					margin: 5px 5px 0px 0px;
+    					background: $white-trans;
+    				}
+    				@include media ($tablet) { 
+    					margin:0px;
+    					float:none;
+    				}
+				}
     	.post-info {
-				float:left;
+				float:none;
+					width:100%;
 				display: block;
 				height: 20px;
 				margin:0px 0px 0px 0px;
-				position: absolute;
-    			bottom: 19px;
-    			left: 239px;
+				// position: absolute;
+    // 			bottom: 19px;
+    // 			left: 239px;
 				@include media ($phone) { 
 						position: relative;
     					bottom: 0px;
     					left: 0px;
 				}
+				}
+				.excerpt {
+					float:none;
+					width:100%;
+					display:block;
+						@include media ($tablet) { 
+						margin:40px 0px 30px 0px;
+					}
+					@include media ($phone) { 
+						margin:40px 0px 30px 0px;
+					}
 				}
     	img.avatar {
     		width:30px;
@@ -1390,7 +1432,11 @@ input[type="submit"].btn.account-reg {
     	}
     	span {
 			float:left;
-			margin: 5px 0px 20px 10px;
+			margin: 2px 0px 20px 10px;
+    	}
+    	.gallery-item {
+    		float:left;
+    		width:250px;
     	}
 	}
 
@@ -1437,7 +1483,7 @@ input[type="submit"].btn.account-reg {
 //gallery styles
 
 .gallery.feed-gallery.gallery-of-1 {
-		width:200px;
+		width:230px;
 		margin-right:30px;
 		overflow:hidden;
 		.gallery-item {

@@ -60,6 +60,12 @@ function add_user_journal() {
     $journal_content = $_REQUEST['journal'];
     $journal_title = 'post-'.$uid;
     // $user_id = get_current_user_id();
+    // var_error_log($cats);
+
+    array_unshift($cats,"");
+    unset($cats[0]);
+    // var_error_log($cats);
+
 
     $createPost = array(
         'post_author' => $user_id,

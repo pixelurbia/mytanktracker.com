@@ -228,12 +228,17 @@ function get_main_feed() {
 
             		echo '<article class="grid-item post" >';
             		$this->get_feed_images($post_id);
-            			echo '<p class="user-info">';
-					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		// echo '<a href="'.$permlink.'">Read More </a>';
-					echo '<p>'.$excerpt.'</p>';
-            		echo '<div class="post-info">';
+					echo '<div class="post-data">';
+            			echo '<div class="user-info">';
+						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo'</div>';
+            			echo exclude_post_categories('1');
+            		
+            			// echo '<a href="'.$permlink.'">Read More </a>';
+						echo '<p class="excerpt">'.$excerpt.'</p>';
+            			echo '<div class="post-info">';
+
             			$this->is_faved($user_id,$post_id);
 						if ( $comment_count == 0 ) {
             				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
@@ -243,7 +248,7 @@ function get_main_feed() {
 							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
             				}
             			
-            			
+            		echo '</div>';
             		echo '</div>';
             		echo '</article>';
 
