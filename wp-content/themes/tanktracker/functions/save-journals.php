@@ -22,6 +22,7 @@ function add_user_journal() {
   $user = wp_get_current_user();
   $today = date("-m-d-y");   
   $tanks = $_REQUEST['tanks'];
+  $cats = $_REQUEST['cats'];
     /* wp_insert_attachment */
 
 
@@ -44,7 +45,12 @@ function add_user_journal() {
 
 
     
-
+// var_error_log($cats);
+//     foreach ($cats as $cat){
+//             //create tank/or livestock ref
+//             // $cat = $term_id;
+//             // var_error_log($cat);
+//     }
 
     
     //create post
@@ -61,8 +67,11 @@ function add_user_journal() {
         'post_title' => $journal_title,
         'post_status' => 'publish',
         'post_type' => 'user_journals',
-        'publish' => 'comment_status'
+        'publish' => 'comment_status',
+        'post_category' => $cats
     );
+
+    //'post_category' => array( 8,39 )
 
     $post_id = wp_insert_post($createPost);
 
@@ -115,7 +124,7 @@ function add_user_journal() {
 
         $fileName = $file['name'];
         var_error_log($fileName);
-        $fileThubName = $hex.'-thumb'.$extension; 
+        $fileThumbName = $hex.'-thumb'.$extension; 
         $fileFullName = $hex.'-large'.$extension;
         
         $fileTempName = $file['tmp_name'];
@@ -147,7 +156,7 @@ function add_user_journal() {
     
 
     $target_dir = $new_file_dir;
-    $target_file = $new_file_dir.$fileThubName;
+    $target_file = $new_file_dir.$fileThumbName;
     $imgLoad = $new_file_dir.$fileFullName;
 
     $new_img_width = 400;
@@ -177,6 +186,7 @@ function add_user_journal() {
             $meta_value = $tank;
             add_post_meta($post_id, $meta_key, $meta_value);
     }
+
 
  
 }; ?>

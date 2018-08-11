@@ -3219,7 +3219,7 @@ html {
   top: 600px; }
 
 .menu-bar.extended {
-  top: 406px;
+  top: 500px;
   transition: all 0.5s ease-in-out; }
 
 .menu-bar {
@@ -4179,6 +4179,10 @@ input[type="submit"].btn.account-reg {
       width: 50px; }
   .param-table table td {
     width: 40px; }
+  .param-table table .input-row.new-input .edit-btn {
+    display: none; }
+  .param-table table .input-row.new-input .save-btn {
+    display: table-cell; }
   .param-table table .input-row select, .param-table table .input-row input {
     height: 30px;
     border: 0;
@@ -4186,6 +4190,10 @@ input[type="submit"].btn.account-reg {
     margin: 0px;
     padding: 0px;
     letter-spacing: 0px; }
+  .param-table table .input-row .edit-btn {
+    display: table-cell; }
+  .param-table table .input-row .save-btn {
+    display: none; }
   .param-table table .input-action {
     z-index: 9999;
     position: relative; }
@@ -4410,10 +4418,16 @@ input[type="submit"].btn.account-reg {
   outline: 0px solid transparent; }
 
 .select2-container {
-  width: 340px !important;
+  width: 100% !important;
   position: absolute;
-  top: 10px;
-  left: 16px; }
+  top: 41px;
+  left: 0px; }
+
+.select2-container:nth-child(2) {
+  width: 100% !important;
+  position: absolute;
+  top: 0px;
+  left: 0px; }
 
 .select2-dropdown {
   background: rgba(28, 24, 84, 0.8);
@@ -4445,7 +4459,6 @@ input[type="submit"].btn.account-reg {
   #journal-form .select2-selection {
     border: none;
     margin: 0px;
-    border-radius: 30px;
     padding: 6px;
     height: 39px;
     overflow-x: scroll;
@@ -4472,7 +4485,7 @@ input[type="submit"].btn.account-reg {
     position: relative;
     display: block;
     overflow-y: auto;
-    height: 350px;
+    height: 444px;
     outline: none !important;
     width: 100%;
     background: rgba(5, 7, 25, 0.84);
@@ -4482,7 +4495,8 @@ input[type="submit"].btn.account-reg {
     #journal-form .post-content-wrap .status {
       font-size: 16px;
       font-size: 1.6rem;
-      min-height: 100px; }
+      min-height: 100px;
+      margin-top: 40px; }
   #journal-form fieldset {
     background: rgba(5, 7, 25, 0.84);
     border: 0px;
@@ -4702,25 +4716,33 @@ section.frame.post .tags {
 #datepicker-from, #datepicker-to {
   width: 120px !important; }
 
-.feed .fave {
-  float: right; }
+.feed .fave, .feed .comments {
+  float: left;
+  margin-right: 20px; }
 
 .feed article {
   background: rgba(238, 238, 238, 0.08);
   padding: 10px;
   margin: 10px 10px 0px 0px;
   height: auto;
-  min-height: 170px; }
-  .feed article p {
-    margin-bottom: 40px; }
+  min-height: 170px;
+  position: relative; }
   .feed article .user-info {
     height: 50px;
     margin-bottom: 0px; }
   .feed article .post-info {
-    width: 100%;
+    float: left;
     display: block;
     height: 20px;
-    margin: 70px 0px 0px 0px; }
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    bottom: 19px;
+    left: 239px; }
+    @media screen and (max-width: 600px) {
+      .feed article .post-info {
+        position: relative;
+        bottom: 0px;
+        left: 0px; } }
   .feed article img.avatar {
     width: 30px;
     height: 30px;
@@ -4793,40 +4815,35 @@ section.frame.post .tags {
     margin: 5px 0px 20px 10px; }
 
 .gallery.feed-gallery.gallery-of-1 {
+  width: 200px;
+  margin-right: 30px;
   overflow: hidden; }
   .gallery.feed-gallery.gallery-of-1 .gallery-item {
+    position: relative;
     width: 100%;
     height: 100%;
-    margin: 5px;
+    margin: 0px;
     overflow: hidden; }
+    @media screen and (max-width: 600px) {
+      .gallery.feed-gallery.gallery-of-1 .gallery-item {
+        margin: 0px 0px 15px 0px; } }
     .gallery.feed-gallery.gallery-of-1 .gallery-item img {
       width: 100%;
       max-width: 100%;
       min-height: 100%; }
-
-.gallery.feed-gallery.gallery-of-2 {
-  overflow: hidden; }
-  .gallery.feed-gallery.gallery-of-2 .gallery-item {
-    width: 48%;
-    height: 100%;
-    margin: 5px;
-    overflow: hidden; }
-    .gallery.feed-gallery.gallery-of-2 .gallery-item img {
+    .gallery.feed-gallery.gallery-of-1 .gallery-item .photo-link {
+      position: absolute;
+      width: 30px;
+      top: 95px;
+      right: 3px;
+      height: 30px;
+      text-align: center;
+      padding: 14px 0px 0px 2px; }
+  @media screen and (max-width: 600px) {
+    .gallery.feed-gallery.gallery-of-1 {
       width: 100%;
-      max-width: 100%;
-      min-height: 100%; }
-
-.gallery.feed-gallery.gallery-of-3 {
-  overflow: hidden; }
-  .gallery.feed-gallery.gallery-of-3 .gallery-item {
-    width: 31%;
-    height: 100%;
-    margin: 5px;
-    overflow: hidden; }
-    .gallery.feed-gallery.gallery-of-3 .gallery-item img {
-      width: 100%;
-      max-width: 100%;
-      min-height: 100%; }
+      margin-right: 0px;
+      float: none; } }
 
 .gallery.page-gallery, .gallery.feed-gallery {
   width: 100%;

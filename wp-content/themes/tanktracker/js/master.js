@@ -13,14 +13,19 @@ $('.type-menu .menu-item-contain').click( function() {
 	$('.stocktype').attr('value',value);
 });
 
- $('.js-example-basic-multiple').select2({
+ $('.tankstock-js-example-basic-multiple').select2({
   placeholder: {
     id: '-1', // the value of the option
     text: 'Tag a tank or livestock'
   }
 });
 
-
+ $('.cat-js-example-basic-multiple').select2({
+  placeholder: {
+    id: '-1', // the value of the option
+    text: 'Add a category to your post'
+  }
+});
 
 //global message close
 $('.close-message-action').click(function() { 
@@ -312,6 +317,8 @@ function get_tables(tank_id, param_type, user ){
    //          var ajax_form_data = $("#tank-form").serializeObject();
    //          console.log(ajax_form_data);
 
+   			var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
+   			$('.overlay').after(spinner);
 
 
    			console.log('journal submited');
@@ -354,6 +361,7 @@ function get_tables(tank_id, param_type, user ){
   					$('.menu-bar').toggleClass('extended');
   					$('.overlay').fadeToggle();
   					$('#journal-form .status').html('What is goin on today?');
+  					$('.spinner-loader').remove();
     			},
     			error: function (e) {
         			//error

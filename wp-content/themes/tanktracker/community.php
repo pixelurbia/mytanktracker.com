@@ -37,7 +37,7 @@ $user = $user_tanks->user_info();
 			$feed->get_people_feed();
 		 ?>
 	</section> -->
-	<section class="feed half" id="feed">
+	<section class="feed full" id="feed">
 		<?php 
 			$feed = new Feed();
 			$feed->get_main_feed(); 

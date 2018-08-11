@@ -10,6 +10,16 @@ class Tanks {
 		return $user;
 	 }
 
+	function cats() {
+		global $wpdb;
+
+		$user = $this->user_info();
+
+		$cats = $wpdb->get_results("SELECT term_id, name FROM tt_terms");
+
+		return $cats;
+	}
+
 	function first_tank() {
 		global $wpdb;
 

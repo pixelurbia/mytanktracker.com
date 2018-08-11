@@ -648,6 +648,14 @@ input[type="submit"].btn.account-reg {
     	 // padding-left:15px;
     	}
     }
+    .input-row.new-input {
+		.edit-btn {
+			display:none;
+		}
+		.save-btn {
+			display:table-cell;
+		}
+    }
     .input-row {
 		select, input {
 			height: 30px;
@@ -656,6 +664,12 @@ input[type="submit"].btn.account-reg {
 			margin: 0px;
 			padding: 0px;
 			letter-spacing: 0px;
+	}
+	.edit-btn {
+		display:table-cell;
+	}
+	.save-btn {
+		display:none;
 	}
 
 }
@@ -952,10 +966,17 @@ input[type="submit"].btn.account-reg {
 }
 
 .select2-container {
-	width: 340px!important;
+	width: 100%!important;
     position: absolute;
-    top: 10px;
-    left: 16px;
+      top:41px;
+    left:0px;
+}
+
+.select2-container:nth-child(2) {
+	width: 100%!important;
+    position: absolute;
+    top:0px;
+    left:0px;
 }
 
 .select2-dropdown {
@@ -991,7 +1012,7 @@ input[type="submit"].btn.account-reg {
 				.select2-selection {
 					border:none;
 					margin: 0px;
-					border-radius: 30px;
+					// border-radius: 30px;
 					padding: 6px;
 					height: 39px;
 					overflow-x: scroll;
@@ -1029,7 +1050,7 @@ input[type="submit"].btn.account-reg {
 				position: relative;
 				display: block;
 				overflow-y: auto;
-				height: 350px;
+				height: 444px;
 				outline: none!important;
 				width:100%;
 				background: $menu;
@@ -1040,6 +1061,7 @@ input[type="submit"].btn.account-reg {
 			.status {
 				@include font-size(1.6); 
 				min-height:100px;
+				margin-top: 40px;
 			}
 
 			}		
@@ -1327,8 +1349,9 @@ input[type="submit"].btn.account-reg {
 }
 .feed {
 
-.fave {
-	float:right;
+.fave, .comments {
+	float:left;
+	margin-right:20px;
 }
 		
 	article {
@@ -1337,18 +1360,27 @@ input[type="submit"].btn.account-reg {
     	margin: 10px 10px 0px 0px;	
     	height:auto;
     	min-height: 170px;
+    	position:relative;
     	p {
-    		    margin-bottom: 40px;
+    		    // margin-bottom: 40px;
     	}
     	.user-info {
     		height:50px;
     		margin-bottom: 0px;
     	}
     	.post-info {
-					width: 100%;
-					display: block;
-					height: 20px;
-					margin: 70px 0px 0px 0px;
+				float:left;
+				display: block;
+				height: 20px;
+				margin:0px 0px 0px 0px;
+				position: absolute;
+    			bottom: 19px;
+    			left: 239px;
+				@include media ($phone) { 
+						position: relative;
+    					bottom: 0px;
+    					left: 0px;
+				}
 				}
     	img.avatar {
     		width:30px;
@@ -1405,50 +1437,41 @@ input[type="submit"].btn.account-reg {
 //gallery styles
 
 .gallery.feed-gallery.gallery-of-1 {
+		width:200px;
+		margin-right:30px;
 		overflow:hidden;
 		.gallery-item {
+			position:relative;
 			width:100%;
 			height:100%;
-			margin:5px;
+			margin:0px;
 			overflow:hidden;
+			@include media ($phone) { 
+				margin:0px 0px 15px 0px;
+			}
 		img {
     		width: 100%;
     		max-width: 100%;
     		min-height: 100%;
 		}
-	}
-
-}
-.gallery.feed-gallery.gallery-of-2 {
-		overflow:hidden;
-		.gallery-item {
-			width:48%;
-			height:100%;
-			margin:5px;
-			overflow:hidden;
-		img {
-    		width: 100%;
-    		max-width: 100%;
-    		min-height: 100%;
+		.photo-link {
+			position: absolute;
+    		width: 30px;
+    		top: 95px;
+    		right: 3px;
+    		height: 30px;
+    		text-align: center;
+    		padding: 14px 0px 0px 2px;
+			}
 		}
+	@include media ($phone) { 
+		width:100%;
+		margin-right:0px;
+		float:none;
 	}
 
 }
-.gallery.feed-gallery.gallery-of-3 {
-		overflow:hidden;
-		.gallery-item {
-			width:31%;
-			height:100%;
-			margin:5px;
-			overflow:hidden;
-		img {
-    		width: 100%;
-    		max-width: 100%;
-    		min-height: 100%;
-		}
-	}
 
-}
 //feed
 .gallery.page-gallery, .gallery.feed-gallery{
 	width:100%;

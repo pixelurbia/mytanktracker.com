@@ -115,7 +115,7 @@
 		<?php echo '<input type="hidden" name="user_id" value="'.$user.'">' ?>
 		<?php wp_nonce_field('ajax_form_nonce_journal','ajax_form_nonce_journal', true, true ); ?>
 		<div class="post-content-wrap">
-			<select class="js-example-basic-multiple" name="tanks[]" multiple="multiple">
+			<select class="tankstock-js-example-basic-multiple js-example-basic-multiple" name="tanks[]" multiple="multiple">
 			<?php 
 				$user_tanks = new Tanks();
 				$user_stock = new Stock();
@@ -127,6 +127,14 @@
 				}	
 				foreach ($stocks as $stock) {
 					echo '<option value="'.$stock->stock_id.'">'.$stock->stock_name.'</option>';
+				}	
+			 ?>
+		</select> 
+		<select class="cat-js-example-basic-multiple js-example-basic-multiple" name="cats[]" multiple="multiple">
+			<?php 
+				$cats = $user_tanks->cats();
+				foreach ($cats as $cat) {
+					echo '<option value="'.$cat->term_id.'">'.$cat->name.'</option>';
 				}	
 			 ?>
 		</select> 
@@ -173,7 +181,18 @@
 	$('.global-message').fadeToggle();
     $('.overlay').fadeToggle();
 }
+
 </script>
 
 
 <div class="overlay"></div>
+
+<?php 
+
+$terms = termsByTaxonomiesPostType('user_journals');
+var_dump($terms);
+function termsByTaxonomiesPostType( $postType ) {
+
+}
+
+ ?>

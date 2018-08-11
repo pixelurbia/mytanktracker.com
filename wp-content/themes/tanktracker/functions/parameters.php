@@ -127,7 +127,7 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
 )
     );
-return'suc';
+echo $hex;
 }
 
 //delete parameter

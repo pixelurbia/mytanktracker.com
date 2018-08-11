@@ -133,7 +133,7 @@ $('.param-table').on("click", ".save-param-input", function(){
     console.log(valid);
     if (valid != 2){
      $('.global-error').html('Please enter a parameter type and or correct parameter value.');
-       $('.global-error').addClass('show');
+     $('.global-error').addClass('show');
     setTimeout(function() {
         $('.global-error').removeClass('show');
     }, 2000);
@@ -144,7 +144,7 @@ $('.param-table').on("click", ".save-param-input", function(){
     parent.find('.date_logged').html(getDateTime);
     data = {action:'new_tank_params',ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
     parent.find('.param_type').parent().removeClass('error-cell');
-  parent.find('.param_value').parent().removeClass('error-cell');
+    parent.find('.param_value').parent().removeClass('error-cell');
     
     console.log(data);
 
@@ -155,8 +155,9 @@ $('.param-table').on("click", ".save-param-input", function(){
           success: function (data) {
               //success
             console.log(data);
+            $('.new-input .edit-btn a').attr('param-id',data);
+            $('.input-row').removeClass('new-input');
             $('tbody tr').first().next().before(inputRow);
-
           },
           error: function (e) {
               //error

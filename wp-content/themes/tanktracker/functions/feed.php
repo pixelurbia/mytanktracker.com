@@ -66,26 +66,19 @@ function get_feed_images($post_id){
     $permlink = get_the_permalink($post_id);
     global $wpdb;     
     $numOfImages = $wpdb->get_var("SELECT COUNT(photo_url) FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
-    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 3");
-    // echo '<p>'.$numOfImages.' Photos</p>';
+    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 1");
+
     $i = 0;
     if ($images){
-    	 echo '<ul class="gallery feed-gallery gallery-of-'.$numOfImages.'">';
+    	 echo '<ul class="gallery feed-gallery gallery-of-1">';
       foreach ($images as $img){
-        echo '<li class="gallery-item item-'.$i.'">';
-             	if ($numOfImages == 1 ){
-          
-          echo '<img full="'.$img->photo_url.'" src="'.$img->photo_url.'">';
-      } else {
+        echo '<li class="gallery-item">';
+	  	if ($numOfImages > 1 ){
+	  		echo '<a class="photo-link btn" href="'.$permlink.'">'.$numOfImages.'</a>';
+        }
       	echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
-      }
         echo '</li>';
         $i++;
-    	}
-    	if ($numOfImages >= 4){
-    		echo '<li class="gallery-item item-'.$i.'">';
-    		echo '<a href="'.$permlink.'">see all photos</a>';
-        echo '</li>';
     	}
     	echo '</ul>';
 
@@ -225,23 +218,32 @@ function get_main_feed() {
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(500);
+            		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
             		$user_id = $this->user_info();
             		$post_id = get_the_ID();
             		$comment_count = wp_count_comments( $post_id );
+            		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		echo '<p class="user-info">';
+            		$this->get_feed_images($post_id);
+            			echo '<p class="user-info">';
 					echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
             		echo '<span>'.$name.' on '. $time .'</span></p>';
-            		the_excerpt();
-            		$this->get_feed_images($post_id);
             		// echo '<a href="'.$permlink.'">Read More </a>';
+					echo '<p>'.$excerpt.'</p>';
             		echo '<div class="post-info">';
-            			echo '<a href="'.$permlink.'">'.$comment_count->total_comments .' comments</a>';
             			$this->is_faved($user_id,$post_id);
+						if ( $comment_count == 0 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
+            			} elseif ( $comment_count == 1 ) {
+            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            			} else {
+							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
+            				}
+            			
+            			
             		echo '</div>';
             		echo '</article>';
 

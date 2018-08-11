@@ -80,7 +80,7 @@ $user = $user_tanks->user_info();
          echo '<th></th>';
          echo '<th></th>';
          echo '</tr>';    
-         echo '<tr id="input-row" class="input-row">';
+           echo '<tr id="input-row" class="input-row new-input">';
          echo '<td><select class="param_type" type="select" name="type">
                                 <option value="Parameter" >Parameter Selection</option>
                                 <option shortname="SG" name="Salinity" value="1">Salinity</option>
@@ -97,7 +97,9 @@ $user = $user_tanks->user_info();
                             </select></td>';
          echo '<td contenteditable="true"><input class="param_value" type="text" placeholder="Enter Value"></td>';
          echo '<td class="date_logged">--</td>';
-         echo '<td><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-save"></i></a></td>';
+         echo '<td class="save-btn"><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-save"></i></a></td>';
+                 echo '<td class="edit-btn"><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-edit"></i></a></td>';
+                  echo '<td class="del-btn"><a class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fas ia-icon fa-trash"></i></a></td>';
          echo '<td></td>';
          echo '</tr>';
              foreach($params as $param){
@@ -114,10 +116,12 @@ $user = $user_tanks->user_info();
         echo '</table>';
         echo '</div>'; 
         echo '</div>'; 
+
 ?>            
         </section>
         <script type="text/javascript">
             var inputRow = $("<div />").append($('#input-row').clone()).html();
+
         </script>
         <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>        
 <?php get_template_part('templates/footer'); ?>
