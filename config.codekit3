@@ -111,7 +111,7 @@
 		"oAP": "\/wp-admin\/admin.php",
 		"oF": 0
 		},
-	"\/wp-admin\/ArrayIMG_5490.png": {
+	"\/wp-admin\/ArrayIMG_5490.PNG": {
 		"ft": 32768,
 		"iS": 2277609,
 		"oA": 0,
@@ -4996,6 +4996,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/script.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/functions\/security.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/functions\/security.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/functions\/stock.php": {

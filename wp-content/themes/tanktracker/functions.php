@@ -15,6 +15,7 @@ require_once('functions/profile.php');
 require_once('functions/feed.php');
 require_once('functions/stock.php');
 require_once('functions/resize.php');
+require_once('functions/security.php');
 
 add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');
@@ -63,51 +64,6 @@ function get_excerpt($limit, $source = null){
     return $excerpt;
 }
 
-
-add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
-function my_front_end_login_fail( $username ) {
-   $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
-   // if there's a valid referrer, and it's not the default log-in screen
-   if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
-      wp_redirect( $referrer . '?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
-      exit;
-   }
-}
-
-
-//setting dev/prod env
-function set_env() {
-	$env = $_SERVER["HTTP_HOST"];
-
-	if ($env == 'localhost:8888') {
-		$environment = 'DEV';
-	} else {
-		$environment = 'PROD';
-	}
-return($environment);
-}
-//redicted for those not logged in
-add_action( 'template_redirect', 'redirect_to_specific_page' );
-function redirect_to_specific_page() {
-  
-   if ( is_user_logged_in() ) {
-        return;
-    }
-
-   global $post;
-        //check by postID
-$name = $post->post_name;
-// echo $name;
-    if (  ($name != 'user-login') AND ($name != 'register') ) {
-      // echo '<h1>37483748fff9374</h1>';
-      wp_safe_redirect( '/user-login/',301 ); 
-      // exit;
-  } else {
-       // echo '<h1>3748374zzzzzz</h1>';
-   // exit;
-}
-
-};
 
 //smart menu
 
