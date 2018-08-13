@@ -44,10 +44,17 @@ $user = $user_tanks->user_info();
             <a>Plants / </a>
             <a>Inverts</a>
         </p>
-     <a class="option-btn add-livestock">
-            <i class="fas fa-plus"></i> 
-            <i class="text">Add Livestock</i>
-        </a>
+    <?php  
+
+    if ( is_user_logged_in() ) {
+        echo '<a class="option-btn add-livestock">';
+            echo '<i class="fas fa-plus"> </i>';
+            echo '<i class="text"> Add Livestock</i>';
+        echo '</a>';
+    } 
+
+    ?>
+     
          
     </div>
         
@@ -56,7 +63,7 @@ $user = $user_tanks->user_info();
 <section class="stock-list">
     <?php 
     $stock = new Stock(); 
-    $stock = $stock->list_of_stock();
+    $stock = $stock->list_of_stock($tank_id);
     ?>
 </section>
 </section>

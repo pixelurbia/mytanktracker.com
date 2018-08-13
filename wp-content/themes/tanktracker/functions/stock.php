@@ -54,12 +54,11 @@ function list_of_livestock() {
     return $livestock;
   }
 
-  function list_of_stock() {
-  
-    $user = $this->user_info();
+  function list_of_stock($tank_id) {
+
 
     global $wpdb;     
-    $livestock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE user_id = $user");
+    $livestock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE tank_id = '$tank_id'");
     
     foreach ($livestock as $stock){
       echo '<article class="stock-item '.$stock->stock_type.'" ">';

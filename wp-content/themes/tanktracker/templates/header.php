@@ -58,51 +58,19 @@
 <?php 
      
 
-
-      if(!is_user_logged_in()) {  
-      	 $logged_in = false;
-		} else {
-		 $logged_in = true;
-			 } 
-			 if ($logged_in == true){
-	
 	$tank_id = $_GET['tank_id'];
 	$user_tanks = new Tanks();
 	$tank = $user_tanks->get_tank_data($tank_id);	
 	$tank_id = $tank[0]->tank_id;
 	$user = $user_tanks->user_info();
- ?>
 
+	smart_menu($tank_id); 
 
-	<div class="menu-bar">
-		<div class="main-menu">
-			<a class="menu-button"><i class="fas fa-bars"></i></a>
-			<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>
-			<a target="_blank" href="https://trello.com/b/fYOldyoi">Report Bugs</a>
-			<!-- <a class="menu-button menu-button-open">Menu</a> -->
-			<!-- <a class="menu-button menu-button-close">Close</a> -->
-		</div>
+	?>
 
-		<div class="secondary_menu">			
-			<a name="" href="/tanks" class="">My Tanks</a>
-			<?php smart_menu($tank_id); ?>
-			<a name="" href="/community" class="">Tank Tracker Community</a>
-			<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Discord</a>
-
-			<span></span>
-			
-			<a href="/profile?user_id=<?php echo $user?>"  class="">My Profile</a>
-			<a name="myaccount" href="/my-account" class="myaccount">My Account</a>
-			<?php  echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>'; ?>
-		
-		</div>
-	</div>
-	
-
-	
 
 <section class="wrap">
-<?php }  
+<?php 
 		$login = $_GET['login'];
 		if (isset( $login ) && $login == 'failed') { 
 			echo '<div class="global-error show">The username or password you provided did not match our records.</div>';

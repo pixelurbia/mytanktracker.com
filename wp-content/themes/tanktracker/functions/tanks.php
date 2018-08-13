@@ -38,10 +38,8 @@ class Tanks {
         	$tank_id = $_GET['tank_id'];
 		}
 
-		$user = $this-> user_info();
-
 		global $wpdb;			
-		$tank = $wpdb->get_results("SELECT * FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
+		$tank = $wpdb->get_results("SELECT * FROM user_tanks WHERE tank_id = '$tank_id'");
 		
 		// echo $tank_id;
 		// echo $user;
