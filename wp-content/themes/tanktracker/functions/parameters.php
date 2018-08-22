@@ -114,10 +114,15 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
   $type = $_REQUEST['type'];
 
   $obj_type = 'param';
-  $hex = uni_key_gen($obj_type);
 
+  	for ($i = -1; $i <= 4; $i++) {
+		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
+		$hex   = bin2hex($bytes);
+	}
 
-  $wpdb->insert('user_tank_params',array(
+	$hex = $obj_type .'-'. $hex;
+
+$wpdb->insert('user_tank_params',array(
   'tank_id'=> $tank_id,
   'user_id'=> $user_id,
   'param_value'=> $value,
@@ -127,7 +132,9 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
 )
     );
+//return the same value sorted by latest date?? ugh
 echo $hex;
+
 }
 
 //new parameter

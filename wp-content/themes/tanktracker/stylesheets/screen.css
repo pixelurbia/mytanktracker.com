@@ -4187,8 +4187,6 @@ input[type="submit"].btn.account-reg {
     letter-spacing: 0px; }
   .param-table table .input-row .edit-btn {
     display: table-cell; }
-  .param-table table .input-row .save-btn {
-    display: none; }
   .param-table table .input-action {
     z-index: 9999;
     position: relative; }
@@ -4447,7 +4445,7 @@ input[type="submit"].btn.account-reg {
 #journal-form {
   position: fixed;
   opacity: 0;
-  top: -430px;
+  top: -600px;
   left: 0;
   right: 0;
   margin: 0 auto;

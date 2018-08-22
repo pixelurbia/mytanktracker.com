@@ -145,19 +145,6 @@ $('.param-table').on("click", ".save-param-input", function(){
       valid++;
     }
 
-    console.log(valid);
-    if (valid != 2){
-      $('.global-error').html('Please enter a parameter type and or correct parameter value.');
-      $('.global-error').addClass('show');
-      setTimeout(function() {
-          $('.global-error').removeClass('show');
-      }, 2000);
-    
-    } else {
-      parent.find('.date_logged').html(getDateTime);
-      parent.find('.param_type').parent().removeClass('error-cell');
-      parent.find('.param_value').parent().removeClass('error-cell');
-   }
 
     if (edited == true){
       data = {action: 'save_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, param_id: param_id, value: editValue};
@@ -171,12 +158,25 @@ $('.param-table').on("click", ".save-param-input", function(){
 
     } else {
       data = {action: 'new_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
-      $('.new-input .edit-btn a').attr('param-id',data);
-      $('.new-input .del-btn a').attr('param-id',data);
-      $('.input-row').removeClass('new-input');
-      $('tbody tr').first().next().before(inputRow);
+   
+
       console.log('new');
     }
+
+    console.log(valid);
+    if (valid != 2){
+      $('.global-error').html('Please enter a parameter type and or correct parameter value.');
+      $('.global-error').addClass('show');
+      setTimeout(function() {
+          $('.global-error').removeClass('show');
+      }, 2000);
+    
+    } else {
+      parent.find('.date_logged').html(getDateTime);
+      parent.find('.param_type').parent().removeClass('error-cell');
+      parent.find('.param_value').parent().removeClass('error-cell');
+  
+ 
 
     console.log(data);
 
@@ -187,7 +187,30 @@ $('.param-table').on("click", ".save-param-input", function(){
           success: function (data) {
               //success
             console.log(data);
-             
+            if (data != '0') {
+              $('.new-input .save-btn a').attr('param_id',data);
+              $('.new-input .edit-btn a').attr('param_id',data);
+              $('.new-input .del-btn a').attr('param_id',data);
+
+              //move the value to text for easier grabbing when editing 
+              var paramValue = $('.input-row').find('.param_value').val();
+              $('.input-row').find('.param_value').parent().addClass('param_value');
+              $('.input-row').find('input.param_value').remove();
+              $('.input-row').find('.param_value').text(paramValue);
+
+              //move the value to text for easier grabbing when editing 
+              var paramType = $('.input-row').find('.param_type').find('option:selected').attr('name');
+              $('.input-row').find('.param_type').parent().addClass('param_type');
+              $('.input-row').find('select.param_type').remove();
+              $('.input-row').find('.param_type').text(paramType);
+
+
+
+              $('.input-row').removeClass('new-input');
+              $('.input-row').find('.save-btn').addClass('hide');
+              $('.input-row').removeClass('input-row');
+              $('tbody tr').first().next().before(inputRow);
+             }
           },
           error: function (e) {
               //error
@@ -196,6 +219,7 @@ $('.param-table').on("click", ".save-param-input", function(){
           }
       });
 
+ }
 
   }); 
 
