@@ -124,8 +124,7 @@ $('.param-table').on("click", ".save-param-input", function(){
     nonce = $(this).attr('nonce'),
     param_id = $(this).attr('param_id'),
     parent = $(this).parent().parent(),
-    type = parent.find('.param_type').text(),
-    editBtn = parent.find('.edit-param-input'),
+    type = parent.find('.param_type').val(),
     value = parent.find('.param_value').val(),
     editValue = parent.find('.param_value').text(),
     edited = parent.hasClass('edited-row'); //check to see if the row is an edited one or new
