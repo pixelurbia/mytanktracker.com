@@ -19,7 +19,6 @@ Template Name: register Page
 	</script>
 
 	<section class="frame">
-				<div class="frost">
 	<div class="reg-form"">
 		<div class="step step-one"">
 		<div class="logo"></div>
@@ -58,12 +57,17 @@ Template Name: register Page
 		
 		</div>
 		<!-- <div class="step step-three"></div> -->
-	</div>
-		</div>
+	
 		<div class="copy">
-	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
-</div>
-		</section>
+		<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
+		</div>
+	</div>
+	</section>
+<div class="pattern"></div>
+<video autoplay muted loop id="myVideo">
+  <source src="/wp-content/themes/tanktracker/images/fishbg.mp4" type="video/mp4">
+</video>
+		
 
 
 

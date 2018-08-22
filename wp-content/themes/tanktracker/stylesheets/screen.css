@@ -3926,17 +3926,17 @@ input::placeholder {
 input[type="submit"], .btn {
   margin-top: 20px;
   display: block;
-  padding: 11px;
+  padding: 20px;
+  float: none;
   font-size: 16px;
   font-size: 1.6rem;
   text-transform: none;
   line-height: 0px;
   font-weight: 400;
   width: 100%;
-  height: 25px;
+  height: 35px;
   color: #fff !important;
   text-align: center;
-  border-radius: 15px;
   letter-spacing: 1px;
   background: none;
   border: 1px solid #fff;
@@ -4039,49 +4039,28 @@ select::-ms-expand {
 #loginform label {
   display: none; }
 
-.page-template-user-login * {
-  margin: 0;
-  padding: 0; }
-
 .page-template-user-login, .page-template-register {
   height: 100%; }
 
-.page-template-user-login .frame {
+.page-template-user-login .frame, .page-template-user-login .wrap,
+.page-template-register .frame, .page-template-register .wrap {
   width: 100%;
   height: 100%;
   display: block;
-  min-height: 560px;
   background-size: cover !important; }
 
 .page-template-register .frame {
-  background: url(../images/bg2.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   width: 100%;
   height: 100%;
   display: block;
-  min-height: 560px;
   background-size: cover !important; }
 
 .login-form, .reg-form {
   padding: 50px;
-  width: 100%;
-  max-width: 330px;
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 350px; }
-
-input[type="submit"].btn.account-reg {
-  opacity: 0.3; }
-
-.frost {
   background: rgba(37, 80, 101, 0.67);
   width: 100%;
   max-width: 350px;
-  height: 500px;
+  height: 650px;
   margin: 0 auto;
   position: absolute;
   left: 0;
@@ -4089,10 +4068,13 @@ input[type="submit"].btn.account-reg {
   top: 10%;
   overflow: hidden; }
   @media screen and (max-width: 600px) {
-    .frost {
+    .login-form, .reg-form {
       top: 0px;
       min-height: 800px;
       height: 100%; } }
+
+input[type="submit"].btn.account-reg {
+  opacity: 0.3; }
 
 .page-template-param-table .monthly-updates, .page-template-parameters .monthly-updates {
   padding: 43px 0px 0px 0px;
@@ -4189,6 +4171,9 @@ input[type="submit"].btn.account-reg {
       width: 50px; }
   .param-table table td {
     width: 40px; }
+  .param-table table .editable {
+    border-bottom: 1px solid;
+    background-color: rgba(255, 255, 255, 0.15); }
   .param-table table .input-row.new-input .edit-btn {
     display: none; }
   .param-table table .input-row.new-input .save-btn {

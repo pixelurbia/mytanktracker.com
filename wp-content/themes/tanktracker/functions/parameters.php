@@ -130,6 +130,41 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 echo $hex;
 }
 
+//new parameter
+add_action("wp_ajax_save_tank_params", "save_tank_params");
+add_action("wp_ajax_nopriv_save_tank_params", "save_tank_params");
+
+function save_tank_params() {
+
+if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+
+  $tank_id = $_REQUEST['tank_id'];
+  $value = $_REQUEST['value'];
+  $type = $_REQUEST['type'];
+
+  $obj_type = 'param';
+  $hex = uni_key_gen($obj_type);
+
+
+  $wpdb->insert('user_tank_params',array(
+  'tank_id'=> $tank_id,
+  'user_id'=> $user_id,
+  'param_value'=> $value,
+  'param_id'=> $hex,
+  'param_type'=> $type,
+  'created_date'=> date("Y-m-d H:i:s")
+
+)
+    );
+echo $hex;
+}
+
 //delete parameter
 add_action("wp_ajax_del_tank_params", "del_tank_params");
 add_action("wp_ajax_nopriv_del_tank_paramsm", "del_tank_params");

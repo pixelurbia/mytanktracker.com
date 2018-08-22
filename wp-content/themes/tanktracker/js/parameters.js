@@ -102,6 +102,17 @@ $('.param-table').on("click", ".del-param-input", function(){
 
   }); 
 
+$('.param-table').on("click", ".edit-param-input", function(){
+
+      var parent = $(this).parent().parent();
+      parent.find('.param_value').attr('contenteditable','true');
+      parent.find('.param_value').addClass('editable');
+      parent.find('.save-btn').removeClass('hide');
+      parent.find('.edit-btn').addClass('hide');
+      parent.toggleClass('edited-row');
+
+
+  }); 
 
 
 
@@ -112,18 +123,21 @@ $('.param-table').on("click", ".save-param-input", function(){
     var tank_id = $(this).attr('tank_id'),
     nonce = $(this).attr('nonce'),
     parent = $(this).parent().parent(),
-    type = parent.find('.param_type').val();
-    value = parent.find('.param_value').val();
+    type = parent.find('.param_type').text(),
+    value = parent.find('.param_value').val(),
+    editValue = parent.find('.param_value').text(),
+    edited = parent.hasClass('edited-row'); //check to see if the row is an edited one or new
 
     var valid = 0;
 
-    if (type == 'Parameter'){
+
+    if (type == 'Parameter' && edited == false){
       parent.find('.param_type').parent().addClass('error-cell');
       var valid = 0;
     } else {
       valid++;
     } 
-    if ( !$.isNumeric(value) )  {
+    if ( !$.isNumeric(value) && edited == false)  {
       parent.find('.param_value').parent().addClass('error-cell');
       var valid = 0;
     } else {
@@ -132,20 +146,28 @@ $('.param-table').on("click", ".save-param-input", function(){
 
     console.log(valid);
     if (valid != 2){
-     $('.global-error').html('Please enter a parameter type and or correct parameter value.');
-     $('.global-error').addClass('show');
-    setTimeout(function() {
-        $('.global-error').removeClass('show');
-    }, 2000);
-       
-    }
-     else {
-  
-    parent.find('.date_logged').html(getDateTime);
-    data = {action:'new_tank_params',ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
-    parent.find('.param_type').parent().removeClass('error-cell');
-    parent.find('.param_value').parent().removeClass('error-cell');
+      $('.global-error').html('Please enter a parameter type and or correct parameter value.');
+      $('.global-error').addClass('show');
+      setTimeout(function() {
+          $('.global-error').removeClass('show');
+      }, 2000);
     
+    } else {
+      parent.find('.date_logged').html(getDateTime);
+      parent.find('.param_type').parent().removeClass('error-cell');
+      parent.find('.param_value').parent().removeClass('error-cell');
+   }
+
+    if (edited == true){
+      data = {action: 'save_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: editValue};
+    } else {
+      data = {action: 'new_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
+      $('.new-input .edit-btn a').attr('param-id',data);
+      $('.new-input .del-btn a').attr('param-id',data);
+      $('.input-row').removeClass('new-input');
+      $('tbody tr').first().next().before(inputRow);
+    }
+
     console.log(data);
 
         $.ajax({
@@ -155,9 +177,7 @@ $('.param-table').on("click", ".save-param-input", function(){
           success: function (data) {
               //success
             console.log(data);
-            $('.new-input .edit-btn a').attr('param-id',data);
-            $('.input-row').removeClass('new-input');
-            $('tbody tr').first().next().before(inputRow);
+
           },
           error: function (e) {
               //error
@@ -165,7 +185,7 @@ $('.param-table').on("click", ".save-param-input", function(){
       
           }
       });
-  } //end if validation
+
 
   }); 
 

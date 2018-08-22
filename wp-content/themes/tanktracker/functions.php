@@ -16,6 +16,7 @@ require_once('functions/feed.php');
 require_once('functions/stock.php');
 require_once('functions/resize.php');
 require_once('functions/security.php');
+require_once('functions/general.php');
 
 add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');

@@ -98,17 +98,18 @@ $user = $user_tanks->user_info();
          echo '<td contenteditable="true"><input class="param_value" type="text" placeholder="Enter Value"></td>';
          echo '<td class="date_logged">--</td>';
          echo '<td class="save-btn"><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-save"></i></a></td>';
-                 echo '<td class="edit-btn"><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-edit"></i></a></td>';
+                 echo '<td class="edit-btn"><a class="input-action edit-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-edit"></i></a></td>';
                   echo '<td class="del-btn"><a class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fas ia-icon fa-trash"></i></a></td>';
          echo '<td></td>';
          echo '</tr>';
              foreach($params as $param){
                         echo '<tr>';
-                            echo '<td>'.$param->param_name.'</td>';
-                            echo '<td>'.$param->param_value.'</td>';
-                            echo '<td>'.$param->created_date.'</td>';
+                            echo '<td class="param_type">'.$param->param_name.'</td>';
+                            echo '<td class="param_value">'.$param->param_value.'</td>';
+                            echo '<td class="created_date">'.$param->created_date.'</td>';
                             // echo '<td><a param_id="'.$param->param_id.'" class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-save"></i></a></td>';
-                            echo '<td><a class="input-action edit-param-input" ><i class="fas ia-icon fa-edit"></i></a></td>';
+                            echo '<td class="save-btn hide"><a class="input-action save-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_save_param").'"><i class="fas ia-icon fa-save"></i></a></td>';
+                            echo '<td class="edit-btn"><a class="input-action edit-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_edit_param").'"><i class="fas ia-icon fa-edit"></i></a></td>';
                             echo '<td><a param_id="'.$param->param_id.'" class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fas ia-icon fa-trash-alt"></a></td>';
                         echo '</tr>';
                      }

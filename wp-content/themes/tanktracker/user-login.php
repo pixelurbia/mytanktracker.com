@@ -10,9 +10,8 @@ Template Name: Login Page
       	?>
 
 
-	<section class="frame">
-				<div class="frost">
-<div class="login-form">
+<section class="frame">
+	<div class="login-form">
 		<div class="logo"></div>
 		<!-- 	<div class="tank-menu">
 					<a  href="/register/">Register</a>|
@@ -24,17 +23,16 @@ Template Name: Login Page
         'remember' => true
     );
     wp_login_form( $args );
-	echo '<div class="form-links"><a href="/register/">Register your account.</a><br>';
-	echo '<a href="/password-reset//">Forgot Your Password?</a></div>';
-
+	echo '<div><a class="btn" href="/register/">Register your account</a>';
+	echo '<a class="btn" href="/password-reset//">Forgot Your Password?</a></div>';
+	echo '<div class="copy"><a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a></div>';
 	?>
 		</div>
-		</div>
-	<div class="copy">
-	<a href="https://pixelurbia.com">&#169; Copyright Pixelurbia LLC. 2018</a>
-</div>
-		</section>
-		<div class="pattern"></div>
+
+		
+	
+</section>
+<div class="pattern"></div>
 <video autoplay muted loop id="myVideo">
   <source src="/wp-content/themes/tanktracker/images/fishbg.mp4" type="video/mp4">
 </video>

@@ -37,7 +37,7 @@ function add_user_journal() {
 
     function var_error_log( $object=null ){
         ob_start();                    // start buffer capture
-        var_dump( $object );           // dump the values
+//        var_dump( $object );           // dump the values
         $contents = ob_get_contents(); // put the buffer into a variable
         ob_end_clean();                // end capture
         error_log( $contents );        // log contents of the result of var_dump( $object )
@@ -160,17 +160,19 @@ function add_user_journal() {
         ));
 
     
-
+    $general = NEW General();
     $target_dir = $new_file_dir;
-    $target_file = $new_file_dir.$fileThumbName;
-    $imgLoad = $new_file_dir.$fileFullName;
+    $target = $new_file_dir.$fileThumbName;
+    $load = $new_file_dir.$fileFullName;
+    $size = 400;
 
-    $new_img_width = 400;
-    $image = new SimpleImage();
-    $image->load($imgLoad);
-    $image->resizeToWidth($new_img_width);
-    $image->save($target_file);
-    var_error_log($target_file);
+    $general->resizeImageFiles($size,$load,$target);
+
+    // $image = new SimpleImage();
+    // $image->load($imgLoad);
+    // $image->resizeToWidth($new_img_width);
+    // $image->save($target_file);
+    // var_error_log($target_file);
     // return $target_file; //return name of saved file in case you want to store it in you database or show confirmation message to user      
   
     }

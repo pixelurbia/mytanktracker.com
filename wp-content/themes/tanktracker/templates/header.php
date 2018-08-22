@@ -158,7 +158,7 @@
 <?php 
 
 $terms = termsByTaxonomiesPostType('user_journals');
-var_dump($terms);
+//var_dump($terms);
 function termsByTaxonomiesPostType( $postType ) {
 
 }
