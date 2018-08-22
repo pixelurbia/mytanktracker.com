@@ -122,8 +122,10 @@ $('.param-table').on("click", ".save-param-input", function(){
 
     var tank_id = $(this).attr('tank_id'),
     nonce = $(this).attr('nonce'),
+    param_id = $(this).attr('param_id'),
     parent = $(this).parent().parent(),
     type = parent.find('.param_type').text(),
+    editBtn = parent.find('.edit-param-input'),
     value = parent.find('.param_value').val(),
     editValue = parent.find('.param_value').text(),
     edited = parent.hasClass('edited-row'); //check to see if the row is an edited one or new
@@ -159,13 +161,22 @@ $('.param-table').on("click", ".save-param-input", function(){
    }
 
     if (edited == true){
-      data = {action: 'save_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: editValue};
+      data = {action: 'save_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, param_id: param_id, value: editValue};
+      console.log('save');
+
+      parent.find('.param_value').attr('contenteditable','false');
+      parent.find('.param_value').removeClass('editable');
+      parent.find('.save-btn').addClass('hide');
+      parent.find('.edit-btn').removeClass('hide');
+      parent.toggleClass('edited-row');
+
     } else {
       data = {action: 'new_tank_params', ajax_form_nonce_save_param: nonce, tank_id: tank_id, type: type, value: value};
       $('.new-input .edit-btn a').attr('param-id',data);
       $('.new-input .del-btn a').attr('param-id',data);
       $('.input-row').removeClass('new-input');
       $('tbody tr').first().next().before(inputRow);
+      console.log('new');
     }
 
     console.log(data);
@@ -177,7 +188,7 @@ $('.param-table').on("click", ".save-param-input", function(){
           success: function (data) {
               //success
             console.log(data);
-
+             
           },
           error: function (e) {
               //error

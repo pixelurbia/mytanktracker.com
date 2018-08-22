@@ -959,14 +959,17 @@ input[type="submit"].btn.account-reg {
 
 .select2-dropdown {
 	
-	background: rgba(28, 24, 84, 0.8);
+	background: $menu;
 	border:none;
 }
 .select2-selection__choice {
 	background:none!important;
 	border:solid 1px $white!important;
 }
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
+.select2-container--default .select2-results > .select2-results__options {
+    max-height: 360px;
+    }
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option[aria-selected=true] {
 
 			background:rgba(71, 202, 174, 0.6);	
 	    	transition: all 0.2s ease-in-out;
@@ -992,9 +995,9 @@ input[type="submit"].btn.account-reg {
 					margin: 0px;
 					// border-radius: 30px;
 					padding: 6px;
-					height: 39px;
+					height: auto;
 					overflow-x: scroll;
-					background: rgba(28, 24, 84, 0.8);
+					background: none;
 
 			}
 		
@@ -1034,12 +1037,14 @@ input[type="submit"].btn.account-reg {
 				background: $menu;
 				border:0px;
 				color:$input-text;
-				padding:60px 10px 10px 25px;
+				padding:60px 10px 10px 10px;
 
 			.status {
 				@include font-size(1.6); 
 				min-height:100px;
 				margin-top: 40px;
+				border-top: 1px solid;
+    			padding-top: 20px;
 			}
 
 			}		

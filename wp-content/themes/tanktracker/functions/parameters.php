@@ -146,23 +146,17 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
   $tank_id = $_REQUEST['tank_id'];
   $value = $_REQUEST['value'];
-  $type = $_REQUEST['type'];
-
-  $obj_type = 'param';
-  $hex = uni_key_gen($obj_type);
+  $param_id = $_REQUEST['param_id'];
 
 
-  $wpdb->insert('user_tank_params',array(
-  'tank_id'=> $tank_id,
-  'user_id'=> $user_id,
-  'param_value'=> $value,
-  'param_id'=> $hex,
-  'param_type'=> $type,
-  'created_date'=> date("Y-m-d H:i:s")
-
-)
+  $wpdb->update('user_tank_params',array(
+  	'param_value'=> $value
+	), array(
+	'param_id'=> $param_id,
+  	'tank_id'=> $tank_id
+	)
     );
-echo $hex;
+
 }
 
 //delete parameter
