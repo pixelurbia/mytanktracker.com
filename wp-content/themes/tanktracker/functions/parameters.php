@@ -134,6 +134,7 @@ $wpdb->insert('user_tank_params',array(
     );
 //return the same value sorted by latest date?? ugh
 echo $hex;
+exit;
 
 }
 

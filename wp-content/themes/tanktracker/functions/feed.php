@@ -11,6 +11,14 @@ class Feed {
 	 }
 
 
+	 function cats() {
+		global $wpdb;
+
+		$cats = $wpdb->get_results("SELECT term_id, name FROM tt_terms");
+
+		return $cats;
+	}
+
 	 function is_faved($user_id, $post_id) {
 
 		global $wpdb;

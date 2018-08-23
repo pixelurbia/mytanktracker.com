@@ -14,6 +14,7 @@ $user_tanks = new Tanks();
 $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;	
 $user = $user_tanks->user_info();
+$feed = new Feed();
 ?>
 
 <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
@@ -21,11 +22,22 @@ $user = $user_tanks->user_info();
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
 		<h2>Community</h2>
-		<!-- 	<p class="page-subnav">
+		<p class="page-subnav">
 			<a>Discover / </a>
 			<a>Following / </a>
 			<a>Favorites</a>
-		</p> -->
+		</p>
+		<p class="page-subnav">
+			<?php 
+
+			$cats = $feed->cats(); 
+			foreach ($cats as $cat){
+				echo '<a>'.$cat->name.' / </a>';
+			}
+
+
+			 ?>
+		</p>
 		
 	</div>
 
@@ -39,7 +51,7 @@ $user = $user_tanks->user_info();
 	</section> -->
 	<section class="feed full" id="feed">
 		<?php 
-			$feed = new Feed();
+		
 			$feed->get_main_feed(); 
 		?>
 	</section>	

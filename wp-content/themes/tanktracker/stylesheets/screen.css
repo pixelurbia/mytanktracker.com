@@ -3594,28 +3594,32 @@ blockquote {
     margin-right: 0; }
 
 @-moz-document url-prefix() {}.global-error.show {
-  top: 0px;
+  top: 44px;
   transition: all 0.2s ease-in-out; }
 
 .global-error {
   top: -500px;
-  width: 100%;
+  right: 0px;
+  height: 65px;
+  display: block;
+  z-index: 9999999;
+  width: 400px;
   position: fixed;
   z-index: 99999;
   color: white;
   background: #ff5c5c;
-  padding: 10px;
+  padding: 17px 0px 0px 0px;
   text-align: center;
   font-size: 18px;
   transition: all 0.2s ease-in-out; }
 
 .global-suc {
-  top: 0px;
+  top: 44px;
   right: 0px;
-  height: 45px;
+  height: 65px;
   display: none;
   z-index: 9999999;
-  width: 100%;
+  width: 400px;
   position: fixed;
   color: white;
   background: rgba(71, 202, 174, 0.68) !important;
@@ -3638,7 +3642,7 @@ blockquote {
   position: fixed;
   color: white;
   background: rgba(5, 7, 25, 0.95);
-  padding: 10px;
+  padding: 17px 0px 0px 0px;
   text-align: center;
   font-size: 12px;
   font-size: 1.2rem;
@@ -4869,8 +4873,8 @@ section.frame.post .tags {
     .gallery.feed-gallery.gallery-of-1 .gallery-item .photo-link {
       position: absolute;
       width: 30px;
-      top: 95px;
-      right: 3px;
+      top: 123px;
+      right: 0px;
       height: 30px;
       text-align: center;
       padding: 14px 0px 0px 2px; }

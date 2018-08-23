@@ -59,29 +59,33 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 @-moz-document url-prefix() { }	
 
 .global-error.show {
-	top:0px;
+	top: 44px;
 	transition: all 0.2s ease-in-out;
 }
 .global-error {
 	top: -500px;
-	width: 100%;
+    right: 0px;
+    height: 65px;
+    display: block;
+    z-index: 9999999;
+    width: 400px;
     position: fixed;
     z-index: 99999;
     color: white;
     background: #ff5c5c;
-    padding: 10px;
+    padding: 17px 0px 0px 0px;
     text-align: center;
     font-size: 18px;
     transition: all 0.2s ease-in-out;
 }
 
 .global-suc {
-	top: 0px;
-	right:0px;
-	height:45px;
-	display:none;
-	z-index:9999999;
-	width: 100%;
+    top: 44px;
+    right: 0px;
+    height: 65px;
+    display: none;
+    z-index: 9999999;
+    width: 400px;
     position: fixed;
     color: white;
     background:$one-change!important; 
@@ -103,7 +107,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
     position: fixed;
     color: white;
   	background: rgba(5, 7, 25, 0.95);
-    padding: 10px;
+    padding: 17px 0px 0px 0px;
     text-align: center;
     @include font-size(1.2); 
     transition: all 0.2s ease-in-out;
@@ -1486,8 +1490,8 @@ input[type="submit"].btn.account-reg {
 		.photo-link {
 			position: absolute;
     		width: 30px;
-    		top: 95px;
-    		right: 3px;
+    		top: 123px;
+    		right: 0px;
     		height: 30px;
     		text-align: center;
     		padding: 14px 0px 0px 2px;
