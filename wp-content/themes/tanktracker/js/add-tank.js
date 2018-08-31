@@ -110,6 +110,58 @@ function tankForm(){
   setTimeout(function(){ window.location = '/tanks/'; }, delay);
 }
 
+//del tank func
+$('.global-message').on("click", ".tank-confirmation-btn", function(){
+
+  var tank_id = $(this).attr('tank_id'),
+    nonce = $(this).attr('nonce'),
+    parent = $(this).attr('parent').
+    parent = $('.'+parent);
+
+ data = {action:'del_tank',ajax_form_nonce_del_tank: nonce, tank_id: tank_id};
+    
+    console.log(data);
+
+        $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+            console.log(data);
+            $('.removeTank').remove();
+            closeGlobalMessage();
+
+          },
+          error: function (e) {
+              //error
+            console.log('Eror 0937');
+      
+          }
+      });
+
+});
+
+//del tank warning
+$('.wrap').on("click", ".delete-tank", function(){
+
+    var tank_id = $(this).attr('tank_id'),
+    param_id = $(this).attr('param_id'),
+    nonce = $(this).attr('nonce');
+    $(this).parent().parent().parent().addClass('removeTank');
+  
+    $('.global-message .message').text("Are you sure you want to delete this entry and all of it's associated data? This includes, images, posts, favs, parameters and livestock. This cannot be undone.");
+    $('.confirmation-btn').attr('tank_id',tank_id);
+    $('.confirmation-btn').attr('nonce',nonce);
+    $('.confirmation-btn').attr('parent',parent);
+    $('.confirmation-btn').addClass('tank-confirmation-btn')
+    $('.message-action').addClass('tank-message-action')
+    
+    $('.global-message').fadeToggle();
+    $('.overlay').fadeToggle();
+
+  }); 
+
 
 //update tank data
 //show the add tank form on the tanks page
@@ -119,6 +171,7 @@ function tankForm(){
       parent.find('.tank_info').toggleClass('tankEditable');
       $(this).hide();
       parent.find('.save-edit-tank').show();
+      parent.find('.delete-tank').show();
       parent.parent().find('.image-change').show();
 
   }); 
@@ -133,6 +186,8 @@ function tankForm(){
       tank_model = parent.find('.tank_model').html(),
       tank_make = parent.find('.tank_make').html();
  
+      var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
+      $('.overlay').after(spinner);
 
     data = {action:'update_user_tank',ajax_form_nonce_update_tank: nonce, tank_id: tank_id, tank_name: tank_name, tank_volume: tank_volume, tank_dimensions: tank_dimensions, tank_model: tank_model, tank_make: tank_make};
 
@@ -155,48 +210,57 @@ function tankForm(){
       });
   }); 
 
-});
+//update tank image 
 
-// $('.message-action').click(function() { 
-//     var stock_id = $(this).attr('stock_id');
-//     var nonce = $(this).attr('nonce');
-  
-//     $('.global-message .message').text("Are you sure you want to delete this entry?");
-//     $('.confirmation-btn').attr('stock_id',stock_id);
-//     $('.confirmation-btn').attr('nonce',nonce);
-    
-//     $('.global-message').fadeToggle();
-//     $('.overlay').fadeToggle();
-// });
-
-
-// $('.confirmation-btn').click(function() {
-
-//     var nonce = $(this).attr('nonce');
-//     var stock_id = $(this).attr('stock_id');
-//     data = {action:'del_livestock',ajax_form_nonce_del_stock: nonce, stock_id, stock_id};
-
-//     console.log(data);
-
-//         $.ajax({
-//           url: ajaxurl,
-//           method: "post",
-//           data: data,
-//           success: function (data) {
-//               //success
-//             console.log('Entry Deleted');
-//             stockForm();
-//           },
-//           error: function (e) {
-//               //error
-//             console.log('Eror 8373');
+    $( '.tank-photo-img' ).change( function( event ) {
+            
+      event.preventDefault(); // Prevent the defau
+      console.log('hello from the other side');
+      //form validation 
+      // var tank_name = $('#tank-form .tank-name').val();
+      var parent = $(this).parent().parent();
+      var data = new FormData();
       
-//           }
-//       });
+      console.log(parent);
+      //Form data
+      var form_data = parent.serializeArray();
+      $.each(form_data, function (key, input) {
+          data.append(input.name, input.value);
+      });
+      
+      //File data
+      var file = parent.find('.tank-photo-img')[0].files[0];
+      data.append("file", file);
+      
+      for (var pair of data.entries()) {
+          console.log(pair[0]+ ', ' + pair[1]); 
+      }
+      //Custom data
+      // data.append('key', 'value');
+      $.ajax({
+          url: ajaxurl,
+          method: "post",
+          processData: false,
+          contentType: false,
+          data: data,
+          success: function (data) {
+              //success
+          console.log(data);
+          console.log('working');
+          // location.reload();
+          },
+          error: function (e) {
+              //error
+        console.log(data);
+        console.log('error');
+          }
+      });
 
-// });
+
+            });
 
 
 
+});
 
 

@@ -44,20 +44,7 @@ $user = $tanks->user_info();
 				}
 			?> 
 			</p>
-  <!--       	 <form id="photo-form" method="post">
-		<input type="hidden" name="action" value="add_user_photo">
-		<?php echo '<input type="hidden" name="ref_id" value="'.$tank_id.'">' ?>
-		<?php echo '<input type="hidden" name="user_id" value="'.$user.'">' ?>
-		<?php wp_nonce_field('ajax_form_nonce_photo','ajax_form_nonce_photo', true, true ); ?>
-			<a class="option-btn add-photo-btn" >
-            	<label class="tank-img" for="photo-img">
-            		<i class="fas fa-images"></i>   	
-            		<i class="text">Add Image</i>
-            	</label>
-         
-            	<input type="file" name="file_upload" id="photo-img" class="inputfile hide" accept="image/*" />
-        	</a>
-   </form>     --> 
+  
 	</div>
 	<section class="third recent_params">
 		

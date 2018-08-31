@@ -98,7 +98,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 	top: 25%;
 	right:0px;
 	left:0px;
-	height:150px;
+	height:180px;
 	margin:0 auto;
 	display:none;
 	z-index:9999999;
@@ -107,7 +107,7 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
     position: fixed;
     color: white;
   	background: rgba(5, 7, 25, 0.95);
-    padding: 17px 0px 0px 0px;
+    padding: 15px;
     text-align: center;
     @include font-size(1.2); 
     transition: all 0.2s ease-in-out;
@@ -717,17 +717,8 @@ input[type="submit"].btn.account-reg {
 }
 
 //Tank Selection page
- .save-edit-tank, .edit-tank { margin: 14px; }
+ // .save-edit-tank, .edit-tank { margin: 14px; }
 
- .image-change {
- 	position: absolute;
-    bottom: -190px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    padding-left: 12px;
-    display:none;
- }
 
 .edit-tank-stock {
 	@include font-size(0.9); 
@@ -746,9 +737,7 @@ input[type="submit"].btn.account-reg {
 	border-bottom:1px solid $white;
 	// text-decoration:underline;
 }
-.save-edit-tank {
-	display:none;
-}
+
 
 .a_tank {
 	width: 50%;
@@ -819,6 +808,22 @@ input[type="submit"].btn.account-reg {
     transition: all 0.5s ease-in-out;
 
 	}
+.tank-options {
+	width: 242px;
+    margin: 0px auto;
+	.btn-styles {
+		width: 70px;
+    	height: 80px;
+    	float: left;
+    	margin-right: 10px;
+	}
+    a {
+     text-align: center;
+    }
+    .image-change, .save-edit-tank, .delete-tank {
+	display:none;
+	}
+}
 
 
 }
@@ -1000,7 +1005,7 @@ input[type="submit"].btn.account-reg {
 					// border-radius: 30px;
 					padding: 6px;
 					height: auto;
-					overflow-x: scroll;
+					// overflow-x: scroll;
 					background: none;
 
 			}

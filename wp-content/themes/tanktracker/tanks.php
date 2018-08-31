@@ -61,6 +61,7 @@ $curuser = $curuser->ID;
 	</div>
 </section>
 
+
  
 
 <?php get_template_part('templates/footer'); ?>

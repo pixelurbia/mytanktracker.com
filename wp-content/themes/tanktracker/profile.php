@@ -11,27 +11,30 @@ Template Name: profile
 <?php 
 $profile = new Profile();
 $feed = new Feed();
+$user = $_GET['user_id'];
+$user = get_userdata($user);
 
-$user = $profile->user_info();
+$user = get_userdata($user->ID);
 // $user = $profile->user_info('display_name');
+
 ?>
 
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
 		<h2><?php echo $user->display_name; ?></h2>
-		<p><?php echo '<span>'.$profile->get_params() .' Parameters Logged</span>';	?></p>
-		<p><?php echo '<span>'.$profile->get_tanks() .' Tanks Active</span>';	?></p>
+		<p><?php echo '<span>'.$profile->get_params($user->ID) .' Parameters Logged</span>';	?></p>
+		<p><?php echo '<span>'.$profile->get_tanks($user->ID) .' Tanks Active</span>';	?></p>
 		<p><?php echo '<span>Member since '.$user->user_registered .'</span>';		?></p>
 	</div>
 
 	
 <section class="third">
 	<?php 
-	echo $profile->list_tanks(); ?>
+	echo $profile->list_tanks($user->ID); ?>
 </section>
 <section class="half feed" id="feed">
 	<?php 
-	echo $feed->profile_all_user_posts(); ?>
+	echo $feed->profile_all_user_posts($user->ID); ?>
 </section>
 										
 	</div>

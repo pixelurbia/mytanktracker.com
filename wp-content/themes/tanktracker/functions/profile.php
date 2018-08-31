@@ -13,43 +13,39 @@ class Profile {
 	 }
 
 
-	function get_params() {
+	function get_params($user_id) {
 		
-		  $user = $this->user_info();
-		  $user = $user->id;
+
 
 		   global $wpdb;
            $params = $wpdb->get_var("SELECT COUNT(user_id)
             FROM user_tank_params
-            WHERE user_id = $user");
+            WHERE user_id = $user_id");
        
 			return $params; 
 
      	}
 
-		function get_tanks() {
+		function get_tanks($user_id) {
 		
-		  $user = $this->user_info();
-		  $user = $user->id;
+
 
 		   global $wpdb;
            $tanks = $wpdb->get_var("SELECT COUNT(user_id)
             FROM user_tanks
-            WHERE user_id = $user");
+            WHERE user_id = $user_id");
        
 			return $tanks; 
 
      	}
 
-		function list_tanks() {
+		function list_tanks($user_id) {
 		
-		  $user = $this->user_info();
-		  $user = $user->id;
 
 		   global $wpdb;
            $tanks = $wpdb->get_results("SELECT *
             FROM user_tanks 
-            WHERE user_id = $user");
+            WHERE user_id = $user_id");
        echo '<div class="tank-list">';
        echo '<ul>';
        foreach($tanks as $tank){

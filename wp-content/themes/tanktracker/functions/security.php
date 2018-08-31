@@ -4,6 +4,9 @@
 function smart_menu($tank_id) {
 
     global $post;
+    $current_user = wp_get_current_user();
+    $user = $current_user->ID;
+
     $name = $post->post_name;
     if (  ($name == 'user-login') OR ($name == 'register') ){
         return; //no need to show on the login/reg pages
@@ -37,7 +40,7 @@ function smart_menu($tank_id) {
         echo '<a name="" href="/community" class="">Tank Tracker Community</a>';
         echo '<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Discord</a>';
         echo '<span></span>';            
-        echo '<a href="/profile?user_id=<?php echo $user?>"  class="">My Profile</a>';
+        echo '<a href="/profile?user_id='.$user.'"  class="">My Profile</a>';
         echo '<a name="myaccount" href="/my-account" class="myaccount">My Account</a>';
         echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>';
         } 
@@ -69,6 +72,23 @@ function set_env() {
         $environment = 'PROD';
     }
 return($environment);
+}
+
+//audit logging
+function audit_trail($user_id, $action, $ref_id, $description) {
+
+  global $wpdb;
+  global $post;
+
+    
+$wpdb->insert('audit_log',array(
+        'user_id'=> $user_id,
+        'action'=>$action,
+        'ref_id'=> $ref_id,
+        'description'=> $description,
+        'date_of_action'=> date("Y-m-d H:i:s")
+        ));
+
 }
 
 

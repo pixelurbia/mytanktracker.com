@@ -3277,7 +3277,7 @@ html {
     height: 132px;
     display: block;
     margin-left: 27px;
-    margin-top: 36px; }
+    margin-top: 46px; }
     .secondary_menu .sub_menu a {
       padding-left: 15px; }
 
@@ -3633,7 +3633,7 @@ blockquote {
   top: 25%;
   right: 0px;
   left: 0px;
-  height: 150px;
+  height: 180px;
   margin: 0 auto;
   display: none;
   z-index: 9999999;
@@ -3642,7 +3642,7 @@ blockquote {
   position: fixed;
   color: white;
   background: rgba(5, 7, 25, 0.95);
-  padding: 17px 0px 0px 0px;
+  padding: 15px;
   text-align: center;
   font-size: 12px;
   font-size: 1.2rem;
@@ -4237,18 +4237,6 @@ input[type="submit"].btn.account-reg {
 .ui-datepicker-title {
   text-align: center !important; }
 
-.save-edit-tank, .edit-tank {
-  margin: 14px; }
-
-.image-change {
-  position: absolute;
-  bottom: -190px;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  padding-left: 12px;
-  display: none; }
-
 .edit-tank-stock {
   font-size: 9px;
   font-size: 0.9rem;
@@ -4262,9 +4250,6 @@ input[type="submit"].btn.account-reg {
 
 .tankEditable {
   border-bottom: 1px solid #fff; }
-
-.save-edit-tank {
-  display: none; }
 
 .a_tank {
   width: 50%;
@@ -4320,6 +4305,18 @@ input[type="submit"].btn.account-reg {
     z-index: 44;
     opacity: 1;
     transition: all 0.5s ease-in-out; }
+  .a_tank .tank-options {
+    width: 242px;
+    margin: 0px auto; }
+    .a_tank .tank-options .btn-styles {
+      width: 70px;
+      height: 80px;
+      float: left;
+      margin-right: 10px; }
+    .a_tank .tank-options a {
+      text-align: center; }
+    .a_tank .tank-options .image-change, .a_tank .tank-options .save-edit-tank, .a_tank .tank-options .delete-tank {
+      display: none; }
 
 .fa-3x {
   opacity: 1;
@@ -4461,7 +4458,6 @@ input[type="submit"].btn.account-reg {
     margin: 0px;
     padding: 6px;
     height: auto;
-    overflow-x: scroll;
     background: none; }
   #journal-form .post-images .img-contain {
     width: 150px;

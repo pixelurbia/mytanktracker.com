@@ -115,15 +115,6 @@ class Tanks {
 	echo '<div class="content">';
 		echo '<h2>';
 			echo '<i class="tank_info tank_name">'. $tank->tank_name .'</i>';
-			echo '<a class="edit-tank">';
-				echo '<i class="fas edit-tank-stock  fa-edit" ></i>';
-			echo '</a>';
-			echo '<a class="delete-tank">';
-				echo '<i class="fas edit-tank-stock  fa-trash-alt"></i>';
-			echo '</a>';
-			echo '<a class="save-edit-tank" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
-				echo '<i class="fas edit-tank-stock fa-save"></i>';
-			echo '</a>';
 		echo '</h2>';
 		echo '<p>';
 			if ($tank->tank_volume) {
@@ -140,13 +131,40 @@ class Tanks {
 			}
 			echo '</p>';
 			echo '<div class="tank_actions">';
-				echo '<a  href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
-					echo '<a  href="/fullview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
-					echo '<a  href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
+				echo '<a href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
+					echo '<a href="/fullview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
+					echo '<a href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
 					// echo '<a  href="/equipment/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-bolt"></i></a>';
-					echo '<a class="image-change"><i class="fas fa-3x  fa-camera-retro"></i></a>';
+						echo '<a class="edit-tank">';
+						echo '<i class="fas edit-tank-stock fa-3x fa-edit" ></i>';
+					echo '</a>';
 			echo '</div>';
+			echo '<div class="tank-options">';
+				echo '<form class="btn-styles" id="photo-form-'.$tank->tank_id.'" method="post">';
+				echo '<input type="hidden" name="action" value="update_tank_photo">';
+				echo '<input type="hidden" name="ref_id" value="'.$tank->tank_id.'">';
+				echo '<input type="hidden" name="user_id" value="'.$user.'">';
+				wp_nonce_field('ajax_form_nonce_photo','ajax_form_nonce_photo', true, true ); 
+			echo '<a class="image-change" >';
+            	echo '<label class="tank-img" for="tank-photo-img-'.$tank->tank_id.'">';
+            		echo '<i class="fas fa-3x fa-camera-retro"></i>';
+            	echo '</label>';
+         
+            	echo '<input type="file" name="file_upload" id="tank-photo-img-'.$tank->tank_id.'" class="tank-photo-img inputfile hide" accept="image/*" />';
+        		echo '</a></form>';
+
+					echo '<a class="save-edit-tank btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
+						echo '<i class="fas edit-tank-stock fa-3x fa-save"></i>';
+					echo '</a>';
+					echo '<a class="delete-tank btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_del_tank").'" tank_id="'. $tank->tank_id .'">';
+						echo '<i class="fas edit-tank-stock  fa-3x fa-trash-alt"></i>';
+					echo '</a>';
+					
+				echo '</div>';
 	echo '</div>';
+				
+			
+	
 		echo '<div class="shader"></div>';
 		echo '<div class="tank_img" style="background:url('.$tank->tank_image.')"></div>';
 	echo '</div>';
@@ -237,6 +255,125 @@ function add_user_tank( $file = array() ) {
 }
 
 
+
+/**
+ * Update Tank Photo
+ *
+ */
+
+add_action('wp_ajax_update_tank_photo', 'update_tank_photo');
+add_action('wp_ajax_nopriv_update_tank_photo', 'update_tank_photo');
+function update_tank_photo() {    
+
+ require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+	  
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+
+
+   // Verify nonce
+ if( !isset( $_POST['ajax_form_nonce_photo'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_photo'], 'ajax_form_nonce_photo' ) )
+    die( 'Ooops, something went wrong, please try again later.');
+
+
+		$upload_dir = wp_upload_dir();
+ 		//construct new upload dir from upload base dir and the username of the current user
+ 		// $sourcePath = $_FILES['file']['tmp_name']; 
+ 	$environment = set_env(); 
+	if ( $environment == 'DEV') {
+	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+	} else {
+		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+	}
+     
+   
+		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
+		$fileurl = $new_file_dir.$_FILES["file"]["name"];
+		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
+
+ 
+  $user_id = $user->ID;
+  $tank_id = $_REQUEST['ref_id'];
+  $tank_image = $filepath;
+
+
+  $wpdb->update('user_tanks',array(
+  	'tank_image'=> $tank_image,
+  	'last_updated_date'=> date("Y-m-d H:i:s")
+	), array(
+		'user_id'=> $user_id,
+		'tank_id'=> $tank_id )
+    );
+
+    return false;
+}
+
+
+
+//delete Tank
+add_action("wp_ajax_del_tank", "del_tank");
+add_action("wp_ajax_nopriv_del_tank", "del_tank");
+
+function del_tank() {
+
+if( !isset( $_POST['ajax_form_nonce_del_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_tank'], 'ajax_form_nonce_del_tank' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+  $tank_id = $_REQUEST['tank_id'];
+  $param_id = $_REQUEST['param_id'];
+
+      function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
+// delete tank entry
+  $wpdb->delete('user_tanks',array(
+  'tank_id'=> $tank_id,
+  'user_id'=> $user_id
+)
+    );
+
+//return all post ID's for that tank ID 
+var_error_log('test');
+  $posts_ids_del = $wpdb->get_results("SELECT post_id FROM tt_postmeta WHERE meta_value = '$tank_id' ");
+	$ids = array();
+  	foreach ($posts_ids_del as $post) {
+	  $ids[] = "'".$post->post_id."',";
+
+	  $action = "del_post_and_meta_data";
+  	  $ref_id = $post->post_id;
+  	  $description = "User deleted tank and all associated data - this is each post ";
+
+  	  audit_trail($user_id, $action, $ref_id, $description);
+  	}
+
+  	  
+  	  $wpdb->query( "DELETE FROM tt_postmeta WHERE meta_value IN($ids)");
+  	  $wpdb->query( "DELETE FROM tt_posts WHERE ID IN($ids)");
+  	  $wpdb->query( "DELETE FROM tt_comments WHERE comment_post_id IN($ids)");
+  	  $wpdb->query( "DELETE FROM tt_term_relationships WHERE object_id IN($ids)");
+  	  $wpdb->query( "DELETE FROM user_post_refs WHERE ref_id IN($ids)");
+  	  $wpdb->query( "DELETE FROM user_tank_stock WHERE tank_id = '$tank_id'");
+  	  $wpdb->query( "DELETE FROM user_tank_params WHERE tank_id = '$tank_id'");
+  	  // wp_delete_post( int $postid, bool $force_delete = false )
+
+  	  $action = "del_tank";
+  	  $ref_id = $tank_id;
+  	  $description = "User deleted tank and all associated data";
+
+  	  audit_trail($user_id, $action, $ref_id, $description);
+
+}
+
 add_action('wp_ajax_update_user_tank', 'update_user_tank');
 add_action('wp_ajax_nopriv_update_user_tank', 'update_user_tank');
 
@@ -284,6 +421,9 @@ function update_user_tank() {
 }
 
 
+
+
+
 add_action('wp_ajax_create_post_record', 'create_post_record');
 add_action('wp_ajax_nopriv_create_post_record', 'create_post_record');
 
@@ -308,11 +448,13 @@ function create_post_record($ref_id, $fileUrls, $message) {
 
     function var_error_log( $object=null ){
         ob_start();                    // start buffer capture
-       // var_dump( $object );           // dump the values
+       var_dump( $object );           // dump the values
         $contents = ob_get_contents(); // put the buffer into a variable
         ob_end_clean();                // end capture
         error_log( $contents );        // log contents of the result of var_dump( $object )
     }
+
+
 
     //create post
     $uid = uniqid();

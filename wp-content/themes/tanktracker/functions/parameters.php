@@ -169,7 +169,7 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
 //delete parameter
 add_action("wp_ajax_del_tank_params", "del_tank_params");
-add_action("wp_ajax_nopriv_del_tank_paramsm", "del_tank_params");
+add_action("wp_ajax_nopriv_del_tank_params", "del_tank_params");
 
 function del_tank_params() {
 
