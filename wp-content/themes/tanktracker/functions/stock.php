@@ -149,8 +149,8 @@ function list_of_livestock() {
 
 
                   echo '<a class="stock-action edit-stock"><i class="fas larger-icon fa-edit"></i></a>';
-                  echo '<a class="stock-action save-stock hide" nonce="'. wp_create_nonce("ajax_form_nonce_save_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas save-stock larger-icon fa-save"></i></a>';
-                  echo '<a class="stock-message-action del-stock stock-action hide" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a>';  
+                  echo '<a class="stock-action save-tank-stock hide" nonce="'.wp_create_nonce("ajax_form_nonce_save_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas save-stock larger-icon fa-save"></i></a>';
+                  echo '<a class="stock-message-action del-stock stock-action hide" nonce="'.wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a>';  
                   echo '<form class="stock-update-img hide" id="photo-form-'.$stock->stock_id.'" method="post">';
                   echo '<input type="hidden" name="action" value="update_stock_photo">';
                   echo '<input type="hidden" name="ref_id" value="'.$stock->stock_id.'">';

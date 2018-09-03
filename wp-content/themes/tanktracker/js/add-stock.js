@@ -195,30 +195,33 @@ $('#stock_filter a').click(function() {
       parent.find('li span').attr('contenteditable','true');
       parent.find('li span').toggleClass('tankEditable');
       $(this).hide();
-      parent.find('.save-stock').removeClass('hide');
+      parent.find('.save-tank-stock').removeClass('hide');
       parent.find('.del-stock').removeClass('hide');
       parent.find('.stock-update-img').removeClass('hide');
   }); 
 
 
-   $('.save-stock').click(function() { 
+   $('.save-tank-stock').click(function() { 
 
-      var parent = $(this).parent();
-      var editValue = parent.find('li.new-value').text();
-      if ( editValue = 'Edit Value'){
-          parent.find('li.new-value span').text('');
-      }
+      $( "li.new-value span" ).each(function() {
+          var editValue = $(this).text();
+          // console.log(editValue);
+        if ( editValue == 'Edit Value'){
+            $(this).text('');
+        }
+      }); 
 
       var stock_id = $(this).attr('stock_id'),
       nonce = $(this).attr('nonce'),
-      parent = $(this).parent().parent(),
+      parent = $(this).parent(),
       stock_name = parent.find('.name span').text(),
       stock_species = parent.find('.species span').text(),
       stock_age = parent.find('.age span').text(),
       stock_status = parent.find('.status span').text(),
-      stock_sex = parent.find('.sex span').text();
+      stock_sex = parent.find('.sex span').text(),
       stock_count = parent.find('.count span').text();
- 
+
+
       var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
       $('.overlay').after(spinner);
 
@@ -233,6 +236,7 @@ $('#stock_filter a').click(function() {
           data: data,
           success: function (data) {
               //success
+              console.log(data);
             console.log('Entry Updated');
             stockForm();
           },
@@ -286,8 +290,7 @@ $('#stock_filter a').click(function() {
               //success
           console.log(data);
           console.log('working');
-          // stockForm();
-          // location.reload();
+          stockForm();
           },
           error: function (e) {
               //error
