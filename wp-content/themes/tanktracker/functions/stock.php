@@ -18,17 +18,43 @@ function user_info() {
     $stock_id = $_GET['stock_id'];
     $user = $this-> user_info();
 
-    global $wpdb;     
-    $stock_images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = '$stock_id' LIMIT $limit");
+    // global $wpdb;     
+    // $stock_images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = '$stock_id' LIMIT $limit");
+
+
+      global $wpdb;     
+      $images = $wpdb->get_results("(SELECT 
+      user_photos.photo_thumb_url, 
+      user_photos.photo_url, 
+      user_photos.ref_id
+      FROM tt_postmeta 
+      JOIN user_photos 
+      ON tt_postmeta.post_id = user_photos.ref_id 
+      AND tt_postmeta.meta_key = 'tt_tank_ref' 
+      AND tt_postmeta.meta_value = '$stock_id'
+      WHERE user_id = $user
+      ORDER BY user_photos.inserted_date DESC
+      LIMIT $limit)
+      UNION
+      (SELECT 
+      user_photos.photo_thumb_url, 
+      user_photos.photo_url, 
+      user_photos.ref_id
+      FROM user_photos 
+      WHERE user_photos.ref_id = '$stock_id'
+      AND user_id = $user
+      ORDER BY user_photos.inserted_date DESC
+      LIMIT $limit)
+    ");
     
     echo '<ul class="gallery page-gallery">';
-      foreach ($stock_images as $imgs){
-        echo '<li class="gallery-item">';
-          echo '<img src="'.$imgs->photo_url.'">';
-        echo '</li>';
-    }
-    echo '</ul>';
-    echo ' <a href="">View All Photos</a>';
+        foreach ($images as $img){
+          echo '<li class="gallery-item">';
+        echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo ' <a href="/gallery?tank_id='.$stock_id.'">View All Photos</a>';
   }
 
   function single_stock($stock_id) {
@@ -54,19 +80,39 @@ function list_of_livestock() {
     return $livestock;
   }
 
-  function list_of_stock($tank_id) {
+
+  public function list_of_stock($args) {
+
+    if (!$_REQUEST['tank_id']){
+      $tank_id = $args['tank_id'];  
+    } else {
+      $tank_id = $_REQUEST['tank_id'];
+    }
+    if (!$_REQUEST['stock_type']){
+      $stock_type = $args['stock_type'];  
+    } else {
+      $stock_type = $_REQUEST['stock_type'];
+    }
+    
+
+    if ($stock_type == 'all'){
+      $stockType = 'AND stock_type IS NOT NULL';
+    } else {
+      $stockType = 'AND stock_type ="'.$stock_type.'"';
+    }
 
 
     global $wpdb;     
-    $livestock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE tank_id = '$tank_id'");
+    $livestock = $wpdb->get_results("
+      SELECT * FROM user_tank_stock 
+      WHERE tank_id = '$tank_id'
+      $stockType
+      ");
     
     foreach ($livestock as $stock){
       echo '<article class="stock-item '.$stock->stock_type.'" ">';
-          echo '<a class="arrow" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
-          echo '<div class="stock-img" style="background:url('.$stock->stock_img.');">';
-          echo '<div class="stock-actions"><a class="edit-tank-stock"><i class="fas larger-icon fa-edit"></i></a>';
-          echo '<a class="stock-message-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a></div>';  
-          echo '</div>';
+          echo '<a class="stock-action" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
+          echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
           echo '<div class="stock-data">';
               echo '<ul>';
                   echo '<li class="name">'.$stock->stock_name.'';
@@ -74,18 +120,23 @@ function list_of_livestock() {
                   echo '<li class="age data">Age: '.$stock->stock_age.'</li>';
                   echo '<li class="status data">Status: '.$stock->stock_health.'</li>';
                   echo '<li class="sex data">Sex: '.$stock->stock_sex.'</li>';
+                  echo '<li class="stock-action"><i class="fas larger-icon fa-edit"></i></li>';
+                  echo '<li class="stock-message-action stock-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></li>';  
               echo '</ul>';
           echo '</div>';
       echo '</article>';
     }
+    exit;
   }
 
 
 
-	
+
 
 }
 
+  add_action( 'wp_ajax_list_of_stock', array( 'Stock', 'list_of_stock' ) ); 
+  add_action( 'wp_ajax_nopriv_list_of_stock', array( 'Stock', 'list_of_stock' ) );
 
 add_action('wp_ajax_add_livestock', 'add_livestock');
 add_action('wp_ajax_nopriv_add_livestock', 'add_livestock');
@@ -114,19 +165,28 @@ function add_livestock( $file = array() ) {
   }
 
 
-//I am sending a blob file this time not a base64 but I can
+
+    function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
+    //get blob data
     $img = $_REQUEST['file'];
     $img = str_replace('data:image/png;base64,', '', $img);
     $img = str_replace(' ', '+', $img);
     $data = base64_decode($img);
-    
-    
+    // get extenstion type
+    $f = finfo_open();
+    $mime_type = finfo_buffer($f, $data, FILEINFO_MIME_TYPE);
+    $split = explode( '/', $mime_type );
+    $extension = $split[1]; 
 
-    // $upload_dir = wp_upload_dir();
-    //construct new upload dir from upload base dir and the username of the current user
-    // $sourcePath = $_FILES['file']['tmp_name']; 
 
-// move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
+
 
   global $wpdb;
   global $post;
@@ -135,10 +195,16 @@ function add_livestock( $file = array() ) {
   $obj_type = 'livestock';
   $hex = uni_key_gen($obj_type);
   
-  $fileName = $hex.'-stock.png';
-  $success =  file_put_contents($new_file_dir.$fileName, $data);
+  // $fileName = $hex.'-stock.png';
 
-  $fileurl = $new_file_url.$fileName;
+  $fileThumbName = $hex.'-thumb.'.$extension; 
+  $fileName = $hex.'-large.'.$extension;
+
+  $photo_url = $new_file_url.$fileName;
+
+
+//put filesomewhere and rename it
+  $success =  file_put_contents($new_file_dir.$fileName, $data);
 
 
   $user_id = $user->ID;
@@ -150,7 +216,14 @@ function add_livestock( $file = array() ) {
   $stock_health = $_REQUEST['stockhealth'];
   $stock_sex = $_REQUEST['stocksex'];
   $tank_id = $_REQUEST['tankid'];
-  $stock_image = $fileurl;
+  
+if ($extension == 'plain'){
+  $stock_image = '/wp-content/uploads/user_livestock/fishdefault.png';
+} else {
+  $stock_image = $photo_url;
+}
+  
+
   
 
   $wpdb->insert('user_tank_stock',array(
@@ -167,6 +240,21 @@ function add_livestock( $file = array() ) {
   'created_date'=> date("Y-m-d H:i:s")
 )
     );
+
+  $obj_type = 'livestock-img';
+  $hextwo = uni_key_gen($obj_type);
+
+$wpdb->insert('user_photos',array(
+  'user_id'=> $user_id,
+  'photo_id'=> $hextwo,
+  'ref_id'=> $stock_id,
+  'photo_thumb_url'=> $photo_url,
+  'photo_url' => $photo_url,
+  'inserted_date'=> date("Y-m-d H:i:s")
+)
+    );
+
+
 
 
     // return false;

@@ -23,34 +23,18 @@ function add_user_journal() {
   $today = date("-m-d-y");   
   $tanks = $_REQUEST['tanks'];
   $cats = $_REQUEST['cats'];
-    /* wp_insert_attachment */
-
-
-    // $attachment = array(
-    //     'guid'           => $fileurl, 
-    //     'post_mime_type' => $filetype['type'],
-    //     'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $file_name ) ),
-    //     'post_content'   => '',
-    //     'post_status'    => 'inherit'
-    // );
 
 
     function var_error_log( $object=null ){
         ob_start();                    // start buffer capture
-//        var_dump( $object );           // dump the values
+       var_dump( $object );           // dump the values
         $contents = ob_get_contents(); // put the buffer into a variable
         ob_end_clean();                // end capture
         error_log( $contents );        // log contents of the result of var_dump( $object )
     }
 
 
-    
-// var_error_log($cats);
-//     foreach ($cats as $cat){
-//             //create tank/or livestock ref
-//             // $cat = $term_id;
-//             // var_error_log($cat);
-//     }
+    var_error_log($cats);
 
     
     //create post
@@ -62,10 +46,11 @@ function add_user_journal() {
     // $user_id = get_current_user_id();
     // var_error_log($cats);
 
-    array_unshift($cats,"");
-    unset($cats[0]);
-    // var_error_log($cats);
-
+    if (count($cats) > 1) {
+        array_unshift($cats,"");
+        unset($cats[0]); 
+    }
+    
 
     $createPost = array(
         'post_author' => $user_id,
@@ -77,9 +62,15 @@ function add_user_journal() {
         'post_category' => $cats
     );
 
-    //'post_category' => array( 8,39 )
 
     $post_id = wp_insert_post($createPost);
+    
+    //create tank/or livestock meta key/value ref
+    foreach ($tanks as $tank){        
+            $meta_key = 'tt_tank_ref';
+            $meta_value = $tank;
+            add_post_meta($post_id, $meta_key, $meta_value);
+    }
 
 
     //  move_uploaded_file($_FILES["file_upload"]["tmp_name"], $upload_dir['path'].'/'.$_FILES["file_upload"]["name"]);
@@ -89,7 +80,9 @@ function add_user_journal() {
     // $filetype = wp_check_filetype( basename( $fileurl ), null ); // check file tupe
     // $image_data = file_get_contents($fileurl);
     // file_put_contents($fileurl, $image_data);
-           $environment = set_env(); 
+
+    //file handling 
+    $environment = set_env(); 
         if ( $environment == 'DEV') {
             $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_photos/';
             $new_file_url = '/wp-content/uploads/user_photos/';
@@ -99,7 +92,6 @@ function add_user_journal() {
         }
     
     var_error_log($environment);
-    // var_error_log($_FILES);
 
     function reArrayFiles(&$file_post) {
 
@@ -118,55 +110,76 @@ function add_user_journal() {
 
     $file_ary = reArrayFiles($_FILES['file_upload']);
 
-    foreach($file_ary as $file)
-    {
-        var_error_log($file);
-        $obj_type = 'img';
-        $hex = uni_key_gen($obj_type);
+    foreach($file_ary as $file) {
+       
+    $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); 
+    //allowed file types
+        if (in_array($file['type'], $mimeTypes))
+         {
+            // var_error_log($file['type']);
+            var_error_log('valid file type');
+            $action = 'Journal File upload';
+            $ref_id = 01;
+            $description = 'valid file: '.$file['type'];
+            audit_trail($user_id, $action, $ref_id, $description);
 
-        $imageData = getimagesize($file['tmp_name']);
-        $extension = image_type_to_extension($imageData[2]);
+            var_error_log($file);
+            $obj_type = 'img';
+            $hex = uni_key_gen($obj_type);
+
+            $imageData = getimagesize($file['tmp_name']);
+            $extension = image_type_to_extension($imageData[2]);
 
 
-        $fileName = $file['name'];
-        var_error_log($fileName);
-        $fileThumbName = $hex.'-thumb'.$extension; 
-        $fileFullName = $hex.'-large'.$extension;
-        
-        $fileTempName = $file['tmp_name'];
-        
-        
+            $fileName = $file['name'];
+            var_error_log($fileName);
+            $fileThumbName = $hex.'-thumb'.$extension; 
+            $fileFullName = $hex.'-large'.$extension;
+            $fileTempName = $file['tmp_name'];
+            
+            move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
 
-        move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
-    
+            $ref_id = $post_id;
+            $photo_url = $new_file_url.$fileFullName;
+            $photo_thumb_url = $new_file_url.$fileThumbName;
+            var_error_log($photo_url);
+            var_error_log($photo_thumb_url);
 
-        $ref_id = $post_id;
-        $photo_url = $new_file_url.$fileFullName;
-        $photo_thumb_url = $new_file_url.$fileThumbName;
-        var_error_log($photo_url);
-        var_error_log($photo_thumb_url);
-
-        $obj_type_new = 'user-jrnl-img';
-        $hextwo = uni_key_gen($obj_type_new);
+            $obj_type_new = 'user-jrnl-img';
+            $hextwo = uni_key_gen($obj_type_new);
   
 
-        $wpdb->insert('user_photos',array(
-        'user_id'=> $user_id,
-        'photo_id'=> $hextwo,
-        'ref_id'=> $ref_id,
-        'photo_thumb_url'=> $photo_thumb_url,
-        'photo_url'=> $photo_url,
-        'inserted_date'=> date("Y-m-d H:i:s")
-        ));
+            $wpdb->insert('user_photos',array(
+            'user_id'=> $user_id,
+            'photo_id'=> $hextwo,
+            'ref_id'=> $ref_id,
+            'photo_thumb_url'=> $photo_thumb_url,
+            'photo_url'=> $photo_url,
+            'inserted_date'=> date("Y-m-d H:i:s")
+            ));
 
-    
-    $general = NEW General();
-    $target_dir = $new_file_dir;
-    $target = $new_file_dir.$fileThumbName;
-    $load = $new_file_dir.$fileFullName;
-    $size = 400;
+            //thumbnail processesing 
+            $general = NEW General();
+            $target_dir = $new_file_dir;
+            $target = $new_file_dir.$fileThumbName;
+            $load = $new_file_dir.$fileFullName;
+            $size = 400;
+        
+            $general->resizeImageFiles($size,$load,$target);
+            
 
-    $general->resizeImageFiles($size,$load,$target);
+            }
+        else
+         {
+            // var_error_log($file['type']);
+            var_error_log('invalid file');
+            $action = 'Journal File upload';
+            $ref_id = 01;
+            $description = 'invalid file: '.$file['type'];
+            audit_trail($user_id, $action, $ref_id, $description);
+        }
+
+
 
     // $image = new SimpleImage();
     // $image->load($imgLoad);
@@ -188,12 +201,6 @@ function add_user_journal() {
     //     set_post_thumbnail( $post_id, $attach_id );
     // }
 
-    foreach ($tanks as $tank){
-            //create tank/or livestock ref
-            $meta_key = 'tt_tank_ref';
-            $meta_value = $tank;
-            add_post_meta($post_id, $meta_key, $meta_value);
-    }
 
 
  

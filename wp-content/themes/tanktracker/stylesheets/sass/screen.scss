@@ -50,6 +50,7 @@ img {  height:auto; margin:0; padding:0;}
 .third {@include third;}
 .fourth {@include fourth;}
 .half {@include half;}
+.dither {opacity: 0.2;}
 input {
 	@include opensansl;
 }
@@ -1267,10 +1268,11 @@ input[type="submit"].btn.account-reg {
 	height: 150px;
     width: 400px;
     margin:50px 0px 20px 0px;
-    a.arrow {    height: 20px;
-    width: 20px;
-    position: relative;
-    display: contents;}
+    a.stock-action {    
+    	height: 20px;
+    	width: 20px;
+    	position: relative;
+    	display: contents;}
     .fa-arrow-circle-right {
     	color:$white;
     	@include font-size(2.5);
@@ -1278,6 +1280,18 @@ input[type="submit"].btn.account-reg {
     	z-index:9999;
        left: 106px;
     	margin: 53px 0px 0px 0px;
+    }
+	.fa-edit {
+    	color:$white;
+    	@include font-size(1.5);
+    	float:left;
+    	margin:5px 10px 0px 0px;
+    }
+    .fa-trash-alt {
+    	color:$white;
+    	@include font-size(1.5);
+    	float:left;
+    	margin:5px 10px 0px 0px;
     }
     .stock-img {
     	float:left;
@@ -1288,7 +1302,7 @@ input[type="submit"].btn.account-reg {
     }
     .stock-data {
     	float:left;
-		padding: 30px 0px 0px 22px;
+		padding: 20px 0px 0px 22px;
     	li {
     		color:white;
     		@include font-size(1.2);
@@ -1474,6 +1488,33 @@ input[type="submit"].btn.account-reg {
 
 //gallery styles
 
+
+.gallery-img-contain {
+    z-index: 99999;
+    position: fixed;
+    top: 55px;
+    max-width: 850px;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+
+    img {
+
+    }
+}
+.gal-close {
+	    display: block;
+    position: relative;
+    z-index: 999999;
+    width: 50px;
+    height: 50px;
+        top: 68px;
+    float: right;
+    	color:$white;
+    	 @include font-size(2.0 );
+
+}
+
 .gallery.feed-gallery.gallery-of-1 {
 		width:230px;
 		margin-right:30px;
@@ -1510,6 +1551,22 @@ input[type="submit"].btn.account-reg {
 
 }
 
+//full gallery
+.gallery.full-gallery{
+	width:100%;
+	float:left;
+	.gallery-item {
+			@include span-columns(2);
+			float:left;
+			margin:5px;
+			overflow:hidden;
+		img {
+    		width: 130%;
+    		max-width: 400px;
+    		min-height: 150px;
+		}
+	}
+}
 //feed
 .gallery.page-gallery, .gallery.feed-gallery{
 	width:100%;

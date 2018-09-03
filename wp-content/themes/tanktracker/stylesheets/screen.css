@@ -3578,6 +3578,9 @@ img {
       .half:last-child {
         margin-right: 0; } }
 
+.dither {
+  opacity: 0.2; }
+
 input {
   font-family: 'Open Sans';
   font-style: normal;
@@ -4663,7 +4666,7 @@ input[type="submit"].btn.account-reg {
   height: 150px;
   width: 400px;
   margin: 50px 0px 20px 0px; }
-  .stock-item a.arrow {
+  .stock-item a.stock-action {
     height: 20px;
     width: 20px;
     position: relative;
@@ -4676,6 +4679,18 @@ input[type="submit"].btn.account-reg {
     z-index: 9999;
     left: 106px;
     margin: 53px 0px 0px 0px; }
+  .stock-item .fa-edit {
+    color: #fff;
+    font-size: 15px;
+    font-size: 1.5rem;
+    float: left;
+    margin: 5px 10px 0px 0px; }
+  .stock-item .fa-trash-alt {
+    color: #fff;
+    font-size: 15px;
+    font-size: 1.5rem;
+    float: left;
+    margin: 5px 10px 0px 0px; }
   .stock-item .stock-img {
     float: left;
     height: 120px;
@@ -4684,7 +4699,7 @@ input[type="submit"].btn.account-reg {
     background-size: cover !important; }
   .stock-item .stock-data {
     float: left;
-    padding: 30px 0px 0px 22px; }
+    padding: 20px 0px 0px 22px; }
     .stock-item .stock-data li {
       color: white;
       font-size: 12px;
@@ -4849,6 +4864,27 @@ section.frame.post .tags {
     float: left;
     margin: 5px 0px 20px 10px; }
 
+.gallery-img-contain {
+  z-index: 99999;
+  position: fixed;
+  top: 55px;
+  max-width: 850px;
+  margin: 0 auto;
+  left: 0px;
+  right: 0px; }
+
+.gal-close {
+  display: block;
+  position: relative;
+  z-index: 999999;
+  width: 50px;
+  height: 50px;
+  top: 68px;
+  float: right;
+  color: #fff;
+  font-size: 20px;
+  font-size: 2rem; }
+
 .gallery.feed-gallery.gallery-of-1 {
   width: 230px;
   margin-right: 30px;
@@ -4879,6 +4915,24 @@ section.frame.post .tags {
       width: 100%;
       margin-right: 0px;
       float: none; } }
+
+.gallery.full-gallery {
+  width: 100%;
+  float: left; }
+  .gallery.full-gallery .gallery-item {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%;
+    float: left;
+    margin: 5px;
+    overflow: hidden; }
+    .gallery.full-gallery .gallery-item:last-child {
+      margin-right: 0; }
+    .gallery.full-gallery .gallery-item img {
+      width: 130%;
+      max-width: 400px;
+      min-height: 150px; }
 
 .gallery.page-gallery, .gallery.feed-gallery {
   width: 100%;

@@ -130,11 +130,20 @@
 	//script for journal output form to show images 
 	var loadImg = function(event) {
 
-		var files = event.target.files;
-		console.log(files);
+  // var files = $('#journal-img')[0].files;
+  var files = event.target.files;
 
-		var fileCount = 0;
-	for (var i = 0, f; f = files[i]; i++) {
+  for (var i = 0; i < files.length; i++) {
+
+    fileSize = files[i].size;
+    var fileCount = 0;
+
+  if(fileSize > 10000000){
+    alert("You have exceeded the maximum file upload size for one or more of your images. Please correct this before submiting.");
+    	$('#journal-img').value = '';
+    	$('#post-images').html('');
+} else {
+
 			console.log(files[i]);
 			var outSrc = URL.createObjectURL(event.target.files[i]);		
 
@@ -142,6 +151,8 @@
     		var imgData = '<div class="img-contain"><img class="img_'+fileCount+'" src="'+outSrc+'"></div>';
         	$('.post-images').append(imgData);
 		}
+	}
+		
 		
 	};
 
@@ -155,12 +166,3 @@
 
 <div class="overlay"></div>
 
-<?php 
-
-$terms = termsByTaxonomiesPostType('user_journals');
-//var_dump($terms);
-function termsByTaxonomiesPostType( $postType ) {
-
-}
-
- ?>

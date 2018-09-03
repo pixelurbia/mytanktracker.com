@@ -36,7 +36,7 @@ Object.entries = function( obj ){
 
 
 
-//Add Tank register
+//Add Tank & register
     $( '#tank-form' ).submit( function( event ) {
             
       event.preventDefault(); // Prevent the defau
@@ -220,7 +220,14 @@ $('.wrap').on("click", ".delete-tank", function(){
       // var tank_name = $('#tank-form .tank-name').val();
       var parent = $(this).parent().parent();
       var data = new FormData();
+
+      var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
+      $('.overlay').after(spinner);
       
+
+      // alert(this.files[0].size);
+
+
       console.log(parent);
       //Form data
       var form_data = parent.serializeArray();
@@ -247,6 +254,7 @@ $('.wrap').on("click", ".delete-tank", function(){
               //success
           console.log(data);
           console.log('working');
+          tankForm();
           // location.reload();
           },
           error: function (e) {

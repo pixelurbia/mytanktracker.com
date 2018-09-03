@@ -69,6 +69,40 @@ $('.stock-confirmation-btn').click(function() {
 
 });
 
+
+//stock filter functions
+
+$('#stock_filter a').click(function() {
+  $(this).parent().find('.current').removeClass('current');
+  $(this).addClass('current');
+    var stock_type = $(this).attr('value');
+    var tank_id = $(this).parent().attr('tank_id');
+
+    var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
+    $('.overlay').after(spinner);
+
+    data = {action:'list_of_stock',tank_id: tank_id, stock_type: stock_type};
+
+    console.log(data);
+
+        $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+            $('.stock-list').html(data); 
+            $('.spinner-loader').remove();
+          },
+          error: function (e) {
+              //error
+            console.log('Eror 3439');
+      
+          }
+      });
+
+});
+
 //show the add tank form on the tanks page
   $('.add-livestock').click(function() { 
     $('.add-livestock-form').toggleClass('extended');

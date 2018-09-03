@@ -187,7 +187,7 @@ function get_feed_images($post_id){
     			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
         		
             		<?php 
-					$permlink = get_the_permalink();
+            		$permlink = get_the_permalink();
             		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');

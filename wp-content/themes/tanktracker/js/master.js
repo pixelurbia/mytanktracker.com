@@ -305,6 +305,30 @@ function get_tables(tank_id, param_type, user ){
 	})
 
 }
+//validate image sie
+$('#journal-img').on('change', function() {
+
+  var filename = this.value;
+  var lastIndex = filename.lastIndexOf("\\");
+  if (lastIndex >= 0) {
+    filename = filename.substring(lastIndex + 1);
+  }
+  var files = $('#journal-img')[0].files;
+
+  for (var i = 0; i < files.length; i++) {
+
+    fileSize = files[i].size;
+
+  if(fileSize > 10000000){
+    alert("You have exceeded the maximum file upload size for one or more of your images. Please correct this before submiting.");
+    $('#journal-img').value = '';
+   }
+   	$('#post-images').html('');
+    return false;
+  }
+
+});
+
 
 //journals
          $( '#journal-form' ).submit( function( event ) {
@@ -324,7 +348,7 @@ function get_tables(tank_id, param_type, user ){
    			console.log('journal submited');
 			var data = new FormData(this);
 			
-			//Form data
+			// //Form data
 			// var form_data = $('#journal-form').serializeArray();
 			// $.each(form_data, function (key, input) {
    //  			data.append(input.name, input.value);
@@ -337,7 +361,7 @@ function get_tables(tank_id, param_type, user ){
 
 
 			// $.each($("input[type='file']")[0].files, function(i, file) {
-   //  			data.append('file', file);
+			// 		console.log(this.files[0].size);
 			// });
 
 			// i = 0;
@@ -519,11 +543,27 @@ console.log('start');
         }); // end ajax call
     });
 
+//gallery item controls 
+
+$('.wrap').on("click", ".gallery-item", function(){ 
+	var fullImg = $(this).find('img').attr('full');
+	var imgContain = '<div class="gallery-img-contain"><div class="gal-close"><i class="fas fa-times-circle fa-lg"></i></div><img src="'+fullImg+'"></div>';
+	$('.overlay').show();
+	$('.overlay').before(imgContain);
+
+});
+
+$('.wrap').on("click", ".gal-close", function(){
+
+	$('.overlay').hide();
+	$('.gallery-img-contain').remove();
+	$(this).remove();
+
+});
 
 
 
-
-    });
+});
 
 
 

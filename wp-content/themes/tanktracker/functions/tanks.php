@@ -82,14 +82,16 @@ class Tanks {
 			tt_postmeta.meta_value,
 			user_photos.photo_thumb_url, 
 			user_photos.photo_url, 
-			user_photos.ref_id 
+			user_photos.ref_id,
+			user_photos.inserted_date
 			FROM tt_postmeta 
 			JOIN user_photos 
 			ON tt_postmeta.post_id = user_photos.ref_id 
 			AND tt_postmeta.meta_key = 'tt_tank_ref' 
 			AND tt_postmeta.meta_value = '$tank_id'
 			WHERE user_id = $user
-			LIMIT 6
+			ORDER BY user_photos.inserted_date DESC
+			LIMIT $limit
 		");
     
 		echo '<ul class="gallery page-gallery">';
@@ -99,7 +101,39 @@ class Tanks {
         	echo '</li>';
     	}
     	echo '</ul>';
-    	echo ' <a href="">View All Photos</a>';
+    	echo ' <a href="/gallery?tank_id='.$tank_id.'">View All Photos</a>';
+	}
+
+	function full_gallery($tank_id, $limit) { 
+    	$tank_id = $_GET['tank_id'];
+    	$user = $this-> user_info();
+
+    	global $wpdb;     
+    	$images = $wpdb->get_results("SELECT 
+			tt_postmeta.post_id, 
+			tt_postmeta.meta_key, 
+			tt_postmeta.meta_value,
+			user_photos.photo_thumb_url, 
+			user_photos.photo_url, 
+			user_photos.ref_id,
+			user_photos.inserted_date
+			FROM tt_postmeta 
+			JOIN user_photos 
+			ON tt_postmeta.post_id = user_photos.ref_id 
+			AND tt_postmeta.meta_key = 'tt_tank_ref' 
+			AND tt_postmeta.meta_value = '$tank_id'
+			WHERE user_id = $user
+			ORDER BY user_photos.inserted_date DESC
+			LIMIT $limit
+		");
+    
+		echo '<ul class="gallery full-gallery">';
+      	foreach ($images as $img){
+        	echo '<li class="gallery-item">';
+				echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
+        	echo '</li>';
+    	}
+    	echo '</ul>';
 	}
 
   function tank_selection(){
@@ -270,6 +304,7 @@ function update_tank_photo() {
   global $wpdb;
   global $post;
   $user = wp_get_current_user();
+  $user_id = $user->ID;
 
 
    // Verify nonce
@@ -288,6 +323,29 @@ function update_tank_photo() {
 	}
      
    
+    $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); //allowed file types
+        if (in_array($_FILES["file"]["type"], $mimeTypes))
+         {
+            // var_error_log($file['type']);
+            // var_error_log('valid file type');
+            $action = 'tank update File upload';
+            $ref_id = 0345;
+            $description = 'valid file: '.$_FILES["file"]["type"];
+            audit_trail($user_id, $action, $ref_id, $description);
+        }
+        else
+         {
+            // var_error_log($file['type']);
+            // var_error_log('invalid file');
+            $action = 'tank update File upload';
+            $ref_id = 0346;
+            $description = 'invalid file: '.$_FILES["file"]["type"];
+            audit_trail($user_id, $action, $ref_id, $description);
+            return 'You have attempted to upload an incorrect file type, naughty.';
+
+        }
+
+
 		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
 		$fileurl = $new_file_dir.$_FILES["file"]["name"];
 		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
