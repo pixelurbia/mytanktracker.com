@@ -4664,13 +4664,15 @@ input[type="submit"].btn.account-reg {
   position: relative;
   float: left;
   height: 150px;
-  width: 400px;
+  width: 410px;
   margin: 50px 0px 20px 0px; }
   .stock-item a.stock-action {
     height: 20px;
     width: 20px;
     position: relative;
     display: contents; }
+    .stock-item a.stock-action label {
+      margin: 0px; }
   .stock-item .fa-arrow-circle-right {
     color: #fff;
     font-size: 25px;
@@ -4679,18 +4681,12 @@ input[type="submit"].btn.account-reg {
     z-index: 9999;
     left: 106px;
     margin: 53px 0px 0px 0px; }
-  .stock-item .fa-edit {
+  .stock-item .fa-edit, .stock-item .fa-trash-alt, .stock-item .fa-save, .stock-item .fa-camera-retro {
     color: #fff;
     font-size: 15px;
     font-size: 1.5rem;
     float: left;
-    margin: 5px 10px 0px 0px; }
-  .stock-item .fa-trash-alt {
-    color: #fff;
-    font-size: 15px;
-    font-size: 1.5rem;
-    float: left;
-    margin: 5px 10px 0px 0px; }
+    margin: 10px 10px 0px 0px; }
   .stock-item .stock-img {
     float: left;
     height: 120px;
@@ -4699,19 +4695,19 @@ input[type="submit"].btn.account-reg {
     background-size: cover !important; }
   .stock-item .stock-data {
     float: left;
-    padding: 20px 0px 0px 22px; }
+    padding: 0px 0px 0px 22px; }
+    .stock-item .stock-data ul {
+      height: auto; }
     .stock-item .stock-data li {
       color: white;
       font-size: 12px;
       font-size: 1.2rem; }
-    .stock-item .stock-data li.name {
-      font-size: 18px;
-      font-size: 1.8rem;
+    .stock-item .stock-data li.name, .stock-item .stock-data li.name span {
       text-align: left; }
-      .stock-item .stock-data li.name .edit-tank-stock {
+      .stock-item .stock-data li.name .edit-tank-stock, .stock-item .stock-data li.name span .edit-tank-stock {
         margin: 0px 0px 0px 4px; }
     .stock-item .stock-data li.data {
-      float: left;
+      float: none;
       margin-right: 10px; }
 
 section.frame.post .tags {

@@ -1266,13 +1266,16 @@ input[type="submit"].btn.account-reg {
 	position:relative;
 	float: left;
 	height: 150px;
-    width: 400px;
+    width: 410px;
     margin:50px 0px 20px 0px;
     a.stock-action {    
     	height: 20px;
     	width: 20px;
     	position: relative;
-    	display: contents;}
+    	display: contents;
+    	label {
+    		margin:0px;
+    		}}
     .fa-arrow-circle-right {
     	color:$white;
     	@include font-size(2.5);
@@ -1281,17 +1284,11 @@ input[type="submit"].btn.account-reg {
        left: 106px;
     	margin: 53px 0px 0px 0px;
     }
-	.fa-edit {
+	.fa-edit, .fa-trash-alt, .fa-save, .fa-camera-retro {
     	color:$white;
     	@include font-size(1.5);
     	float:left;
-    	margin:5px 10px 0px 0px;
-    }
-    .fa-trash-alt {
-    	color:$white;
-    	@include font-size(1.5);
-    	float:left;
-    	margin:5px 10px 0px 0px;
+    	margin:10px 10px 0px 0px;
     }
     .stock-img {
     	float:left;
@@ -1302,20 +1299,22 @@ input[type="submit"].btn.account-reg {
     }
     .stock-data {
     	float:left;
-		padding: 20px 0px 0px 22px;
+		padding: 0px 0px 0px 22px;
+		ul {
+			height:auto;
+		}
     	li {
     		color:white;
     		@include font-size(1.2);
     	}
-    	li.name {
-    		@include font-size(1.8);
+    	li.name, li.name span {
     		text-align:left;
     		.edit-tank-stock {
 				margin: 0px 0px 0px 4px;
     		}
     	}
     	li.data {
-    		float:left;
+    		float:none;
     		margin-right:10px;
     	}
     }

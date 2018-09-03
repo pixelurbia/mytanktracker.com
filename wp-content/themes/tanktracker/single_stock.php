@@ -33,18 +33,25 @@ $single_stock = $stock->single_stock($stock_id);
 
             <p>
             <?php
-                if ($tanks[0]->tank_volume) {
-                    echo  '<span>Volume: '.$tanks[0]->tank_volume.' Gallons </span>';
-                } 
-                if ($tanks[0]->tank_dimensions){
-                    echo '<span>Dimensions: '.$tanks[0]->tank_dimensions.'</span>';
-                }
-                if ($tanks[0]->tank_model){
-                    echo '<span>Model: '.$tanks[0]->tank_model.'</span>';
-                }
-                if ($tanks[0]->tank_make){
-                    echo '<span>Make: '.$tanks[0]->tank_make.'</span>'; 
-                }
+
+                  if ($single_stock[0]->stock_name){
+                    echo '<span>Name:'.$single_stock[0]->stock_name.'</span>';
+                  }
+                  if ($single_stock[0]->stock_species){
+                    echo '<span>Species: '.$single_stock[0]->stock_species.'</span></li>';
+                  }
+                  if ($single_stock[0]->stock_age){
+                    echo '<span>Age: '.$single_stock[0]->stock_age.'</span></li>';
+                  }
+                  if ($single_stock[0]->stock_health){
+                    echo ' <span>Status: '.$single_stock[0]->stock_health.'</span></li>';
+                  }
+                  if ($single_stock[0]->stock_sex){
+                    echo '<span>Sex: '.$single_stock[0]->stock_sex.'</span></li>';
+                  }
+                  if ($single_stock[0]->stock_count){
+                    echo '<span>Count: '.$single_stock[0]->stock_count.'</span></li>';
+                  }
             ?> 
         </p>
               <!-- <form id="photo-form" method="post">

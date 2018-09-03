@@ -52,7 +52,7 @@ $user = $user_tanks->user_info();
             echo '<i class="fas fa-plus"> </i>';
             echo '<i class="text"> Add Livestock</i>';
         echo '</a>';
-    } 
+    };
 
     ?>
      
@@ -68,7 +68,9 @@ $user = $user_tanks->user_info();
         'tank_id' => $tank_id,
         'stock_type' => 'all'
     );
+
     $stock = $stock->list_of_stock($args);
+
     ?>
 </section>
 </section>
@@ -87,9 +89,10 @@ $user = $user_tanks->user_info();
                 enableOrientation: true
             });
             $('.crop-img').removeClass('dither');
+            
             $('.crop-img').click(function() { 
                 cropImg.croppie('result', 'base64').then(function(base64) {
-
+                    $('.submit-btn').removeClass('dither');
                     // var imgSrc = window.URL.createObjectURL(base64);
                     $('#Livestock-output').attr('src',base64);
                     console.log(base64);
@@ -114,6 +117,7 @@ $user = $user_tanks->user_info();
                 <input type="text" name="sotckage"  placeholder="Livestock age" class="form-control" />
                 <input type="text" name="stockhealth"  placeholder="Livestock Health" class="form-control" />
                 <input type="text" name="stocksex"  placeholder="Livestock Sex" class="form-control" />
+                <input type="text" name="stockcount"  placeholder="Livestock Count" class="form-control" />
                 <!-- <input id="tank-img" type="file" name="file_upload"> -->
                 <div class="btn stock-next-step">Next Step</div>
                 </fieldset>
@@ -121,7 +125,7 @@ $user = $user_tanks->user_info();
                 <div id="crop-img-contain">
                     <img id="Livestock-output">
                 </div>
-                <label><p>Once you upload an image, use your mouse or fingers on mobile, to move and reize the image</p></label>
+                <label><p>Once you upload an image, use your mouse or fingers on mobile, to move and reize the image. NOTE: You must click save to show the image.</p></label>
                 <label class="btn stock-img" for="stock-img">Upload a photo</label>
                 <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
                 <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
@@ -129,7 +133,7 @@ $user = $user_tanks->user_info();
                 <input type="hidden" name="tankid" value="<?php echo $tank_id; ?>">
                 <div class="btn dither crop-img">Save Image</div>
                 <div class="btn stock-prev-step">Previous Step</div>
-                <input type="submit" class="btn dither" value="Add Livestock" />
+                <input type="submit" class="btn submit-btn dither" value="Add Livestock" />
                 </fieldset>
             </form>
 </div>

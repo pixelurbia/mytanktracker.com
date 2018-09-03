@@ -115,18 +115,58 @@ function list_of_livestock() {
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
           echo '<div class="stock-data">';
               echo '<ul>';
-                  echo '<li class="name">'.$stock->stock_name.'';
-                  echo '<li class="species">The '.$stock->stock_species.'</li>';
-                  echo '<li class="age data">Age: '.$stock->stock_age.'</li>';
-                  echo '<li class="status data">Status: '.$stock->stock_health.'</li>';
-                  echo '<li class="sex data">Sex: '.$stock->stock_sex.'</li>';
-                  echo '<li class="stock-action"><i class="fas larger-icon fa-edit"></i></li>';
-                  echo '<li class="stock-message-action stock-action" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></li>';  
+
+                echo '<li class="';
+                  if (!$stock->stock_name){
+                    echo 'hide ';
+                  }
+                  echo 'name">Name: <span>'.$stock->stock_name.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_species){
+                    echo 'hide ';
+                  }
+                  echo 'species">Species: <span>'.$stock->stock_species.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_age){
+                    echo 'hide ';
+                  }
+                  echo 'age data">Age: <span> '.$stock->stock_age.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_health){
+                    echo 'hide ';
+                  }
+                  echo 'status data">Status: <span> '.$stock->stock_health.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_sex){
+                    echo 'hide ';
+                  }
+                  echo 'sex data">Sex: <span>'.$stock->stock_sex.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_count){
+                    echo 'hide ';
+                  }
+                  echo 'count data">Count: <span>'.$stock->stock_count.'</span></li>';
+
+
+                  echo '<a class="stock-action edit-stock"><i class="fas larger-icon fa-edit"></i></a>';
+                  echo '<a class="stock-action save-stock hide" nonce="'. wp_create_nonce("ajax_form_nonce_save_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas save-stock larger-icon fa-save"></i></a>';
+                  echo '<a class="stock-message-action del-stock stock-action hide" nonce="'. wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a>';  
+                  echo '<form class="stock-update-img hide" id="photo-form-'.$stock->stock_id.'" method="post">';
+                  echo '<input type="hidden" name="action" value="update_stock_photo">';
+                  echo '<input type="hidden" name="ref_id" value="'.$stock->stock_id.'">';
+                  echo '<input type="hidden" name="user_id" value="'.$user.'">';
+                  wp_nonce_field('ajax_form_nonce_stock_photo','ajax_form_nonce_stock_photo', true, true ); 
+                  echo '<a class="stock-action">';
+                  echo '<label for="tank-photo-img-'.$stock->stock_id.'">';
+                  echo '<i class="fas larger-icon fa-camera-retro"></i>';
+                  echo '</label>';
+                  echo '<input type="file" name="file_upload" id="tank-photo-img-'.$stock->stock_id.'" class="stock-photo-img inputfile hide" accept="image/*" />';
+                  echo '</a></form>';
               echo '</ul>';
           echo '</div>';
       echo '</article>';
     }
-    exit;
+    return;
   }
 
 
@@ -215,6 +255,7 @@ function add_livestock( $file = array() ) {
   $stock_age = $_REQUEST['sotckage'];
   $stock_health = $_REQUEST['stockhealth'];
   $stock_sex = $_REQUEST['stocksex'];
+  $stock_count = $_REQUEST['stockcount'];
   $tank_id = $_REQUEST['tankid'];
   
 if ($extension == 'plain'){
@@ -236,6 +277,7 @@ if ($extension == 'plain'){
   'stock_age'=> $stock_age,
   'stock_health'=> $stock_health,
   'stock_sex'=> $stock_sex,
+  'stock_count'=> $stock_count,
   'stock_img' => $stock_image,
   'created_date'=> date("Y-m-d H:i:s")
 )
@@ -261,13 +303,59 @@ $wpdb->insert('user_photos',array(
 }
 
 
+add_action('wp_ajax_update_user_stock', 'update_user_stock');
+add_action('wp_ajax_nopriv_update_user_stock', 'update_user_stock');
+
+/**
+ * Update stock
+ *
+ */
+
+function update_user_stock() {    
+
+ require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+    
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+
+
+   // Verify nonce
+ if( !isset( $_POST['ajax_form_nonce_save_stock'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_stock'], 'ajax_form_nonce_save_stock' ) )
+    die( 'Ooops, something went wrong, please try again later.');
+
+    $user_id = $user->ID;
+    $stock_id = $_REQUEST['stock_id'];
+    $stock_name = $_REQUEST['stock_name'];
+    $stock_species = $_REQUEST['stock_species'];
+    $stock_age = $_REQUEST['stock_age'];
+    $stock_status = $_REQUEST['stock_status'];
+    $stock_sex = $_REQUEST['stock_sex'];
+    $stock_count = $_REQUEST['stock_count'];
+ 
+
+  $wpdb->update('user_tank_stock',array(
+    'stock_name'=>$stock_name,
+    'stock_species'=>$stock_species,
+    'stock_age'=>$stock_age,
+    'stock_health'=>$stock_status,
+    'stock_sex'=>$stock_sex,
+    'stock_count'=>$stock_count,
+    'last_updated_date'=> date("Y-m-d H:i:s")
+  ), array(
+    'user_id'=> $user_id,
+    'stock_id'=> $stock_id )
+    );
+
+    return false;
+}
 
 
 add_action('wp_ajax_del_livestock', 'del_livestock');
 add_action('wp_ajax_nopriv_del_livestock', 'del_livestock');
 
 /**
- * add_livestock
+ * del_livestock
  *
  */
 
@@ -282,11 +370,6 @@ function del_livestock( $file = array() ) {
   global $wpdb;
   global $post;
   $user = wp_get_current_user();
-  
-  $obj_type = 'livestock';
-  $hex = uni_key_gen($obj_type);
-
-
   $user_id = $user->ID;
   $stock_id = $_REQUEST['stock_id'];
 
@@ -297,5 +380,166 @@ function del_livestock( $file = array() ) {
     );
 
 
+ $posts_ids_del = $wpdb->get_results("SELECT post_id FROM tt_postmeta WHERE meta_value = '$stock_id' ");
+  $ids = array();
+    foreach ($posts_ids_del as $post) {
+    $ids[] = "'".$post->post_id."',";
+
+      $action = "del_post_and_meta_data";
+      $ref_id = $post->post_id;
+      $description = "User deleted stock and all associated data - this is each post ";
+
+      audit_trail($user_id, $action, $ref_id, $description);
+    }
+
+      
+      $wpdb->query( "DELETE FROM tt_postmeta WHERE meta_value IN($ids)");
+      $wpdb->query( "DELETE FROM tt_posts WHERE ID IN($ids)");
+      $wpdb->query( "DELETE FROM tt_comments WHERE comment_post_id IN($ids)");
+      $wpdb->query( "DELETE FROM tt_term_relationships WHERE object_id IN($ids)");
+      $wpdb->query( "DELETE FROM user_post_refs WHERE ref_id IN($ids)");
+
+      $action = "del_stock";
+      $ref_id = $tank_id;
+      $description = "User deleted stock and all associated data";
+
+      audit_trail($user_id, $action, $ref_id, $description);
+
     // return false;
+}
+
+
+
+/**
+ * Update Stock Photo
+ *
+ */
+
+add_action('wp_ajax_update_stock_photo', 'update_stock_photo');
+add_action('wp_ajax_nopriv_update_stock_photo', 'update_stock_photo');
+
+function update_stock_photo() {    
+
+ require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+    
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+
+
+   // Verify nonce
+ if( !isset( $_POST['ajax_form_nonce_stock_photo'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_stock_photo'], 'ajax_form_nonce_stock_photo' ) )
+    die( 'Ooops, something went wrong, please try again later.');
+
+
+
+    function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
+    var_error_log('update stock image');
+
+    $upload_dir = wp_upload_dir();
+    $environment = set_env(); 
+
+  if ( $environment == 'DEV') {
+     $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_livestock/';
+     $new_file_url = '/wp-content/uploads/user_livestock/';
+  } else {
+       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_livestock/';
+       $new_file_url = '/wp-content/uploads/user_livestock/';
+  }
+
+    $stock_id = $_REQUEST['ref_id'];
+    $stock_img = $filepath;
+
+    $file =$_FILES["file"];
+   
+    $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); 
+    //allowed file types
+        if (in_array($file['type'], $mimeTypes))
+         {
+            // var_error_log($file['type']);
+            var_error_log('valid file type');
+            $action = 'Journal File upload';
+            $ref_id = 01;
+            $description = 'valid file: '.$file['type'];
+            audit_trail($user_id, $action, $ref_id, $description);
+
+            var_error_log($file);
+            $obj_type = 'img';
+            $hex = uni_key_gen($obj_type);
+
+            $imageData = getimagesize($file['tmp_name']);
+            $extension = image_type_to_extension($imageData[2]);
+
+
+            $fileName = $file['name'];
+            var_error_log($fileName);
+            $fileThumbName = $hex.'-thumb'.$extension; 
+            $fileFullName = $hex.'-large'.$extension;
+            $fileTempName = $file['tmp_name'];
+            
+            move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
+
+            $ref_id = $stock_id;
+            $photo_url = $new_file_url.$fileFullName;
+            $photo_thumb_url = $new_file_url.$fileThumbName;
+            var_error_log($photo_url);
+            var_error_log($photo_thumb_url);
+
+            $obj_type_new = 'user-stock-img';
+            $hextwo = uni_key_gen($obj_type_new);
+
+              
+            //update stock photo
+              $wpdb->update('user_tank_stock',array(
+                'stock_img'=> $photo_thumb_url,
+                'last_updated_date'=> date("Y-m-d H:i:s")
+              ), array(
+                'user_id'=> $user_id,
+                'stock_id'=> $stock_id )
+                );
+            
+            //add entry into the photo db as well so it shows up in the gallery and resize
+            $wpdb->insert('user_photos',array(
+              'user_id'=> $user_id,
+              'photo_id'=> $hextwo,
+              'ref_id'=> $stock_id,
+              'photo_thumb_url'=> $photo_thumb_url,
+              'photo_url' => $photo_url,
+              'inserted_date'=> date("Y-m-d H:i:s")
+            )
+                );
+
+            //thumbnail processesing 
+            $general = NEW General();
+            $target_dir = $new_file_dir;
+            $target = $new_file_dir.$fileThumbName;
+            $load = $new_file_dir.$fileFullName;
+            $size = 400;
+        
+            $general->resizeImageFiles($size,$load,$target);
+            
+
+            }
+        else
+         {
+            // var_error_log($file['type']);
+            var_error_log('invalid file');
+            $action = 'Journal File upload';
+            $ref_id = 01;
+            $description = 'invalid file: '.$file['type'];
+            audit_trail($user_id, $action, $ref_id, $description);
+        }
+
+
+
+
+    return false;
 }
