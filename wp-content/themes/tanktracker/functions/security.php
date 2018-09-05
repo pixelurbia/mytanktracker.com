@@ -20,7 +20,7 @@
             ");
 //check if ajax first or not or if there is no tank id so no looping happens
     if (!$_GET['tank_id'] || wp_doing_ajax() ){
-        return
+        return;
     } else {
         //if not
         //page validation because not all pages need to have this security element only those with user controls
