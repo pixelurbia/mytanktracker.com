@@ -18,14 +18,14 @@
             WHERE user_id = $user 
             AND tank_id = '$tank_id'
             ");
-
-    if (wp_doing_ajax()) { //check if ajax first or not
-        return;
+//check if ajax first or not or if there is no tank id so no looping happens
+    if (!$_GET['tank_id'] || wp_doing_ajax() ){
+        return
     } else {
         //if not
         //page validation because not all pages need to have this security element only those with user controls
         $page = $uri_parts[0];
-        $okay_pages = array('/overview/','/livestock/','/profile/','/wp-admin/','wp-content');
+        $okay_pages = array('/overview/','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/');
 
         if (!in_array($page, $okay_pages)) {
             // return $my_tank;
@@ -36,12 +36,14 @@
                 header("Location: http://".$site.$uri_parts[0]."?tank_id=".$tank_id."");
                 die();
             
-            } //end redirect
-            return;
+            } 
+        } else {
+            return;    
+            }//end redirect
+            
             }//end okay pages
         }//end ajax call
 
-    }
 
 
 function smart_menu() {
@@ -140,6 +142,8 @@ $wpdb->insert('audit_log',array(
 
 }
 
+
+add_action('init', 'redirect_to_specific_page');
 
 //redicted for those not logged in
 add_action( 'template_redirect', 'redirect_to_specific_page' );
