@@ -249,52 +249,43 @@ function add_livestock( $file = array() ) {
   $stock_count = $_REQUEST['stockcount'];
   $tank_id = $_REQUEST['tankid'];
 
+  
+if ($extension == 'plain'){
+  $stock_image = '/wp-content/uploads/user_livestock/fishdefault.png';
+} else {
+  $stock_image = $photo_url;
+}
 
-// $wpdb->show_errors();
  $success = $wpdb->insert('user_tank_stock',array(
   'user_id'=> $user_id,
-  'tank_id'=> $tank_id,
-  'stock_name'=> $stock_name,
-  'stock_id'=> $stock_id,
-  'stock_species'=> $stock_species,
-  'stock_type'=> $stock_type,
-  'stock_age'=> $stock_age,
-  'stock_health'=> $stock_health,
-  'stock_sex'=> $stock_sex,
-  'stock_count'=> $stock_count,
-  'stock_img' => $stock_image,
-  'created_date'=> date("Y-m-d H:i:s")
+    'tank_id'=> $tank_id,
+    'stock_name'=> $stock_name,
+    'stock_id'=> $stock_id,
+    'stock_species'=> $stock_species,
+    'stock_type'=> $stock_type,
+    'stock_age'=> $stock_age,
+    'stock_health'=> $stock_health,
+    'stock_sex'=> $stock_sex,
+    'stock_count'=> $stock_count,
+    'stock_img' => $stock_image,
+    'created_date'=> date("Y-m-d H:i:s")
 )
     ); 
 
 
+  $obj_type = 'livestock-img';
+  $hextwo = uni_key_gen($obj_type);
 
- var_error_log($success);
- var_error_log($wpdb->last_error);
- var_error_log($wpdb->last_query);
-  
-// if ($extension == 'plain'){
-//   $stock_image = '/wp-content/uploads/user_livestock/fishdefault.png';
-// } else {
-//   $stock_image = $photo_url;
-// }
+$succ = $wpdb->insert('user_photos',array(
+  'user_id'=> $user_id,
+  'photo_id'=> $hextwo,
+  'ref_id'=> $stock_id,
+  'photo_thumb_url'=> $photo_url,
+  'photo_url' => $photo_url,
+  'inserted_date'=> date("Y-m-d H:i:s")
+)
+    );
 
-
-//   $obj_type = 'livestock-img';
-//   $hextwo = uni_key_gen($obj_type);
-
-// $succ = $wpdb->insert('user_photos',array(
-//   'user_id'=> $user_id,
-//   'photo_id'=> $hextwo,
-//   'ref_id'=> $stock_id,
-//   'photo_thumb_url'=> $photo_url,
-//   'photo_url' => $photo_url,
-//   'inserted_date'=> date("Y-m-d H:i:s")
-// )
-//     );
-
-//  var_error_log($succ);
-// var_error_log('user_id: '.$user_id.'stock_name: '.$stock_name.'stock_id: '.$stock_id.'stock_species: '.$stock_species.'stock_type: '.$stock_type.'stock_age: '.$stock_age.'stock_health: '.$stock_health.'stock_sex: '.$stock_sex.'stock_count: '.$stock_count.'tank_id: '.$tank_id);
 
 // exit;
 }
