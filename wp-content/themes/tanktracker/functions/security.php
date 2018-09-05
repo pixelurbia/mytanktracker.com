@@ -143,7 +143,7 @@ $wpdb->insert('audit_log',array(
 }
 
 
-add_action('init', 'redirect_to_specific_page');
+// add_action('init', 'redirect_to_specific_page');
 
 //redicted for those not logged in
 add_action( 'template_redirect', 'redirect_to_specific_page' );
