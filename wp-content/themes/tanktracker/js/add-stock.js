@@ -167,7 +167,7 @@ $('#stock_filter a').click(function() {
           success: function (data) {
               //success
           console.log(data);
-           stockForm();
+           // stockForm();
           },
           error: function (e) {
               //error
@@ -290,7 +290,7 @@ $('#stock_filter a').click(function() {
               //success
           console.log(data);
           console.log('working');
-          stockForm();
+          stockForm();  
           },
           error: function (e) {
               //error

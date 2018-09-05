@@ -27,12 +27,13 @@ $feed = new Feed();
 			<a>Following / </a>
 			<a>Favorites</a>
 		</p>
-		<p class="page-subnav">
+		<p class="page-subnav category-filter">
 			<?php 
 
 			$cats = $feed->cats(); 
+			echo '<a class="current" value="">All / </a>';
 			foreach ($cats as $cat){
-				echo '<a>'.$cat->name.' / </a>';
+				echo '<a value="'.$cat->term_id.'">'.$cat->name.' / </a>';
 			}
 
 

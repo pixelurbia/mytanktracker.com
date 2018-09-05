@@ -3,8 +3,50 @@
 // by Andy 
 ///////////////////
 $(document).ready(function() {
+
+$('.category-filter a').click( function(){
+	
+	var cats = $(this).attr('value');
+	$(this).parent().find('.current').removeClass('current');
+  	$(this).addClass('current');
+	
+	var data = {action: 'get_main_feed', cats: cats};
+
+      console.log(data);
+      //Custom data
+      // data.append('key', 'value');
+      $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+              // console.log(data);
+          	console.log('success');
+          	$('.feed.full').html(data);
+          		jQuery.ias().destroy();
+          		var ias = $.ias({
+     				container: "#feed",
+     				item: ".post",
+      				pagination: '#pagination',
+    				next:'#pagination a.next'
+   				});	
+          	// $('.feed.full').html('');
+
+          },
+          error: function (e) {
+              //error
+			console.log('error 124');
+			console.log(data);
+          }
+      });
+
+});
+
+
+
 //Favorites
-	$('.fave').click(function(event) { 
+$('.wrap').on("click", ".fave", function(event){
 		event.preventDefault(); // Prevent the default
 		
 		if ($(this).hasClass('static')) {

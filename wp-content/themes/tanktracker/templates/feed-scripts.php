@@ -5,7 +5,7 @@
      container: "#feed",
      item: ".post",
       pagination: '#pagination',
-    next:       '#pagination a.next'
+    next:'#pagination a.next'
    });
 
 

@@ -1,11 +1,60 @@
 <?php
 
+    add_action('init', 'secure_my_tank');
 
-function smart_menu($tank_id) {
+    //function to prevent users from interacting with other users data
+    function secure_my_tank(){
+        global $wpdb;
+
+        $tank_id = $_GET['tank_id'];
+        $current_user = wp_get_current_user();
+        $user = $current_user->ID;
+        $site = $_SERVER['HTTP_HOST'];
+        $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+
+        $my_tank = $wpdb->get_var("
+            SELECT COUNT(tank_id) 
+            FROM user_tanks 
+            WHERE user_id = $user 
+            AND tank_id = '$tank_id'
+            ");
+
+    if (wp_doing_ajax()) { //check if ajax first or not
+        return;
+    } else {
+        //if not
+        //page validation because not all pages need to have this security element only those with user controls
+        $page = $uri_parts[0];
+        $okay_pages = array('/overview/','/livestock/','/profile/','/wp-admin/','wp-content');
+
+        if (!in_array($page, $okay_pages)) {
+            // return $my_tank;
+            if ($my_tank == 0){
+    
+                $tank_id = $wpdb->get_var("SELECT tank_id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
+                
+                header("Location: http://".$site.$uri_parts[0]."?tank_id=".$tank_id."");
+                die();
+            
+            } //end redirect
+            return;
+            }//end okay pages
+        }//end ajax call
+
+    }
+
+
+function smart_menu() {
 
     global $post;
+    global $wpdb;
+    $tank_id = $_GET['tank_id'];
+
     $current_user = wp_get_current_user();
     $user = $current_user->ID;
+
+    //check if this is the users tank or not because otherwise this aint that smart of a menu
+    $my_tank = $wpdb->get_var("SELECT COUNT(tank_id) FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
 
     $name = $post->post_name;
     if (  ($name == 'user-login') OR ($name == 'register') ){
@@ -28,7 +77,7 @@ function smart_menu($tank_id) {
     echo '</div>';
         echo '<div class="secondary_menu">';
             echo '<a name="" href="/tanks" class="">My Tanks</a>';
-                if ( !is_page('tanks') && is_user_logged_in() ) {
+                if ( !is_page('tanks') && is_user_logged_in() && $my_tank > 0) {
                     echo '<div class="sub_menu">';
                     echo '<a name="tanks" href="/overview?tank_id='.$tank_id.'" class="overview">Overview</a>';
                     echo '<a name="parameters" href="/fullview?tank_id='.$tank_id .'" class="parameters">Parameters</a>';
@@ -37,7 +86,7 @@ function smart_menu($tank_id) {
                     echo '</div>';
                 }
         if ( is_user_logged_in() ) {
-        echo '<a name="" href="/community" class="">Tank Tracker Community</a>';
+        echo '<a name="" href="/community/" class="">Tank Tracker Community</a>';
         echo '<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Discord</a>';
         echo '<span></span>';            
         echo '<a href="/profile?user_id='.$user.'"  class="">My Profile</a>';
@@ -123,10 +172,6 @@ function redirect_to_specific_page() {
 
     }
    
-//image mime type validation
-    function image_validation($file) {
-  
-}
 
 
 };

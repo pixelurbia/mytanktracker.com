@@ -239,15 +239,23 @@ function get_feed_images($post_id){
 }
 
 
-function get_main_feed() {
-	
-	
+public function get_main_feed() {
+		$feed = new Feed();
+
+		if ($_REQUEST['cats']){
+			$cat = $_REQUEST['cats'];
+		} else {
+			$cat = '';
+		}
+
+		// var_dump($cat);
 		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 		$posts = array(
 			'posts_per_page' => 10,
 			'post_type' => 'user_journals', 
 			'post_status' => 'publish',
+			'cat' => $cat, 
 			'paged' => $paged,
 			);
 
@@ -260,13 +268,16 @@ function get_main_feed() {
             		$excerpt = get_excerpt(200);
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
-            		$user_id = $this->user_info();
+					
+					$current_user = wp_get_current_user();
+					$user_id = $current_user->ID;
+
             		$post_id = get_the_ID();
             		$comment_count = wp_count_comments( $post_id );
             		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		$this->get_feed_images($post_id);
+            		$feed->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
@@ -278,7 +289,7 @@ function get_main_feed() {
 						echo '<p class="excerpt">'.$excerpt.'</p>';
             			echo '<div class="post-info">';
 
-            			$this->is_faved($user_id,$post_id);
+            			$feed->is_faved($user_id,$post_id);
 						if ( $comment_count == 0 ) {
             				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
             			} elseif ( $comment_count == 1 ) {
@@ -303,8 +314,7 @@ function get_main_feed() {
 					'total' => $query->max_num_pages
 				) );
 			echo '</div>';
-
-
+return;
 }
 	function profile_all_user_posts() {
 		
@@ -392,6 +402,8 @@ function get_people_feed() {
 			}
 }
 
-
 }
+
+  add_action( 'wp_ajax_get_main_feed', array( 'Feed', 'get_main_feed' ) ); 
+  add_action( 'wp_ajax_nopriv_get_main_feed', array( 'Feed', 'get_main_feed' ) );
 

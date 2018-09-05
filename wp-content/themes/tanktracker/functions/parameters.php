@@ -11,7 +11,6 @@ class Parameters {
 		return $user;
 	 }
 
-
 	function get_params($param_type,$user,$tank_id,$limit) {
 		
 		   global $wpdb;

@@ -169,10 +169,6 @@ function list_of_livestock() {
     return;
   }
 
-
-
-
-
 }
 
   add_action( 'wp_ajax_list_of_stock', array( 'Stock', 'list_of_stock' ) ); 
@@ -194,6 +190,10 @@ function add_livestock( $file = array() ) {
     die( 'Ooops, something went wrong, please try again later.' );
    
 
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+
 //set env
     $environment = set_env(); 
   if ( $environment == 'DEV') {
@@ -214,6 +214,8 @@ function add_livestock( $file = array() ) {
         error_log( $contents );        // log contents of the result of var_dump( $object )
     }
 
+    var_error_log('adding new stock');
+
     //get blob data
     $img = $_REQUEST['file'];
     $img = str_replace('data:image/png;base64,', '', $img);
@@ -225,25 +227,14 @@ function add_livestock( $file = array() ) {
     $split = explode( '/', $mime_type );
     $extension = $split[1]; 
 
-
-
-
-  global $wpdb;
-  global $post;
-  $user = wp_get_current_user();
-  
   $obj_type = 'livestock';
   $hex = uni_key_gen($obj_type);
-  
   // $fileName = $hex.'-stock.png';
-
   $fileThumbName = $hex.'-thumb.'.$extension; 
   $fileName = $hex.'-large.'.$extension;
-
   $photo_url = $new_file_url.$fileName;
 
-
-//put filesomewhere and rename it
+  //put filesomewhere and rename it
   $success =  file_put_contents($new_file_dir.$fileName, $data);
 
 
@@ -257,17 +248,10 @@ function add_livestock( $file = array() ) {
   $stock_sex = $_REQUEST['stocksex'];
   $stock_count = $_REQUEST['stockcount'];
   $tank_id = $_REQUEST['tankid'];
-  
-if ($extension == 'plain'){
-  $stock_image = '/wp-content/uploads/user_livestock/fishdefault.png';
-} else {
-  $stock_image = $photo_url;
-}
-  
 
-  
 
-  $wpdb->insert('user_tank_stock',array(
+// $wpdb->show_errors();
+ $success = $wpdb->insert('user_tank_stock',array(
   'user_id'=> $user_id,
   'tank_id'=> $tank_id,
   'stock_name'=> $stock_name,
@@ -281,25 +265,38 @@ if ($extension == 'plain'){
   'stock_img' => $stock_image,
   'created_date'=> date("Y-m-d H:i:s")
 )
-    );
-
-  $obj_type = 'livestock-img';
-  $hextwo = uni_key_gen($obj_type);
-
-$wpdb->insert('user_photos',array(
-  'user_id'=> $user_id,
-  'photo_id'=> $hextwo,
-  'ref_id'=> $stock_id,
-  'photo_thumb_url'=> $photo_url,
-  'photo_url' => $photo_url,
-  'inserted_date'=> date("Y-m-d H:i:s")
-)
-    );
+    ); 
 
 
 
+ var_error_log($success);
+ var_error_log($wpdb->last_error);
+ var_error_log($wpdb->last_query);
+  
+// if ($extension == 'plain'){
+//   $stock_image = '/wp-content/uploads/user_livestock/fishdefault.png';
+// } else {
+//   $stock_image = $photo_url;
+// }
 
-    // return false;
+
+//   $obj_type = 'livestock-img';
+//   $hextwo = uni_key_gen($obj_type);
+
+// $succ = $wpdb->insert('user_photos',array(
+//   'user_id'=> $user_id,
+//   'photo_id'=> $hextwo,
+//   'ref_id'=> $stock_id,
+//   'photo_thumb_url'=> $photo_url,
+//   'photo_url' => $photo_url,
+//   'inserted_date'=> date("Y-m-d H:i:s")
+// )
+//     );
+
+//  var_error_log($succ);
+// var_error_log('user_id: '.$user_id.'stock_name: '.$stock_name.'stock_id: '.$stock_id.'stock_species: '.$stock_species.'stock_type: '.$stock_type.'stock_age: '.$stock_age.'stock_health: '.$stock_health.'stock_sex: '.$stock_sex.'stock_count: '.$stock_count.'tank_id: '.$tank_id);
+
+// exit;
 }
 
 

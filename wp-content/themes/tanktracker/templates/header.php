@@ -64,7 +64,7 @@
 	$tank_id = $tank[0]->tank_id;
 	$user = $user_tanks->user_info();
 
-	smart_menu($tank_id); 
+	smart_menu(); 
 
 	?>
 

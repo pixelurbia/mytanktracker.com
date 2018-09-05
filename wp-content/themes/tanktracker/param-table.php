@@ -8,12 +8,19 @@ Template Name: Parameters table
 <?php get_template_part('templates/header');      ?>
 
 <?php 
-
+//get vars
 $tank_id = $_GET['tank_id'];
+
+
+//init classes
 $user_tanks = new Tanks();
+
+
 $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
+
+
      
 
 ?>
