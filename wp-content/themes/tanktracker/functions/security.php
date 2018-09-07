@@ -1,48 +1,48 @@
 <?php
 
-//     add_action('init', 'secure_my_tank');
+    add_action('init', 'secure_my_tank');
 
-//     //function to prevent users from interacting with other users data
-//     function secure_my_tank(){
-//         global $wpdb;
+    //function to prevent users from interacting with other users data
+    function secure_my_tank(){
+        global $wpdb;
 
-//         $tank_id = $_GET['tank_id'];
-//         $current_user = wp_get_current_user();
-//         $user = $current_user->ID;
-//         $site = $_SERVER['HTTP_HOST'];
-//         $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+        $tank_id = $_GET['tank_id'];
+        $current_user = wp_get_current_user();
+        $user = $current_user->ID;
+        $site = $_SERVER['HTTP_HOST'];
+        $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 
-//         $my_tank = $wpdb->get_var("
-//             SELECT COUNT(tank_id) 
-//             FROM user_tanks 
-//             WHERE user_id = $user 
-//             AND tank_id = '$tank_id'
-//             ");
-// //check if ajax first or not or if there is no tank id so no looping happens
-//     if (!$_GET['tank_id'] || wp_doing_ajax() ){
-//         return;
-//     } else {
-//         //if not
-//         //page validation because not all pages need to have this security element only those with user controls
-//         $page = $uri_parts[0];
-//         $okay_pages = array('/overview/','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/');
+        $my_tank = $wpdb->get_var("
+            SELECT COUNT(tank_id) 
+            FROM user_tanks 
+            WHERE user_id = $user 
+            AND tank_id = '$tank_id'
+            ");
+//check if ajax first or not or if there is no tank id so no looping happens
+    if (!$_GET['tank_id'] || wp_doing_ajax() ){
+        return;
+    } else {
+        //if not
+        //page validation because not all pages need to have this security element only those with user controls
+        $page = $uri_parts[0];
+        $okay_pages = array('/overview/','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/');
 
-//         if (!in_array($page, $okay_pages)) {
-//             // return $my_tank;
-//             if ($my_tank == 0){
+        if (!in_array($page, $okay_pages)) {
+            // return $my_tank;
+            if ($my_tank == 0){
     
-//                 $tank_id = $wpdb->get_var("SELECT tank_id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
+                $tank_id = $wpdb->get_var("SELECT tank_id FROM user_tanks WHERE user_id = $user ORDER BY created_date limit 1 ");
                 
-//                 header("Location: http://".$site.$uri_parts[0]."?tank_id=".$tank_id."");
-//                 die();
+                header("Location: http://".$site.$uri_parts[0]."?tank_id=".$tank_id."");
+                die();
             
-//             } 
-//         } else {
-//             return;    
-//             }//end redirect
+            } 
+        } else {
+            return;    
+            }//end redirect
             
-//             }//end okay pages
-//         }//end ajax call
+            }//end okay pages
+        }//end ajax call
 
 
 
@@ -180,55 +180,46 @@ $wpdb->insert('audit_log',array(
 
 // };
 
-/* Remove the "Dashboard" from the admin menu for non-admin users */
-add_action( 'admin_init', 'my_custom_dashboard_access_handler');
- 
-function my_custom_dashboard_access_handler() {
- 
-   // Check if the current user has admin capabilities
-   if ( !current_user_can( 'manage_users' )) {
-      wp_safe_redirect( '/profile/',301 ); 
-      exit;
-   }
+
+
+add_action('wp_logout','auto_redirect_after_logout');
+function auto_redirect_after_logout(){
+    wp_safe_redirect( '/user-login/',301 ); 
+    die();
 }
 
+//redicted for those not logged in
+add_action( 'template_redirect', 'redirect_to_specific_page' );
+function redirect_to_specific_page() {
 
-// add_action('init', 'redirect_to_specific_page');
+    global $post;
+    // $debug = $_GET['debug'];
 
-// //redicted for those not logged in
-// // add_action( 'template_redirect', 'redirect_to_specific_page' );
-// function redirect_to_specific_page() {
+    $site = $_SERVER['HTTP_HOST'];
+    $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+    $page = $uri_parts[0];
+    $okay_pages = array('','/user-login/','/register/','/profile/','/overview/','/livestock/','/wp-login/','/wp-admin/');
+    $login = is_user_logged_in();
 
-//     global $post;
-//     // $debug = $_GET['debug'];
+    // if ( $debug == 'on') {
+    //     echo '<div class="debug-panel">';
+    //     echo 'Debug mode is on<br>';
+    //     echo '<br>Page Name: '.$page;
+    //     echo '<br>is_user_logged_in: '.$login;
+    //     echo '</div>';
+    // }
 
-//     $site = $_SERVER['HTTP_HOST'];
-//     $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
-//     $page = $uri_parts[0];
-//     $okay_pages = array('/user-login/','/register/','/profile/','/overview/','/livestock/','/wp-login/','/wp-admin/');
-//     $login = is_user_logged_in();
+  if ( is_user_logged_in() && $page == '/user-login/') {
+        wp_safe_redirect( '/tanks/',301 ); 
+    } elseif (is_user_logged_in()) {
+        return;
+    }
 
-//     // if ( $debug == 'on') {
-//     //     echo '<div class="debug-panel">';
-//     //     echo 'Debug mode is on<br>';
-//     //     echo '<br>Page Name: '.$page;
-//     //     echo '<br>is_user_logged_in: '.$login;
-//     //     echo '</div>';
-//     // }
+    if ( !is_user_logged_in() ) {
 
-//   if ( is_user_logged_in() ) {
-//         return;
-//     }
-
-//     if ( !is_user_logged_in() ) {
-
-//         if (!in_array($page, $okay_pages)) {
-//              wp_safe_redirect( '/user-login/',301 ); 
-//              die();
-//         }
-
-//     }
-   
-
-
-// };
+        if (!in_array($page, $okay_pages)) {
+             wp_safe_redirect( '/user-login/',301 ); 
+             die();
+        } 
+    }
+   };

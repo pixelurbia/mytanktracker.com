@@ -66,15 +66,16 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 .global-error {
 	top: -500px;
     right: 0px;
-    height: 65px;
+    height: 95px;
     display: block;
     z-index: 9999999;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     position: fixed;
     z-index: 99999;
     color: white;
     background: #ff5c5c;
-    padding: 17px 0px 0px 0px;
+    padding: 15px;
     text-align: center;
     font-size: 18px;
     transition: all 0.2s ease-in-out;
@@ -83,14 +84,15 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 .global-suc {
     top: 44px;
     right: 0px;
-    height: 65px;
+    height: 95px;
     display: none;
     z-index: 9999999;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     position: fixed;
     color: white;
     background:$one-change!important; 
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     @include font-size(1.8); 
     transition: all 0.2s ease-in-out;
