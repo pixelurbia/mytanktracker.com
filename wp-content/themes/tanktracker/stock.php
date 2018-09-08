@@ -16,49 +16,6 @@ $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
 ?>
 
-<div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
-
-<section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
-    <div class="tank_header">
-        <h2><?php echo  $tank[0]->tank_name ?> Livestock</h2>
-
-            <p>
-            <?php
-                if ($tanks[0]->tank_volume) {
-                    echo  '<span>Volume: '.$tanks[0]->tank_volume.' Gallons </span>';
-                } 
-                if ($tanks[0]->tank_dimensions){
-                    echo '<span>Dimensions: '.$tanks[0]->tank_dimensions.'</span>';
-                }
-                if ($tanks[0]->tank_model){
-                    echo '<span>Model: '.$tanks[0]->tank_model.'</span>';
-                }
-                if ($tanks[0]->tank_make){
-                    echo '<span>Make: '.$tanks[0]->tank_make.'</span>'; 
-                }
-            ?> 
-        </p>
-        <p class="page-subnav" id="stock_filter" tank_id="<?php echo $tank_id; ?>">
-            <a value="all" class="current">All / </a>
-            <a value="fish">Fish / </a>
-            <a value="coral">Coral / </a>
-            <a value="plants">Plants / </a>
-            <a value="inverts">Inverts</a>
-        </p>
-    <?php  
-
-    if ( is_user_logged_in() ) {
-        echo '<a class="option-btn add-livestock">';
-            echo '<i class="fas fa-plus"> </i>';
-            echo '<i class="text"> Add Livestock</i>';
-        echo '</a>';
-    };
-
-    ?>
-     
-         
-    </div>
-        
 <div class="form-contain add-livestock-form">
         <script type="text/javascript">
         //img preview
@@ -117,10 +74,55 @@ $user = $user_tanks->user_info();
                 <input type="hidden" name="tankid" value="<?php echo $tank_id; ?>">
                 <div class="btn dither crop-img">Save Image</div>
                 <div class="btn stock-prev-step">Previous Step</div>
-                <input type="submit" class="btn submit-btn dither" value="Add Livestock" />
+                <input type="submit" class="btn submit-btn" value="Add Livestock" />
                 </fieldset>
             </form>
 </div>
+
+<div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
+
+<section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
+    <div class="tank_header">
+        <h2><?php echo  $tank[0]->tank_name ?> Livestock</h2>
+
+            <p>
+            <?php
+                if ($tanks[0]->tank_volume) {
+                    echo  '<span>Volume: '.$tanks[0]->tank_volume.' Gallons </span>';
+                } 
+                if ($tanks[0]->tank_dimensions){
+                    echo '<span>Dimensions: '.$tanks[0]->tank_dimensions.'</span>';
+                }
+                if ($tanks[0]->tank_model){
+                    echo '<span>Model: '.$tanks[0]->tank_model.'</span>';
+                }
+                if ($tanks[0]->tank_make){
+                    echo '<span>Make: '.$tanks[0]->tank_make.'</span>'; 
+                }
+            ?> 
+        </p>
+        <p class="page-subnav" id="stock_filter" tank_id="<?php echo $tank_id; ?>">
+            <a value="all" class="current">All / </a>
+            <a value="fish">Fish / </a>
+            <a value="coral">Coral / </a>
+            <a value="plants">Plants / </a>
+            <a value="inverts">Inverts</a>
+        </p>
+    <?php  
+
+    if ( is_user_logged_in() ) {
+        echo '<a class="option-btn add-livestock">';
+            echo '<i class="fas fa-plus"> </i>';
+            echo '<i class="text"> Add Livestock</i>';
+        echo '</a>';
+    };
+
+    ?>
+     
+         
+    </div>
+        
+
 
 
 
