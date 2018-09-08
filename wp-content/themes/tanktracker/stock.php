@@ -59,22 +59,6 @@ $user = $user_tanks->user_info();
          
     </div>
         
-
-
-<section class="stock-list">
-    <?php 
-    $stock = new Stock(); 
-    $args = array(
-        'tank_id' => $tank_id,
-        'stock_type' => 'all'
-    );
-
-    $stock = $stock->list_of_stock($args);
-
-    ?>
-</section>
-</section>
-
 <div class="form-contain add-livestock-form">
         <script type="text/javascript">
         //img preview
@@ -137,6 +121,22 @@ $user = $user_tanks->user_info();
                 </fieldset>
             </form>
 </div>
+
+
+
+<section class="stock-list">
+    <?php 
+    $stock = new Stock(); 
+    $args = array(
+        'tank_id' => $tank_id,
+        'stock_type' => 'all'
+    );
+
+    $stock = $stock->list_of_stock($args);
+
+    ?>
+</section>
+</section>
 
 
             

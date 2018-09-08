@@ -166,7 +166,7 @@ function list_of_livestock() {
           echo '</div>';
       echo '</article>';
     }
-exit;
+die();
   }
 
 }
