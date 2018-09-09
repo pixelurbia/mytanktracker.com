@@ -8,7 +8,7 @@ class Security {
         $user = $current_user->ID;
         return $user;
      }
-     
+
     function reported_posts(){
         global $wpdb;
         $reported_posts = $wpdb->get_results("SELECT * FROM mod_log");
@@ -364,7 +364,7 @@ function redirect_to_specific_page() {
 
 function wpse66093_no_admin_access()
 {
-    if ( !current_user_can( 'administrator' ) )
+    if ( !current_user_can( 'administrator' ) && !wp_doing_ajax())
         exit( wp_safe_redirect( '/tanks/',301 )  );
 }
 add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
