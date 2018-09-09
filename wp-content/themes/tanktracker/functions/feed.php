@@ -51,7 +51,7 @@ function get_post_images($post_id){
 
     global $wpdb;     
     $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
-    echo '<p>'.$numOfImages.' Photos</p>';
+    // echo '<p>'.$numOfImages.' Photos</p>';
     $i = 0;
     if ($images){
     	 echo '<ul class="gallery post-gallery">';
@@ -115,7 +115,8 @@ function get_feed_images($post_id){
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(200);
+            		            		// $excerpt = get_excerpt(50);
+            		$excerpt = get_the_excerpt();
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
             		$user_id = $this->user_info();
@@ -124,6 +125,10 @@ function get_feed_images($post_id){
             		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
+            		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
+            		echo '<div class="post-options-menu">';
+            			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            		echo '</div>';
             		$this->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
@@ -162,7 +167,6 @@ function get_feed_images($post_id){
 				) );
 			echo '</div>';
 
-
 }
 	
 
@@ -188,7 +192,8 @@ function get_feed_images($post_id){
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(200);
+            		// $excerpt = get_excerpt(50);
+            		$excerpt = get_the_excerpt();
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
             		$user_id = $this->user_info();
@@ -197,6 +202,10 @@ function get_feed_images($post_id){
             		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
+            		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
+            		echo '<div class="post-options-menu">';
+            			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            		echo '</div>';
             		$this->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
@@ -241,20 +250,35 @@ function get_feed_images($post_id){
 
 public function get_main_feed() {
 		$feed = new Feed();
+		global $wpdb;
+  		global $post;
 
-		if ($_REQUEST['cats']){
-			$cat = $_REQUEST['cats'];
-		} else {
-			$cat = '';
+	function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
+    
+
+		$cat = $_GET['cats'];
+
+		//check if a post was reported 
+		$reported_posts = $wpdb->get_results("SELECT DISTINCT ref_id FROM mod_log WHERE content_type = 'post' AND mod_approved = 'no'");
+ 		$ids = array();
+    	foreach ($reported_posts as $post) {
+    		$ids[] .= $post->ref_id;
 		}
 
-		// var_dump($cat);
 		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 		$posts = array(
 			'posts_per_page' => 10,
 			'post_type' => 'user_journals', 
 			'post_status' => 'publish',
+			'post__not_in' => $ids,
 			'cat' => $cat, 
 			'paged' => $paged,
 			);
@@ -265,8 +289,10 @@ public function get_main_feed() {
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(200);
+            		// $excerpt = get_excerpt(50);
+            		$excerpt = get_the_excerpt();
             		$name = get_the_author_meta('display_name');
+            		$auth_id = get_the_author_meta('id');
             		$time = get_the_time('F jS, Y');
 					
 					$current_user = wp_get_current_user();
@@ -277,6 +303,10 @@ public function get_main_feed() {
             		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
+            		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
+            		echo '<div class="post-options-menu">';
+            			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            		echo '</div>';
             		$feed->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
@@ -313,8 +343,8 @@ public function get_main_feed() {
 					'current' => max( 1, get_query_var('paged') ),
 					'total' => $query->max_num_pages
 				) );
-			echo '</div>';
-return;
+			echo '</div>';			
+
 }
 	function profile_all_user_posts() {
 		

@@ -43,7 +43,7 @@ $user = $user_tanks->user_info();
             });
         };
     </script>
-    <a class="add-livestock param-close"><i class="fas fa-times"></i></a>
+    <a class="add-livestock param-close"><i class="fas fa-times-circle fa-lg"></i></a>
     <form id="livestock-form">
            <fieldset class="step step-one">
             <div class="type-menu">
@@ -109,8 +109,8 @@ $user = $user_tanks->user_info();
             <a value="inverts">Inverts</a>
         </p>
     <?php  
-
-    if ( is_user_logged_in() ) {
+    $my_tank = this_my_tank();
+    if ( is_user_logged_in() && $my_tank == 1 ) {
         echo '<a class="option-btn add-livestock">';
             echo '<i class="fas fa-plus"> </i>';
             echo '<i class="text"> Add Livestock</i>';

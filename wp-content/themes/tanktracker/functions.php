@@ -17,10 +17,13 @@ require_once('functions/stock.php');
 require_once('functions/resize.php');
 require_once('functions/security.php');
 require_once('functions/general.php');
+require_once('functions/roles.php');
 
 add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');
 
+//remove comment form logout stuff
+add_filter( 'comment_form_logged_in', '__return_empty_string' );
 
 
 
@@ -32,50 +35,11 @@ add_filter('show_admin_bar', '__return_false');
 // } 
 
 
-// function my_awesome_admin_lockout(){
-//   if( is_admin() && !current_user_can( 'manage_options' ) ) {
-//     wp_redirect( home_url() );
-//     die();
-//   }
-// }
+function custom_excerpt_length( $length ) {
+        return 100;
+    }
+    add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-// add_action( 'init', 'my_awesome_admin_lockout' );
-// // Hook the appropriate WordPress action
-// function custom_login_page() {
-
-//  $new_login_page_url = home_url( '/user-login/' ); // new login page
-//  global $pagenow;
-//  if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
-//     wp_redirect( home_url() );
-//     exit;
-//  }
-// }
-
-// if(!is_user_logged_in()){
-//  add_action('init','custom_login_page');
-// }
-
-function get_excerpt($limit, $source = null){
-
-    if($source == "content" ? ($excerpt = get_the_content()) : ($excerpt = get_the_excerpt()));
-    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
-    $excerpt = strip_shortcodes($excerpt);
-    $excerpt = strip_tags($excerpt);
-    $excerpt = substr($excerpt, 0, $limit);
-    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-    $excerpt = $excerpt.'...';
-    return $excerpt;
-}
-
-
-
-
-  // if(!is_user_logged_in()) { 
-  //     	 $logged_in = false;
-		// } else {
-		//  $logged_in = true;
-		// 	 } 
 
 
 
@@ -96,6 +60,7 @@ function new_user() {
     $username = $_REQUEST['username'];
     $password = $_REQUEST['pass'];
     $email    = $_REQUEST['email'];
+    $marketing  = $_REQUEST['marketing'];
  
     /**
      * IMPORTANT: You should make server side validation here!
@@ -109,6 +74,8 @@ function new_user() {
     );
  
     $user_id = wp_insert_user( $userdata ) ;
+
+    add_user_meta($user_id, 'marketing', $marketing);
  
     // Return
     if( !is_wp_error($user_id) ) {
@@ -120,6 +87,7 @@ function new_user() {
        die($user_id->get_error_message()); 
     }
 
+     
  
 
  

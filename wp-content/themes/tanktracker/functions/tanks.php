@@ -58,10 +58,8 @@ class Tanks {
 
 	function get_tank_photos($tank_id) {
 		
-		  $user = $this->user_info();
-
 		global $wpdb;			
-		$photos = $wpdb->get_results("SELECT * FROM user_photos WHERE user_id = $user AND ref_id = '$tank_id'");
+		$photos = $wpdb->get_results("SELECT * FROM user_photos WHERE ref_id = '$tank_id'");
 
 			echo '<div class="gallery">';
 			foreach($photos as $photo){
@@ -73,7 +71,6 @@ class Tanks {
 
 	function the_tank_gallery($tank_id, $limit) { 
     	$tank_id = $_GET['tank_id'];
-    	$user = $this-> user_info();
 
     	global $wpdb;     
     	$images = $wpdb->get_results("SELECT 
@@ -89,12 +86,11 @@ class Tanks {
 			ON tt_postmeta.post_id = user_photos.ref_id 
 			AND tt_postmeta.meta_key = 'tt_tank_ref' 
 			AND tt_postmeta.meta_value = '$tank_id'
-			WHERE user_id = $user
 			ORDER BY user_photos.inserted_date DESC
 			LIMIT $limit
 		");
     
-		echo '<ul class="gallery page-gallery">';
+		echo '<ul class="gallery page-gallery">';	
       	foreach ($images as $img){
         	echo '<li class="gallery-item">';
 				echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
@@ -106,7 +102,7 @@ class Tanks {
 
 	function full_gallery($tank_id, $limit) { 
     	$tank_id = $_GET['tank_id'];
-    	$user = $this-> user_info();
+
 
     	global $wpdb;     
     	$images = $wpdb->get_results("SELECT 
@@ -233,20 +229,72 @@ function add_user_tank( $file = array() ) {
     die( 'Ooops, something went wrong, please try again later.'.$validation );
    
 
+	
 		$upload_dir = wp_upload_dir();
- 		//construct new upload dir from upload base dir and the username of the current user
- 		// $sourcePath = $_FILES['file']['tmp_name']; 
- 	$environment = set_env(); 
-	if ( $environment == 'DEV') {
-	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
-	} else {
-		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
-	}
-     
-   
-		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
-		$fileurl = $new_file_dir.$_FILES["file"]["name"];
-		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
+		$environment = set_env(); 
+	  
+	  if ( $environment == 'DEV') {
+     $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+     $new_file_url = '/wp-content/uploads/user_tanks/';
+  } else {
+       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+       $new_file_url = '/wp-content/uploads/user_tanks/';
+  }
+
+  $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); //allowed file types
+        if (in_array($_FILES["file"]["type"], $mimeTypes))
+         {
+            // var_error_log($file['type']);
+            // var_error_log('valid file type');
+            $action = 'tank update File upload';
+            $ref_id = 0345;
+            $description = 'valid file: '.$_FILES["file"]["type"];
+            audit_trail($user_id, $action, $ref_id, $description);
+        }
+        else
+         {
+            // var_error_log($file['type']);
+            // var_error_log('invalid file');
+            $action = 'tank update File upload';
+            $ref_id = 0346;
+            $description = 'invalid file: '.$_FILES["file"]["type"];
+            audit_trail($user_id, $action, $ref_id, $description);
+            return 'You have attempted to upload an incorrect file type, naughty.';
+
+        }
+
+ 
+			$file = $_FILES["file"];
+			//tank photo resize stuff 
+		 	$obj_type = 'img';
+            $hex = uni_key_gen($obj_type);
+
+            $imageData = getimagesize($file['tmp_name']);
+            $extension = image_type_to_extension($imageData[2]);
+
+
+            $fileName = $file['name'];
+            $fileThumbName = $hex.'-thumb'.$extension; 
+            $fileFullName = $hex.'-large'.$extension;
+            $fileTempName = $file['tmp_name'];
+            
+            move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
+
+            $ref_id = $tank_id;
+            $photo_url = $new_file_url.$fileFullName;
+            $photo_thumb_url = $new_file_url.$fileThumbName;
+
+            $obj_type_new = 'user-tank-img';
+            $hextwo = uni_key_gen($obj_type_new);
+
+            //thumbnail processesing 
+            $general = NEW General();
+            $target_dir = $new_file_dir;
+            $target = $new_file_dir.$fileThumbName;
+            $load = $new_file_dir.$fileFullName;
+            $size = 1024;
+        
+            $general->resizeImageFiles($size,$load,$target);
 		
 
   //create hex unique ref key ID
@@ -260,7 +308,7 @@ function add_user_tank( $file = array() ) {
   $tank_dimensions = $_REQUEST['dimensions'];
   $tank_model = $_REQUEST['model'];
   $tank_make = $_REQUEST['make'];
-  $tank_image = $filepath;
+  $tank_image = $photo_thumb_url;
 	
 
   $wpdb->insert('user_tanks',array(
@@ -274,16 +322,16 @@ function add_user_tank( $file = array() ) {
   'tank_make'=> $tank_make,
   'tank_image'=> $tank_image,
   'created_date'=> date("Y-m-d H:i:s")
-
-
 )
+
+
     );
 
   $ref_id = $hex;
-  $fileUrls = array($tank_image);
+  $fileUrls = array($photo_thumb_url);
   // $cars=array("Volvo","BMW","Toyota");
   $message = $user_name.' added a new tank!';
-  create_post_record($ref_id, $fileUrls, $message);
+  create_post_record($ref_id, $photo_url, $photo_thumb_url, $message);
 
     return false;
 }
@@ -317,10 +365,12 @@ function update_tank_photo() {
  		// $sourcePath = $_FILES['file']['tmp_name']; 
  	$environment = set_env(); 
 	if ( $environment == 'DEV') {
-	   $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
-	} else {
-		   $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
-	}
+     $new_file_dir = '/Users/bear/Documents/tanktracker/wp-content/uploads/user_tanks/';
+     $new_file_url = '/wp-content/uploads/user_tanks/';
+  } else {
+       $new_file_dir = '/var/www/vhosts/mytanktracker.com/wp-content/uploads/user_tanks/';
+       $new_file_url = '/wp-content/uploads/user_tanks/';
+  }
      
    
     $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); //allowed file types
@@ -349,6 +399,10 @@ function update_tank_photo() {
 		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
 		$fileurl = $new_file_dir.$_FILES["file"]["name"];
 		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
+
+
+
+
 
  
   $user_id = $user->ID;
@@ -490,7 +544,7 @@ add_action('wp_ajax_nopriv_create_post_record', 'create_post_record');
  *
  */
 
-function create_post_record($ref_id, $fileUrls, $message) {    
+function create_post_record($ref_id, $photo_url, $photo_thumb_url, $message) {    
 
 
 
@@ -503,17 +557,6 @@ function create_post_record($ref_id, $fileUrls, $message) {
   $tanks = $_REQUEST['tanks'];
 
   
-
-    function var_error_log( $object=null ){
-        ob_start();                    // start buffer capture
-       var_dump( $object );           // dump the values
-        $contents = ob_get_contents(); // put the buffer into a variable
-        ob_end_clean();                // end capture
-        error_log( $contents );        // log contents of the result of var_dump( $object )
-    }
-
-
-
     //create post
     $uid = uniqid();
     $user_id = $user->ID;
@@ -545,6 +588,7 @@ function create_post_record($ref_id, $fileUrls, $message) {
         'photo_id'=> $hextwo,
         'ref_id'=> $post_id,
         'photo_url'=> $photo_url,
+        'photo_thumb_url'=> $photo_thumb_url,
         'inserted_date'=> date("Y-m-d H:i:s")
         ));
 

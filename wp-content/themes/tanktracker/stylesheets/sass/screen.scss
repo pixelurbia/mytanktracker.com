@@ -197,6 +197,32 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 }
 
 
+
+//page styles
+
+.frame.page {
+	@include page;
+}
+#reply-title {display:none;}
+
+.comment {
+		background: $white-trans;
+   		padding: 10px;
+    	margin: 15px 0px 0px 0px;
+    	height:auto;
+    	min-height: 110px;
+    	width:100%;
+    	position:relative;
+    	overflow:hidden;
+    	p {
+    		margin:0px;
+    	}
+    	.comment-owner {
+    		@include font-size(1.6); 
+    	}
+
+}
+
 //table styles
 table {
 	   position:relative;
@@ -537,13 +563,88 @@ input[type="submit"].btn.account-reg {
 }
 //Parameters page
 
+.reg-form {
+
+	.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin: 20px 0px 10px 0px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    	.tos {
+			padding:2px 0px 0px 0px;
+			@include font-size(1.6);
+			a {
+				text-decoration:underline;
+				@include font-size(1.6);
+			}
+		}
+
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: $input-bg;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: $input-text;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 8px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+}
 
 .param-close {
 	position: absolute;
     right: 10px;
 	width: 25px;
 	border-radius:35px;
-	padding: 4px 7px 0px 6px;
 	float: right;
     line-height: 13px;
     display: block;
@@ -552,14 +653,12 @@ input[type="submit"].btn.account-reg {
     height: 25px;
     color: #47caae !important;
     text-align: left;
-    border-radius: 15px;
     letter-spacing: 1px;
     margin: 0 auto;
-	color:$input-text!important; 
-	border:1px solid $input-bg;  
+	color:$input-bg; 
 	transition: all 0.5s ease-in-out;
 	&:hover{
-		background:$input-bg-hov;
+		color:$input-bg-hov!important;
 		transition: all 0.5s ease-in-out;
 	}
 	@include media ($phone) { 
@@ -1123,12 +1222,7 @@ input[type="submit"].btn.account-reg {
 }
 
 
-
-
 }
-
-
-
 
 
 
@@ -1454,6 +1548,24 @@ input[type="submit"].btn.account-reg {
 		}
 
 }
+
+//report styles
+		.post-options {
+			float: right;
+		}
+		.post-options-menu {
+			width: 100px;
+			display:none;
+			background: #06071e;
+			padding: 10px;
+			position: absolute;
+			right: 20px;
+			top: 14px;
+			a {
+				font-size: 10px;
+			}
+		}
+
 .people-feed {
 	@include two;
 	padding-right:50px;

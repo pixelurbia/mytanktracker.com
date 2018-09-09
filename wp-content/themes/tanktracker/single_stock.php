@@ -90,69 +90,6 @@ $single_stock = $stock->single_stock($stock_id);
 
 </section>
 
-<div class="form-contain add-livestock-form">
-        <script type="text/javascript">
-        //img preview
-        var loadFile = function(event) {
-            var output = document.getElementById('Livestock-output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-
-           var cropImg  = $('#Livestock-output').croppie({
-                viewport: { width: 100, height: 100 },
-                boundary: { width: 300, height: 300 },
-                showZoomer: false,
-                enableOrientation: true
-            });
-            $('.crop-img').show();
-            $('.crop-img').click(function() { 
-                cropImg.croppie('result', 'base64').then(function(base64) {
-
-                    // var imgSrc = window.URL.createObjectURL(base64);
-                    $('#Livestock-output').attr('src',base64);
-                    console.log(base64);
-                    cropImg.croppie('destroy');
-                    $('.crop-img').hide();
-                });
-            });
-        };
-    </script>
-    <a class="add-livestock param-close"><i class="fas fa-times"></i></a>
-    <form id="livestock-form">
-           <fieldset class="step step-one">
-            <div class="type-menu">
-            <a class="menu-item-contain" value="coral"><div class="menu-item coral"></div></a>
-            <a class="menu-item-contain" value="fish"><div class="menu-item fish"></div></a>
-            <a class="menu-item-contain" value="plant"><div class="menu-item plant"></div></a>
-            <a class="menu-item-contain" value="invert"><div class="menu-item invert"></div></a>
-            </div>
-                <input type="text" name="stockname"  placeholder="Livestock Name" class="form-control stock-name" />
-                <input type="text" name="stockspecies"  placeholder="Livestock species" class="form-control" />
-                <input type="hidden" name="stocktype"  class="form-control stocktype" />
-                <input type="text" name="sotckage"  placeholder="Livestock age" class="form-control" />
-                <input type="text" name="stockhealth"  placeholder="Livestock Health" class="form-control" />
-                <input type="text" name="stocksex"  placeholder="Livestock Sex" class="form-control" />
-                <!-- <input id="tank-img" type="file" name="file_upload"> -->
-                <div class="option-btn stock-next-step">Next Step</div>
-                </fieldset>
-                <fieldset class="step step-two">
-                <div id="crop-img-contain">
-                    <img id="Livestock-output">
-                </div>
-                
-                <label class="btn stock-img" for="stock-img">Upload a photo</label>
-                <input type="file" name="file_upload" id="stock-img" class="inputfile hide" accept="image/*" onchange="loadFile(event)" />
-                <?php wp_nonce_field('ajax_form_nonce_stock','ajax_form_nonce_stock', true, true ); ?>
-                
-                <input type="hidden" name="action" value="add_livestock">
-                <input type="hidden" name="tankid" value="<?php echo $tank_id; ?>">
-                <div class="step-actions">
-                    <div class="option-btn stock-prev-step">Previous Step</div>
-                    <div class="option-btn crop-img">Save Image</div>
-                </div>
-                <input type="submit" class="btn" value="Add Livestock" />
-                </fieldset>
-            </form>
-</div>
 
 
 

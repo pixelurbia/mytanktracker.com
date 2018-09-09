@@ -5,6 +5,11 @@ Template Name: default single
 ?>
 
 <?php get_template_part('templates/header'); ?>
+<?php 
+$secure = new Security(); 
+$user_id = $secure->user_info();
+?>
+
 <section class="frame post">
 <article class="post">
       <!-- <h2><?php the_title(); ?></h2> -->
@@ -34,13 +39,19 @@ Template Name: default single
 $comments = get_comments(array(
         'post_id' => $post->ID,
         'number' => '2' ));
+echo '<h2>Comments</h2>';
     foreach($comments as $comment) {
         //format comments
-    
-        echo '<p>' . $comment->comment_author . '<br>';
-        echo $comment->comment_content . '</p>';
         // var_dump($comment);
-
+        echo '<div class="comment">';
+  
+        	echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
+            		echo '<div class="post-options-menu">';
+            			echo '<a class="report-this-post" post_id="'.$comment->comment_post_ID.'" comment_id="'.$comment->comment_ID.'" reporting_user="'.$user_id.'" auth_id="'.$comment->post_author.'" content_type="comment" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            		echo '</div>';
+			echo '<p class="comment-owner">'.$comment->comment_author . '<p>';
+        	echo '<p>'.$comment->comment_content . '</p>';
+        echo '</div>';
 } 
 
 

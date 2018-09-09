@@ -16,7 +16,6 @@ function user_info() {
 
   function the_stock_gallery($stock_id, $limit) { 
     $stock_id = $_GET['stock_id'];
-    $user = $this-> user_info();
 
     // global $wpdb;     
     // $stock_images = $wpdb->get_results("SELECT photo_url FROM user_photos WHERE user_id = $user AND ref_id = '$stock_id' LIMIT $limit");
@@ -32,7 +31,6 @@ function user_info() {
       ON tt_postmeta.post_id = user_photos.ref_id 
       AND tt_postmeta.meta_key = 'tt_tank_ref' 
       AND tt_postmeta.meta_value = '$stock_id'
-      WHERE user_id = $user
       ORDER BY user_photos.inserted_date DESC
       LIMIT $limit)
       UNION
@@ -42,7 +40,6 @@ function user_info() {
       user_photos.ref_id
       FROM user_photos 
       WHERE user_photos.ref_id = '$stock_id'
-      AND user_id = $user
       ORDER BY user_photos.inserted_date DESC
       LIMIT $limit)
     ");
@@ -61,10 +58,9 @@ function user_info() {
   
     $stock_id = $_GET['stock_id'];
 
-    $user = $this-> user_info();
 
     global $wpdb;     
-    $stock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE user_id = $user AND stock_id = '$stock_id'");
+    $stock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE stock_id = '$stock_id'");
     
     // echo $tank_id;
     // echo $user;
@@ -147,6 +143,9 @@ function list_of_livestock() {
                   }
                   echo 'count data">Count: <span>'.$stock->stock_count.'</span></li>';
 
+                  //security check only enable for users to edit their own tank stuff
+                  $my_tank = this_my_tank();
+                  if ($my_tank == 1){
 
                   echo '<a class="stock-action edit-stock"><i class="fas larger-icon fa-edit"></i></a>';
                   echo '<a class="stock-action save-tank-stock hide" nonce="'.wp_create_nonce("ajax_form_nonce_save_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas save-stock larger-icon fa-save"></i></a>';
@@ -162,6 +161,9 @@ function list_of_livestock() {
                   echo '</label>';
                   echo '<input type="file" name="file_upload" id="tank-photo-img-'.$stock->stock_id.'" class="stock-photo-img inputfile hide" accept="image/*" />';
                   echo '</a></form>';
+
+                    }
+
               echo '</ul>';
           echo '</div>';
       echo '</article>';
@@ -348,6 +350,10 @@ add_action('wp_ajax_nopriv_del_livestock', 'del_livestock');
  */
 
 function del_livestock( $file = array() ) {    
+
+        if ( !is_user_logged_in() ){
+         die( 'You need to be logged in.' );
+      }
 
  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
     // Verify nonce

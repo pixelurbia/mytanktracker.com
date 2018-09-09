@@ -23,7 +23,7 @@ $(document).ready(function() {
         return o;
     };
 
-//regisrtation form
+//regisrtation form main user creation and validation queries 
 
 $( '#regi-form' ).submit( function( event ) {
             event.preventDefault(); // Prevent the default form submit.            
@@ -32,6 +32,9 @@ $( '#regi-form' ).submit( function( event ) {
         var pass1 = $('.pass-1').val();
         var email = $('.email').val();
         console.log($('.email').val());
+        
+       
+
         String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
         
         if (pass2 != pass1 || pass1 == "undefined" || pass1 == null ) {
@@ -45,6 +48,16 @@ $( '#regi-form' ).submit( function( event ) {
              $('.global-error').addClass('show');
             return;
         }
+        
+         var tos = $('.tos-agreement:checkbox:checked').length > 0;
+        // console.log('tos: '+tos);
+
+        if (tos == false) {
+             $('.global-error').html('You must read and agree to the Terms of Service');
+             $('.global-error').addClass('show');
+            return;
+        }
+
 
             
             var ajax_form_data = $("#regi-form").serializeObject();
@@ -69,6 +82,7 @@ $( '#regi-form' ).submit( function( event ) {
        });       
 
 
+//step two transition
 function reigform(){
   // console.log('reg and login work');
   $('.step-one').fadeOut();
@@ -76,7 +90,10 @@ function reigform(){
   $('.step-two').delay( 400 ).fadeIn();
 }
 
-
+//username validation
+$( '#regi-form .marketing-agreement' ).change( function() {
+  $(this).val('no');
+ });
 $( '#regi-form .regi-validate' ).change( function() {
 
   
@@ -117,7 +134,6 @@ $( '#regi-form .regi-validate' ).change( function() {
   });
 
 //validate password
-
 $( '#regi-form .pass-2' ).keyup(function() {
 
   var pass2 = $(this).val();

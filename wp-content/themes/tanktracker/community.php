@@ -15,6 +15,7 @@ $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;	
 $user = $user_tanks->user_info();
 $feed = new Feed();
+
 ?>
 
 <div class="tank_img_bg" style="background:url(<?php echo $tank[0]->tank_image ?>)"></div>
@@ -31,9 +32,18 @@ $feed = new Feed();
 			<?php 
 
 			$cats = $feed->cats(); 
-			echo '<a class="current" value="">All / </a>';
+			$currentCat = $_GET['cats'];
+			echo '<a ';
+	 		if ($currentCat == 0) { 
+				 	echo 'class="current"'; 
+				 }
+			echo 'value="">All / </a>';
 			foreach ($cats as $cat){
-				echo '<a value="'.$cat->term_id.'">'.$cat->name.' / </a>';
+				 echo '<a ';
+				 if ($currentCat == $cat->term_id) { 
+				 	echo 'class="current"'; 
+				 }
+				 echo 'value="'.$cat->term_id.'">'.$cat->name.' / </a>';
 			}
 
 
@@ -80,5 +90,8 @@ $feed = new Feed();
     </form>
 </div>
 
-<?php get_template_part('templates/footer'); ?>
-<?php get_template_part('templates/feed-scripts'); ?>
+<?php 
+get_template_part('templates/footer'); 
+get_template_part('templates/feed-scripts'); //start ias instance
+?>
+

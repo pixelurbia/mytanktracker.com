@@ -52,6 +52,18 @@ $horz:1180px;
 	}
 }
 
+@mixin page {
+	@include span-columns(8);
+	margin:0 auto!important;
+	float:none!important;
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+	}
+}
+
 @mixin post {
 	@include span-columns(10);
 	margin:0 auto!important;

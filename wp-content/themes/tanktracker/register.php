@@ -27,6 +27,14 @@ Template Name: register Page
 					<input type="email" name="email"  value="" placeholder="Email" class="form-control email regi-validate" />
 					<input type="password" name="pass" value="" placeholder="Password" class="form-control pass-1" />
 					<input type="password" name="validate-pass" value="" placeholder="Reenter Password" class="form-control pass-2" />
+					<label class="container"><p class="tos">Do you Agree to the <a target="_blank" href="/terms-of-service/" class="tos-link">TOS?</a></p>
+  						<input type="checkbox"  class="tos-agreement" name="tos" value="">
+  						<span class="checkmark"></span>
+					</label>
+					<label class="container"><p class="tos">Do you wish to recieve updates and marketing by email?</p>
+  						<input type="checkbox"  checked="checked" class="marketing-agreement" name="marketing" value="Yes">
+  						<span class="checkmark"></span>
+					</label>
 					<?php wp_nonce_field('ajax_form_nonce','ajax_form_nonce', true, true ); ?>
 					<input type="hidden" name="action" value="register_user">
 					<input type="submit" class="btn account-reg" value="Register Your Account" />
