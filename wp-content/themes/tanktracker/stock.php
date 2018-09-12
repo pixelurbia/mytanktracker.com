@@ -105,8 +105,8 @@ $user = $user_tanks->user_info();
             <a value="all" class="current">All / </a>
             <a value="fish">Fish / </a>
             <a value="coral">Coral / </a>
-            <a value="plants">Plants / </a>
-            <a value="inverts">Inverts</a>
+            <a value="plant">Plants / </a>
+            <a value="invert">Inverts</a>
         </p>
     <?php  
     $my_tank = this_my_tank();
