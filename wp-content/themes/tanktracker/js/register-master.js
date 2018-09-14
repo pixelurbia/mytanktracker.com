@@ -57,7 +57,9 @@ $( '#regi-form' ).submit( function( event ) {
              $('.global-error').addClass('show');
             return;
         }
+        
 
+        // captcha: grecaptcha.getResponse()
 
             
             var ajax_form_data = $("#regi-form").serializeObject();

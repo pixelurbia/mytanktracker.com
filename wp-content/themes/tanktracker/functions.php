@@ -18,6 +18,7 @@ require_once('functions/resize.php');
 require_once('functions/security.php');
 require_once('functions/general.php');
 require_once('functions/roles.php');
+require_once('functions/seo.php');
 
 add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');
@@ -89,6 +90,18 @@ function new_user() {
 
      
  
+
+    $user = get_userdata($user_id);
+    $user_name = $user->user_nicename;
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $to = $email;
+    $subject = 'Password reset';
+    $message = 'Hello '.$username.'! <br> Welcome to TankTracker™ and welcome to the #FishFam!.';
+
+
+    $suc = wp_mail( $to, $subject, $message, $headers );
+
 
  
 }

@@ -118,7 +118,6 @@ class Tanks {
 			ON tt_postmeta.post_id = user_photos.ref_id 
 			AND tt_postmeta.meta_key = 'tt_tank_ref' 
 			AND tt_postmeta.meta_value = '$tank_id'
-			WHERE user_id = $user
 			ORDER BY user_photos.inserted_date DESC
 			LIMIT $limit
 		");
@@ -147,18 +146,28 @@ class Tanks {
 			echo '<i class="tank_info tank_name">'. $tank->tank_name .'</i>';
 		echo '</h2>';
 		echo '<p>';
-			if ($tank->tank_volume) {
-				echo  '<span>Volume: <i class="tank_info tank_volume">'.$tank->tank_volume.'</i> Gallons </span>';
+
+
+		echo  '<span '; 
+			if (!$tank->tank_volume) {
+				echo ' class="hide"';
 			} 
-			if ($tank->tank_dimensions){
-				echo '<span>Dimensions: <i class="tank_info tank_dimensions">'.$tank->tank_dimensions.'</i></span>';
+		echo'>Volume: <i class="tank_info tank_volume">'.$tank->tank_volume.'</i> Gallons </span>';
+		echo '<span' ; 
+			if (!$tank->tank_dimensions){
+				echo ' class="hide"';
 			}
-			if ($tank->tank_model){
-				echo '<span>Model: <i class="tank_info tank_model">'.$tank->tank_model.'</i></span>';
+		echo'>Dimensions: <i class="tank_info tank_dimensions">'.$tank->tank_dimensions.'</i></span>';
+		echo '<span' ; 
+			if (!$tank->tank_model){
+				echo ' class="hide"';
 			}
-			if ($tank->tank_make){
-				echo '<span>Make: <i class="tank_info tank_make">'.$tank->tank_make.'</i></span>';	
+		echo'>Model: <i class="tank_info tank_model">'.$tank->tank_model.'</i></span>';
+		echo '<span' ; 
+			if (!$tank->tank_make){
+				echo ' class="hide"';
 			}
+		echo'>Make: <i class="tank_info tank_make">'.$tank->tank_make.'</i></span>';	
 			echo '</p>';
 			echo '<div class="tank_actions">';
 				echo '<a href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
@@ -259,7 +268,7 @@ function add_user_tank( $file = array() ) {
             $ref_id = 0346;
             $description = 'invalid file: '.$_FILES["file"]["type"];
             audit_trail($user_id, $action, $ref_id, $description);
-            return 'You have attempted to upload an incorrect file type, naughty.';
+            // return 'You have attempted to upload an incorrect file type, naughty.';
 
         }
 
@@ -455,11 +464,11 @@ if( !isset( $_POST['ajax_form_nonce_del_tank'] ) || !wp_verify_nonce( $_POST['aj
     );
 
 //return all post ID's for that tank ID 
-var_error_log('test');
+
   $posts_ids_del = $wpdb->get_results("SELECT post_id FROM tt_postmeta WHERE meta_value = '$tank_id' ");
 	$ids = array();
   	foreach ($posts_ids_del as $post) {
-	  $ids[] = "'".$post->post_id."',";
+	  $ids[] = "$post->post_id";
 
 	  $action = "del_post_and_meta_data";
   	  $ref_id = $post->post_id;
@@ -467,6 +476,9 @@ var_error_log('test');
 
   	  audit_trail($user_id, $action, $ref_id, $description);
   	}
+
+  	// $output = array_map(function ($object) { return $object->name; }, $ids);
+	$ids = implode(',', $ids);
 
   	  
   	  $wpdb->query( "DELETE FROM tt_postmeta WHERE meta_value IN($ids)");
@@ -575,11 +587,9 @@ function create_post_record($ref_id, $photo_url, $photo_thumb_url, $message) {
     );
 
     $post_id = wp_insert_post($createPost);
-    // $i = 0;
-    foreach($fileUrls as $file)
-    {    
-        $photo_url = $file;
-   		var_error_log($file);
+
+
+   		// var_error_log($file);
         $obj_type_new = 'user-tank-img';
         $hextwo = uni_key_gen($obj_type_new);
   
@@ -592,8 +602,7 @@ function create_post_record($ref_id, $photo_url, $photo_thumb_url, $message) {
         'inserted_date'=> date("Y-m-d H:i:s")
         ));
 
-      // $i++;
-    }
+
 
     //create tank/or livestock ref
     $meta_key = 'tt_tank_ref';
@@ -602,8 +611,6 @@ function create_post_record($ref_id, $photo_url, $photo_thumb_url, $message) {
 
  
 };
-
-
 
 // add_action('wp_ajax_del_tank', 'del_tank');
 // add_action('wp_ajax_nopriv_del_tank', 'del_tank');

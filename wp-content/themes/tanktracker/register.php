@@ -38,7 +38,9 @@ Template Name: register Page
 					<?php wp_nonce_field('ajax_form_nonce','ajax_form_nonce', true, true ); ?>
 					<input type="hidden" name="action" value="register_user">
 					<input type="submit" class="btn account-reg" value="Register Your Account" />
+
 				</form>
+
 		</div>
 		<div class="step step-two">
 			<form id="tank-form">
