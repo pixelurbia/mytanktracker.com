@@ -259,6 +259,7 @@ function add_user_tank( $file = array() ) {
             $ref_id = 0345;
             $description = 'valid file: '.$_FILES["file"]["type"];
             audit_trail($user_id, $action, $ref_id, $description);
+
         }
         else
          {
