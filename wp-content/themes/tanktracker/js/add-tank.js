@@ -169,7 +169,13 @@ $('.wrap').on("click", ".delete-tank", function(){
 //update tank data
 //show the add tank form on the tanks page
   $('.edit-tank').click(function() { 
-      var parent = $(this).parent().parent();
+  var parent = $(this).parent().parent();
+     if (parent.find('span').hasClass('hide')){
+          parent.find('span.hide i').text('Edit Value');
+          parent.find('span.hide').addClass('new-value');
+          parent.find('span').removeClass('hide');   
+      }
+
       parent.find('.tank_info').attr('contenteditable','true');
       parent.find('.tank_info').toggleClass('tankEditable');
       $(this).hide();
@@ -183,11 +189,11 @@ $('.wrap').on("click", ".delete-tank", function(){
       var tank_id = $(this).attr('tank_id'),
       nonce = $(this).attr('nonce'),
       parent = $(this).parent().parent(),
-      tank_name = parent.find('.tank_name').html(),
-      tank_volume = parent.find('.tank_volume').html(),
-      tank_dimensions = parent.find('.tank_dimensions').html(),
-      tank_model = parent.find('.tank_model').html(),
-      tank_make = parent.find('.tank_make').html();
+      tank_name = parent.find('.tank_name').text(),
+      tank_volume = parent.find('.tank_volume').text(),
+      tank_dimensions = parent.find('.tank_dimensions').text(),
+      tank_model = parent.find('.tank_model').text(),
+      tank_make = parent.find('.tank_make').text();
  
       var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
       $('.overlay').after(spinner);

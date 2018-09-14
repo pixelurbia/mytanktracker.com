@@ -22,6 +22,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/feed.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-stock.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/parameters.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/user-settings.js"></script>
 
 	<link href="<?php echo get_template_directory_uri(); ?>/js/select/select2.css" rel="stylesheet" />
 	<script src="<?php echo get_template_directory_uri(); ?>/js/select/select2.js"></script>
@@ -33,9 +34,9 @@
 
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125182216-1"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

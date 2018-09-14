@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 
 $('.wrap').on("click", ".post-options", function(){ 
-	$(this).parent().find('.post-options-menu').show();
+	$(this).parent().find('.post-options-menu').fadeToggle();
 });
 $('.wrap').on("click", ".report-this-post", function(){ 
 	  console.log('report');

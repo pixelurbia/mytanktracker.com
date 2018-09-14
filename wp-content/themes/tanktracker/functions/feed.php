@@ -202,15 +202,15 @@ function get_feed_images($post_id){
             		$comment_count = $comment_count->total_comments;
 
             		echo '<article class="grid-item post" >';
-            		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
-            		echo '<div class="post-options-menu">';
-            			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
-            		echo '</div>';
             		$this->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
+            				echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
+            				echo '<div class="post-options-menu">';
+            				echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            				echo '</div>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		
@@ -311,7 +311,7 @@ public function get_main_feed() {
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		
@@ -366,7 +366,7 @@ public function get_main_feed() {
         		
             		<?php 
             		$permlink = get_the_permalink();
-            		$excerpt = get_excerpt(200);
+            		$excerpt = get_the_excerpt();
             		$name = get_the_author_meta('display_name');
             		$time = get_the_time('F jS, Y');
             		$user_id = $this->user_info();
@@ -379,7 +379,7 @@ public function get_main_feed() {
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		

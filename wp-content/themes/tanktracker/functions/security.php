@@ -69,7 +69,7 @@ class Security {
         //if not
         //page validation because not all pages need to have this security element only those with user controls
         $page = $uri_parts[0];
-        $okay_pages = array('/stock/','/gallery/','/overview/','/livestock','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/');
+        $okay_pages = array('/stock/','/gallery/','/gallery','/overview/','/livestock','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/','/pass-reset/');
 
         if (!in_array($page, $okay_pages)) {
             // return $my_tank;
@@ -124,7 +124,7 @@ function smart_menu() {
     $my_tank = $wpdb->get_var("SELECT COUNT(tank_id) FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
 
     $name = $post->post_name;
-    if (  ($name == 'user-login') OR ($name == 'register') ){
+    if (  ($name == 'user-login') OR ($name == 'register') OR ($name == 'pass-reset') ){
         return; //no need to show on the login/reg pages
     }
 
@@ -333,7 +333,7 @@ function redirect_to_specific_page() {
     $site = $_SERVER['HTTP_HOST'];
     $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
     $page = $uri_parts[0];
-    $okay_pages = array('','/terms-of-service/','/user-login/','/register/','/profile/','/overview/','/livestock/','/wp-login/','/wp-admin/');
+    $okay_pages = array('','/pass-reset/','/terms-of-service/','/user-login/','/register/','/profile/','/overview/','/livestock/','/wp-login/','/wp-admin/');
     $login = is_user_logged_in();
 
     // if ( $debug == 'on') {
@@ -368,5 +368,100 @@ function wpse66093_no_admin_access()
         exit( wp_safe_redirect( '/tanks/',301 )  );
 }
 add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
+
+
+add_action('wp_ajax_update_user_pass', 'send_pass_link');
+add_action('wp_ajax_nopriv_update_user_pass', 'send_pass_link');
+
+function send_pass_link() {
+
+
+ if( !isset( $_POST['ajax_form_nonce'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce'], 'ajax_form_nonce' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+   
+
+    global $wpdb;
+    global $post;
+
+    $environment = set_env(); 
+
+    if ( $environment == 'DEV') {
+        $env ='http://localhost:8888';
+    } else {
+        $env ='https://mytanktracker.com';
+    }
+    $email = $_REQUEST['email'];
+    $user_id = $wpdb->get_var("SELECT ID FROM tt_users WHERE user_email = '$email'");
+
+    //generate unqiue secure ID
+    for ($i = -1; $i <= 35; $i++) {
+        $bytes = openssl_random_pseudo_bytes($i, $cstrong);
+        $secure_id   = bin2hex($bytes);
+    }
+  
+    $user = get_userdata($user_id);
+    $user_name = $user->user_nicename;
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $to = $email;
+    $subject = 'Password reset';
+    $message = 'Hello '.$user_name.'! <br> Someone, and we hope it was you, requested a password reset for the account: '.$email.' Please click the link below to reset your password. This link will expire in 24 hours.<br><br>
+    <a href="'.$env.'/pass-reset/?secure_id='.$secure_id.'">Reset Password</a><br><br>If you did not request this email, you can safely ignore it.';
+
+
+    $suc = wp_mail( $to, $subject, $message, $headers );
+
+
+//     $ref_id = $_REQUEST['ref_id'];
+//     $author_id = $_REQUEST['author_id'];
+//     $content_type = $_REQUEST['content_type'];
+    
+$wpdb->insert('pass_recovery',array(
+        'email' => $email,
+        'user_id' => $user_id,
+        'secure_id' => $secure_id,
+        'date_created'=> date("Y-m-d H:i:s")
+        ));
+
+}
+
+
+add_action('wp_ajax_pass_reset', 'change_pass');
+add_action('wp_ajax_nopriv_pass_reset', 'change_pass');
+
+function change_pass() {
+
+ if( !isset( $_POST['ajax_pass_reset_nonce'] ) || !wp_verify_nonce( $_POST['ajax_pass_reset_nonce'], 'ajax_pass_reset_nonce' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+   
+
+    global $wpdb;
+    global $post;
+
+
+    $secure_id = $_REQUEST['secure_id'];
+    $password = $_REQUEST['pass'];
+    $user_id = $wpdb->get_var("SELECT user_id FROM pass_recovery WHERE secure_id = '$secure_id'");
+
+    $user = get_userdata($user_id);
+    $user_name = $user->user_nicename;
+
+    wp_set_password( $password, $user_id );
+
+  
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $to = $email;
+    $subject = 'Your password has reset';
+    $message = 'Hello '.$user_name.'! <br> Your password has been reset. If this is in error please contact support at support@tanktracker.com';
+
+
+    $suc = wp_mail( $to, $subject, $message, $headers );
+    // var_error_log($suc);
+
+    $wpdb->query( "DELETE FROM pass_recovery WHERE secure_id = '$secure_id'");
+
+}
+
+
 
 

@@ -3486,15 +3486,6 @@ img {
   display: inline-block;
   margin: 15px; }
 
-.master-overlay {
-  background: #000;
-  opacity: 0.7;
-  z-index: 999;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: none; }
-
 .noclick {
   width: 100%;
   height: 381px;
@@ -4059,7 +4050,7 @@ select::-ms-expand {
   padding: 10px 0px 0px 30px; }
 
 .overlay {
-  background: rgba(11, 13, 49, 0.36);
+  background: rgba(11, 13, 49, 0.9);
   width: 100%;
   height: 100%;
   display: none;
@@ -4092,10 +4083,10 @@ select::-ms-expand {
 #loginform label {
   display: none; }
 
-.page-template-user-login, .page-template-register {
+.page-template-user-login, .page-template-register, .page-template-pass-reset {
   height: 100%; }
 
-.page-template-user-login .frame, .page-template-user-login .wrap,
+.page-template-pass-reset .wrap, .page-template-pass-reset .frame, .page-template-user-login .frame, .page-template-user-login .wrap,
 .page-template-register .frame, .page-template-register .wrap {
   width: 100%;
   height: 100%;
@@ -4847,7 +4838,8 @@ section.frame.post .tags {
   .feed article .post-data {
     float: none;
     width: auto;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
   .feed article .user-info {
     height: 50px;
     margin-bottom: 0px;
@@ -4883,13 +4875,14 @@ section.frame.post .tags {
   .feed article .excerpt {
     float: none;
     width: 100%;
-    display: block; }
+    display: block;
+    min-height: 90px; }
     @media screen and (max-width: 1080px) {
       .feed article .excerpt {
-        margin: 40px 0px 30px 0px; } }
+        margin: 0px 0px 30px 0px; } }
     @media screen and (max-width: 600px) {
       .feed article .excerpt {
-        margin: 40px 0px 30px 0px; } }
+        margin: 0px 0px 30px 0px; } }
   .feed article img.avatar {
     width: 30px;
     height: 30px;
@@ -4919,8 +4912,7 @@ section.frame.post .tags {
   background: #06071e;
   padding: 10px;
   position: absolute;
-  right: 20px;
-  top: 14px; }
+  right: 15px; }
   .post-options-menu a {
     font-size: 10px; }
 
@@ -4978,29 +4970,34 @@ section.frame.post .tags {
     float: left;
     margin: 5px 0px 20px 10px; }
 
-.gallery-img-contain {
+.gallery-expanded {
   z-index: 99999;
   position: fixed;
-  top: 55px;
-  max-width: 850px;
-  margin: 0 auto;
-  left: 0px;
-  right: 0px; }
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;
+  /* NEW, Spec - Firefox, Chrome, Opera */
+  justify-content: center;
+  align-items: center; }
 
 .gal-close {
   display: block;
-  position: relative;
+  position: absolute;
   z-index: 999999;
   width: 50px;
   height: 50px;
-  top: 68px;
-  float: right;
+  top: 18px;
+  right: 10px;
   color: #fff;
   font-size: 20px;
   font-size: 2rem; }
 
 .gallery.feed-gallery.gallery-of-1 {
-  width: 230px;
+  width: 250px;
   margin-right: 30px;
   overflow: hidden; }
   .gallery.feed-gallery.gallery-of-1 .gallery-item {
@@ -5019,7 +5016,7 @@ section.frame.post .tags {
     .gallery.feed-gallery.gallery-of-1 .gallery-item .photo-link {
       position: absolute;
       width: 30px;
-      top: 123px;
+      bottom: 5px;
       right: 0px;
       height: 30px;
       text-align: center;
@@ -5035,14 +5032,16 @@ section.frame.post .tags {
   float: left; }
   .gallery.full-gallery .gallery-item {
     float: left;
-    display: block;
-    margin-right: 2.3576515979%;
-    width: 14.7019570017%;
-    float: left;
     margin: 5px;
     overflow: hidden; }
-    .gallery.full-gallery .gallery-item:last-child {
-      margin-right: 0; }
+    @media screen and (max-width: 600px) {
+      .gallery.full-gallery .gallery-item {
+        float: left;
+        display: block;
+        margin-right: 2.3576515979%;
+        width: 100%; }
+        .gallery.full-gallery .gallery-item:last-child {
+          margin-right: 0; } }
     .gallery.full-gallery .gallery-item img {
       width: 130%;
       max-width: 400px;
