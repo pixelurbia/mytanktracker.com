@@ -88,7 +88,11 @@ function new_user() {
        die($user_id->get_error_message()); 
     }
 
-     
+         $ip = $_SERVER['REMOTE_ADDR'];
+            $action = 'New User';
+            $ref_id = 888;
+            $description = 'user_id: '.$user_id.' User IP: '.$ip;
+            audit_trail($user_id, $action, $ref_id, $description);
  
 
     $user = get_userdata($user_id);
