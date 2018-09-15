@@ -10,32 +10,30 @@
 	<link rel="shortcut icon" href=""/>
 	<link rel="icon" type="image/x-icon" href="" />
   	<!-- //libs -->
+  	<!-- //Jquery Source -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- //Infinate scroll -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-ias.min.js"></script>
+	<!-- //poly fill for older browser support -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/polyfill.js"></script>
-	<!-- TT specific -->
-	<script src="<?php echo get_template_directory_uri(); ?>/js/master.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/register-master.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/add-tank.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/add-photo.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/feed.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/add-stock.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/parameters.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/user-settings.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/trello-integration.js"></script>
-
+	<!-- //select 2 -->
 	<link href="<?php echo get_template_directory_uri(); ?>/js/select/select2.css" rel="stylesheet" />
 	<script src="<?php echo get_template_directory_uri(); ?>/js/select/select2.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/fontawesome-all.min.js"></script>
+	<!-- //FontAwesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!-- //charts -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/charts/dist/chart.js"></script>
+	<!-- //Validation -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/validate/core.js"></script>
+	<!-- //Image Croppping -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/cropie/croppie.min.js"></script>
 	<link href="<?php echo get_template_directory_uri(); ?>/js/cropie/croppie.css" rel="stylesheet" />
-
-	
+	<!-- TT specific -->
+	<script src="<?php echo get_template_directory_uri(); ?>/js/master-min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/chart-handlers.js"></script>
+	<!-- //Google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
 
 
 <script>
@@ -69,9 +67,8 @@
 			<a class="option-btn close-message-action">No</a>
 		</div>
 	</div>
-<?php 
+	<?php 
      
-
 	$tank_id = $_GET['tank_id'];
 	$user_tanks = new Tanks();
 	$tank = $user_tanks->get_tank_data($tank_id);	
@@ -81,7 +78,6 @@
 	smart_menu(); 
 
 	?>
-
 
 <section class="wrap">
 <?php 

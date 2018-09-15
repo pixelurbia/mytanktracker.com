@@ -1,0 +1,10 @@
+$(document).ready(function(){$("#trello-form").submit(function(e){e.preventDefault()
+var a=new FormData
+var n=$(this).serializeArray()
+$.each(n,function(e,n){a.append(n.name,n.value)})
+$(".overlay").after('<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>')
+$.ajax({url:ajaxurl,method:"post",processData:false,contentType:false,data:a,success:function(e){$(".spinner-loader").remove()
+$(".global-suc").html("Thank you for your report.")
+$(".global-suc").fadeToggle()
+$(".global-suc").delay(2e3).fadeToggle()
+setTimeout(function(){window.location="/tanks/"},2200)},error:function(e){}})})})

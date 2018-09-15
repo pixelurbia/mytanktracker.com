@@ -69,9 +69,9 @@ Object.entries = function( obj ){
       var file = $('#tank-img')[0].files[0];
       data.append("file", file);
       
-      for (var pair of data.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      // for (var pair of data.entries()) {
+      //     console.log(pair[0]+ ', ' + pair[1]); 
+      // }
 
       var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
       $('.overlay').after(spinner);
@@ -248,9 +248,9 @@ $('.wrap').on("click", ".delete-tank", function(){
       var file = parent.find('.tank-photo-img')[0].files[0];
       data.append("file", file);
       
-      for (var pair of data.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      // for (var pair of data.entries()) {
+      //     console.log(pair[0]+ ', ' + pair[1]); 
+      // }
       //Custom data
       // data.append('key', 'value');
       $.ajax({

@@ -14366,11 +14366,4290 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/index.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/tanktracker\/js": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/build\/wp-content\/themes\/tanktracker\/js",
-		"oF": 0
+	"\/wp-content\/themes\/tanktracker\/js\/add-photo.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-photo-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-stock-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-stock-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-stock.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-stock-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-tank-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-tank-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/add-tank.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/add-tank-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/bower.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/bower-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/callbacks.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/callbacks-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/chart-handlers.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/chart-handlers-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.codeclimate.yml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.codeclimate.yml",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.editorconfig": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.editorconfig",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.eslintignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.eslintignore",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.eslintrc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.eslintrc",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.github\/ISSUE_TEMPLATE.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.github\/ISSUE_TEMPLATE.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.github\/PULL_REQUEST_TEMPLATE.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.github\/PULL_REQUEST_TEMPLATE.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.gitignore",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.npmignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.npmignore",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/.travis.yml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/.travis.yml",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/book.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/book-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/bower.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/bower-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/composer.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/composer-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.bundle.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.bundle-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.bundle.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.bundle.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/chart.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/chart-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/dist\/Chart.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/category.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/category.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/linear.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/linear.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/logarithmic.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/logarithmic.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/time.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/cartesian\/time.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/labelling.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/labelling.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/radial\/linear.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/radial\/linear.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/radial\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/radial\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/styling.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/axes\/styling.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/area.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/area.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/bar.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/bar.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/bubble.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/bubble.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/doughnut.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/doughnut.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/line.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/line.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/mixed.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/mixed.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/polar.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/polar.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/radar.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/radar.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/scatter.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/charts\/scatter.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/animations.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/animations.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/elements.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/elements.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/layout.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/layout.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/legend.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/legend.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/title.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/title.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/tooltip.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/configuration\/tooltip.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/api.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/api.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/axes.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/axes.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/charts.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/charts.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/contributing.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/contributing.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/plugins.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/plugins.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/updates.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/developers\/updates.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/colors.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/colors.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/device-pixel-ratio.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/device-pixel-ratio.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/fonts.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/fonts.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/events.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/events.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/modes.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/modes.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/interactions\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/options.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/options.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/responsive.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/general\/responsive.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/installation.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/installation.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/integration.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/integration.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/usage.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/getting-started\/usage.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/comparison.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/comparison.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/extensions.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/extensions.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/license.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/license.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/notes\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/style-min.css",
+		"oF": 1,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/SUMMARY.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/docs\/SUMMARY.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/gulpfile.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/gulpfile-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/karma.conf.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/karma.conf-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/LICENSE.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/LICENSE.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/MAINTAINING.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/MAINTAINING.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/package.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/package-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/README.html",
+		"oF": 1,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/advanced\/data-labelling.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/advanced\/data-labelling.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/advanced\/progress-bar.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/advanced\/progress-bar.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/analyser.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/analyser-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-boundaries.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-boundaries.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-datasets.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-datasets.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-stacked.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/line-stacked.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/radar.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/area\/radar.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/horizontal.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/horizontal.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/multi-axis.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/multi-axis.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/stacked-group.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/stacked-group.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/stacked.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/stacked.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/vertical.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bar\/vertical.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bubble.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/bubble.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/combo-bar-line.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/combo-bar-line.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/doughnut.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/doughnut.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/basic.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/basic.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/interpolation-modes.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/interpolation-modes.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/line-styles.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/line-styles.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/multi-axis.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/multi-axis.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/point-sizes.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/point-sizes.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/point-styles.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/point-styles.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/skip-points.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/skip-points.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/stepped.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/line\/stepped.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/pie.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/pie.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/polar-area.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/polar-area.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/radar-skip-points.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/radar-skip-points.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/radar.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/radar.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/scatter\/basic.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/scatter\/basic.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/scatter\/multi-axis.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/charts\/scatter\/multi-axis.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/favicon.ico": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/favicon.ico",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/index.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/legend\/point-style.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/legend\/point-style.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/legend\/positioning.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/legend\/positioning.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/logo.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/logo.svg",
+		"oF": 1,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/samples.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/samples-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/filtering-labels.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/filtering-labels.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/gridlines-display.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/gridlines-display.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/gridlines-style.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/gridlines-style.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/min-max-suggested.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/min-max-suggested.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/min-max.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/min-max.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/step-size.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/linear\/step-size.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/logarithmic\/line.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/logarithmic\/line.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/logarithmic\/scatter.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/logarithmic\/scatter.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/multiline-labels.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/multiline-labels.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/non-numeric-y.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/non-numeric-y.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/combo.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/combo.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/financial.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/financial.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/line-point-data.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/line-point-data.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/line.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scales\/time\/line.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scriptable\/bubble.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/scriptable\/bubble.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/style-min.css",
+		"oF": 1,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/border.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/border.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/callbacks.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/callbacks.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-line.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-line.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-pie.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-pie.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-points.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/custom-points.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/interactions.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/interactions.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/positioning.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/tooltips\/positioning.html",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/utils.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/samples\/utils-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/scripts\/deploy.sh": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/scripts\/deploy.sh",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/scripts\/release.sh": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/scripts\/release.sh",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/chart.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/chart-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Bar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Bar-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Bubble.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Bubble-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Doughnut.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Doughnut-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Line.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Line-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.PolarArea.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.PolarArea-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Radar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Radar-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Scatter.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/charts\/Chart.Scatter-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.bar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.bar-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.bubble.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.bubble-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.doughnut.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.doughnut-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.line.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.line-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.polarArea.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.polarArea-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.radar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.radar-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.scatter.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/controllers\/controller.scatter-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.animation.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.animation-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.controller.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.controller-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.datasetController.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.datasetController-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.defaults.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.defaults-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.element.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.element-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.helpers.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.helpers-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.interaction.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.interaction-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.layoutService.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.layoutService-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.plugin.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.plugin-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.scale.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.scale-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.scaleService.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.scaleService-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.ticks.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.ticks-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.tooltip.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/core\/core.tooltip-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.arc.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.arc-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.line.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.line-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.point.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.point-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.rectangle.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/element.rectangle-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/index.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/elements\/index-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.canvas.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.canvas-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.core.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.core-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.easing.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.easing-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.options.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/helpers.options-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/index.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/helpers\/index-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform.basic.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform.basic-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform.dom.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform.dom-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/platforms\/platform-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.filler.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.filler-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.legend.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.legend-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.title.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/plugins\/plugin.title-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.category.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.category-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.linear.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.linear-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.linearbase.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.linearbase-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.logarithmic.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.logarithmic-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.radialLinear.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.radialLinear-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.time.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/src\/scales\/scale.time-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/.eslintrc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/.eslintrc",
+		"oF": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/core.scale\/label-offset-vertical-axes.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/core.scale\/label-offset-vertical-axes-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/core.scale\/label-offset-vertical-axes.png": {
+		"ft": 32768,
+		"iS": 4435,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/core.scale\/label-offset-vertical-axes.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end-span.png": {
+		"ft": 32768,
+		"iS": 16522,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end.png": {
+		"ft": 32768,
+		"iS": 15720,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-end.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-span.png": {
+		"ft": 32768,
+		"iS": 18485,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline-span.png": {
+		"ft": 32768,
+		"iS": 21046,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline.png": {
+		"ft": 32768,
+		"iS": 19748,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-spline.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped-span.png": {
+		"ft": 32768,
+		"iS": 4137,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped.png": {
+		"ft": 32768,
+		"iS": 4152,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-stepped.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin.png": {
+		"ft": 32768,
+		"iS": 17535,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-origin.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start-span.png": {
+		"ft": 32768,
+		"iS": 18871,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start.png": {
+		"ft": 32768,
+		"iS": 17895,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-boundary-start.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-span.png": {
+		"ft": 32768,
+		"iS": 23355,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline-span.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline-span-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline-span.png": {
+		"ft": 32768,
+		"iS": 27312,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline-span.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline.png": {
+		"ft": 32768,
+		"iS": 24950,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-spline.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset.png": {
+		"ft": 32768,
+		"iS": 21950,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-line-dataset.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin-spline.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin-spline-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin-spline.png": {
+		"ft": 32768,
+		"iS": 15638,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin-spline.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin-min.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin.png": {
+		"ft": 32768,
+		"iS": 12866,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/fixtures\/plugin.filler\/fill-radar-boundary-origin.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.context.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.context-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.index.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.index-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.matchers.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.matchers-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.utils.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/jasmine.utils-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.bar.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.bar.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.bubble.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.bubble.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.doughnut.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.doughnut.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.line.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.line.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.polarArea.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.polarArea.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.radar.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/controller.radar.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.controller.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.controller.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.datasetController.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.datasetController.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.element.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.element.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.helpers.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.helpers.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.interaction.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.interaction.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.layoutService.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.layoutService.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.plugin.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.plugin.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.scale.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.scale.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.scaleService.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.scaleService.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.tooltip.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/core.tooltip.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.arc.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.arc.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.line.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.line.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.point.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.point.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.rectangle.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/element.rectangle.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/global.defaults.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/global.defaults.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/global.deprecations.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/global.deprecations.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.canvas.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.canvas.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.core.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.core.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.easing.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.easing.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.options.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/helpers.options.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/platform.dom.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/platform.dom.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.filler.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.filler.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.legend.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.legend.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.title.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/plugin.title.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.category.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.category.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.linear.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.linear.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.logarithmic.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.logarithmic.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.radialLinear.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.radialLinear.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.time.tests.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/charts\/test\/specs\/scale.time.tests-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie-min.css",
+		"oF": 1,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/cropie\/croppie.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/feed.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/feed-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/fontawesome-all.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/fontawesome-all.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/jquery-ias.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/jquery-ias.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/masonry-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/masonry-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/masonry.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/masonry-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/master-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/master-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/master.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/master-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/parameters.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/parameters-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/polyfill-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/polyfill-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/polyfill.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/polyfill-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/register-master.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/register-master-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/select\/select2.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/select\/select2-min.css",
+		"oF": 1,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/select\/select2.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/select\/select2-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/trello-integration-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/trello-integration-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/trello-integration.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/trello-integration-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/user-settings-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/user-settings-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/user-settings.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/user-settings-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/accept.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/accept-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/additional.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/additional-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/alphanumeric.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/alphanumeric-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bankaccountNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bankaccountNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bankorgiroaccountNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bankorgiroaccountNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bic.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/bic-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/cifES.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/cifES-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/cpfBR.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/cpfBR-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/creditcard.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/creditcard-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/creditcardtypes.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/creditcardtypes-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/currency.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/currency-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateFA.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateFA-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateITA.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateITA-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/dateNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/extension.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/extension-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/giroaccountNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/giroaccountNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/iban.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/iban-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/integer.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/integer-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ipv4.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ipv4-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ipv6.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ipv6-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/lettersonly.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/lettersonly-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/letterswithbasicpunc.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/letterswithbasicpunc-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/mobileNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/mobileNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/mobileUK.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/mobileUK-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/netmask.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/netmask-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nieES.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nieES-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nifES.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nifES-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nipPL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nipPL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/notEqualTo.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/notEqualTo-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nowhitespace.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/nowhitespace-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/pattern.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/pattern-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phonesUK.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phonesUK-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneUK.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneUK-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneUS.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/phoneUS-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeBR.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeBR-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalCodeCA.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalCodeCA-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeIT.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeIT-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeNL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postalcodeNL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postcodeUK.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/postcodeUK-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/require_from_group.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/require_from_group-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/skip_or_fill_minimum.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/skip_or_fill_minimum-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/statesUS.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/statesUS-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/strippedminlength.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/strippedminlength-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/time.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/time-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/time12h.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/time12h-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/url2.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/url2-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/vinUS.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/vinUS-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/zipcodeUS.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/zipcodeUS-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ziprange.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/additional\/ziprange-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/ajax.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/ajax-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/core.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/core-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ar.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ar-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_az.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_az-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_bg.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_bg-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_bn_BD.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_bn_BD-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ca.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ca-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_cs.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_cs-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_da.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_da-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_de.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_de-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_el.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_el-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es_AR.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es_AR-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es_PE.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_es_PE-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_et.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_et-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_eu.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_eu-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fa.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fa-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fi.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fi-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fr.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_fr-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ge.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ge-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_gl.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_gl-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_he.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_he-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hr.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hr-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hu.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hu-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hy_AM.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_hy_AM-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_id.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_id-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_is.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_is-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_it.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_it-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ja.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ja-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ka.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ka-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_kk.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_kk-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ko.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ko-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_lt.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_lt-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_lv.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_lv-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_mk.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_mk-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_my.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_my-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_nl.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_nl-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_no.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_no-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pl.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pl-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pt_BR.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pt_BR-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pt_PT.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_pt_PT-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ro.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ro-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ru.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ru-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sd.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sd-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_si.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_si-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sk.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sk-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sl.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sl-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sr.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sr-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sr_lat.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sr_lat-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sv.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_sv-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_th.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_th-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_tj.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_tj-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_tr.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_tr-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_uk.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_uk-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ur.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_ur-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_vi.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_vi-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_zh.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_zh-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_zh_TW.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/messages_zh_TW-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_de.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_de-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_es_CL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_es_CL-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_fi.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_fi-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_nl.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_nl-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_pt.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/validate\/localization\/methods_pt-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/mod_tools.php": {
 		"cB": 0,
@@ -14398,6 +18677,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/param-que.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/param-table-que.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/param-table-que.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/param-table.php": {
@@ -26177,7 +30463,7 @@
 			"flagValue": -1
 			},
 		"camel_case_classes": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"colon_assignment_spacing": {
@@ -26189,7 +30475,7 @@
 			"flagValue": 10
 			},
 		"duplicate_key": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"empty_constructor_needs_parens": {
@@ -26197,11 +30483,11 @@
 			"flagValue": -1
 			},
 		"ensure_comprehensions": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"indentation": {
-			"active": 1,
+			"active": 0,
 			"flagValue": 2
 			},
 		"line_endings": {
@@ -26221,11 +30507,11 @@
 			"flagValue": 3
 			},
 		"no_backticks": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_debugger": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_empty_functions": {
@@ -26237,7 +30523,7 @@
 			"flagValue": -1
 			},
 		"no_implicit_braces": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_implicit_parens": {
@@ -26249,7 +30535,7 @@
 			"flagValue": -1
 			},
 		"no_nested_string_interpolation": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_plusplus": {
@@ -26257,11 +30543,11 @@
 			"flagValue": -1
 			},
 		"no_private_function_fat_arrows": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_stand_alone_at": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_tabs": {
@@ -26273,7 +30559,7 @@
 			"flagValue": -1
 			},
 		"no_throwing_strings": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_trailing_semicolons": {
@@ -26311,7 +30597,7 @@
 		},
 	"esLintConfigFileHandlingType": 0,
 	"esLintECMAVersion": 7,
-	"esLintEnvironmentsMask": 1,
+	"esLintEnvironmentsMask": 0,
 	"esLintRules": {
 		"accessor-pairs": {
 			"active": 0,
@@ -27893,7 +32179,7 @@
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules, \/wp-content\/themes\/tanktracker\/js",
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
 	"uglifyDefinesString": "",
@@ -27935,11 +32221,11 @@
 			"flagValue": -1
 			},
 		"dead_code": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"drop_console": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"drop_debugger": {
@@ -27951,7 +32237,7 @@
 			"flagValue": -1
 			},
 		"evaluate": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"hoist_funs": {
@@ -27959,7 +32245,7 @@
 			"flagValue": -1
 			},
 		"hoist_vars": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"if_return": {
@@ -27979,7 +32265,7 @@
 			"flagValue": -1
 			},
 		"join_vars": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"keep_fargs": {
@@ -27991,7 +32277,7 @@
 			"flagValue": -1
 			},
 		"loops": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"mangle": {
@@ -28003,11 +32289,11 @@
 			"flagValue": 32000
 			},
 		"negate_iife": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"properties": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"pure_getters": {
@@ -28027,7 +32313,7 @@
 			"flagValue": -1
 			},
 		"sequences": {
-			"active": 1,
+			"active": 0,
 			"flagValue": -1
 			},
 		"sort": {
