@@ -3251,6 +3251,15 @@ html {
     display: block; }
   .menu-bar .menu-button-close {
     display: none; }
+  .menu-bar .support-links a:first-child {
+    margin-left: 14px; }
+  .menu-bar .support-links a {
+    font-size: 12px;
+    font-size: 1.2rem;
+    float: left;
+    width: auto;
+    text-align: center;
+    padding: 10px; }
 
 .main-menu {
   float: none;
@@ -5113,3 +5122,38 @@ section.frame.post .tags {
     position: absolute;
     z-index: 77;
     top: 0; }
+
+.aiosc-filter-cholder.aiosc-filter-checks, .aiosc-cholder label {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 20px;
+  font-family: "Open Sans", sans-serif;
+  color: #fff; }
+
+.aiosc-form table {
+  max-width: 100%; }
+
+.aiosc-ticket-preview h2 {
+  font-size: 16px;
+  font-size: 1.6rem; }
+  .aiosc-ticket-preview h2 a, .aiosc-ticket-preview h2 span {
+    font-size: 16px;
+    font-size: 1.6rem; }
+
+.aiosc-ticket-preview .aiosc-eot {
+  display: none; }
+
+.aiosc-ticket-preview #wp-aiosc-content-editor-container {
+  background: #fff; }
+
+.aiosc-ticket-preview .button {
+  float: none !important;
+  width: 100%; }
+
+.aiosc-ticket-preview .aiosc-ticket-sidebar .aiosc-window {
+  background: none;
+  border: none; }
+
+.aiosc-ticket-preview .aiosc-ticket-sidebar .aiosc-ticket-id {
+  background: #292f7d; }

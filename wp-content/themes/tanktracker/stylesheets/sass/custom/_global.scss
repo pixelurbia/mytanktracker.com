@@ -119,6 +119,19 @@ font-size: 62.5%; /* Sets up the Base 10 stuff */
 .menu-button-close {
 	display:none;
 }
+.support-links {
+    a:first-child{
+        margin-left: 14px;
+    }
+    a {
+        @include font-size(1.2);
+        float: left;
+        width: auto;
+        text-align:center;
+        padding:10px;
+    }
+
+}
 }	
 
 

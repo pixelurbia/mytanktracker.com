@@ -6,6 +6,13 @@
 
 $(document).ready(function() {
 
+
+//ticket system fixes
+
+$('.aiosc-uploader').parent().hide();
+
+
+
 $('.type-menu .menu-item-contain').click( function() {
 	$('.type-menu .menu-item-contain').removeClass('selected');
 	$(this).addClass('selected');

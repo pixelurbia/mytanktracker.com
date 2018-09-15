@@ -4858,6 +4858,1091 @@
 		"oAP": "\/wp-content\/plugins\/akismet\/wrapper.php",
 		"oF": 0
 		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/admin.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/admin-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/front.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/front-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/front.css-old": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/front.css-old",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/loading_bar.gif": {
+		"ft": 4194304,
+		"iS": 9135,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/loading_bar.gif",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/archive.png": {
+		"ft": 32768,
+		"iS": 853,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/archive.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/csv.png": {
+		"ft": 32768,
+		"iS": 566,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/csv.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/default.png": {
+		"ft": 32768,
+		"iS": 635,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/default.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/doc.png": {
+		"ft": 32768,
+		"iS": 651,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/doc.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/html.png": {
+		"ft": 32768,
+		"iS": 578,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/html.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/img.png": {
+		"ft": 32768,
+		"iS": 606,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/img.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/pdf.png": {
+		"ft": 32768,
+		"iS": 591,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/pdf.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/sql.png": {
+		"ft": 32768,
+		"iS": 726,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/sql.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/zip.png": {
+		"ft": 32768,
+		"iS": 766,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/img\/mimetypes\/zip.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/install.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/install-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/select2.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/select2-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/css\/warning.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/css\/warning-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/account.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/account-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/common.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/common-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/downloader.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/downloader-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/install.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/install-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/jquery.browser.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/jquery.browser.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/new-ticket.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/new-ticket-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/preferences.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/preferences-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/select2.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/select2.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/ticket-preview.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/ticket-preview-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/tickets-list.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/tickets-list-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/tools.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/tools-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/uploader.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/uploader-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/assets\/js\/user-bulk.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/assets\/js\/user-bulk-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.addon-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.addon-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.attachment-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.attachment-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.attachment.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.attachment.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.capabilities.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.capabilities.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.cron.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.cron.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.department-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.department-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.department.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.department.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.email-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.email-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.premade-response-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.premade-response-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.premade-response.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.premade-response.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.priority-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.priority-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.priority.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.priority.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.reply-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.reply-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.reply.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.reply.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.role-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.role-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.settings.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.settings.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.shortcodes.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.shortcodes.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.ticket-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.ticket-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.ticket.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.ticket.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.user-manager.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.user-manager.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/class\/class.user.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/class\/class.user.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/cron.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/cron.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/cron\/inactivity.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/cron\/inactivity.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/cron\/queue.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/cron\/queue.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/closure.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/closure.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/creation.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/creation.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/reopen.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/reopen.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/reply.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/customer\/reply.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/closure.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/closure.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/creation.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/creation.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/reopen.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/reopen.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/reply.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/email-templates\/staff\/reply.html",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/sql\/install.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/sql\/install.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/data\/sql\/uninstall.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/data\/sql\/uninstall.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/di-aiosc.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/di-aiosc.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/email-parser\/LICENSE.txt": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/email-parser\/LICENSE.txt",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/email-parser\/plancake-email-parser.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/email-parser\/plancake-email-parser.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/hooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/hooks.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/hooks_tools.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/hooks_tools.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/more-addons.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/more-addons.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/pages.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/pages.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/tools.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/tools.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/inc\/vars.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/inc\/vars.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/index.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/languages\/aiosc-en_GB.mo": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/languages\/aiosc-en_GB.mo",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/languages\/aiosc-en_GB.po": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/languages\/aiosc-en_GB.po",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/piper.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/piper.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/activation-warning.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/activation-warning.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/install.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/install.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/general.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/general.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/premade-responses-new.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/premade-responses-new.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/premade-responses.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/my-account\/premade-responses.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/header.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/header.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/list.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/list.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/none.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/addons\/none.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/auto-close.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/auto-close.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/general.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/general.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/reminder-queue.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/cron\/reminder-queue.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments-confirm.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments-confirm.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments-new.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments-new.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/departments.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-piping.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-piping.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/cron-reminder-inactivity.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/cron-reminder-inactivity.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/cron-reminder-queue.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/cron-reminder-queue.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-closure.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-closure.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-creation.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-creation.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-reopen.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-reopen.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-reply.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/customer-reply.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-closure.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-closure.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-creation.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-creation.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-reopen.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-reopen.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-reply.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email-templates\/staff-reply.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/email.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/general.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/general.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/pages\/general.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/pages\/general.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities-confirm.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities-confirm.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities-new.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities-new.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/priorities.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/tickets.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/preferences\/tickets.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/form.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/form.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/page.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/table-confirm.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/table-confirm.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/table.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/list\/table.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/page.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/close-ticket.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/close-ticket.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reopen-ticket.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reopen-ticket.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reply-edit.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reply-edit.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reply-remove.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/reply-remove.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/request-closure.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/popup\/request-closure.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/form.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/form.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/list.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/list.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/single.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/single\/reply\/single.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/ticket-error.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/ticket\/ticket-error.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/tools.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/tools.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/admin\/tools\/general.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/admin\/tools\/general.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/error.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/error.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/page.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/table.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/list\/table.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/new-form\/error.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/new-form\/error.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/new-form\/form.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/new-form\/form.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/error.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/error.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/page.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/close-ticket.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/close-ticket.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/reopen-ticket.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/reopen-ticket.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/request-closure.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/popup\/request-closure.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/form.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/form.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/list.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/list.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/single.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/reply\/single.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/sidebar.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/templates\/shortcodes\/single\/sidebar.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/di-aiosc\/uninstall.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/di-aiosc\/uninstall.php",
+		"oF": 0
+		},
 	"\/wp-content\/plugins\/easy-wp-smtp\/css\/style.css": {
 		"aP": 1,
 		"bl": 0,
@@ -12827,6 +13912,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/community.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/donations.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/donations.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/export_params.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -15051,6 +16143,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/test.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/trello.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/trello.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/user-login.php": {

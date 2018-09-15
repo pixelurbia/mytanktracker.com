@@ -23,10 +23,16 @@ $secure = new Security();
 		
 	</div>
 
-	<section class="full">
+	<section class="half">
 		<?php 
 			$secure->reported_posts();
 		?>
+	</section>		
+	<section class="half">
+		 <?php while ( have_posts() ) : the_post(); ?>
+      	 <?php 
+	the_content();
+	endwhile; ?>
 	</section>	
 	
 </section>
