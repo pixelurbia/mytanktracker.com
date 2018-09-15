@@ -67,22 +67,25 @@ class Parameters {
 	}
 
 
-	function get_params_order_by_created_date($param_type,$tank_id){
+	function get_params_order_by_created_date($param_type,$tank_id,$date_start,$date_end){
 		$user = $this->user_info();
 		global $wpdb;
-		
-		if( isset( $param_type)){
-       		$param_type = 'AND user_tank_params.param_type = $param_type';
-    	} 
+
+		   function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
          
         $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_id, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
             FROM user_tank_params
             INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_id = $user 
+            WHERE user_tank_params.created_date BETWEEN '$date_start' AND '$date_end'
             AND tank_id = '$tank_id'
-            $param_type
             ORDER BY user_tank_params.created_date DESC
-            $limit
             ");
 
         return $params;

@@ -52,7 +52,7 @@ $('.stock-message-action').click(function() {
 
     var nonce = $(this).attr('nonce');
     var stock_id = $(this).attr('stock_id');
-    data = {action:'del_livestock',ajax_form_nonce_del_stock: nonce, stock_id, stock_id};
+    data = {action:'del_livestock',ajax_form_nonce_del_stock:nonce,stock_id:stock_id};
 
     console.log(data);
 
@@ -151,9 +151,9 @@ $('#stock_filter a').click(function() {
 
       data.append("file", file);
       
-      for (var pair of data.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      // for (var pair of data.entries()) {
+      //     console.log(pair[0]+ ', ' + pair[1]); 
+      // }
       
       //Custom data
       // data.append('key', 'value');
@@ -275,9 +275,9 @@ $('#stock_filter a').click(function() {
       var file = parent.find('.stock-photo-img')[0].files[0];
       data.append("file", file);
       
-      for (var pair of data.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-      }
+      // for (var pair of data.entries()) {
+      //     console.log(pair[0]+ ', ' + pair[1]); 
+      // }
       //Custom data
       // data.append('key', 'value');
       $.ajax({

@@ -8,8 +8,7 @@ function theme_script_enqueuer() {
   wp_enqueue_style( 'screen' );
 
 
-
-
+}
 add_action('wp_head', 'tt_ajaxurl');
 function tt_ajaxurl() {
 
@@ -17,8 +16,7 @@ function tt_ajaxurl() {
            var ajaxurl = "' . admin_url('admin-ajax.php') . '";
          </script>';
 }
-
-}
+	
 // $result = add_role(
 //     'department',
 //     __( 'Department' ),

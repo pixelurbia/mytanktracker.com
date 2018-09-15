@@ -1,0 +1,51 @@
+$(document).ready(function(){Object.entries=function(e){var s=Object.keys(e),a=s.length,r=new Array(a)
+while(a--)r[a]=[s[a],e[s[a]]]
+return r}
+$.fn.serializeObject=function(){var e={}
+var s=this.serializeArray()
+$.each(s,function(){if(e[this.name]){if(!e[this.name].push)e[this.name]=[e[this.name]]
+e[this.name].push(this.value||"")}else e[this.name]=this.value||""})
+return e}
+$("#pass-reset-form").submit(function(e){e.preventDefault()
+var s=new FormData
+var a=$(this).serializeArray()
+$.each(a,function(e,a){s.append(a.name,a.value)})
+$(".overlay").after('<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>')
+$.ajax({url:ajaxurl,method:"post",processData:false,contentType:false,data:s,success:function(e){$(".spinner-loader").remove()
+$(".global-suc").html("An email has been sent to the provided email.")
+$(".global-suc").fadeToggle()
+$(".global-suc").delay(2e3).fadeToggle()
+setTimeout(function(){window.location="/user-login/"},2e3)},error:function(e){}})})
+$("#pass-reseting-form").submit(function(e){e.preventDefault()
+var s=new FormData
+var a=$(this).serializeArray()
+$.each(a,function(e,a){s.append(a.name,a.value)})
+$(".overlay").after('<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>')
+$.ajax({url:ajaxurl,method:"post",processData:false,contentType:false,data:s,success:function(e){console.log(e)
+$(".spinner-loader").remove()
+$(".global-suc").html("Your password has been succesfully changed.")
+$(".global-suc").fadeToggle()
+$(".global-suc").delay(2e3).fadeToggle()
+setTimeout(function(){window.location="/user-login/"},2e3)},error:function(e){console.log(e)}})})
+$("#pass-reset-form .email-validate").keyup(function(){var e=$(this).val()
+var s=$("#ajax_form_nonce").val()
+var a="user_email"
+var r={attribute:e,nonce:s,checker:a,action:"validate_regi_form"}
+if(e.indexOf("@")>=0)$.post(ajaxurl,r,function(e){if(1==e){$(".btn.pass-reset").removeClass("hide")
+$(".bad-btn").hide()
+$(".global-error").removeClass("show")}else{$(".btn.pass-reset").addClass("hide")
+$(".bad-btn").show()
+$(".global-error").html("That email does not match our records.")
+$(".global-error").addClass("show")}})})
+$("#pass-reseting-form .pass-2").keyup(function(){var e=$(this).val()
+var s=$(".pass-1").val()
+if(e==s||s==e){$("#pass-reseting-form .pass-1").css({color:"#fff"})
+$("#pass-reseting-form .pass-2").css({color:"#fff"})
+$(".global-error").removeClass("show")
+$(".btn.pass-reset").removeClass("hide")
+$(".bad-btn").hide()}else{$("#pass-reseting-form .pass-1").css({color:"#ff5050"})
+$("#pass-reseting-form .pass-2").css({color:"#ff5050"})
+$(".global-error").html("Hmm, your passwords do not match, please fix that before we continue.")
+$(".global-error").addClass("show")
+$(".btn.pass-reset").addClass("hide")
+$(".bad-btn").show()}})})

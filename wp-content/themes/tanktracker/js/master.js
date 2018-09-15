@@ -4,8 +4,10 @@
 ///////////////////
 
 
-$(document).ready(function() {
+// @codekit-append "master.js", ,"add-photo.js","add-stock.js","add-tank.js","feed.js","parameters.js","register-master.js","trello-integration.js","user-settings.js";
 
+
+$(document).ready(function() {
 
 //ticket system fixes
 
@@ -158,80 +160,6 @@ $('.journals .close').click(function() {
         });
         return o;
     };
-	//update chart ui without re-query db
-
-	     function addData(chart, label, data) {
-            chart.data.labels.push(label);
-            chart.data.datasets.forEach((dataset) => {
-            dataset.data.push(data);
-        });
-            chart.update();
-        }
-
-function chartDataConstructor(ajax_form_data) {
-	  	//date contructor
-			var d = new Date();
-			var curr_date = d.getDate();
-			var curr_month = d.getMonth();
-			curr_month++;
-			var curr_year = d.getFullYear().toString().substr(-2);
-			//switch for types to get correct chart object name	
-          	var type = parseInt(ajax_form_data["type"]);
-          	
-				switch (type) {
-				    case 1:
-				        var chart = chart1;
-				        break;
-				    case 2:
-				        var chart = chart2;
-				        break;
-				    case 3:
-				  		 var chart = chart3;
-				        break;
-				    case 4:
-				  		 var chart = chart4;
-				        break;
-				    case 5:
-				   		var chart = chart5;
-				        break;
-				    case 56:
-				   		var chart = chart6;
-				        break;
-				    case 7:
-				   		var chart = chart7;
-				        break;   
-				    case 8:
-				   		var chart = chart8;
-				        break;
-					case 9:
-				   		var chart = chart9;
-				        break;
-				    case 10:
-				   		var chart = chart10;
-				        break;
-				    case 11:
-				   		var chart = chart11;
-				        break;
-				    case 12:
-				   		var chart = chart12;
-				        break;
-
-				     default: 
-						console.log('Error on switch');
-				}
-			//get data input from form (param value)
-           	var	data = ajax_form_data["value"];
-           	var	data = parseInt(data);
-           	//create date lable (today)
-           	var label = curr_month + '-' + curr_date + '-' + curr_year;
-     		var label = String(label);
-     		//return data
-     		// console.log('chart data from chartDataConstructor');
-     		// console.log(chart);
-     		// console.log(label);
-     		// console.log(data);
-     		return [chart, label, data];
-}
 
 		
 //Ajax Form Handler 
@@ -355,29 +283,6 @@ $('#journal-img').on('change', function() {
    			console.log('journal submited');
 			var data = new FormData(this);
 			
-			// //Form data
-			// var form_data = $('#journal-form').serializeArray();
-			// $.each(form_data, function (key, input) {
-   //  			data.append(input.name, input.value);
-			// });
-			
-			//File data
-			// var fileData = $('#journal-img')[0].files[0];
-			// var filedata = $('#journal-img');
-			// data.append("file", file);
-
-
-			// $.each($("input[type='file']")[0].files, function(i, file) {
-			// 		console.log(this.files[0].size);
-			// });
-
-			// i = 0;
-			for (var pair of data.entries()) {
-    			console.log(pair[0]+ ', ' + pair[1]); 
-    			// console.log(i++);
-			}
-			//Custom data
-			// data.append('key', 'value');
 			$.ajax({
     			url: ajaxurl,
     			method: "post",
@@ -516,6 +421,12 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+function resize() {
+    $(".gallery-expanded").css({
+    width:  $(window).width(),
+    height: $(window).height()
+});
+}
 
 // $.validator.addMethod("valueNotEquals", function(value, element, arg){
 //   return arg !== value;
@@ -531,33 +442,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 //   }  
 //  });
 
-//parameters filters
-$('.param-filters').click(function() { 
-console.log('start');
-    var date_start = $('#datepicker-from').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
-    var date_end = $('#datepicker-to').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
-    var tank_id = getUrlParameter('tank_id');
-    var url = "/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end;
-    console.log(url);
-  var filter = $(this).attr('value');
-    $.ajax({
-            url:"/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end,
-            // url:"paramque?tank_id=admin-11111",
-          success: function(data){
-          	console.log('working');
-          	console.log(data);
-                //is this even working?
-                $('.parameter_overview').html(data);
-            }
-        }); // end ajax call
-    });
 
-function resize() {
-    $(".gallery-expanded").css({
-    width:  $(window).width(),
-    height: $(window).height()
-});
-}
 
 //gallery item controls 
 
