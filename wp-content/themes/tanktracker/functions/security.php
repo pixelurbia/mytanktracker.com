@@ -69,7 +69,7 @@ class Security {
         //if not
         //page validation because not all pages need to have this security element only those with user controls
         $page = $uri_parts[0];
-        $okay_pages = array('/stock/','/gallery/','/gallery','/overview/','/livestock','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/','/pass-reset/');
+        $okay_pages = array('/stock/','/gallery/','/gallery','/overview/','/livestock','/livestock/','/profile/','/wp-admin/','/wp-content/','/user-login/','/pass-reset/','/report-a-bug/');
 
         if (!in_array($page, $okay_pages)) {
             // return $my_tank;
@@ -133,7 +133,8 @@ function smart_menu() {
     if ( is_user_logged_in() ) {
             echo '<a class="menu-button"><i class="fas fa-bars"></i></a>';
             echo '<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>';
-            echo '<a target="_blank" href="https://trello.com/b/fYOldyoi">Report Bugs</a>';
+            echo '<a href="/donate/">Donate</a>';
+            echo '<a href="/sponsors/">Sponsors</a>';
             echo '<!-- <a class="menu-button menu-button-open">Menu</a> -->';
             echo '<!-- <a class="menu-button menu-button-close">Close</a> -->';
     
@@ -159,6 +160,12 @@ function smart_menu() {
         echo '<a href="/profile?user_id='.$user.'"  class="">My Profile</a>';
         echo '<a name="myaccount" href="/my-account" class="myaccount">My Account</a>';
         echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>';
+        echo '<span></span>'; 
+        echo '<div class="support-links">';
+        echo '<a href="/support/">Support</a>';
+        echo '<a href="/my-tickets/">My Tickets</a>';
+        echo '<a href="/bugs-and-features/">Log Feature Request</a>';
+        echo '</div>';
         } 
          
     echo '</div>';

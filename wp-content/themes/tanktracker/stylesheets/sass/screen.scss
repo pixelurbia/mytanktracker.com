@@ -1777,3 +1777,52 @@ input[type="submit"].btn.account-reg {
 
 	}
 }
+
+
+
+// tickets styles
+.aiosc-filter-cholder.aiosc-filter-checks, .aiosc-cholder label {
+	@include font-size(1.6);  
+	font-weight:300; 
+	line-height:20px; 
+	font-family:$ops; 
+	color:$white;
+}
+
+.aiosc-form table {
+		max-width:100%;
+	}
+
+.aiosc-ticket-preview {
+		h2 {
+			@include font-size(1.6);  
+		
+		a, span {
+			@include font-size(1.6);  
+		}
+	}
+
+	.aiosc-eot {
+		display:none;
+	}
+
+	#wp-aiosc-content-editor-container {
+		background:$white;
+	}
+	.button {
+		float:none!important;
+		width:100%;
+	}
+
+.aiosc-ticket-sidebar {
+	.aiosc-window {
+		background:none;
+		border:none;
+	}
+	.aiosc-ticket-id{
+		background:$input-bg;
+	}}
+}
+
+
+

@@ -23,6 +23,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/add-stock.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/parameters.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/user-settings.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/trello-integration.js"></script>
 
 	<link href="<?php echo get_template_directory_uri(); ?>/js/select/select2.css" rel="stylesheet" />
 	<script src="<?php echo get_template_directory_uri(); ?>/js/select/select2.js"></script>
@@ -34,7 +35,7 @@
 
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-	
+
 
 
 <script>
