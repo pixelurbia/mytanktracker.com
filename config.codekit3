@@ -16,6 +16,13 @@
 		"oAP": "\/.htaccess",
 		"oF": 0
 		},
+	"\/example_homepage.txt": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/example_homepage.txt",
+		"oF": 0
+		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
