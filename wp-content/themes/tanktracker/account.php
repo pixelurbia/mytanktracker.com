@@ -9,15 +9,20 @@ Template Name: My Account
 
 
 <?php 
-$profile = new Profile();
-$feed = new Feed();
+$profile = new Profile();	
 
 $user = $profile->user_info();
-// $user = $profile->user_info('display_name');
 ?>
 
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
-	<h3>Work in progresss</h3>
+<div class="tank_header">
+		<h2><?php echo $user->display_name; ?> Account Settings</h2>
+		<p></p>
+		<a href="">Reset Password</a>
+		<?php 
+		donorbox_status();
+		 ?>
+	</div>
 </section>
 
 <?php get_template_part('templates/footer'); ?>
