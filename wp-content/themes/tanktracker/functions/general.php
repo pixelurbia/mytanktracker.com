@@ -148,29 +148,44 @@ $account = 'andrew@pixelurbia.com';
 // $url = 'https://'.$account.':'.$key.'@donorbox.org/api/v1/campaigns';
 $url = 'https://andrew@pixelurbia.com:gByBmh-ZP6bCR-f50kZSnUSt3IP0N15zDBUC2UgAiEN75HRIPFYsFQ@donorbox.org/api/v1/campaigns';
 
+
+$handle = curl_init();
+ 
+ 
+// Set the url
+curl_setopt($handle, CURLOPT_URL, $url);
+// Set the result output to be a string.
+curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+ 
+$output = curl_exec($handle);
+ $error = curl_error($ch);
+curl_close($handle);
+ 
+echo $output;
+echo $error;
 // init curl
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-//curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_fields);
-curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)");
-curl_setopt($ch, CURLOPT_HEADER, 1);
-curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE); // make sure we see the sended header afterwards
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 0);
-//curl_setopt($ch, CURLOPT_POST, 1);
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, $url);
+// //curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_fields);
+// curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)");
+// curl_setopt($ch, CURLOPT_HEADER, 1);
+// curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE); // make sure we see the sended header afterwards
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_TIMEOUT, 0);
+// //curl_setopt($ch, CURLOPT_POST, 1);
 
-# dont care about ssl
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+// # dont care about ssl
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-# download and close
-$output = curl_exec($ch);
-$request =  curl_getinfo($ch, CURLINFO_HEADER_OUT);
-$error = curl_error($ch);
-curl_close($ch);
+// # download and close
+// $output = curl_exec($ch);
+// $request =  curl_getinfo($ch, CURLINFO_HEADER_OUT);
 
-echo 'This is output = '.$output .'<br />';
-echo 'This is request = '.$request .'<br />';
-echo 'This is error = '.$error .'<br />';
+// curl_close($ch);
+
+// echo 'This is output = '.$output .'<br />';
+// echo 'This is request = '.$request .'<br />';
+// echo 'This is error = '.$error .'<br />';
 
 
 

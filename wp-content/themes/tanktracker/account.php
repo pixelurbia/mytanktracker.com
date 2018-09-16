@@ -20,7 +20,7 @@ $user = $profile->user_info();
 		<p></p>
 		<a href="">Reset Password</a>
 		<?php 
-		donorbox_status();
+
 		 ?>
 	</div>
 </section>
