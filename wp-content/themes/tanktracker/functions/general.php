@@ -112,3 +112,81 @@ function trello_post($url, $fields){
   curl_close($ch);
   return json_decode($output);
 }
+
+
+
+
+
+
+add_action('wp_ajax_donorbox_status', 'donorbox_status');
+add_action('wp_ajax_nopriv_donorbox_status', 'donorbox_status');
+function donorbox_status(){
+
+
+	 // if( !isset( $_POST['donorbox_status'] ) || !wp_verify_nonce( $_POST['donorbox_status'], 'donorbox_status' ) )
+  //   die( 'Ooops, something went wrong, please try again later.' );
+
+
+
+$current_user = wp_get_current_user();
+$user_id = $current_user->ID;
+$user_name = $current_user->user_nicename;
+$user_email = $current_user->user_email;
+
+    $title    = $_REQUEST['title'];
+    $content  = $_REQUEST['content'];
+    $donor  = $_REQUEST['donor'];
+
+
+
+
+
+//api key
+$key = 'gByBmh-ZP6bCR-f50kZSnUSt3IP0N15zDBUC2UgAiEN75HRIPFYsFQ';
+//token
+$account = 'andrew@pixelurbia.com';
+// $url = 'https://'.$account.':'.$key.'@donorbox.org/api/v1/campaigns';
+$url = 'https://andrew@pixelurbia.com:gByBmh-ZP6bCR-f50kZSnUSt3IP0N15zDBUC2UgAiEN75HRIPFYsFQ@donorbox.org/api/v1/campaigns';
+
+// $url = 'https://api.trello.com/1/boards/5b554f5441aa075b3ebd03fd/cards'.$uath;
+
+
+
+// init curl
+// Get cURL resource
+$curl = curl_init();
+// Set some options - we are passing in a useragent too here
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => $url,
+    CURLOPT_USERAGENT => 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+));
+
+
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, $url);
+//curl_setopt($ch, CURLOPT_POSTFIELDS, $encoded_fields);
+// curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)");
+// curl_setopt($ch, CURLOPT_HEADER, 1);
+// curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE); // make sure we see the sended header afterwards
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_TIMEOUT, 0);
+// curl_setopt($ch, CURLOPT_POST, 1);
+
+# dont care about ssl
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+# download and close
+$output = curl_exec($curl);
+$request =  curl_getinfo($curl, CURLINFO_HEADER_OUT);
+$error = curl_error($curl);
+curl_close($curl);
+
+echo 'This is output = '.$output .'<br />';
+echo 'This is request = '.$request .'<br />';
+echo 'This is error = '.$error .'<br />';
+
+
+
+}
+

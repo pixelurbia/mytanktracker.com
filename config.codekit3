@@ -17421,6 +17421,16 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/js\/parameters-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/js\/parameters-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/js\/parameters.js": {
 		"ft": 64,
 		"ma": 0,
