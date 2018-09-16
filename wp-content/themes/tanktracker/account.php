@@ -27,3 +27,5 @@ $user = $profile->user_info();
 
 <?php get_template_part('templates/footer'); ?>
 <?php get_template_part('templates/feed-scripts'); ?>
+
+
