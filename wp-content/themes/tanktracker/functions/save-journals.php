@@ -24,6 +24,7 @@ function add_user_journal() {
   $tanks = $_REQUEST['tanks'];
   $cats = $_REQUEST['cats'];
 
+ 
 
     function var_error_log( $object=null ){
         ob_start();                    // start buffer capture
@@ -34,7 +35,16 @@ function add_user_journal() {
     }
 
 
-    var_error_log($cats);
+ $secure = new Security();
+  $limit = $secure->limit_posting();
+      var_error_log($limit);
+    if ( $limit == 'no' ){
+    // return 'limit';    
+die('limit');
+    }
+    
+
+
 
     
     //create post

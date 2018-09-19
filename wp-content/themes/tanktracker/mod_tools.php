@@ -6,13 +6,7 @@ Template Name: mod tools
 
 <?php get_template_part('templates/header'); ?>
 
-
-<?php 
-$secure = new Security();
-?>
-
-
-<section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
+<section class="overview_tank frame">
 	<div class="tank_header">
 		<h2>Mod Tools</h2>
 		<p class="page-subnav">
@@ -25,7 +19,7 @@ $secure = new Security();
 
 	<section class="half">
 		<?php 
-			$secure->reported_posts();
+			get_template_part('mod_tools_que');
 		?>
 	</section>		
 	<section class="half">

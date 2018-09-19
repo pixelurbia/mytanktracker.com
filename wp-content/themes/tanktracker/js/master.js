@@ -280,9 +280,9 @@ $('#journal-img').on('change', function() {
    			$('.overlay').after(spinner);
 
 
-   			console.log('journal submited');
+   			// console.log('journal submited');
 			var data = new FormData(this);
-			
+
 			$.ajax({
     			url: ajaxurl,
     			method: "post",
@@ -290,6 +290,20 @@ $('#journal-img').on('change', function() {
     			contentType: false,
     			data: data,
     			success: function (data) {
+
+
+				if ( data == 'limit'){
+    				$('.global-error').html('You need to wait at least 60 seconds before posting again.');
+					$('.global-error').fadeToggle();
+  					$('.global-error').delay( 2000 ).fadeToggle();
+  					$('#journal-form').toggleClass('show');
+  					$('.menu-bar').toggleClass('extended');
+  					$('.overlay').fadeToggle();
+  					$('#journal-form .status').html('What is goin on today?');
+  					$('.spinner-loader').remove();
+    				
+    					
+    				} else {
 					$('.global-suc').html('Journal has been logged.');
 					$('.global-suc').fadeToggle();
   					$('.global-suc').delay( 2000 ).fadeToggle();
@@ -300,9 +314,10 @@ $('#journal-img').on('change', function() {
   					$('.spinner-loader').remove();
   					$('#journal-img').value = '';
     				$('#post-images').html('');
+    			}
     			},
     			error: function (e) {
-        			//error
+    				
     			}
 			});
        });  
