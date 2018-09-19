@@ -3,45 +3,28 @@
 class Security {
     
     function user_info() {
-        
         $current_user = wp_get_current_user();
         $user = $current_user->ID;
         return $user;
      }
 
-    function reported_posts(){
+     function limit_posting() {
         global $wpdb;
-        $reported_posts = $wpdb->get_results("SELECT * FROM mod_log");
-    
-            echo '<table>';
-            echo '<tr>';
-            echo '<th>Reporting User</th>';
-            echo '<th>Ref ID</th>';
-            echo '<th>Reported User ID</th>';
-            echo '<th>Content type</th>';
-            echo '<th>Date Reported</th>';
-            echo '<th>Mod Approval</th>';
-            echo '<th>Mod Approval ID</th>';
-            echo '<th>Approve?</th>';
-            echo '<th>Reject?</th>';
-            echo '</tr>';
-                foreach($reported_posts as $report){
-                    $post_link = get_post_permalink($report->ref_id);
-                    echo '<tr>';
-                        echo '<td>'.$report->reporting_user_id.'</td>';
-                        echo '<td><a href="'.$post_link.'">'.$report->ref_id.'</a></td>';
-                        echo '<td>'.$report->author_id.'</td>';
-                        echo '<td>'.$report->content_type.'</td>';
-                        echo '<td>'.$report->date_reported.'</td>';
-                        echo '<td>'.$report->mod_approved.'</td>';
-                        echo '<td>'.$report->mod_id.'</td>';
-                        echo '<td>Approve</td>';
-                        echo '<td>Reject</td>';
-                    echo '</tr>';
-                }                    
-            echo '</table>';
-            echo '</div>'; 
-    }
+        $user = $this->user_info();
+        $last_post_datetime = $wpdb->get_results("SELECT post_date FROM tt_posts WHERE post_author = $user ORDER BY post_date DESC limit 1");
+
+        $date = $last_post_datetime[0]->post_date;
+
+        if(strtotime($date) + 60 < time()) {
+                return 'yes';
+             } else {
+                return 'no';
+             }
+
+             }
+       
+
+       
 }
 
     add_action('init', 'secure_my_tank');
@@ -118,10 +101,10 @@ function smart_menu() {
     $tank_id = $_GET['tank_id'];
 
     $current_user = wp_get_current_user();
-    $user = $current_user->ID;
+    $user_id = $current_user->ID;
 
     //check if this is the users tank or not because otherwise this aint that smart of a menu
-    $my_tank = $wpdb->get_var("SELECT COUNT(tank_id) FROM user_tanks WHERE user_id = $user AND tank_id = '$tank_id'");
+    $my_tank = $wpdb->get_var("SELECT COUNT(tank_id) FROM user_tanks WHERE user_id = $user_id AND tank_id = '$tank_id'");
 
     $name = $post->post_name;
     if (  ($name == 'user-login') OR ($name == 'register') OR ($name == 'pass-reset') ){
@@ -135,6 +118,10 @@ function smart_menu() {
             echo '<a class="journals-btn"><i class="fas fa-pencil-alt"></i></a>';
             echo '<a href="/donate/">Donate</a>';
             echo '<a href="/sponsors/">Sponsors</a>';
+            if ( in_array( 'administrator', (array) $current_user->roles ) || in_array( 'moderator', (array) $current_user->roles ) ) {
+                echo '<a href="/mod_tools/">Mod Tools</a>';
+            }
+
             echo '<!-- <a class="menu-button menu-button-open">Menu</a> -->';
             echo '<!-- <a class="menu-button menu-button-close">Close</a> -->';
     
@@ -157,7 +144,7 @@ function smart_menu() {
         echo '<a name="" href="/community/" class="">Tank Tracker Community</a>';
         echo '<a name="" href="https://discord.gg/xPtgFuG" class="">Tank Tracker Discord</a>';
         echo '<span></span>';            
-        echo '<a href="/profile?user_id='.$user.'"  class="">My Profile</a>';
+        echo '<a href="/profile?user_id='.$user_id.'"  class="">My Profile</a>';
         echo '<a name="myaccount" href="/my-account" class="myaccount">My Account</a>';
         echo '<a href="'.wp_logout_url('$index.php').'">Logout</a>';
         echo '<span></span>'; 
@@ -314,7 +301,7 @@ function mod_tools() {
     $site = $_SERVER['HTTP_HOST'];
     $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
     $page = $uri_parts[0];
-    $bad_pages = array('/mod_tools/','/mod_tools','mod_tools','/wp-admin/','/wp-admin','/wp-admin/edit.php');
+    $bad_pages = array('/mod_tools/','/mod_tools','mod_tools','/modtoolsque/','/modtoolsque','modtoolsque','/wp-admin/','/wp-admin','/wp-admin/edit.php');
 
 
     $user = wp_get_current_user();

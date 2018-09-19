@@ -23,6 +23,15 @@
             )
         );
 
+        add_role(
+            'donor',
+            __( 'Donor User' ),
+            array(
+                'read'         => true,  // true allows this capability
+                'edit_posts'   => true,
+            )
+        );
+
     }
 
 

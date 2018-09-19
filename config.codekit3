@@ -14108,6 +14108,17 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/gallery.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/gravatar.png": {
+		"ft": 32768,
+		"iS": 164906,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/gravatar.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/wp-content\/themes\/tanktracker\/homepage.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -14144,6 +14155,17 @@
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
+		"q": 100
+		},
+	"\/wp-content\/themes\/tanktracker\/images\/donorbanner.png": {
+		"ft": 32768,
+		"iS": 124914,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/images\/donorbanner.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/wp-content\/themes\/tanktracker\/images\/favicons\/android-chrome-192x192.png": {
@@ -18675,6 +18697,13 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/mod_tools.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/tanktracker\/mod_tools_que.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/mod_tools_que.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/tanktracker\/overview.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -18724,13 +18753,6 @@
 		"oAP": "\/wp-content\/themes\/tanktracker\/pass-reset.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/tanktracker\/post.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/tanktracker\/post.php",
-		"oF": 0
-		},
 	"\/wp-content\/themes\/tanktracker\/profile.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -18757,6 +18779,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/tanktracker\/single_stock.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/tanktracker\/sponsors.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/tanktracker\/sponsors.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/tanktracker\/stock.php": {

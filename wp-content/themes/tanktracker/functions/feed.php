@@ -133,7 +133,7 @@ function get_feed_images($post_id){
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span>'.$name.' on '. $time .'</span></p>';
+            			echo '<p><span><a href="/profile/?user_id='.$auth_id.'">'.$name.'</a> on '. $time .'</span></p>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		
@@ -311,7 +311,7 @@ public function get_main_feed() {
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
+            			echo '<p><span><a href="/profile/?user_id='.$auth_id.'">'.$name.'</a> on '. $time .'</span></p>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		
@@ -373,13 +373,25 @@ public function get_main_feed() {
             		$post_id = get_the_ID();
             		$comment_count = wp_count_comments( $post_id );
             		$comment_count = $comment_count->total_comments;
+            		$user = wp_get_current_user();
+					
 
             		echo '<article class="grid-item post" >';
             		$this->get_feed_images($post_id);
 					echo '<div class="post-data">';
             			echo '<div class="user-info">';
+
+
+					if ( in_array( 'donor', (array) $user->roles ) ) {
+    					echo '<div class="donor">';
+            			echo '<div class="donnor-banner"></div>';
+							echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
+						echo '</div>';
+					} else {
 						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
+					}
+            			
+            			echo '<p><span><a href="/profile/?user_id='.$auth_id.'">'.$name.'</a> on '. $time .'</span></p>';
             			echo'</div>';
             			echo exclude_post_categories('1');
             		

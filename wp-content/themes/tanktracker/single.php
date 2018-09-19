@@ -5,12 +5,10 @@ Template Name: default single
 ?>
 
 <?php get_template_part('templates/header'); ?>
-<?php 
-$secure = new Security(); 
-$user_id = $secure->user_info();
-?>
 
 <section class="frame post">
+
+
 <article class="post">
       <!-- <h2><?php the_title(); ?></h2> -->
      
