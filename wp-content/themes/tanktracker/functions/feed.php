@@ -348,7 +348,7 @@ public function get_main_feed() {
 }
 	function profile_all_user_posts() {
 		
-		  $user = $this->user_info();
+		  $user = $_GET['user_id'];
 
 		  $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
