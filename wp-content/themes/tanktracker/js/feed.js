@@ -10,7 +10,7 @@ $('.wrap').on("click", ".post-options", function(){
 });
 $('.wrap').on("click", ".report-this-post", function(){ 
 	  console.log('report');
-
+	$(this).parent().parent().remove();
 	var ref_id = $(this).attr('post_id');
 	var reporting_user_id = $(this).attr('reporting_user');
 	var author_id = $(this).attr('auth_id');
@@ -40,6 +40,41 @@ $('.wrap').on("click", ".report-this-post", function(){
               //error
 			console.log('error 97897');
 			console.log(data);
+          }
+      });
+
+
+});
+
+
+$('.wrap').on("click", ".mod-tool-action", function(){ 
+
+	var report_id = $(this).attr('report_id');
+	var ajax_form_mod_log = $(this).attr('nonce');
+	var mod_approval = $(this).attr('name');
+
+
+	var data = {action: 'update_mod_log', report_id: report_id, ajax_form_mod_log: ajax_form_mod_log, mod_approval: mod_approval};
+
+
+      console.log(data);
+      //Custom data
+      // data.append('key', 'value');
+      $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+          	console.log('success');
+          	location.reload();
+
+          },
+          error: function (e) {
+              //error
+			console.log('error 97897');
+			console.log(data);
+
           }
       });
 

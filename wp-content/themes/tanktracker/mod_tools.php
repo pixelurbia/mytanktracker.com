@@ -17,7 +17,7 @@ Template Name: mod tools
 		
 	</div>
 
-	<section class="half">
+	<section class="full">
 		<?php 
 			get_template_part('mod_tools_que');
 		?>

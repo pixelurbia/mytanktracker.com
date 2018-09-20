@@ -26,7 +26,8 @@ define('DB_NAME', 'tanktracker');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '1r00mP3*KT%J9O31inJJZ3LlMcpWvDGm9#KTo59QEjtF!z1jFSmoaX&xNgPnckfU');
+// define('DB_PASSWORD', '1r00mP3*KT%J9O31inJJZ3LlMcpWvDGm9#KTo59QEjtF!z1jFSmoaX&xNgPnckfU');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

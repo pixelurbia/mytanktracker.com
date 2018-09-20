@@ -234,7 +234,11 @@ function mod_log() {
     $author_id = $_REQUEST['author_id'];
     $content_type = $_REQUEST['content_type'];
     
+    $obj_type_new = 'report';
+        $hex = uni_key_gen($obj_type_new);
+    
 $wpdb->insert('mod_log',array(
+        'report_id' => $hex,
         'reporting_user_id' => $reporting_user_id,
         'ref_id' => $ref_id,
         'author_id' => $author_id,
@@ -242,6 +246,45 @@ $wpdb->insert('mod_log',array(
         'mod_approved' => 'no',
         'date_reported'=> date("Y-m-d H:i:s")
         ));
+
+}
+
+add_action('wp_ajax_update_mod_log', 'update_mod_log');
+add_action('wp_ajax_nopriv_update_mod_log', 'update_mod_log');
+
+function update_mod_log() {
+
+    login_check();  
+
+ if( !isset( $_POST['ajax_form_mod_log'] ) || !wp_verify_nonce( $_POST['ajax_form_mod_log'], 'ajax_form_mod_log' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+   
+
+  global $wpdb;
+  global $post;
+
+  // reporting_user_id
+  // ref_id
+  // author_id
+  // mod_notes
+  // date_reported
+  // mod_approved
+  // mod_id
+
+    $report_id = $_REQUEST['report_id'];
+    $mod_approval = $_REQUEST['mod_approval'];
+    $current_user = wp_get_current_user();
+    $user = $current_user->ID;
+    
+
+
+  $wpdb->update('mod_log',array(
+    'mod_approved'=> $mod_approval,
+    'mod_id'=> $user,
+    'last_updated_date'=> date("Y-m-d H:i:s")
+    ), array(
+        'report_id'=> $report_id)
+    );
 
 }
 

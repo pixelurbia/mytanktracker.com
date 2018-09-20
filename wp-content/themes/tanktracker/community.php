@@ -23,11 +23,11 @@ $feed = new Feed();
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
 		<h2>Community</h2>
-		<p class="page-subnav">
+	<!-- 	<p class="page-subnav">
 			<a>Discover / </a>
 			<a>Following / </a>
 			<a>Favorites</a>
-		</p>
+		</p> -->
 		<p class="page-subnav category-filter">
 			<?php 
 

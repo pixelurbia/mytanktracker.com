@@ -40,7 +40,7 @@ function add_user_journal() {
       var_error_log($limit);
     if ( $limit == 'no' ){
     // return 'limit';    
-die('limit');
+    die('limit');
     }
     
 

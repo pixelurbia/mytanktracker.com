@@ -39,8 +39,8 @@ $secure = new Security();
                         echo '<td>'.$report->date_reported.'</td>';
                         echo '<td>'.$report->mod_approved.'</td>';
                         echo '<td>'.$report->mod_id.'</td>';
-                        echo '<td>Approve</td>';
-                        echo '<td>Reject</td>';
+                        echo '<td class="mod-tool-action" nonce="'.wp_create_nonce("ajax_form_mod_log").'" name="approve" report_id="'.$report->report_id.'">Approve</td>';
+                        echo '<td class="mod-tool-action" nonce="'.wp_create_nonce("ajax_form_mod_log").'"  name="reject" report_id="'.$report->report_id.'">Reject</td>';
                     echo '</tr>';
                 }                    
             echo '</table>';

@@ -4955,7 +4955,8 @@ section.frame.post .tags {
   background: #06071e;
   padding: 10px;
   position: absolute;
-  right: 15px; }
+  right: 15px;
+  z-index: 9999; }
   .post-options-menu a {
     font-size: 10px; }
 

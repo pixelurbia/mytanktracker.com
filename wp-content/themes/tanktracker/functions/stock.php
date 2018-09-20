@@ -351,9 +351,7 @@ add_action('wp_ajax_nopriv_del_livestock', 'del_livestock');
 
 function del_livestock( $file = array() ) {    
 
-        if ( !is_user_logged_in() ){
-         die( 'You need to be logged in.' );
-      }
+  
 
  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
     // Verify nonce

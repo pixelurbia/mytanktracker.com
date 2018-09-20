@@ -253,20 +253,20 @@ public function get_main_feed() {
 		global $wpdb;
   		global $post;
 
-	function var_error_log( $object=null ){
-        ob_start();                    // start buffer capture
-       var_dump( $object );           // dump the values
-        $contents = ob_get_contents(); // put the buffer into a variable
-        ob_end_clean();                // end capture
-        error_log( $contents );        // log contents of the result of var_dump( $object )
-    }
+	// function var_error_log( $object=null ){
+ //        ob_start();                    // start buffer capture
+ //       var_dump( $object );           // dump the values
+ //        $contents = ob_get_contents(); // put the buffer into a variable
+ //        ob_end_clean();                // end capture
+ //        error_log( $contents );        // log contents of the result of var_dump( $object )
+ //    }
 
     
 
 		$cat = $_GET['cats'];
 
 		//check if a post was reported 
-		$reported_posts = $wpdb->get_results("SELECT DISTINCT ref_id FROM mod_log WHERE content_type = 'post' AND mod_approved = 'no'");
+		$reported_posts = $wpdb->get_results("SELECT DISTINCT ref_id FROM mod_log WHERE content_type = 'post' AND mod_approved in ('no','reject')");
  		$ids = array();
     	foreach ($reported_posts as $post) {
     		$ids[] .= $post->ref_id;
