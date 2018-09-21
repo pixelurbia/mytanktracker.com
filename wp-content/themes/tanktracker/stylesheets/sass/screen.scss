@@ -13,7 +13,7 @@ html {
 h1, h2, h3, h4 {margin:5px 0; margin-bottom:5px; padding:0; text-decoration: none; }
 h1, h1 a { @include font-size(5);  color:$white; font-weight:600; font-family:$ops;}
 h2, h2 a {   @include font-size(3.2); color:$white; font-family:$ops; text-decoration:none; font-weight: 100; letter-spacing: 5px; text-transform: uppercase; }
-h3, h3 a {   @include font-size(2.6); color:$white; font-family:$ops;  text-decoration:none;   }
+h3, h3 a {   @include font-size(2.6); color:$white; font-family:$ops;  text-decoration:none; margin:20px 0px 20px 0px;}
 h4, h4 a { @include font-size(2.0 ); color:$white; font-family:$ops; font-weight:100;  }
 h6, h6 a { @include font-size(1.2); color:$white; font-family:$ops; font-weight:100; }
 h5 {@include font-size(1.6); color:$white; font-family:$ops; font-weight:500; }
@@ -1094,6 +1094,67 @@ input[type="submit"].btn.account-reg {
 }
 
 
+.tank-livestock-list {
+
+.stock-item {
+	position:relative;
+	float: left;
+	height: 54px;
+    width: 185px;
+    margin: 10px 0px 20px 0px;
+    a.stock-action {    
+    	height: 20px;
+    	width: 20px;
+    	position: relative;
+    	display: contents;
+    	label {
+    		margin:0px;
+    		}}
+    .fa-arrow-circle-right {
+    	color:$white;
+    	@include font-size(2.5);
+    	position: absolute;
+    	z-index: 9999;
+    	left: 39px;
+    	margin: 14px 0px 0px 0px;
+    }
+	.fa-edit, .fa-trash-alt, .fa-save, .fa-camera-retro {
+    	color:$white;
+    	@include font-size(1.5);
+    	float:left;
+    	margin:10px 10px 0px 0px;
+    }
+    .stock-img {
+    	float:left;
+    	height: 50px;
+    	width: 50px;
+    	border-radius: 100px;
+    	background-size:cover!important;	
+    }
+    .stock-data {
+    	float:left;
+		padding:18px 0px 0px 22px;
+		ul {
+			height:auto;
+		}
+    	li {
+    		color:white;
+    		@include font-size(1.2);
+    	}
+    	li.name, li.name span {
+    		text-align:left;
+    		.edit-tank-stock {
+				margin: 0px 0px 0px 4px;
+    		}
+    	}
+    	li.data {
+    		float:none;
+    		margin-right:10px;
+    	}
+    }
+}
+}
+
 }
 //Journal form
 
@@ -1407,6 +1468,9 @@ input[type="submit"].btn.account-reg {
     	margin-top: 18px;
     }
 }
+
+
+
 .stock-item {
 	position:relative;
 	float: left;

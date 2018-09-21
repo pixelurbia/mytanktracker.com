@@ -81,7 +81,7 @@ $single_stock = $stock->single_stock($stock_id);
 <section class="feed half" id="feed">
     
     <?php 
-    $feed->get_stock_feed($stock_id); 
+    $feed->get_tank_stock_feed($stock_id); 
     ?>
 </section>
 

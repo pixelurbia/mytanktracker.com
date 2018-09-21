@@ -94,9 +94,10 @@ function get_feed_images($post_id){
    
 }
 
-	function get_stock_feed($stock_id) {
+	function get_tank_stock_feed($ref_id) {
 
 
+	
 		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 		$posts = array(
@@ -105,21 +106,24 @@ function get_feed_images($post_id){
 			'post_type' => 'user_journals', 
 			'post_status' => 'publish',
 			'meta_key'  => 'tt_tank_ref',
-			'meta_value'  => $stock_id,
+			'meta_value'  => $ref_id,
 			'paged' => $paged,
 			);
 
 		$query = new WP_Query( $posts );
 			if ( $query->have_posts() ) : ?>
     			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
-        		
-            		<?php 
+        		<?php 
             		$permlink = get_the_permalink();
-            		            		// $excerpt = get_excerpt(50);
+            		// $excerpt = get_excerpt(50);
             		$excerpt = get_the_excerpt();
             		$name = get_the_author_meta('display_name');
+            		$auth_id = get_the_author_meta('id');
             		$time = get_the_time('F jS, Y');
-            		$user_id = $this->user_info();
+					
+					$current_user = wp_get_current_user();
+					$user_id = $current_user->ID;
+
             		$post_id = get_the_ID();
             		$comment_count = wp_count_comments( $post_id );
             		$comment_count = $comment_count->total_comments;
@@ -167,83 +171,6 @@ function get_feed_images($post_id){
 				) );
 			echo '</div>';
 
-}
-	
-
-	function get_tank_feed($tank_id) {
-
-
-	
-		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-
-		$posts = array(
-			'author' => $user,
-			'posts_per_page' => 15,
-			'post_type' => 'user_journals', 
-			'post_status' => 'publish',
-			'meta_key'  => 'tt_tank_ref',
-			'meta_value'  => $tank_id,
-			'paged' => $paged,
-			);
-
-		$query = new WP_Query( $posts );
-			if ( $query->have_posts() ) : ?>
-    			<?php while ( $query->have_posts() ) : $query->the_post(); ?>   
-        		
-            		<?php 
-            		$permlink = get_the_permalink();
-            		// $excerpt = get_excerpt(50);
-            		$excerpt = get_the_excerpt();
-            		$name = get_the_author_meta('display_name');
-            		$time = get_the_time('F jS, Y');
-            		$user_id = $this->user_info();
-            		$post_id = get_the_ID();
-            		$comment_count = wp_count_comments( $post_id );
-            		$comment_count = $comment_count->total_comments;
-
-            		echo '<article class="grid-item post" >';
-            		$this->get_feed_images($post_id);
-					echo '<div class="post-data">';
-            			echo '<div class="user-info">';
-						echo get_avatar( get_the_author_meta( 'ID' ), 32 ); 
-            			echo '<p><span><a href="/profile/?user_id='.$user_id.'">'.$name.'</a> on '. $time .'</span></p>';
-            				echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
-            				echo '<div class="post-options-menu">';
-            				echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
-            				echo '</div>';
-            			echo'</div>';
-            			echo exclude_post_categories('1');
-            		
-            			// echo '<a href="'.$permlink.'">Read More </a>';
-						echo '<p class="excerpt">'.$excerpt.'</p>';
-            			echo '<div class="post-info">';
-
-            			$this->is_faved($user_id,$post_id);
-						if ( $comment_count == 0 ) {
-            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> comment</a>';
-            			} elseif ( $comment_count == 1 ) {
-            				echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
-            			} else {
-							echo '<a class="comments" href="'.$permlink.'"><i class="fas fa-comments"></i> '.$comment_count.' comment</a>';
-            				}
-            			
-            		echo '</div>';
-            		echo '</div>';
-            		echo '</article>';
-
-					endwhile; endif; 
-				echo '<div id="pagination">';
-
-				$big = 999999999; // need an unlikely integer
-				
-				echo paginate_links( array(
-					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-					'format' => '?paged=%#%',
-					'current' => max( 1, get_query_var('paged') ),
-					'total' => $query->max_num_pages
-				) );
-			echo '</div>';
-
 
 }
 
@@ -252,16 +179,6 @@ public function get_main_feed() {
 		$feed = new Feed();
 		global $wpdb;
   		global $post;
-
-	// function var_error_log( $object=null ){
- //        ob_start();                    // start buffer capture
- //       var_dump( $object );           // dump the values
- //        $contents = ob_get_contents(); // put the buffer into a variable
- //        ob_end_clean();                // end capture
- //        error_log( $contents );        // log contents of the result of var_dump( $object )
- //    }
-
-    
 
 		$cat = $_GET['cats'];
 

@@ -3378,7 +3378,8 @@ h3, h3 a {
   font-size: 2.6rem;
   color: #fff;
   font-family: "Open Sans", sans-serif;
-  text-decoration: none; }
+  text-decoration: none;
+  margin: 20px 0px 20px 0px; }
 
 h4, h4 a {
   font-size: 20px;
@@ -4546,6 +4547,56 @@ input[type="submit"].btn.account-reg {
     top: 0;
     opacity: 0.2;
     z-index: 44; }
+
+.page-template-overview .tank-livestock-list .stock-item {
+  position: relative;
+  float: left;
+  height: 54px;
+  width: 185px;
+  margin: 10px 0px 20px 0px; }
+  .page-template-overview .tank-livestock-list .stock-item a.stock-action {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    display: contents; }
+    .page-template-overview .tank-livestock-list .stock-item a.stock-action label {
+      margin: 0px; }
+  .page-template-overview .tank-livestock-list .stock-item .fa-arrow-circle-right {
+    color: #fff;
+    font-size: 25px;
+    font-size: 2.5rem;
+    position: absolute;
+    z-index: 9999;
+    left: 39px;
+    margin: 14px 0px 0px 0px; }
+  .page-template-overview .tank-livestock-list .stock-item .fa-edit, .page-template-overview .tank-livestock-list .stock-item .fa-trash-alt, .page-template-overview .tank-livestock-list .stock-item .fa-save, .page-template-overview .tank-livestock-list .stock-item .fa-camera-retro {
+    color: #fff;
+    font-size: 15px;
+    font-size: 1.5rem;
+    float: left;
+    margin: 10px 10px 0px 0px; }
+  .page-template-overview .tank-livestock-list .stock-item .stock-img {
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    background-size: cover !important; }
+  .page-template-overview .tank-livestock-list .stock-item .stock-data {
+    float: left;
+    padding: 18px 0px 0px 22px; }
+    .page-template-overview .tank-livestock-list .stock-item .stock-data ul {
+      height: auto; }
+    .page-template-overview .tank-livestock-list .stock-item .stock-data li {
+      color: white;
+      font-size: 12px;
+      font-size: 1.2rem; }
+    .page-template-overview .tank-livestock-list .stock-item .stock-data li.name, .page-template-overview .tank-livestock-list .stock-item .stock-data li.name span {
+      text-align: left; }
+      .page-template-overview .tank-livestock-list .stock-item .stock-data li.name .edit-tank-stock, .page-template-overview .tank-livestock-list .stock-item .stock-data li.name span .edit-tank-stock {
+        margin: 0px 0px 0px 4px; }
+    .page-template-overview .tank-livestock-list .stock-item .stock-data li.data {
+      float: none;
+      margin-right: 10px; }
 
 [contenteditable]:focus {
   outline: 0px solid transparent; }

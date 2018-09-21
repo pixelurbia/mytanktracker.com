@@ -76,6 +76,41 @@ function list_of_livestock() {
     return $livestock;
   }
 
+  function tank_list_of_livestock() {
+  
+      $tank_id = $_REQUEST['tank_id'];
+
+
+    global $wpdb;     
+    $livestock = $wpdb->get_results("SELECT * FROM user_tank_stock WHERE tank_id = '$tank_id'");
+
+     echo '<div class="tank-livestock-list">';
+    foreach ($livestock as $stock){
+      echo '<article class="stock-item '.$stock->stock_type.'" ">';
+          echo '<a class="stock-action" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
+          echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
+          echo '<div class="stock-data">';
+              echo '<ul>';
+
+                echo '<li class="';
+                  if (!$stock->stock_name){
+                    echo 'hide ';
+                  }
+                  echo 'name">Name: <span>'.$stock->stock_name.'</span></li>';
+                    echo '<li class="';
+                  if (!$stock->stock_count){
+                    echo 'hide ';
+                  }
+                  echo 'count data">Count: <span>'.$stock->stock_count.'</span></li>';
+
+              echo '</ul>';
+          echo '</div>';
+      echo '</article>';    
+      
+  }
+  echo '</div>';
+}
+
 
   public function list_of_stock($args) {
 
@@ -351,7 +386,7 @@ add_action('wp_ajax_nopriv_del_livestock', 'del_livestock');
 
 function del_livestock( $file = array() ) {    
 
-  
+
 
  require_once( ABSPATH . 'wp-admin/includes/admin.php' );
     // Verify nonce
