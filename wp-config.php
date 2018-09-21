@@ -25,9 +25,15 @@ define('DB_NAME', 'tanktracker');
 /** MySQL database username */
 define('DB_USER', 'root');
 
+
 /** MySQL database password */
-// define('DB_PASSWORD', '1r00mP3*KT%J9O31inJJZ3LlMcpWvDGm9#KTo59QEjtF!z1jFSmoaX&xNgPnckfU');
-define('DB_PASSWORD', 'root');
+$env = $_SERVER["HTTP_HOST"];
+if ($env == 'localhost:8888') {
+        define('DB_PASSWORD', 'root');
+    } else {
+        define('DB_PASSWORD', '1r00mP3*KT%J9O31inJJZ3LlMcpWvDGm9#KTo59QEjtF!z1jFSmoaX&xNgPnckfU');
+    }
+
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
