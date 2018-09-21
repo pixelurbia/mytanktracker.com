@@ -53,7 +53,7 @@ $user = $tanks->user_info();
 			$tanks->the_tank_gallery($tank_id,6);
 			echo '<h3>Most Recent Parameters</h3>';
 			$params->most_recent_param_list($tank_id);
-			echo '<h3>Live stock</h3>';
+			echo '<h3>Livestock</h3>';
 			$stock->tank_list_of_livestock();
 		?>
 	</section>
