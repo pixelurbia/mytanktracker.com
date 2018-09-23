@@ -257,7 +257,6 @@ function add_user_tank( $file = array() ) {
             // var_error_log($file['type']);
             // var_error_log('valid file type');
             $action = 'tank update File upload';
-            $action = 'tank update File upload';
             $ref_id = 0345;
             $description = 'valid file: '.$_FILES["file"]["type"];
             audit_trail($user_id, $action, $ref_id, $description);
@@ -367,6 +366,14 @@ function update_tank_photo() {
   $user_id = $user->ID;
 
 
+    //  function var_error_log( $object=null ){
+    //     ob_start();                    // start buffer capture
+    //    var_dump( $object );           // dump the values
+    //     $contents = ob_get_contents(); // put the buffer into a variable
+    //     ob_end_clean();                // end capture
+    //     error_log( $contents );        // log contents of the result of var_dump( $object )
+    // }
+
    // Verify nonce
  if( !isset( $_POST['ajax_form_nonce_photo'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_photo'], 'ajax_form_nonce_photo' ) )
     die( 'Ooops, something went wrong, please try again later.');
@@ -408,18 +415,69 @@ function update_tank_photo() {
         }
 
 
-		move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
-		$fileurl = $new_file_dir.$_FILES["file"]["name"];
-		$filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
+ 
+
+ 
+			$file = $_FILES["file"];
+			//tank photo resize stuff 
+		 	$obj_type = 'img';
+            $hex = uni_key_gen($obj_type);
+
+            $imageData = getimagesize($file['tmp_name']);
+            $extension = image_type_to_extension($imageData[2]);
 
 
+            $fileName = $file['name'];
+            $fileThumbName = $hex.'-thumb'.$extension; 
+            $fileFullName = $hex.'-large'.$extension;
+            $fileTempName = $file['tmp_name'];
+            
+            move_uploaded_file($fileTempName, $new_file_dir.$fileFullName);
 
+            $ref_id = $tank_id;
+            $photo_url = $new_file_url.$fileFullName;
+            $photo_thumb_url = $new_file_url.$fileThumbName;
 
+            $obj_type_new = 'user-tank-img';
+            $hextwo = uni_key_gen($obj_type_new);
+
+            //thumbnail processesing 
+            $general = NEW General();
+            $target_dir = $new_file_dir;
+            $target = $new_file_dir.$fileThumbName;
+            $load = $new_file_dir.$fileFullName;
+            $size = 1024;
+        
+			$general->resizeImageFiles($size,$load,$target);
+			
+   // var_error_log($fileName);
+   // var_error_log($fileFullName);
+   // var_error_log($fileThumbName);
+   // var_error_log($extension);
+   // var_error_log($photo_url);
+   // var_error_log($photo_thumb_url);
+
+		// move_uploaded_file($_FILES["file"]["tmp_name"], $new_file_dir.$_FILES["file"]["name"]);
+		// $fileurl = $new_file_dir.$_FILES["file"]["name"];
+		// $filepath = '/wp-content/uploads/user_tanks/'.$_FILES["file"]["name"];
 
  
   $user_id = $user->ID;
   $tank_id = $_REQUEST['ref_id'];
-  $tank_image = $filepath;
+  $tank_image = $photo_thumb_url;
+
+
+        $obj_type_new = 'user-tank-img';
+        $hextwo = uni_key_gen($obj_type_new);
+  
+        $wpdb->insert('user_photos',array(
+        'user_id'=> $user_id,
+        'photo_id'=> $hextwo,
+        'ref_id'=> $tank_id,
+        'photo_url'=> $photo_url,
+        'photo_thumb_url'=> $photo_thumb_url,
+        'inserted_date'=> date("Y-m-d H:i:s")
+        ));
 
 
   $wpdb->update('user_tanks',array(
