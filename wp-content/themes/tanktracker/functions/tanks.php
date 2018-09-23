@@ -231,6 +231,7 @@ function add_user_tank( $file = array() ) {
   global $post;
   $user = wp_get_current_user();
   $user_name = $user->display_name;
+  $user_id = $user->ID;
   $validation = $_REQUEST['verfication-username'];
 
  if( !isset( $_POST['ajax_form_nonce_tank'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_tank'], 'ajax_form_nonce_tank' ) ){
@@ -255,6 +256,7 @@ function add_user_tank( $file = array() ) {
          {
             // var_error_log($file['type']);
             // var_error_log('valid file type');
+            $action = 'tank update File upload';
             $action = 'tank update File upload';
             $ref_id = 0345;
             $description = 'valid file: '.$_FILES["file"]["type"];
@@ -311,7 +313,7 @@ function add_user_tank( $file = array() ) {
   $obj_type = 'tank';
   $hex = uni_key_gen($obj_type);
 
-  $user_id = $user->ID;
+
   $tank_name = $_REQUEST['tankname'];
   $tank_type = $_REQUEST['tanktype'];
   $tank_volume = $_REQUEST['volume'];
