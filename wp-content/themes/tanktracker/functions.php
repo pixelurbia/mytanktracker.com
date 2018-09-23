@@ -57,6 +57,16 @@ function new_user() {
  if( !isset( $_POST['ajax_form_nonce'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce'], 'ajax_form_nonce' ) )
     die( 'Ooops, something went wrong, please try again later.' );
 
+
+
+ function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
   // Post values
     $username = $_REQUEST['username'];
     $password = $_REQUEST['pass'];
@@ -80,7 +90,32 @@ function new_user() {
  
     // Return
     if( !is_wp_error($user_id) ) {
-        wp_set_current_user( $user_id, $username );
+ 
+
+
+            $ip = $_SERVER['REMOTE_ADDR'];
+            $action = 'New User';
+            $ref_id = 888;
+            $description = 'user_id: '.$user_id.' User IP: '.$ip;
+            audit_trail($user_id, $action, $ref_id, $description);
+
+    $user = get_userdata($user_id);
+    $user_name = $user->user_nicename;
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $to = $email;
+    $subject = 'Welcome to TankTracker!';
+    $message = '<br> Hello '.$username.'! <br> Welcome to TankTracker™ and welcome to the #FishFam! <br> We are excited to have you aboard.<br> <br> Regards,<br> The TankTracker™ team';
+
+
+    $suc = wp_mail( $to, $subject, $message, $headers );
+
+
+    // var_error_log($message);
+    // var_error_log($email);
+
+
+                   wp_set_current_user( $user_id, $username );
         wp_set_auth_cookie( $user_id );
         do_action( 'wp_login', $username );
         die('sucess');
@@ -88,25 +123,10 @@ function new_user() {
        die($user_id->get_error_message()); 
     }
 
-         $ip = $_SERVER['REMOTE_ADDR'];
-            $action = 'New User';
-            $ref_id = 888;
-            $description = 'user_id: '.$user_id.' User IP: '.$ip;
-            audit_trail($user_id, $action, $ref_id, $description);
+       
  
 
-    $user = get_userdata($user_id);
-    $user_name = $user->user_nicename;
-
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-    $to = $email;
-    $subject = 'Password reset';
-    $message = 'Hello '.$username.'! <br> Welcome to TankTracker™ and welcome to the #FishFam!.';
-
-
-    $suc = wp_mail( $to, $subject, $message, $headers );
-
-
+   
  
 }
 
