@@ -95,7 +95,7 @@ if (isset( $date_start ) && isset( $date_end )){
                                  layout: {
                                         padding: {
                                   left: 10,
-                                  right: 10,
+                                  right: 25,
                                   top: 10,
                                   bottom: 10
                                    }

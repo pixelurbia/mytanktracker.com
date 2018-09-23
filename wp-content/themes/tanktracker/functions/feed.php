@@ -57,7 +57,7 @@ function get_post_images($post_id){
     	 echo '<ul class="gallery post-gallery">';
       foreach ($images as $img){
         echo '<li class="gallery-item item-'.$i.'">';
-          echo '<img src="'.$img->photo_url.'">';
+          echo '<img full="'.$img->photo_url.'" src="'.$img->photo_thumb_url.'">';
         echo '</li>';
         $i++;
     	}
@@ -132,6 +132,11 @@ function get_feed_images($post_id){
             		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
             		echo '<div class="post-options-menu">';
             			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+
+            			if ($auth_id == $user_id){
+            				echo '<a class="edit-this-post" href="'.$permlink.'?edit=yes">Edit Post</a>';
+            			}
+            			
             		echo '</div>';
             		$this->get_feed_images($post_id);
 					echo '<div class="post-data">';
@@ -223,6 +228,9 @@ public function get_main_feed() {
             		echo '<a class="post-options"><i class="fas fa-ellipsis-v"></i></a>';
             		echo '<div class="post-options-menu">';
             			echo '<a class="report-this-post" post_id="'.$post_id.'" reporting_user="'.$user_id.'" content_type="post" auth_id="'.$auth_id.'" report_nonce="'.wp_create_nonce( 'report_ajax_nonce' ).'">Report Post</a>';
+            			if ($auth_id == $user_id){
+            				echo '<br><a class="edit-this-post" href="'.$permlink.'?edit=yes">Edit Post</a>';
+            			}
             		echo '</div>';
             		$feed->get_feed_images($post_id);
 					echo '<div class="post-data">';

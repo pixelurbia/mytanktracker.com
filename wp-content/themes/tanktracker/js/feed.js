@@ -49,6 +49,8 @@ $('.wrap').on("click", ".report-this-post", function(){
 
 $('.wrap').on("click", ".mod-tool-action", function(){ 
 
+
+
 	var report_id = $(this).attr('report_id');
 	var ajax_form_mod_log = $(this).attr('nonce');
 	var mod_approval = $(this).attr('name');
@@ -80,6 +82,47 @@ $('.wrap').on("click", ".mod-tool-action", function(){
 
 
 });
+
+$('.save-user-post').click(function() {
+		event.preventDefault(); // Prevent the defau
+
+	var post_id = $(this).attr('post_id');
+	var the_post_content = $('.the_post_content').html();
+	var nonce = $(this).attr('nonce');
+
+	var data = {action: 'update_user_post', ajax_form_nonce_save_post: nonce, post_id: post_id, the_post_content: the_post_content};
+
+// alert(post_id);
+// alert(the_post_content);
+// alert(nonce);
+      console.log(data);
+      //Custom data
+      // data.append('key', 'value');
+      $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+          	console.log('success');
+          	// alert('succ');
+          	// location.reload();
+			URL = document.URL;
+			URL = URL.replace('edit=yes',''); 
+			window.location = URL;
+
+          },
+          error: function (e) {
+              //error
+			console.log('error 97897');
+			console.log(data);
+
+          }
+      });
+
+
+});
+
 
 $('.category-filter a').click( function(){
 

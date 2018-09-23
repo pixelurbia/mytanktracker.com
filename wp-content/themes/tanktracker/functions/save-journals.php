@@ -1,19 +1,84 @@
 <?php
 
+
+add_action('wp_ajax_update_user_post', 'update_user_post');
+add_action('wp_ajax_nopriv_update_user_post', 'update_user_post');
+
+/**
+ * update_user_post
+ *
+ */
+
+function update_user_post() {   
+
+ if( !isset( $_POST['ajax_form_nonce_save_post'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_post'], 'ajax_form_nonce_save_post' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
+   
+    $post_id = $_REQUEST['post_id'];
+    $post_content = $_REQUEST['the_post_content'];
+    $current_user = wp_get_current_user();
+    $user_id = $current_user->ID;
+
+    $post_author_id = get_post_field( 'post_author', $post_id );
+
+    if ($post_author_id == $user_id){
+
+    }
+
+    function var_error_log( $object=null ){
+        ob_start();                    // start buffer capture
+       var_dump( $object );           // dump the values
+        $contents = ob_get_contents(); // put the buffer into a variable
+        ob_end_clean();                // end capture
+        error_log( $contents );        // log contents of the result of var_dump( $object )
+    }
+
+var_error_log($post_author_id);
+var_error_log($user_id);
+
+    if ($post_author_id == $user_id){
+        $my_post = array(
+      'ID'           => $post_id,
+      'post_content' => $post_content,
+        );
+ 
+    // Update the post into the database
+    wp_update_post( $my_post );
+
+    } else {
+        return 'This is not your post';
+    }
+
+
+
+
+};
+
+
+
+
+
+
+
+
 add_action('wp_ajax_add_journal', 'add_user_journal');
 add_action('wp_ajax_nopriv_add_journal', 'add_user_journal');
 
 /**
- * Add Tank
+ * Add Journal
  *
  */
 
 function add_user_journal() {    
 
+       ini_set ('display_errors', false);
+   ini_set ('memory_limit', '400M'); 
+   ini_set ('post_max_size', '400M'); 
+   ini_set ('upload_max_filesize', '400M'); 
+
+
       // Verify nonce
- if( !isset( $_POST['ajax_form_nonce_journal'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_journal'], 'ajax_form_nonce_journal' ) )
-    die( 'Ooops, something went wrong, please try again later.' );
-   
+
 
   global $post;
   global $wpdb;

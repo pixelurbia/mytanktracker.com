@@ -141,7 +141,7 @@ $('.param-table-filters').click(function() {
         }); // end ajax call
     });
 
-$('.param-table').on("click", ".del-param-input", function(){
+$('.wrap').on("click", ".del-param-input", function(){
 
     var tank_id = $(this).attr('tank_id'),
     param_id = $(this).attr('param_id'),
@@ -161,7 +161,7 @@ $('.param-table').on("click", ".del-param-input", function(){
 
   }); 
 
-$('.param-table').on("click", ".edit-param-input", function(){
+$('.wrap').on("click", ".edit-param-input", function(){
 
       var parent = $(this).parent().parent();
       parent.find('.param_value').attr('contenteditable','true');
@@ -175,7 +175,7 @@ $('.param-table').on("click", ".edit-param-input", function(){
 
 
 
-$('.param-table').on("click", ".save-param-input", function(){
+$('.wrap').on("click", ".save-param-input", function(){
 
 
 

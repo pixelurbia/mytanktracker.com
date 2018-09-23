@@ -29,6 +29,7 @@ class SimpleImage {
 
    ini_set ('display_errors', false);
    ini_set ('memory_limit', '400M'); 
+   ini_set ('post_max_size', '40M'); 
 
       $image_info = getimagesize($filename);
       $this->image_type = $image_info[2];
