@@ -70,11 +70,11 @@ function get_post_images($post_id){
 function get_feed_images($post_id){
 	
 	// $post_id = $_GET['post_id'];
-    $user = $this-> user_info();
+	$auth_id = get_the_author_meta('id');
     $permlink = get_the_permalink($post_id);
     global $wpdb;     
-    $numOfImages = $wpdb->get_var("SELECT COUNT(photo_url) FROM user_photos WHERE user_id = $user AND ref_id = $post_id");
-    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $user AND ref_id = $post_id LIMIT 1");
+    $numOfImages = $wpdb->get_var("SELECT COUNT(photo_url) FROM user_photos WHERE user_id = $auth_id AND ref_id = $post_id");
+    $images = $wpdb->get_results("SELECT photo_url,photo_thumb_url FROM user_photos WHERE user_id = $auth_id AND ref_id = $post_id LIMIT 1");
 
     $i = 0;
     if ($images){
