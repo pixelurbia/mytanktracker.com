@@ -251,6 +251,14 @@ function add_user_tank( $file = array() ) {
        $new_file_url = '/wp-content/uploads/user_tanks/';
   }
 
+
+if (!$_FILES["file"]){ 
+$photo_url = ' ';
+$photo_thumb_url = ' ';
+
+} else {
+
+
   $mimeTypes = array('image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'); //allowed file types
         if (in_array($_FILES["file"]["type"], $mimeTypes))
          {
@@ -307,7 +315,7 @@ function add_user_tank( $file = array() ) {
         
             $general->resizeImageFiles($size,$load,$target);
 		
-
+}
   //create hex unique ref key ID
   $obj_type = 'tank';
   $hex = uni_key_gen($obj_type);
@@ -337,13 +345,13 @@ function add_user_tank( $file = array() ) {
 
 
     );
-
+if ($_FILES["file"]){ 
   $ref_id = $hex;
   $fileUrls = array($photo_thumb_url);
   // $cars=array("Volvo","BMW","Toyota");
   $message = $user_name.' added a new tank!';
   create_post_record($ref_id, $photo_url, $photo_thumb_url, $message);
-
+}
     return false;
 }
 
@@ -449,7 +457,7 @@ function update_tank_photo() {
             $size = 1024;
         
 			$general->resizeImageFiles($size,$load,$target);
-			
+
    // var_error_log($fileName);
    // var_error_log($fileFullName);
    // var_error_log($fileThumbName);

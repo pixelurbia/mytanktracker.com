@@ -69,16 +69,15 @@ Object.entries = function( obj ){
       
       //File data
       var file = $('#tank-img')[0].files[0];
-      var fileType = file["type"];
-      // alert(fileType);
+      if ($(file).length){
+        var fileType = file["type"];  
 
+          var types = ['image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'];
 
-      var types = ['image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'];
-
-      console.log(fileType);
-      console.log(types);
-var ter = $.inArray(fileType, types);
-console.log(ter);
+      // console.log(fileType);
+      // console.log(types);
+      var ter = $.inArray(fileType, types);
+      // console.log(ter);
 
   if ($.inArray(fileType, types) == -1) {
           
@@ -88,6 +87,13 @@ console.log(ter);
 } else {
            data.append("file", file);
 }
+      
+      }
+      
+      // alert(fileType);
+
+
+    
 
       // for (var pair of data.entries()) {
       //     console.log(pair[0]+ ', ' + pair[1]); 
@@ -252,6 +258,9 @@ $('.wrap').on("click", ".delete-tank", function(){
       var parent = $(this).parent().parent();
       var data = new FormData();
 
+
+
+
       var spinner ='<div class="ias-spinner-idea spinner-loader" style="text-align: center; position:fixed; top:25%; left:0; right:0; margin:0 auto; z-index:9999999999;"><img src="https://loading.io/spinners/gooeyring/index.gooey-ring-spinner.svg"/></div>';
       $('.overlay').after(spinner);
       
@@ -268,7 +277,29 @@ $('.wrap').on("click", ".delete-tank", function(){
       
       //File data
       var file = parent.find('.tank-photo-img')[0].files[0];
-      data.append("file", file);
+
+      if ($(file).length){
+        var fileType = file["type"];  
+
+          var types = ['image/jpeg','image/pjpeg','image/jpeg','image/pjpeg','image/gif','image/png'];
+
+      // console.log(fileType);
+      // console.log(types);
+      var ter = $.inArray(fileType, types);
+      // console.log(ter);
+
+  if ($.inArray(fileType, types) == -1) {
+          
+           $('.global-error').html('The image you uploaded is not a valid image type. jpeg/png/gif are allowed.');
+             $('.global-error').addClass('show');
+             $('.ias-spinner').remove();
+            return;
+} else {
+           data.append("file", file);
+}
+      
+      }
+
       
       // for (var pair of data.entries()) {
       //     console.log(pair[0]+ ', ' + pair[1]); 
