@@ -89,22 +89,6 @@ function list_of_livestock() {
       echo '<article class="stock-item '.$stock->stock_type.'" ">';
           echo '<a class="stock-action" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
-          echo '<div class="stock-data">';
-              echo '<ul>';
-
-                echo '<li class="';
-                  if (!$stock->stock_name){
-                    echo 'hide ';
-                  }
-                  echo 'name">Name: <span>'.$stock->stock_name.'</span></li>';
-                    echo '<li class="';
-                  if (!$stock->stock_count){
-                    echo 'hide ';
-                  }
-                  echo 'count data">Count: <span>'.$stock->stock_count.'</span></li>';
-
-              echo '</ul>';
-          echo '</div>';
       echo '</article>';    
       
   }

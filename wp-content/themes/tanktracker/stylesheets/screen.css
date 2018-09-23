@@ -3517,8 +3517,7 @@ img {
       float: left;
       display: block;
       margin-right: 2.3576515979%;
-      width: 40.2913699012%;
-      margin-right: 0px; }
+      width: 100%; }
       .third:last-child {
         margin-right: 0; } }
   @media screen and (max-width: 600px) {
@@ -3559,7 +3558,7 @@ img {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
-  width: 48.821174201%; }
+  width: 65.8807828007%; }
   .half:last-child {
     margin-right: 0; }
   @media screen and (max-width: 1080px) {
@@ -4557,7 +4556,7 @@ input[type="submit"].btn.account-reg {
   position: relative;
   float: left;
   height: 54px;
-  width: 185px;
+  width: 85px;
   margin: 10px 0px 20px 0px; }
   .page-template-overview .tank-livestock-list .stock-item a.stock-action {
     height: 20px;

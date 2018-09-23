@@ -77,7 +77,7 @@ $horz:1180px;
 }
 
 @mixin half {
-	@include span-columns(6);
+	@include span-columns(8);
 	@include media ($tablet){
 		@include span-columns(12);
 	} 
@@ -99,8 +99,8 @@ $horz:1180px;
 @mixin third {
 	@include span-columns(4);
 	@include media ($tablet) {
-		@include span-columns(5);
-		margin-right: 0px;
+		@include span-columns(12);
+
 	}
 	@include media ($phone) {
 		@include span-columns(12)
