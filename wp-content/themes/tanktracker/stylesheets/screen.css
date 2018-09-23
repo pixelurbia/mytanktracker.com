@@ -3389,8 +3389,8 @@ h4, h4 a {
   font-weight: 100; }
 
 h6, h6 a {
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   color: #fff;
   font-family: "Open Sans", sans-serif;
   font-weight: 100; }
@@ -3404,16 +3404,16 @@ h5 {
 
 p {
   padding-top: 10px;
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 20px;
   font-family: "Open Sans", sans-serif;
   color: #fff; }
 
 span, ol, ul, li {
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 300;
   font-family: "Open Sans", sans-serif;
   color: #fff; }

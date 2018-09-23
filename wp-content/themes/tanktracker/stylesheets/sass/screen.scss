@@ -15,10 +15,10 @@ h1, h1 a { @include font-size(5);  color:$white; font-weight:600; font-family:$o
 h2, h2 a {   @include font-size(3.2); color:$white; font-family:$ops; text-decoration:none; font-weight: 100; letter-spacing: 5px; text-transform: uppercase; }
 h3, h3 a {   @include font-size(2.6); color:$white; font-family:$ops;  text-decoration:none; margin:20px 0px 20px 0px;}
 h4, h4 a { @include font-size(2.0 ); color:$white; font-family:$ops; font-weight:100;  }
-h6, h6 a { @include font-size(1.2); color:$white; font-family:$ops; font-weight:100; }
+h6, h6 a { @include font-size(1.6); color:$white; font-family:$ops; font-weight:100; }
 h5 {@include font-size(1.6); color:$white; font-family:$ops; font-weight:500; }
-p { padding-top:10px; @include font-size(1.2);  font-weight:300; line-height:20px; font-family:$ops; color:$white;}
-span, ol, ul, li { @include font-size(1.2);  font-weight:300; font-family:$ops; color:$white;}
+p { padding-top:10px; @include font-size(1.6);  font-weight:300; line-height:20px; font-family:$ops; color:$white;}
+span, ol, ul, li { @include font-size(1.6);  font-weight:300; font-family:$ops; color:$white;}
 a { color: $input-text; cursor:pointer!important; @include font-size(1.6); text-decoration:none; @include opensansl;
     &:hover { text-decoration: none; opacity:0.9; color:$white;}
     &:focus { outline: 0; }
