@@ -175,6 +175,6 @@
 
 </script>
 
-
+<div class="mouse-tool-tip"></div>
 <div class="overlay"></div>
 

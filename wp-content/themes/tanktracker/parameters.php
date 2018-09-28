@@ -12,7 +12,7 @@ $tank = $user_tanks->get_tank_data($tank_id);
 $tank_id = $tank[0]->tank_id;
 $user = $user_tanks->user_info();
      ?>
-<div class="mouse-tool-tip"></div>
+
 
     <section class="frame"> 
         <?php  

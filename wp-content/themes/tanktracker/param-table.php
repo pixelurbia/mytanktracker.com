@@ -24,7 +24,7 @@ $user = $user_tanks->user_info();
      
 
 ?>
-    <div class="mouse-tool-tip"></div>
+    
     <section class="frame"> 
 
       <div class="tank_header">

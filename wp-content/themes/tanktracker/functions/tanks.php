@@ -170,11 +170,11 @@ class Tanks {
 		echo'>Make: <i class="tank_info tank_make">'.$tank->tank_make.'</i></span>';	
 			echo '</p>';
 			echo '<div class="tank_actions">';
-				echo '<a href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
-					echo '<a href="/fullview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
-					echo '<a href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
+				echo '<a class="tip" tip="Overview Page" href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';
+					echo '<a class="tip" tip="Parameters" href="/fullview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-flask"></i></a>';
+					echo '<a class="tip" tip="Livestock" href="/stock/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-tint"></i></a>';
 					// echo '<a  href="/equipment/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-bolt"></i></a>';
-						echo '<a class="edit-tank">';
+						echo '<a tip="Edit Tank" class="edit-tank tip">';
 						echo '<i class="fas edit-tank-stock fa-3x fa-edit" ></i>';
 					echo '</a>';
 			echo '</div>';
@@ -184,7 +184,7 @@ class Tanks {
 				echo '<input type="hidden" name="ref_id" value="'.$tank->tank_id.'">';
 				echo '<input type="hidden" name="user_id" value="'.$user.'">';
 				wp_nonce_field('ajax_form_nonce_photo','ajax_form_nonce_photo', true, true ); 
-			echo '<a class="image-change" >';
+			echo '<a tip="Change Tank Image" class="image-change tip" >';
             	echo '<label class="tank-img" for="tank-photo-img-'.$tank->tank_id.'">';
             		echo '<i class="fas fa-3x fa-camera-retro"></i>';
             	echo '</label>';
@@ -192,10 +192,10 @@ class Tanks {
             	echo '<input type="file" name="file_upload" id="tank-photo-img-'.$tank->tank_id.'" class="tank-photo-img inputfile hide" accept="image/*" />';
         		echo '</a></form>';
 
-					echo '<a class="save-edit-tank btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
+					echo '<a tip="Save Tank Changes" class="save-edit-tank tip btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_update_tank").'" tank_id="'. $tank->tank_id .'">';
 						echo '<i class="fas edit-tank-stock fa-3x fa-save"></i>';
 					echo '</a>';
-					echo '<a class="delete-tank btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_del_tank").'" tank_id="'. $tank->tank_id .'">';
+					echo '<a tip="Delete Tank" class="delete-tank tip btn-styles" nonce="'. wp_create_nonce("ajax_form_nonce_del_tank").'" tank_id="'. $tank->tank_id .'">';
 						echo '<i class="fas edit-tank-stock  fa-3x fa-trash-alt"></i>';
 					echo '</a>';
 					

@@ -14,7 +14,6 @@ $(document).ready(function() {
 $('.aiosc-uploader').parent().hide();
 
 
-
 $('.type-menu .menu-item-contain').click( function() {
 	$('.type-menu .menu-item-contain').removeClass('selected');
 	$(this).addClass('selected');
@@ -104,7 +103,13 @@ window.onmousemove = function (e) {
 };
 
  
-
+$('.tip').hover(function(){
+	var content = $(this).attr('tip');
+ 	tooltipSpan.show();
+ 	tooltipSpan.html(content);
+ }, function(){
+ 	tooltipSpan.hide();
+});
 
 $('.day.one-change')
 
