@@ -143,7 +143,7 @@ class Tanks {
 	echo '<div class="a_tank select_tank">';
 	echo '<div class="content">';
 		echo '<h2>';
-			echo '<i class="tank_info tank_name">'. $tank->tank_name .'</i>';
+			echo '<i class="tank_info tank_name">'. stripslashes($tank->tank_name) .'</i>';
 		echo '</h2>';
 		echo '<p>';
 
@@ -152,22 +152,22 @@ class Tanks {
 			if (!$tank->tank_volume) {
 				echo ' class="hide"';
 			} 
-		echo'>Volume: <i class="tank_info tank_volume">'.$tank->tank_volume.'</i> Gallons </span>';
+		echo'>Volume: <i class="tank_info tank_volume">'.stripslashes($tank->tank_volume).'</i> Gallons </span>';
 		echo '<span' ; 
 			if (!$tank->tank_dimensions){
 				echo ' class="hide"';
 			}
-		echo'>Dimensions: <i class="tank_info tank_dimensions">'.$tank->tank_dimensions.'</i></span>';
+		echo'>Dimensions: <i class="tank_info tank_dimensions">'.stripslashes($tank->tank_dimensions).'</i></span>';
 		echo '<span' ; 
 			if (!$tank->tank_model){
 				echo ' class="hide"';
 			}
-		echo'>Model: <i class="tank_info tank_model">'.$tank->tank_model.'</i></span>';
+		echo'>Model: <i class="tank_info tank_model">'.stripslashes($tank->tank_model).'</i></span>';
 		echo '<span' ; 
 			if (!$tank->tank_make){
 				echo ' class="hide"';
 			}
-		echo'>Make: <i class="tank_info tank_make">'.$tank->tank_make.'</i></span>';	
+		echo'>Make: <i class="tank_info tank_make">'.stripslashes($tank->tank_make).'</i></span>';	
 			echo '</p>';
 			echo '<div class="tank_actions">';
 				echo '<a class="tip" tip="Overview Page" href="/overview/?tank_id='.$tank->tank_id.'"><i class="fas fa-3x fa-list-alt"></i></a>';

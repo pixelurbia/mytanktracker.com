@@ -32,16 +32,16 @@ $user = $user_tanks->user_info();
             <p>
             <?php
                 if ($tank[0]->tank_volume) {
-                    echo  '<span>Volume: '.$tank[0]->tank_volume.' Gallons </span>';
+                    echo  '<span>Volume: '.stripslashes($tank[0]->tank_volume).' Gallons </span>';
                 } 
                 if ($tank[0]->tank_dimensions){
-                    echo '<span>Dimensions: '.$tank[0]->tank_dimensions.'</span>';
+                    echo '<span>Dimensions: '.stripslashes($tank[0]->tank_dimensions).'</span>';
                 }
                 if ($tank[0]->tank_model){
-                    echo '<span>Model: '.$tank[0]->tank_model.'</span>';
+                    echo '<span>Model: '.stripslashes($tank[0]->tank_model).'</span>';
                 }
                 if ($tank[0]->tank_make){
-                    echo '<span>Make: '.$tank[0]->tank_make.'</span>'; 
+                    echo '<span>Make: '.stripslashes($tank[0]->tank_make).'</span>'; 
                 }
             ?> 
             </p>

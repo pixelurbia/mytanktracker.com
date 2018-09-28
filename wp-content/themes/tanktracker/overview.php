@@ -28,20 +28,20 @@ $user = $tanks->user_info();
 
 <section class="overview_tank frame" value="<?php echo $tank->tank_id ?>">
 	<div class="tank_header">
-		<h2><?php echo  $tank[0]->tank_name ?></h2>
+		<h2><?php echo  stripslashes($tank[0]->tank_name) ?></h2>
 		<p>
 			<?php
 				if ($tank[0]->tank_volume) {
-					echo  '<span>Volume: '.$tank[0]->tank_volume.' Gallons </span>';
+					echo  '<span>Volume: '.stripslashes($tank[0]->tank_volume).' Gallons </span>';
 				} 
 				if ($tank[0]->tank_dimensions){
-					echo '<span>Dimensions: '.$tank[0]->tank_dimensions.'</span>';
+					echo '<span>Dimensions: '.stripslashes($tank[0]->tank_dimensions).'</span>';
 				}
 				if ($tank[0]->tank_model){
-					echo '<span>Model: '.$tank[0]->tank_model.'</span>';
+					echo '<span>Model: '.stripslashes($tank[0]->tank_model).'</span>';
 				}
 				if ($tank[0]->tank_make){
-					echo '<span>Make: '.$tank[0]->tank_make.'</span>';	
+					echo '<span>Make: '.stripslashes($tank[0]->tank_make).'</span>'; 
 				}
 			?> 
 			</p>
