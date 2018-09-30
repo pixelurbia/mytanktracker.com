@@ -46,9 +46,14 @@ img {  height:auto; margin:0; padding:0;}
 .readmore { color:$black; float:right; display:inline-block; margin:15px;}
 .noclick {width: 100%; height: 381px; position: absolute; z-index: 9999;}
 .mauto {margin:0 auto;}
-.third {@include third;}
+.third { @include third;
+	h3 {
+	    padding-left: 10px;
+	}
+}
 .fourth {@include fourth;}
 .half {@include half;}
+.eight {@include eight;}
 .dither {opacity: 0.2;}
 input {
 	@include opensansl;
@@ -59,50 +64,6 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 @-moz-document url-prefix() { }	
 
 
-.ui-tooltip, .arrow:after {
-    background: white;
-    border: none;
-  }
-  .ui-tooltip {
-    // color: black;
-    // box-shadow: 0 0 7px black;
- 	text-align:left;
-    z-index:99999999;
-    // width:400px;
-    // height:20px;
-  }
-  .arrow {
-    width: 70px;
-    height: 16px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    bottom: -16px;
-  }
-  .arrow.top {
-    top: -16px;
-    bottom: auto;
-  }
-  .arrow.left {
-    left: 20%;
-  }
-  .arrow:after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 25px;
-    height: 25px;
-    box-shadow: 6px 5px 9px -9px black;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .arrow.top:after {
-    bottom: -20px;
-    top: auto;
-  }
 
 .donor {
 	position: relative;
@@ -317,18 +278,23 @@ blockquote {@include span-columns(12); float:none; margin:10px auto!important; }
 }
 
 //table styles
+table * {
+	@include font-size(1.4);
+	@include media ($phone) { 
+		@include font-size(1.2);
+	}
+}
 table {
 	   position:relative;
     	z-index:77;
     	width:100%;
-    	max-width:600px;
 	tr {
 		    height: 35px;
 
 		th {
 			width:100%;
     		max-width:100px;
-			padding:5px;
+			padding:0px 0px 0px 10px;
 			color:$white;
 			background:rgba(238, 238, 238, 0.05);
 			border-bottom: 0px solid rgba(238, 238, 238, 0.08);
@@ -338,7 +304,7 @@ table {
 			border-bottom: 0px solid rgba(238, 238, 238, 0.08);
 			width:100%;
     		max-width:100px;
-			padding:5px;
+			padding:0px 0px 0px 10px;
 			color:$white;
 			&:hover{
 				background:rgba(238, 238, 238, 0.08);
@@ -430,7 +396,7 @@ select[multiple=multiple]  {
     padding: 8px;
     width: 100%;
     color: $white;
-    @include font-size(1.6); 
+    @include font-size(1.4); 
 	text-transform:none;
     font-weight: 400;
     letter-spacing: 1px;
@@ -441,6 +407,9 @@ select[multiple=multiple]  {
 		color: $white !important;
   		box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.06)!important;
     }
+    	@include media ($phone) { 
+			@include font-size(1.2);
+	}
 }
 select option {
 	color:$black;
@@ -763,8 +732,8 @@ input[type="submit"].btn.account-reg {
 	margin: 10px 0px 0px 0px;
     display: block;
     width: 100%;
+    float:left;
     overflow: hidden;
-    padding: 0px 30px 0px 10px;
     position:relative;
     z-index:77;
 }			
@@ -782,6 +751,22 @@ input[type="submit"].btn.account-reg {
 }
 
 //param tables
+.parameter-frame.frame {
+	h3 {
+		float: left;
+		padding-left:15px;
+	}
+	@include media ($phone) { 
+		padding:0px;
+	}
+	.table-actions {
+		float: left;
+    	margin: 26px 0px 0px 30px;
+    	a {
+    		margin: 0px 0px 0px 15px;
+    	}
+	}
+}
 
 .aparam {
 	padding-top:10px;
@@ -792,29 +777,29 @@ input[type="submit"].btn.account-reg {
     height:500px;
 }
 .param-table table {
-	margin:0px 0px 0px 10px;
     width: 100%;
-    max-width: 350px;
     float:left;
-    @include media ($phone) { 
-			margin: 0px 0px 0px -10px;
-		}
+
 
     th {
-    	width:120px;
+    	width:80px;
     	@include media ($phone) { 
     	 // padding-left:15px;
     	}
     	&:nth-child(2) {
-			width:60px;
+			width:50px;
 		
     	}   	
+    	&:nth-child(3) {
+			width:55px;
+		
+    	}  
     	&:nth-child(4) {
-			width:50px;
+			width:20px;
 		
     	}   	
     	&:nth-child(5) {
-			width:50px;
+			width:20px;
 		
     	}
     }
@@ -824,13 +809,21 @@ input[type="submit"].btn.account-reg {
 		@include media ($phone) { 
     	 // padding-left:15px;
     	}
+		&:first-child {
+			position:relative;
+    	.fa-angle-down {
+		    position: absolute;
+    		left: 110px;
+    		top: 12px;
+			}
+		}
     }
     .editable {
 		border-bottom: 1px solid;
     	background-color: rgba(255, 255, 255, 0.15);
 	}
     .input-row.new-input {
-		.edit-btn {
+		.edit-btn,.del-btn {
 			display:none;
 		}
 		.save-btn {
@@ -841,11 +834,12 @@ input[type="submit"].btn.account-reg {
 		select, input {
 			height: 30px;
 			border: 0;
-			font-size: 10px;
 			margin: 0px;
 			padding: 0px;
 			letter-spacing: 0px;
+			position:relative;
 	}
+
 	.edit-btn {
 		display:table-cell;
 	}
@@ -1597,7 +1591,7 @@ input[type="submit"].btn.account-reg {
 //journals
 
 	section.frame.post {
-		// @include half;
+		// @include eight;
 		// margin:0 auto!important;
 	
 

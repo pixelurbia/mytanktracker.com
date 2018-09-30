@@ -121,12 +121,12 @@ if (isset( $date_start ) && isset( $date_end )){
                                         display: true,
                                         gridLines: {
                                             display: true,
-                                            drawTicks: false,
-                                            drawBorder: false,
+                                            drawTicks: true,
+                                            drawBorder: true,
                                             color:"rgba(255, 255, 255, 0.1)"
                                         },
                                         ticks: {
-                                            display: false,
+                                            display: true,
                                             maxTicksLimit: 5
                                             }
                                     }]

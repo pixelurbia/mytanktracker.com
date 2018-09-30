@@ -39,14 +39,13 @@ $horz:1180px;
 @mixin frame {
 	margin:0 auto!important;
 	float:none!important;
-	padding:60px 20px 0px 20px;
+	padding: 75px 20px 0px 20px;
 	@include span-columns(12);
 	@include media ($tablet){
 		@include span-columns(12);
 	} 
 	@include media ($phone){
-	padding: 75px 20px 0px 20px!important;
-	@include span-columns(12);
+		@include span-columns(12);
 		
 
 	}
@@ -77,6 +76,18 @@ $horz:1180px;
 }
 
 @mixin half {
+	float:left;
+	overflow:hidden;
+	@include span-columns(6);
+
+	@include media ($tablet){
+		@include span-columns(12);
+	} 
+	@include media ($phone){
+	@include span-columns(12);
+	}
+}
+@mixin eight {
 	@include span-columns(8);
 	@include media ($tablet){
 		@include span-columns(12);

@@ -83,9 +83,19 @@ $user = $user_tanks->user_info();
         </section>
        
     
-        <section class="params">
+        <section class="parameter-frame frame">
+            <section class="half">
+            <h3>Parameters</h2> 
+                <div class="table-actions">
+                    <a class="add-param-input"><i class="fal fa-plus"></i> Add</a>
+                    <a class="edit-param-input"><i class="fal fa-edit"></i> Edit</a>
+                    <a class="save-param-input" nonce="<?php echo wp_create_nonce("ajax_form_nonce_save_param"); ?>"><i class="fal fa-save"></i> Save</a>
+                </div>
+                <div class="params">
+                    <?php get_template_part('param-table-que');  ?>
+                </div>
+        </section>
 
-            <?php get_template_part('param-table-que');  ?>
         </section>
         <script type="text/javascript">
             var inputRow = $("<div />").append($('#input-row').clone()).html();

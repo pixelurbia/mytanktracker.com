@@ -96,47 +96,47 @@ class Parameters {
 
 
 //new parameter
-add_action("wp_ajax_new_tank_params", "new_tank_params");
-add_action("wp_ajax_nopriv_new_tank_params", "new_tank_params");
+// add_action("wp_ajax_new_tank_params", "new_tank_params");
+// add_action("wp_ajax_nopriv_new_tank_params", "new_tank_params");
 
-function new_tank_params() {
+// function new_tank_params() {
 
-if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
-    die( 'Ooops, something went wrong, please try again later.' );
+// if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
+//     die( 'Ooops, something went wrong, please try again later.' );
 
-  global $wpdb;
-  global $post;
-  $user = wp_get_current_user();
-  $user_id = $user->ID;
+//   global $wpdb;
+//   global $post;
+//   $user = wp_get_current_user();
+//   $user_id = $user->ID;
 
-  $tank_id = $_REQUEST['tank_id'];
-  $value = $_REQUEST['value'];
-  $type = $_REQUEST['type'];
+//   $tank_id = $_REQUEST['tank_id'];
+//   $value = $_REQUEST['value'];
+//   $type = $_REQUEST['type'];
 
-  $obj_type = 'param';
+//   $obj_type = 'param';
 
-  	for ($i = -1; $i <= 4; $i++) {
-		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
-		$hex   = bin2hex($bytes);
-	}
+//   	for ($i = -1; $i <= 4; $i++) {
+// 		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
+// 		$hex   = bin2hex($bytes);
+// 	}
 
-	$hex = $obj_type .'-'. $hex;
+// 	$hex = $obj_type .'-'. $hex;
 
-$wpdb->insert('user_tank_params',array(
-  'tank_id'=> $tank_id,
-  'user_id'=> $user_id,
-  'param_value'=> $value,
-  'param_id'=> $hex,
-  'param_type'=> $type,
-  'created_date'=> date("Y-m-d H:i:s")
+// $wpdb->insert('user_tank_params',array(
+//   'tank_id'=> $tank_id,
+//   'user_id'=> $user_id,
+//   'param_value'=> $value,
+//   'param_id'=> $hex,
+//   'param_type'=> $type,
+//   'created_date'=> date("Y-m-d H:i:s")
 
-)
-    );
-//return the same value sorted by latest date?? ugh
-echo $hex;
-exit;
+// )
+//     );
+// //return the same value sorted by latest date?? ugh
+// echo $hex;
+// exit;
 
-}
+// }
 
 //new parameter
 add_action("wp_ajax_save_tank_params", "save_tank_params");
@@ -147,23 +147,65 @@ function save_tank_params() {
 if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
     die( 'Ooops, something went wrong, please try again later.' );
 
+    //  function var_error_log( $object=null ){
+    //     ob_start();                    // start buffer capture
+    //    var_dump( $object );           // dump the values
+    //     $contents = ob_get_contents(); // put the buffer into a variable
+    //     ob_end_clean();                // end capture
+    //     error_log( $contents );        // log contents of the result of var_dump( $object )
+    // }
+
+
   global $wpdb;
   global $post;
   $user = wp_get_current_user();
   $user_id = $user->ID;
 
-  $tank_id = $_REQUEST['tank_id'];
-  $value = $_REQUEST['value'];
-  $param_id = $_REQUEST['param_id'];
+  $newParams = $_REQUEST['newParams'];
+  $editedParams = $_REQUEST['editedParams'];
 
 
-  $wpdb->update('user_tank_params',array(
-  	'param_value'=> $value
-	), array(
-	'param_id'=> $param_id,
-  	'tank_id'=> $tank_id
-	)
+    foreach ($newParams as $param) {
+  	
+  	$obj_type = 'param';
+
+  	for ($i = -1; $i <= 4; $i++) {
+		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
+		$hex   = bin2hex($bytes);
+	}
+
+	$hex = $obj_type .'-'. $hex;
+
+		$wpdb->insert('user_tank_params',array(
+  		'tank_id'=> $param['tank_id'],
+  		'user_id'=> $user_id,
+  		'param_value'=> $param['value'],
+  		'param_id'=> $hex,
+  		'param_type'=> $param['param_type'],
+  		'created_date'=> date("Y-m-d H:i:s")
+		
+		)
     );
+
+  }
+
+  foreach ($editedParams as $param) {
+
+  	$wpdb->update('user_tank_params',array(
+  			'param_value'=> $param['value']
+		), array(
+			'param_id'=> $param['param_id'],
+  			'tank_id'=> $param['tank_id']
+		)
+    );
+
+  }
+  
+  // $value = $_REQUEST['value'];
+  // $param_id = $_REQUEST['param_id'];
+
+
+
 
 }
 
