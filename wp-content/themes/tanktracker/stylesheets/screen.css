@@ -4350,6 +4350,8 @@ input[type="submit"].btn.account-reg {
 .activity-table table {
   width: 100%;
   float: left; }
+  .activity-table table .del-activity {
+    display: none; }
   .activity-table table th {
     width: 80px; }
     .activity-table table th:nth-child(2) {

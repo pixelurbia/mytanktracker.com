@@ -50,7 +50,7 @@ $activities = $activity->get_activities_order_by_created_date($tank_id,$date_sta
         echo '<td contenteditable="true"><input class="product" type="text" placeholder="Product"></td>';
         echo '<td contenteditable="true"><input class="quantity" type="text" placeholder="Amount/Volume"></td>';
         echo '<td>--</td>';
-        echo '<td><a class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fal ia-icon fa-times"></a></td>';
+        echo '<td><a class="input-action del-activity" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fal ia-icon fa-times"></a></td>';
     
     
   echo '</tr>';

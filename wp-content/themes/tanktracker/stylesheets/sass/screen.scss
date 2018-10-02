@@ -754,7 +754,7 @@ input[type="submit"].btn.account-reg {
     width: 100%;
     float:left;
 
-
+.del-activity { display:none;}
     th {
     	width:80px;
     	@include media ($phone) { 
