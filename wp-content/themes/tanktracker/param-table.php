@@ -94,46 +94,18 @@ $user = $user_tanks->user_info();
                 <div class="params">
                     <?php get_template_part('param-table-que');  ?>
                 </div>
-        </section><!-- 
+        </section>
         <section class="half">
         <h3>Activities</h2>
             <div class="table-actions">
                 <a class="add-activity-input"><i class="fal fa-plus"></i> Add</a>
                 <a class="edit-activity-input"><i class="fal fa-edit"></i> Edit</a>
-                 <a class="save-activity-input" nonce="<?php echo wp_create_nonce("ajax_form_nonce_save_param"); ?>"><i class="fal fa-save"></i> Save</a>
-            </div> -->
-<?php 
- //               echo '<div class="full-param">';
-
- //         echo '<div class="activity-table full">';    
- // echo '<table>';
- //         echo '<tr>';
- //         echo '<th>Activity Type</th>';
- //         echo '<th>Product</th>';
- //         echo '<th>Quantity</th>';
- //         echo '<th>Date Performed</th>';
- //         echo '<th></th>';
- //  echo '</tr>';
- //  echo '<tr id="new-activity-row">';
- //        echo '<td><i class="fal fa-angle-down"></i><select class="activity_type" type="select" name="type">
- //                                <option value="Activity">Activity</option>
- //                                <option name="Water Change" value="1">Water Change</option>
- //                                <option value="Chemical Dose">Chemical Dose</option>
- //                                <option value="Addative">Addative</option>
- //                            </select></td></td>';
- //        echo '<td contenteditable="true"><input class="product" type="text" placeholder="Product"></td>';
- //        echo '<td contenteditable="true"><input class="amount" type="text" placeholder="Amount/Volume"></td>';
- //        echo '<td>--</td>';
- //        echo '<td><a param_id="'.$param->param_id.'" class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fal ia-icon fa-times"></a></td>';
-    
-    
- //  echo '</tr>';
- //    echo '</table>';
- //    echo '</div>';
- //    echo '</div>';
-
- ?>
-        <!-- </section> -->
+                 <a class="save-activity-input" nonce="<?php echo wp_create_nonce("ajax_form_nonce_save_activity"); ?>"><i class="fal fa-save"></i> Save</a>
+            </div>
+    <div class="activities">
+<?php get_template_part('activity-que');  ?>
+</div>
+        </section>
 
         </section>
         <script type="text/javascript">

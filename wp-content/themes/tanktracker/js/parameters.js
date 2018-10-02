@@ -97,8 +97,6 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-//date picker format 
-$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
 
 function filter_params() {
 
@@ -124,6 +122,30 @@ function filter_params() {
         }); // end ajax call
 };
 
+function filter_activities() {
+
+    var date_start = $('#datepicker-from').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
+    var date_end = $('#datepicker-to').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
+    var tank_id = getUrlParameter('tank_id');
+    $('#ui-datepicker-div').css('display','none');
+    // var url = "/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end;
+    // console.log(url);
+    // var filter = $(this).attr('value');
+   
+ $.ajax({
+            url:"/activity-que?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end,
+            // url:"paramque?tank_id=admin-11111",
+          success: function(data){
+            console.log('working');
+            console.log(data);
+
+                //is this even working?
+                $('.activities').html(data);
+
+            }
+        }); // end ajax call
+};
+
 //parameters filters
 $('.param-filters').click(function() { 
 filter_params();
@@ -132,6 +154,7 @@ filter_params();
 
 $('.param-table-filters').click(function() { 
         filter_params();
+        filter_activities()
     });
 
 $('.wrap').on("click", ".del-param-input", function(){
@@ -172,9 +195,14 @@ $('.wrap').on("click", ".add-param-input", function(){
 //dirty flag for edited stuff to only pull and save that specific data
 $('body').on('focus', '.param_value', function() {
 
+
+
 }).on('blur keyup paste input', '[contenteditable]', function() {
     $(this).parent().addClass('dirty');
     $(this).addClass('dirty');
+      window.onbeforeunload = function(){
+       return 'Are you sure you want to leave?';
+      };
 });
 
 

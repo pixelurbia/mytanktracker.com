@@ -19,6 +19,7 @@ require_once('functions/security.php');
 require_once('functions/general.php');
 require_once('functions/roles.php');
 require_once('functions/seo.php');
+require_once('functions/activities.php');
 
 add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');

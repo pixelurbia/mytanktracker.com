@@ -2,7 +2,7 @@
 
 
 
-class Parameters {
+class Activities {
 
 	function user_info() {
 	 	
@@ -70,78 +70,31 @@ class Parameters {
 	}
 
 
-	function get_params_order_by_created_date($param_type,$tank_id,$date_start,$date_end){
+	function get_activities_order_by_created_date($tank_id,$date_start,$date_end){
 		$user = $this->user_info();
 		global $wpdb;
-
-		  
-
-         
-        $params = $wpdb->get_results("SELECT user_tank_params.created_date, user_tank_params.param_type, user_tank_params.param_id, user_tank_params.param_value, param_ref.param_name, param_ref.param_short 
-            FROM user_tank_params
-            INNER JOIN param_ref ON user_tank_params.param_type=param_ref.param_type 
-            WHERE user_tank_params.created_date BETWEEN '$date_start' AND '$date_end'
+        $activities = $wpdb->get_results("SELECT * FROM user_tank_activities
+            WHERE created_date BETWEEN '$date_start' AND '$date_end'
             AND tank_id = '$tank_id'
-            ORDER BY user_tank_params.created_date DESC
+            ORDER BY created_date DESC
             ");
 
-        return $params;
+        return $activities;
 	}
 
 }
 
 
 
-//new parameter
-// add_action("wp_ajax_new_tank_params", "new_tank_params");
-// add_action("wp_ajax_nopriv_new_tank_params", "new_tank_params");
 
-// function new_tank_params() {
 
-// if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
-//     die( 'Ooops, something went wrong, please try again later.' );
+//new activity
+add_action("wp_ajax_save_tank_activity", "save_tank_activity");
+add_action("wp_ajax_nopriv_save_tank_activity", "save_tank_activity");
 
-//   global $wpdb;
-//   global $post;
-//   $user = wp_get_current_user();
-//   $user_id = $user->ID;
+function save_tank_activity() {
 
-//   $tank_id = $_REQUEST['tank_id'];
-//   $value = $_REQUEST['value'];
-//   $type = $_REQUEST['type'];
-
-//   $obj_type = 'param';
-
-//   	for ($i = -1; $i <= 4; $i++) {
-// 		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
-// 		$hex   = bin2hex($bytes);
-// 	}
-
-// 	$hex = $obj_type .'-'. $hex;
-
-// $wpdb->insert('user_tank_params',array(
-//   'tank_id'=> $tank_id,
-//   'user_id'=> $user_id,
-//   'param_value'=> $value,
-//   'param_id'=> $hex,
-//   'param_type'=> $type,
-//   'created_date'=> date("Y-m-d H:i:s")
-
-// )
-//     );
-// //return the same value sorted by latest date?? ugh
-// echo $hex;
-// exit;
-
-// }
-
-//new parameter
-add_action("wp_ajax_save_tank_params", "save_tank_params");
-add_action("wp_ajax_nopriv_save_tank_params", "save_tank_params");
-
-function save_tank_params() {
-
-if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_param'], 'ajax_form_nonce_save_param' ) )
+if( !isset( $_POST['ajax_form_nonce_save_activity'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_save_activity'], 'ajax_form_nonce_save_activity' ) )
     die( 'Ooops, something went wrong, please try again later.' );
 
     //  function var_error_log( $object=null ){
@@ -158,13 +111,13 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
   $user = wp_get_current_user();
   $user_id = $user->ID;
 
-  $newParams = $_REQUEST['newParams'];
-  $editedParams = $_REQUEST['editedParams'];
+  $newActivity = $_REQUEST['newActivity'];
+  $editedActivity = $_REQUEST['editedActivity'];
 
 
-    foreach ($newParams as $param) {
+    foreach ($newActivity as $activity) {
   	
-  	$obj_type = 'param';
+  	$obj_type = 'activity';
 
   	for ($i = -1; $i <= 4; $i++) {
 		$bytes = openssl_random_pseudo_bytes($i, $cstrong);
@@ -173,12 +126,13 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
 	$hex = $obj_type .'-'. $hex;
 
-		$wpdb->insert('user_tank_params',array(
-  		'tank_id'=> $param['tank_id'],
+		$wpdb->insert('user_tank_activities',array(
+  		'tank_id'=> $activity['tank_id'],
   		'user_id'=> $user_id,
-  		'param_value'=> $param['value'],
-  		'param_id'=> $hex,
-  		'param_type'=> $param['param_type'],
+  		'product'=> $activity['product'],
+  		'activity_type'=> $activity['activity_type'],
+  		'activity_id'=> $hex,
+  		'quantity'=> $activity['quantity'],
   		'created_date'=> date("Y-m-d H:i:s")
 		
 		)
@@ -186,7 +140,7 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 
   }
 
-  foreach ($editedParams as $param) {
+  foreach ($editedActivity as $activity) {
 
   	$wpdb->update('user_tank_params',array(
   			'param_value'=> $param['value']
@@ -207,27 +161,27 @@ if( !isset( $_POST['ajax_form_nonce_save_param'] ) || !wp_verify_nonce( $_POST['
 }
 
 //delete parameter
-add_action("wp_ajax_del_tank_params", "del_tank_params");
-add_action("wp_ajax_nopriv_del_tank_params", "del_tank_params");
+// add_action("wp_ajax_del_tank_params", "del_tank_params");
+// add_action("wp_ajax_nopriv_del_tank_params", "del_tank_params");
 
-function del_tank_params() {
+// function del_tank_params() {
 
-if( !isset( $_POST['ajax_form_nonce_del_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_param'], 'ajax_form_nonce_del_param' ) )
-    die( 'Ooops, something went wrong, please try again later.' );
+// if( !isset( $_POST['ajax_form_nonce_del_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_param'], 'ajax_form_nonce_del_param' ) )
+//     die( 'Ooops, something went wrong, please try again later.' );
 
-  global $wpdb;
-  global $post;
-  $user = wp_get_current_user();
-  $user_id = $user->ID;
-  $tank_id = $_REQUEST['tank_id'];
-  $param_id = $_REQUEST['param_id'];
+//   global $wpdb;
+//   global $post;
+//   $user = wp_get_current_user();
+//   $user_id = $user->ID;
+//   $tank_id = $_REQUEST['tank_id'];
+//   $param_id = $_REQUEST['param_id'];
 
-  $wpdb->delete('user_tank_params',array(
-  'tank_id'=> $tank_id,
-  'user_id'=> $user_id,
-  'param_id'=> $param_id,
-)
-    );
+//   $wpdb->delete('user_tank_params',array(
+//   'tank_id'=> $tank_id,
+//   'user_id'=> $user_id,
+//   'param_id'=> $param_id,
+// )
+//     );
 
-}
+// }
 
