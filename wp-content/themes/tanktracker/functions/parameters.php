@@ -52,10 +52,13 @@ class Parameters {
 				$params = $this->get_params($param_type,$tank_id,1);
 
 				 foreach($params as $param){
+				 	$pdate = strtotime($param->created_date);
+             $pdate = date('m-d-Y',$pdate);
+
                         echo '<tr>';
                             echo '<td>'.$param->param_name.'</td>';
                             echo '<td>'.$param->param_value.'</td>';
-                            echo '<td>'.$param->created_date.'</td>';
+                            echo '<td>'.$pdate.'</td>';
 
                         echo '</tr>';
                      }

@@ -4,7 +4,7 @@
 ///////////////////
 
 
-// @codekit-append "master.js", ,"add-photo.js","add-stock.js","add-tank.js","feed.js","parameters.js","register-master.js","trello-integration.js","user-settings.js";
+// @codekit-append "master.js", ,"add-photo.js","add-stock.js","add-tank.js","feed.js","parameters.js","activities.js","register-master.js","trello-integration.js","user-settings.js";
 
 
 $(document).ready(function() {
@@ -79,8 +79,12 @@ document.querySelector('div[contenteditable="true"]').addEventListener("paste", 
 // });
 
 //date picker
-$( "#datepicker-to" ).datepicker();
-$( "#datepicker-from" ).datepicker();
+$( "#datepicker-to" ).datepicker({
+    dateFormat: 'yy-mm-dd'
+});
+$( "#datepicker-from" ).datepicker({
+    dateFormat: 'yy-mm-dd'
+});
 
 //tooltip
 

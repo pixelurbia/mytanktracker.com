@@ -69,6 +69,18 @@ if (isset( $date_start ) && isset( $date_end )){
                         ?>
                         <canvas id="<?php echo $chart_name ?>" class="a-chart" width="auto" height="auto"></canvas>
                         <script>
+                                // color: ['pink', 'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']
+//                                 var chart_type = <?php echo json_encode($parameters['parameter'][0]['name']); ?>;
+// function chart_colors(){
+//     if (chart_type == 'Alkalinity'){
+//  color: ['pink', 'red', 'orange', 'yellow', 'grey', 'grey', 'grey', 'grey']
+//     } else {
+//         color:"rgba(255, 255, 255, 0.1)"
+//     }
+
+// }
+
+
                         var ctx = document.getElementById(<?php echo json_encode($chart_name) ?>);
                         var <?php echo $chart_name ?> = new Chart(ctx, {
                             type: 'line',
@@ -88,7 +100,8 @@ if (isset( $date_start ) && isset( $date_end )){
                                         borderWidth: 1,
                                     fill: [false],
                                     borderColor: ['rgb(75, 192, 192)'],
-                                    lineTension: 1
+                                    lineTension: 0,
+                                    // steppedLine:true,
                                 }]
                             },
                             options: {
@@ -123,7 +136,8 @@ if (isset( $date_start ) && isset( $date_end )){
                                             display: true,
                                             drawTicks: true,
                                             drawBorder: true,
-                                            color:"rgba(255, 255, 255, 0.1)"
+                                            color:"rgba(255, 255, 255, 0.1)",
+
                                         },
                                         ticks: {
                                             display: true,
@@ -158,9 +172,12 @@ if (isset( $date_start ) && isset( $date_end )){
          echo '</tr>';
          
                      foreach($params as $param){
+                        $pdate = strtotime($param->created_date);
+             $pdate = date('m-d-Y',$pdate);
+
                         echo '<tr>';
                             echo '<td>'.$param->param_value.'</td>';
-                            echo '<td>'.$param->created_date.'</td>';
+                            echo '<td>'.$pdate.'</td>';
 
                         echo '</tr>';
                      }

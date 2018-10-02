@@ -749,6 +749,61 @@ input[type="submit"].btn.account-reg {
     	width:350px;
     }
 }
+//activity tables
+.activity-table table {
+    width: 100%;
+    float:left;
+
+
+    th {
+    	width:80px;
+    	@include media ($phone) { 
+    	 // padding-left:15px;
+    	}
+    	&:nth-child(2) {
+			width:65px;
+		
+    	}   	
+    	&:nth-child(3) {
+			width:70px;
+		
+    	}  
+    	&:nth-child(4) {
+			width:105px;
+		
+    	}   	
+    	&:nth-child(5) {
+			width:20px;
+		
+    	}
+    }
+
+    td {
+    	width:40px;
+		@include media ($phone) { 
+    	 // padding-left:15px;
+    	}
+		&:first-child {
+			position:relative;
+    	.fa-angle-down {
+		    position: absolute;
+    		left: 90px;
+    		top: 12px;
+			}
+		}
+    }
+
+    select, input {
+			height: 30px;
+			border: 0;
+			margin: 0px;
+			padding: 0px;
+			letter-spacing: 0px;
+			position:relative;
+	}
+    
+}
+
 
 //param tables
 .parameter-frame.frame {

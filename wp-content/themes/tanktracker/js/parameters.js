@@ -96,35 +96,16 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
-//parameters filters
-$('.param-filters').click(function() { 
-console.log('start');
+
+//date picker format 
+$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
+
+function filter_params() {
+
     var date_start = $('#datepicker-from').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
     var date_end = $('#datepicker-to').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
     var tank_id = getUrlParameter('tank_id');
-    var url = "/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end;
-    console.log(url);
-  var filter = $(this).attr('value');
-    $.ajax({
-            url:"/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end,
-            // url:"paramque?tank_id=admin-11111",
-          success: function(data){
-            console.log('working');
-            console.log(data);
-                //is this even working?
-                $('.parameter_overview').html(data);
-            }
-        }); // end ajax call
-    });
-
-
-
-
-$('.param-table-filters').click(function() { 
-  
-    var date_start = $('#datepicker-from').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
-    var date_end = $('#datepicker-to').datepicker("option", "dateFormat", "yy-mm-dd" ).val()
-    var tank_id = getUrlParameter('tank_id');
+    $('#ui-datepicker-div').css('display','none');
     // var url = "/paramque?" + "tank_id=" + tank_id + "&date_start=" + date_start +"&date_end=" + date_end;
     // console.log(url);
     // var filter = $(this).attr('value');
@@ -135,10 +116,22 @@ $('.param-table-filters').click(function() {
           success: function(data){
             console.log('working');
             console.log(data);
+
                 //is this even working?
                 $('.params').html(data);
+
             }
         }); // end ajax call
+};
+
+//parameters filters
+$('.param-filters').click(function() { 
+filter_params();
+    });
+
+
+$('.param-table-filters').click(function() { 
+        filter_params();
     });
 
 $('.wrap').on("click", ".del-param-input", function(){
@@ -302,30 +295,7 @@ console.log(valid);
           success: function (dataEngine) {
               //success
             console.log(dataEngine);
-            // if (data != '0') {
-            //   $('.new-input .save-btn a').attr('param_id',data);
-            //   $('.new-input .edit-btn a').attr('param_id',data);
-            //   $('.new-input .del-btn a').attr('param_id',data);
-
-            //   //move the value to text for easier grabbing when editing 
-            //   var paramValue = $('.input-row').find('.param_value').val();
-            //   $('.input-row').find('.param_value').parent().addClass('param_value');
-            //   $('.input-row').find('input.param_value').remove();
-            //   $('.input-row').find('.param_value').text(paramValue);
-
-            //   //move the value to text for easier grabbing when editing 
-            //   var paramType = $('.input-row').find('.param_type').find('option:selected').attr('name');
-            //   $('.input-row').find('.param_type').parent().addClass('param_type');
-            //   $('.input-row').find('select.param_type').remove();
-            //   $('.input-row').find('.param_type').text(paramType);
-
-
-
-            //   $('.input-row').removeClass('new-input');
-            //   $('.input-row').find('.save-btn').addClass('hide');
-            //   $('.input-row').removeClass('input-row');
-            //   $('tbody tr').first().next().before(inputRow);
-            //  }
+              filter_params();
           },
           error: function (e) {
               //error

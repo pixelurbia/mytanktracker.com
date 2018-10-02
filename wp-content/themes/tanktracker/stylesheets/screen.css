@@ -4347,6 +4347,35 @@ input[type="submit"].btn.account-reg {
   .param-chart canvas {
     width: 350px; }
 
+.activity-table table {
+  width: 100%;
+  float: left; }
+  .activity-table table th {
+    width: 80px; }
+    .activity-table table th:nth-child(2) {
+      width: 65px; }
+    .activity-table table th:nth-child(3) {
+      width: 70px; }
+    .activity-table table th:nth-child(4) {
+      width: 105px; }
+    .activity-table table th:nth-child(5) {
+      width: 20px; }
+  .activity-table table td {
+    width: 40px; }
+    .activity-table table td:first-child {
+      position: relative; }
+      .activity-table table td:first-child .fa-angle-down {
+        position: absolute;
+        left: 90px;
+        top: 12px; }
+  .activity-table table select, .activity-table table input {
+    height: 30px;
+    border: 0;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    position: relative; }
+
 .parameter-frame.frame h3 {
   float: left;
   padding-left: 15px; }
