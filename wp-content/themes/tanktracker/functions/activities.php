@@ -160,28 +160,28 @@ if( !isset( $_POST['ajax_form_nonce_save_activity'] ) || !wp_verify_nonce( $_POS
 
 }
 
-//delete parameter
-// add_action("wp_ajax_del_tank_params", "del_tank_params");
-// add_action("wp_ajax_nopriv_del_tank_params", "del_tank_params");
+// delete activity
+add_action("wp_ajax_del_tank_activity", "del_tank_activity");
+add_action("wp_ajax_nopriv_del_tank_activity", "del_tank_activity");
 
-// function del_tank_params() {
+function del_tank_activity() {
 
-// if( !isset( $_POST['ajax_form_nonce_del_param'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_param'], 'ajax_form_nonce_del_param' ) )
-//     die( 'Ooops, something went wrong, please try again later.' );
+if( !isset( $_POST['ajax_form_nonce_del_act'] ) || !wp_verify_nonce( $_POST['ajax_form_nonce_del_act'], 'ajax_form_nonce_del_act' ) )
+    die( 'Ooops, something went wrong, please try again later.' );
 
-//   global $wpdb;
-//   global $post;
-//   $user = wp_get_current_user();
-//   $user_id = $user->ID;
-//   $tank_id = $_REQUEST['tank_id'];
-//   $param_id = $_REQUEST['param_id'];
+  global $wpdb;
+  global $post;
+  $user = wp_get_current_user();
+  $user_id = $user->ID;
+  $tank_id = $_REQUEST['tank_id'];
+  $activity_id = $_REQUEST['activity_id'];
 
-//   $wpdb->delete('user_tank_params',array(
-//   'tank_id'=> $tank_id,
-//   'user_id'=> $user_id,
-//   'param_id'=> $param_id,
-// )
-//     );
+  $wpdb->delete('user_tank_activities',array(
+  'tank_id'=> $tank_id,
+  'user_id'=> $user_id,
+  'activity_id'=> $activity_id,
+)
+    );
 
-// }
+}
 

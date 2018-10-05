@@ -50,7 +50,7 @@ $activities = $activity->get_activities_order_by_created_date($tank_id,$date_sta
         echo '<td contenteditable="true"><input class="product" type="text" placeholder="Product"></td>';
         echo '<td contenteditable="true"><input class="quantity" type="text" placeholder="Amount/Volume"></td>';
         echo '<td>--</td>';
-        echo '<td><a class="input-action del-activity" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fal ia-icon fa-times"></a></td>';
+        echo '<td><a class="input-action del-activity" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_act").'"><i class="fal ia-icon fa-times"></a></td>';
     
     
   echo '</tr>';
@@ -64,10 +64,8 @@ $activities = $activity->get_activities_order_by_created_date($tank_id,$date_sta
                             echo '<td class="product">'.$activity->product.'</td>'; 
                             echo '<td class="product">'.$activity->quantity.'</td>';
                             echo '<td class="created_date">'.$pdate.'</td>';
-                            // echo '<td><a param_id="'.$param->param_id.'" class="input-action save-param-input" ><i class="fas ia-icon fa-save"></i></a></td>';
-                            // echo '<td class="save-btn hide"><a class="input-action save-param-input" ><i class="fal ia-icon fa-save"></i></a></td>';
-                            // echo '<td class="edit-btn"><a class="input-action edit-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_edit_param").'"><i class="fas ia-icon fa-edit"></i></a></td>';
-                            echo '<td><a param_id="'.$param->param_id.'" class="input-action del-param-input" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_param").'"><i class="fal ia-icon fa-times"></a></td>';
+                            
+                            echo '<td><a activity_id="'.$activity->activity_id.'" class="input-action del-activity" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_act").'"><i class="fal ia-icon fa-times"></a></td>';
                         echo '</tr>';
                      }
 

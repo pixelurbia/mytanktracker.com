@@ -44,37 +44,37 @@ function getDateTime() {
 }
 
 
-// $('.global-message').on("click", ".activity-confirmation-btn", function(){
+$('.global-message').on("click", ".activity-confirmation-btn", function(){
 
-//   var tank_id = $(this).attr('tank_id'),
-//     param_id = $(this).attr('param_id'),
-//     nonce = $(this).attr('nonce'),
-//     parent = $(this).attr('parent').
-//     parent = $('.'+parent);
+  var tank_id = $(this).attr('tank_id'),
+    activity_id = $(this).attr('activity_id'),
+    nonce = $(this).attr('nonce'),
+    parent = $(this).attr('parent').
+    parent = $('.'+parent);
 
-//  data = {action:'del_tank_params',ajax_form_nonce_del_param: nonce, tank_id: tank_id, param_id: param_id};
+ data = {action:'del_tank_activity',ajax_form_nonce_del_act: nonce, tank_id: tank_id, activity_id: activity_id};
     
-//     console.log(data);
+    console.log(data);
 
-//         $.ajax({
-//           url: ajaxurl,
-//           method: "post",
-//           data: data,
-//           success: function (data) {
-//               //success
-//             console.log(data);
-//             $('.removeParam').remove();
-//             closeGlobalMessage();
+        $.ajax({
+          url: ajaxurl,
+          method: "post",
+          data: data,
+          success: function (data) {
+              //success
+            console.log(data);
+            $('.removeActivity').remove();
+            closeGlobalMessage();
 
-//           },
-//           error: function (e) {
-//               //error
-//             console.log('Eror 6300');
+          },
+          error: function (e) {
+              //error
+            console.log('Eror 6300');
       
-//           }
-//       });
+          }
+      });
 
-// });
+});
 
 //get URL params
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -118,34 +118,34 @@ function filter_activities() {
         }); // end ajax call
 };
 
-// $('.wrap').on("click", ".del-param-input", function(){
+$('.wrap').on("click", ".del-activity", function(){
 
-//     var tank_id = $(this).attr('tank_id'),
-//     param_id = $(this).attr('param_id'),
-//     nonce = $(this).attr('nonce');
-//     $(this).parent().parent().addClass('removeParam');
+    var tank_id = $(this).attr('tank_id'),
+    activity_id = $(this).attr('activity_id'),
+    nonce = $(this).attr('nonce');
+    $(this).parent().parent().addClass('removeActivity');
   
-//     $('.global-message .message').text("Are you sure you want to delete this entry?");
-//     $('.confirmation-btn').attr('param_id',param_id);
-//     $('.confirmation-btn').attr('tank_id',tank_id);
-//     $('.confirmation-btn').attr('nonce',nonce);
-//     $('.confirmation-btn').attr('parent',parent);
-//     $('.confirmation-btn').addClass('param-confirmation-btn')
-//     $('.message-action').addClass('param-message-action')
+    $('.global-message .message').text("Are you sure you want to delete this entry?");
+    $('.confirmation-btn').attr('activity_id',activity_id);
+    $('.confirmation-btn').attr('tank_id',tank_id);
+    $('.confirmation-btn').attr('nonce',nonce);
+    $('.confirmation-btn').attr('parent',parent);
+    $('.confirmation-btn').addClass('activity-confirmation-btn')
+    $('.message-action').addClass('acticity-message-action')
     
-//     $('.global-message').fadeToggle();
-//     $('.overlay').fadeToggle();
+    $('.global-message').fadeToggle();
+    $('.overlay').fadeToggle();
 
-//   }); 
+  }); 
 
-// $('.wrap').on("click", ".edit-param-input", function(){
+$('.wrap').on("click", ".edit-param-input", function(){
 
-//       $('.saved-row').find('.param_value').attr('contenteditable','true');
-//       $('.saved-row').find('.param_value').addClass('editable');
-//       // parent.toggleClass('edited-row');
+      $('.saved-row').find('.param_value').attr('contenteditable','true');
+      $('.saved-row').find('.param_value').addClass('editable');
+      // parent.toggleClass('edited-row');
 
 
-  // }); 
+  }); 
 
 
 

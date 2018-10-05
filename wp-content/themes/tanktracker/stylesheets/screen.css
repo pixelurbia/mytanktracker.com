@@ -4352,6 +4352,8 @@ input[type="submit"].btn.account-reg {
   float: left; }
   .activity-table table .del-activity {
     display: none; }
+  .activity-table table .saved-row .del-activity {
+    display: block; }
   .activity-table table th {
     width: 80px; }
     .activity-table table th:nth-child(2) {
