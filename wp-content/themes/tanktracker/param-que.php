@@ -37,6 +37,7 @@ if (isset( $date_start ) && isset( $date_end )){
          echo '<div class="aparam">';
          echo '<div class="param-chart">';
                 $parameters = array();
+                asort($params);
                 foreach($params as $param){
                         $parameters['parameter'][0] = array(
                             'name' => $param->param_name,
