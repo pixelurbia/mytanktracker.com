@@ -138,10 +138,12 @@ $('.wrap').on("click", ".del-activity", function(){
 
   }); 
 
-$('.wrap').on("click", ".edit-param-input", function(){
+$('.wrap').on("click", ".edit-activity-input", function(){
 
-      $('.saved-row').find('.param_value').attr('contenteditable','true');
-      $('.saved-row').find('.param_value').addClass('editable');
+      $('.saved-row').find('.product').attr('contenteditable','true');
+      $('.saved-row').find('.product').addClass('editable');
+      $('.saved-row').find('.quantity').attr('contenteditable','true');
+      $('.saved-row').find('.quantity').addClass('editable');
       // parent.toggleClass('edited-row');
 
 
@@ -154,12 +156,12 @@ $('.wrap').on("click", ".add-activity-input", function(){
 });
 
 // //dirty flag for edited stuff to only pull and save that specific data
-// $('body').on('focus', '.param_value', function() {
+$('body').on('focus', '.check_field', function() {
 
-// }).on('blur keyup paste input', '[contenteditable]', function() {
-//     $(this).parent().addClass('dirty');
-//     $(this).addClass('dirty');
-// });
+}).on('blur keyup paste input', '[contenteditable]', function() {
+    $(this).parent().addClass('dirty');
+    $(this).addClass('dirty');
+});
 
 
 $('.wrap').on("click", ".save-activity-input", function(){
@@ -167,35 +169,31 @@ $('.wrap').on("click", ".save-activity-input", function(){
   nonce = $(this).attr('nonce');
   
 
-var dataEngine = {action: 'save_tank_activity', ajax_form_nonce_save_activity: nonce, newActivity: [], editedActitiy: []};
+var dataEngine = {action: 'save_tank_activity', ajax_form_nonce_save_activity: nonce, newActivity: [], editedActivity: []};
 
 var valid = 0;
 
-  $('.activity-table tr.new-activity-row').each(function() {
+  $('.activity-table tr.new-activity-row.dirty').each(function() {
 
        var tank_id = $(this).attr('tank_id'),
        type = $(this).find('.activity_type').val(),
        product = $(this).find('.product').val(),
-       quantity = $(this).find('.quantity').val(),
-       // dirty = $(this).find('.quantity').parent().hasClass('dirty');
-// console.log(dirty);
-         //do some simple validation checks to make sure we have valid values and stuff 
+       quantity = $(this).find('.quantity').val();
+       dirty = $(this).hasClass('dirty');
+console.log(dirty);
+         // do some simple validation checks to make sure we have valid values and stuff 
     
-    // if (type == 'Parameter'){
-    //   $(this).find('.param_type').parent().addClass('error-cell');
-    //   valid++;
-    // } else {
-    //   valid - 1;
-    // }
-    // if ( !$.isNumeric(value) || dirty == false )  {
-    //    $(this).find('.param_value').parent().addClass('error-cell');
-    //   valid++;
-    // } else {
-    //   valid - 1;
-    // }
+    if (dirty == true){
+      valid++;
+      $(this).find('.product').parent().addClass('error-cell');
+      $(this).find('.quantity').parent().addClass('error-cell');
+    } else {
+      valid - 1;
+    }
+    
 
 
-// console.log(valid);
+console.log(valid);
 
 
        //build inputs
@@ -211,47 +209,40 @@ var valid = 0;
 
 
   // add edited rows to the data object
-  // $('.param-table tr.saved-row.dirty').each(function() {
-  //      var tank_id = $(this).attr('tank_id'),
-  //      param_id = $(this).attr('param_id'),
-  //      parent = $(this).parent().parent(),
-  //      type = $(this).find('.param_type').val(),
-  //      editValue = $(this).find('.param_value').text(),
-  //     dirty = $(this).find('.param_value').parent().hasClass('dirty');
-  //     console.log(dirty);
-
-  //   if ( !$.isNumeric(editValue) || dirty == false )  {
-  //      $(this).find('.param_value').parent().addClass('error-cell');
-  //     valid++;
-  //   } else {
-  //     valid - 1;
-  //   }
+  $('.activity-table tr.saved-row.dirty').each(function() {
+         var tank_id = $(this).attr('tank_id'),
+       product = $(this).find('.product').text(),
+       quantity = $(this).find('.quantity').text(),
+       activity_id = $(this).attr('activity_id');
+      dirty = $(this).find('.param_value').parent().hasClass('dirty');
+      // console.log(dirty);
 
 
-  //       param = {};
-  //       param ["param_id"] = param_id;
-  //       param ["value"] = editValue;
-  //       param ["tank_id"] = tank_id;
+        activity = {};
+        activity ["activity_id"] = activity_id;
+        activity ["tank_id"] = tank_id;
+        activity ["product"] = product;
+        activity ["quantity"] = quantity;
 
 
-  //       dataEngine.editedParams.push(param);
-  // });
+        dataEngine.editedActivity.push(activity);
+  });
 
    console.log(dataEngine);
 
 
  //    console.log(valid);
-    // if (valid != 0){
-    //   $('.global-error').html('Please enter a parameter type and or correct parameter value.');
-    //   $('.global-error').addClass('show');
-    //   setTimeout(function() {
-    //       $('.global-error').removeClass('show');
-    //   }, 2500);
+    if (valid != 0){
+      $('.global-error').html('Please enter a value before saving.');
+      $('.global-error').addClass('show');
+      setTimeout(function() {
+          $('.global-error').removeClass('show');
+      }, 2500);
     
-    // } else {
-      // parent.find('.date_logged').html(getDateTime);
-      // parent.find('.param_type').parent().removeClass('error-cell');
-      // parent.find('.param_value').parent().removeClass('error-cell');
+    } else {
+
+      parent.find('.product').parent().removeClass('error-cell');
+      parent.find('.quantity').parent().removeClass('error-cell');
   
  
 
@@ -262,7 +253,7 @@ var valid = 0;
           success: function (dataEngine) {
               //success
             console.log(dataEngine);
-  filter_activities();
+            filter_activities();
           },
           error: function (e) {
               //error
@@ -271,7 +262,7 @@ var valid = 0;
           }
       });
 
- // }
+ }
 
   }); 
 

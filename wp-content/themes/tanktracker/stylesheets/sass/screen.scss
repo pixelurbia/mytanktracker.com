@@ -756,6 +756,13 @@ input[type="submit"].btn.account-reg {
 
 .del-activity { display:none;}
 .saved-row .del-activity { display:block;}
+    .editable {
+		border-bottom: 1px solid;
+    	background-color: rgba(255, 255, 255, 0.15);
+	}
+		.error-cell {
+	 	background:rgba(247, 96, 96, 0.3);
+	}
     th {
     	width:80px;
     	@include media ($phone) { 

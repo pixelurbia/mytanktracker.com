@@ -142,11 +142,12 @@ if( !isset( $_POST['ajax_form_nonce_save_activity'] ) || !wp_verify_nonce( $_POS
 
   foreach ($editedActivity as $activity) {
 
-  	$wpdb->update('user_tank_params',array(
-  			'param_value'=> $param['value']
+  	$wpdb->update('user_tank_activities',array(
+  			'product'=> $activity['product'],
+  			'quantity'=> $activity['quantity']
 		), array(
-			'param_id'=> $param['param_id'],
-  			'tank_id'=> $param['tank_id']
+			'activity_id'=> $activity['activity_id'],
+  			'tank_id'=> $activity['tank_id']
 		)
     );
 

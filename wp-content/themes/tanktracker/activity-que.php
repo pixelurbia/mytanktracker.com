@@ -59,10 +59,10 @@ $activities = $activity->get_activities_order_by_created_date($tank_id,$date_sta
             $pdate = strtotime($activity->created_date);
              $pdate = date('m-d-Y',$pdate);
 
-                        echo '<tr class="saved-row" tank_id="'.$tank_id.'" param_id="'.$activity->activity_id.'">';
+                        echo '<tr class="saved-row" tank_id="'.$tank_id.'" activity_id="'.$activity->activity_id.'">';
                             echo '<td class="activity_type">'.$activity->activity_type.'</td>';
-                            echo '<td class="product">'.$activity->product.'</td>'; 
-                            echo '<td class="product">'.$activity->quantity.'</td>';
+                            echo '<td class="product check_field">'.$activity->product.'</td>'; 
+                            echo '<td class="quantity check_field">'.$activity->quantity.'</td>';
                             echo '<td class="created_date">'.$pdate.'</td>';
                             
                             echo '<td><a activity_id="'.$activity->activity_id.'" class="input-action del-activity" tank_id="'.$tank_id.'" nonce="'. wp_create_nonce("ajax_form_nonce_del_act").'"><i class="fal ia-icon fa-times"></a></td>';

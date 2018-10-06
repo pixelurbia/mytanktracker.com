@@ -30,7 +30,7 @@ if (isset( $date_start ) && isset( $date_end )){
             AND tank_id = '$tank_id'
             AND user_tank_params.param_type = $param_type
             ORDER BY user_tank_params.created_date DESC
-            LIMIT 5
+            LIMIT 10
             ");
          //AND created_date >= DATE_ADD(CURDATE(), INTERVAL -5 DAY) limit 5
          // var_dump($params);
