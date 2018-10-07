@@ -65,9 +65,7 @@ $user = $user_tanks->user_info();
         </a>
     </div>
     <?php 
-        $cal = new Calendar();
-        $cal->days_with_events();
-        echo'<br>';
+        
 
          $date_end = date('Y-m-31');
          $date_start = date('Y-m-01');  
@@ -86,11 +84,18 @@ $user = $user_tanks->user_info();
         <section class="parameter-frame frame">
             <section class="half">
             <h3>Parameters</h2> 
+
                 <div class="table-actions">
                     <a class="add-param-input"><i class="fal fa-plus"></i> Add</a>
                     <a class="edit-param-input"><i class="fal fa-edit"></i> Edit</a>
                     <a class="save-param-input" nonce="<?php echo wp_create_nonce("ajax_form_nonce_save_param"); ?>"><i class="fal fa-save"></i> Save</a>
                 </div>
+                 <?php 
+                    echo'<br>';
+                    $cal = new Calendar();
+                    $cal->days_with_events('param');
+                    echo'<br>'; 
+                    ?>
                 <div class="params">
                     <?php get_template_part('param-table-que');  ?>
                 </div>
@@ -102,6 +107,12 @@ $user = $user_tanks->user_info();
                 <a class="edit-activity-input"><i class="fal fa-edit"></i> Edit</a>
                  <a class="save-activity-input" nonce="<?php echo wp_create_nonce("ajax_form_nonce_save_activity"); ?>"><i class="fal fa-save"></i> Save</a>
             </div>
+            <?php 
+                    echo'<br>';
+                    $cal = new Calendar();
+                    $cal->days_with_events('activity');
+                    echo'<br>'; 
+                    ?>
     <div class="activities">
 <?php get_template_part('activity-que');  ?>
 </div>

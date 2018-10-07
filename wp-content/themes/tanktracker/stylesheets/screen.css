@@ -3892,7 +3892,7 @@ section.frame {
   overflow: hidden;
   margin: 0 auto !important;
   float: none !important;
-  padding: 75px 20px 0px 20px;
+  padding: 50px 20px 0px 20px;
   float: left;
   display: block;
   margin-right: 2.3576515979%;
@@ -4221,11 +4221,13 @@ input[type="submit"].btn.account-reg {
   opacity: 0.3; }
 
 .page-template-param-table .monthly-updates, .page-template-parameters .monthly-updates {
-  padding: 43px 0px 0px 0px;
-  height: 90px; }
+  padding: 0px 0px 0px 15px;
+  width: 100%;
+  height: 60px;
+  overflow: hidden; }
 
 .month {
-  width: 90px;
+  width: 80px;
   float: left;
   z-index: 77;
   position: relative; }
@@ -4463,8 +4465,8 @@ input[type="submit"].btn.account-reg {
 
 .filters {
   width: 340px;
-  float: none;
-  margin: 13px 0px 0px 0px;
+  float: left;
+  margin: 25px 0px 0px 0px;
   z-index: 999;
   position: relative; }
 

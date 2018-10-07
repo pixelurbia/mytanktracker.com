@@ -183,7 +183,7 @@ var valid = 0;
 console.log(dirty);
          // do some simple validation checks to make sure we have valid values and stuff 
     
-    if (dirty == true){
+    if (dirty == true && !product && !quantity){
       valid++;
       $(this).find('.product').parent().addClass('error-cell');
       $(this).find('.quantity').parent().addClass('error-cell');
@@ -241,8 +241,8 @@ console.log(valid);
     
     } else {
 
-      parent.find('.product').parent().removeClass('error-cell');
-      parent.find('.quantity').parent().removeClass('error-cell');
+      $(this).find('.product').parent().removeClass('error-cell');
+      $(this).find('.quantity').parent().removeClass('error-cell');
   
  
 

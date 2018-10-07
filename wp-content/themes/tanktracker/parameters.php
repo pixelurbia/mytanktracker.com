@@ -53,7 +53,7 @@ $user = $user_tanks->user_info();
         <?php 
 
             $cal = new Calendar();
-            $cal->days_with_events();
+            $cal->days_with_events('param');
             echo'<br>';
          ?>
     <div class="filters">

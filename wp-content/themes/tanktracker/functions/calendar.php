@@ -8,16 +8,20 @@ class Calendar {
  
  
 
-function get_num_of_changes() {
+function get_num_of_changes($type) {
 
 		global $wpdb;
 	    $current_user = wp_get_current_user(); 
     	$curuser = $current_user->ID;
- 
+ if ($type == 'param'){
+ 	$table = 'user_tank_params';
+ } else {
+ 	$table = 'user_tank_activities';
+ }
 		
       $events = $wpdb->get_results("
       		SELECT date(`created_date`) as created_date
-            FROM `user_tank_params`
+            FROM $table
             WHERE user_id = $curuser 
             GROUP BY date(`created_date`)");
             // var_dump($dis);
@@ -36,7 +40,7 @@ function get_num_of_changes() {
 	 
 
 
-function days_with_events() {
+function days_with_events($type) {
 
 	$month = date("m");
 	$day = date("d");
@@ -45,7 +49,7 @@ function days_with_events() {
 	  
 
 	//return event dates
- 	$event_dates = $this->get_num_of_changes();
+ 	$event_dates = $this->get_num_of_changes($type);
 echo '<div class="monthly-updates">';
 
 	// echo $days;
