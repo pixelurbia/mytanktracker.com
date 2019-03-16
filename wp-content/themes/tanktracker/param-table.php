@@ -59,7 +59,7 @@ $user = $user_tanks->user_info();
             <i class="text">Parameter Breakout</i>
         </a>
          <a class="option-btn" id="export" param_type="<?php echo $param_type; ?>"
-                curuser="<?php echo $curuser; ?>" tank_id="<?php echo $tank_id; ?>">
+                curuser="<?php echo $user; ?>" tank_id="<?php echo $tank_id; ?>">
             <i class="fas fa-download"></i> 
             <i class="text" >Export</i>
         </a>
