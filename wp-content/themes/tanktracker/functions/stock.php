@@ -126,21 +126,22 @@ function list_of_livestock() {
     
     foreach ($livestock as $stock){
       echo '<article class="stock-item '.$stock->stock_type.'" ">';
-          echo '<a class="stock-action" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="fas fa-arrow-circle-right"></i></a>';
+          echo '<a class="stock-action" href="/livestock?tank_id='.$stock->tank_id.'&stock_id='.$stock->stock_id.'"><i class="go-icon"></i></a>';
+          echo '<div class="stock-img-overlay"></div>';
           echo '<div class="stock-img" style="background:url('.$stock->stock_img.');"></div>';
-          echo '<div class="stock-data">';
+          echo '<div class="stock-data ">';
               echo '<ul>';
 
                 echo '<li class="';
                   if (!$stock->stock_name){
                     echo 'hide ';
                   }
-                  echo 'name">Name: <span>'.$stock->stock_name.'</span></li>';
-                    echo '<li class="';
+                  echo 'name"><span>'.$stock->stock_name.' ';
+                    echo '<i class="';
                   if (!$stock->stock_species){
                     echo 'hide ';
                   }
-                  echo 'species">Species: <span>'.$stock->stock_species.'</span></li>';
+                  echo 'species">the '.$stock->stock_species.'</span></i></li>';
                     echo '<li class="';
                   if (!$stock->stock_age){
                     echo 'hide ';
@@ -166,7 +167,7 @@ function list_of_livestock() {
                   $my_tank = this_my_tank();
                   if ($my_tank == 1){
 
-                  echo '<a class="stock-action edit-stock"><i class="fas larger-icon fa-edit"></i></a>';
+                  echo '<a class="stock-action edit-stock "><i class="fas larger-icon fa-edit"></i></a>';
                   echo '<a class="stock-action save-tank-stock hide" nonce="'.wp_create_nonce("ajax_form_nonce_save_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas save-stock larger-icon fa-save"></i></a>';
                   echo '<a class="stock-message-action del-stock stock-action hide" nonce="'.wp_create_nonce("ajax_form_nonce_del_stock").'" stock_id="'.$stock->stock_id.'"><i class="fas larger-icon fa-trash-alt" ></i></a>';  
                   echo '<form class="stock-update-img hide" id="photo-form-'.$stock->stock_id.'" method="post">';

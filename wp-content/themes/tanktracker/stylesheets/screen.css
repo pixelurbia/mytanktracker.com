@@ -4980,24 +4980,31 @@ input[type="submit"].btn.account-reg {
 .stock-item {
   position: relative;
   float: left;
-  height: 150px;
-  width: 410px;
+  height: 300px;
+  width: 330px;
   margin: 50px 0px 20px 0px; }
   .stock-item a.stock-action {
     height: 20px;
     width: 20px;
     position: relative;
-    display: contents; }
+    display: contents;
+    z-index: 9999; }
     .stock-item a.stock-action label {
       margin: 0px; }
-  .stock-item .fa-arrow-circle-right {
-    color: #fff;
-    font-size: 25px;
-    font-size: 2.5rem;
+  .stock-item .go-icon {
+    background: url(../images/go_icon.png);
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-size: cover;
     position: absolute;
     z-index: 9999;
-    left: 106px;
-    margin: 53px 0px 0px 0px; }
+    bottom: 0px;
+    left: 0px;
+    transition: all 0.5s ease-in-out; }
+    .stock-item .go-icon:hover {
+      opacity: 0.7;
+      transition: all 0.5s ease-in-out; }
   .stock-item .fa-edit, .stock-item .fa-trash-alt, .stock-item .fa-save, .stock-item .fa-camera-retro {
     color: #fff;
     font-size: 15px;
@@ -5006,13 +5013,20 @@ input[type="submit"].btn.account-reg {
     margin: 10px 10px 0px 0px; }
   .stock-item .stock-img {
     float: left;
-    height: 120px;
-    width: 120px;
-    border-radius: 100px;
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
     background-size: cover !important; }
+  .stock-item .stock-img-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 300px;
+    width: 300px;
+    position: absolute; }
   .stock-item .stock-data {
     float: left;
-    padding: 0px 0px 0px 22px; }
+    padding: 0px 0px 0px 22px;
+    position: absolute;
+    top: 10px; }
     .stock-item .stock-data ul {
       height: auto; }
     .stock-item .stock-data li {
